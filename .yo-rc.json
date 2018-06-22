@@ -1,0 +1,57 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "4.14.4",
+    "baseName": "shineWebAppFrontend",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-primeng",
+        "version": "2.0.52"
+      },
+      {
+        "name": "generator-jhipster-pages",
+        "version": "2.0.4"
+      },
+      {
+        "name": "generator-jhipster-ionic",
+        "version": "3.2.0"
+      },
+      {
+        "name": "generator-jhipster-bootstrap-material-design",
+        "version": "3.5.1"
+      },
+      {
+        "name": "generator-jhipster-nav-element",
+        "version": "1.4.19"
+      },
+      {
+        "name": "generator-jhipster-primeng-charts",
+        "version": "1.0.0"
+      },
+      {
+        "name": "generator-jhipster-leaflet",
+        "version": "1.0.0"
+      }
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "skipServer": true
+  }
+}
