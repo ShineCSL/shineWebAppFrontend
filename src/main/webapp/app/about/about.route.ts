@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { HomeComponent } from './';
+import { AboutComponent } from './';
 
 export const ABOUT_ROUTE: Route = {
     path: 'about',

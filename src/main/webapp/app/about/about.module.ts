@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { ShineWebAppFrontendSharedModule } from '../shared';
 
-import { ABOUT_ROUTE, HomeComponent } from './';
+import { ABOUT_ROUTE, AboutComponent } from './';
 
 @NgModule({
     imports: [
@@ -11,7 +11,7 @@ import { ABOUT_ROUTE, HomeComponent } from './';
         RouterModule.forChild([ ABOUT_ROUTE ])
     ],
     declarations: [
-        HomeComponent,
+        AboutComponent,
     ],
     entryComponents: [
     ],

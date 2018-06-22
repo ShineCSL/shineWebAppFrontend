@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
 
     style: object = {};
     params: object = {};
-    width: number = 100;
-    height: number = 100;
+    width = 100;
+    height = 100;
 
     constructor(
         private principal: Principal,
@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
             this.account = account;
         });
         this.registerAuthenticationSuccess();
-                
         this.style = {
             'position': 'fixed',
             'width': '100%',
@@ -56,13 +55,13 @@ export class HomeComponent implements OnInit {
                     }
                 },
                 color: {
-                    value: '#ffffff'
+                    value: '#eeeeee'
                 },
                 shape: {
                     type: 'circle',
                     stroke: {
                         width: 0,
-                        color: '#000000'
+                        color: '#eeeeee'
                     },
                     polygon: {
                         nb_sides: 5
@@ -97,7 +96,7 @@ export class HomeComponent implements OnInit {
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: '#ffffff',
+                    color: '#eeeeee',
                     opacity: 0.4,
                     width: 1
                 },
