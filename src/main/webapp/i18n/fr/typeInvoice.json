@@ -1,0 +1,28 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "typeInvoice" : {
+            "home": {
+                "title": "TypeInvoices",
+                "createLabel": "Créer un nouveau Type Invoice",
+                "createOrEditLabel": "Créer ou éditer un Type Invoice"
+            },
+            "created": "Un nouveau Type Invoice a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Invoice avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Invoice avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Invoice {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Invoice"
+            },
+            "code": "Code",
+            "labelEn": "Label En",
+            "labelFr": "Label Fr",
+            "dateModification": "Date Modification",
+            "dateCreation": "Date Creation",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "invoice" : {
+            "home": {
+                "title": "Invoices",
+                "createLabel": "Créer un nouveau Invoice",
+                "createOrEditLabel": "Créer ou éditer un Invoice"
+            },
+            "created": "Un nouveau Invoice a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Invoice avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Invoice avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Invoice {{ id }} ?"
+            },
+            "detail": {
+                "title": "Invoice"
+            },
+            "label": "Label",
+            "description": "Description",
+            "amount": "Amount",
+            "dateInvoice": "Date Invoice",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "document": "Document",
+            "rate": "Rate",
+            "typeInvoice": "Type Invoice",
+            "invoiceSubmission": "Invoice Submission",
+            "invoiceValidation": "Invoice Validation",
+            "invoiceRejection": "Invoice Rejection",
+            "currency": "Currency",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "activitySubmission" : {
+            "home": {
+                "title": "ActivitySubmissions",
+                "createLabel": "Créer un nouveau Activity Submission",
+                "createOrEditLabel": "Créer ou éditer un Activity Submission"
+            },
+            "created": "Un nouveau Activity Submission a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Activity Submission avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Activity Submission avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Activity Submission {{ id }} ?"
+            },
+            "detail": {
+                "title": "Activity Submission"
+            },
+            "submitted": "Submitted",
+            "year": "Year",
+            "weekNumber": "Week Number",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "userModification": "User Modification",
+            "userCreation": "User Creation"
+        }
+    }
+}

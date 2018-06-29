@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="shineWebAppFrontendApp.leaveConfig.home.title">Leave Configs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-leave-config" [routerLink]="['/', { outlets: { popup: ['leave-config-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="shineWebAppFrontendApp.leaveConfig.home.createLabel">
+            Create new Leave Config
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="leaveConfigs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nbSickLeaves"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.nbSickLeaves">Nb Sick Leaves</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nbAnnualLeaves"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.nbAnnualLeaves">Nb Annual Leaves</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nbSpecialLeaves"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.nbSpecialLeaves">Nb Special Leaves</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.user">User</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let leaveConfig of leaveConfigs ;trackBy: trackId">
+                <td><a [routerLink]="['../leave-config', leaveConfig.id ]">{{leaveConfig.id}}</a></td>
+                <td>{{leaveConfig.nbSickLeaves}}</td>
+                <td>{{leaveConfig.nbAnnualLeaves}}</td>
+                <td>{{leaveConfig.nbSpecialLeaves}}</td>
+                <td>{{leaveConfig.dateCreation | date:'medium'}}</td>
+                <td>{{leaveConfig.dateModification | date:'medium'}}</td>
+                <td>
+                    {{leaveConfig.userLogin}}
+                </td>
+                <td>
+                    {{leaveConfig.userCreationLogin}}
+                </td>
+                <td>
+                    {{leaveConfig.userModificationLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../leave-config', leaveConfig.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leave-config/'+ leaveConfig.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leave-config/'+ leaveConfig.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="leaveConfigs && leaveConfigs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

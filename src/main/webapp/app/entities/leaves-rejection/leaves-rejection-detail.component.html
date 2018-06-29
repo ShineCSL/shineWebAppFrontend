@@ -1,0 +1,42 @@
+
+<div *ngIf="leavesRejection">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.detail.title">Leaves Rejection</span> {{leavesRejection.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.rejected">Rejected</span></dt>
+        <dd>
+            <span>{{leavesRejection.rejected}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{leavesRejection.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{leavesRejection.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.userCreation">User Creation</span></dt>
+        <dd>
+            {{leavesRejection.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.userModification">User Modification</span></dt>
+        <dd>
+            {{leavesRejection.userModificationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'leaves-rejection/'+ leavesRejection.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.home.title">Leaves Submissions</span>
+        <button class="btn btn-primary float-right jh-create-entity create-leaves-submission" [routerLink]="['/', { outlets: { popup: ['leaves-submission-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="shineWebAppFrontendApp.leavesSubmission.home.createLabel">
+            Create new Leaves Submission
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="leavesSubmissions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="submitted"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.submitted">Submitted</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let leavesSubmission of leavesSubmissions ;trackBy: trackId">
+                <td><a [routerLink]="['../leaves-submission', leavesSubmission.id ]">{{leavesSubmission.id}}</a></td>
+                <td>{{leavesSubmission.submitted}}</td>
+                <td>{{leavesSubmission.dateModification | date:'medium'}}</td>
+                <td>{{leavesSubmission.dateCreation | date:'medium'}}</td>
+                <td>
+                    {{leavesSubmission.userModificationLogin}}
+                </td>
+                <td>
+                    {{leavesSubmission.userCreationLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../leaves-submission', leavesSubmission.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leaves-submission/'+ leavesSubmission.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leaves-submission/'+ leavesSubmission.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="leavesSubmissions && leavesSubmissions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

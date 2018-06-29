@@ -1,0 +1,27 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "leavesValidation" : {
+            "home": {
+                "title": "Leaves Validations",
+                "createLabel": "Create a new Leaves Validation",
+                "createOrEditLabel": "Create or edit a Leaves Validation"
+            },
+            "created": "A new Leaves Validation is created with identifier {{ param }}",
+            "updated": "A Leaves Validation is updated with identifier {{ param }}",
+            "deleted": "A Leaves Validation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Leaves Validation {{ id }}?"
+            },
+            "detail": {
+                "title": "Leaves Validation"
+            },
+            "validated": "Validated",
+            "dateModification": "Date Modification",
+            "dateCreation": "Date Creation",
+            "leaves": "Leaves",
+            "userModification": "User Modification",
+            "userCreation": "User Creation"
+        }
+    }
+}

@@ -1,0 +1,142 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAccountDetailsLabel" jhiTranslate="shineWebAppFrontendApp.accountDetails.home.createOrEditLabel">Create or edit a Account Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!accountDetails.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="accountDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="accountDetails.code" required pattern="^[A-Z0-9()[\\]+-_*/%]*$"/>
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.code?.errors?.pattern" jhiTranslate="entity.validation.pattern" translateValues="{ pattern: 'Code' }">
+                    This field should follow pattern for "Code".
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                [(ngModel)]="accountDetails.amount" required/>
+            <div [hidden]="!(editForm.controls.amount?.dirty && editForm.controls.amount?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.amount?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.amount?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="accountDetails.type" required/>
+            <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.rate" for="field_rate">Rate</label>
+            <input type="number" class="form-control" name="rate" id="field_rate"
+                [(ngModel)]="accountDetails.rate" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.dateCreation" for="field_dateCreation">Date Creation</label>
+            <div class="d-flex">
+                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="accountDetails.dateCreation"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.dateModification" for="field_dateModification">Date Modification</label>
+            <div class="d-flex">
+                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="accountDetails.dateModification"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.client" for="field_client">Client</label>
+            <select class="form-control" id="field_client" name="client" [(ngModel)]="accountDetails.clientId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="clientOption.id" *ngFor="let clientOption of clients; trackBy: trackClientById">{{clientOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.userCreation" for="field_userCreation">User Creation</label>
+            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="accountDetails.userCreationId"  required>
+                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.userModfication" for="field_userModfication">User Modfication</label>
+            <select class="form-control" id="field_userModfication" name="userModfication" [(ngModel)]="accountDetails.userModficationId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.invoice" for="field_invoice">Invoice</label>
+            <select class="form-control" id="field_invoice" name="invoice" [(ngModel)]="accountDetails.invoiceId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="invoiceOption.id" *ngFor="let invoiceOption of invoices; trackBy: trackInvoiceById">{{invoiceOption.label}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.accountDetails.currency" for="field_currency">Currency</label>
+            <select class="form-control" id="field_currency" name="currency" [(ngModel)]="accountDetails.currencyId"  required>
+                <option *ngIf="!editForm.value.currency" [ngValue]="null" selected></option>
+                <option [ngValue]="currencyOption.id" *ngFor="let currencyOption of currencies; trackBy: trackCurrencyById">{{currencyOption.code}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.currency?.dirty && editForm.controls.currency?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.currency?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,42 @@
+
+<div *ngIf="leavesValidation">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.detail.title">Leaves Validation</span> {{leavesValidation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.validated">Validated</span></dt>
+        <dd>
+            <span>{{leavesValidation.validated}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{leavesValidation.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{leavesValidation.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.userModification">User Modification</span></dt>
+        <dd>
+            {{leavesValidation.userModificationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.userCreation">User Creation</span></dt>
+        <dd>
+            {{leavesValidation.userCreationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'leaves-validation/'+ leavesValidation.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

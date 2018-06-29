@@ -1,0 +1,50 @@
+
+<div *ngIf="activityValidation">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.activityValidation.detail.title">Activity Validation</span> {{activityValidation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.weekNumber">Week Number</span></dt>
+        <dd>
+            <span>{{activityValidation.weekNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.year">Year</span></dt>
+        <dd>
+            <span>{{activityValidation.year}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.validation">Validation</span></dt>
+        <dd>
+            <span>{{activityValidation.validation}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{activityValidation.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{activityValidation.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.userModification">User Modification</span></dt>
+        <dd>
+            {{activityValidation.userModificationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.userCreation">User Creation</span></dt>
+        <dd>
+            {{activityValidation.userCreationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'activity-validation/'+ activityValidation.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

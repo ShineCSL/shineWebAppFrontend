@@ -1,0 +1,82 @@
+<div>
+    <h2>
+        <span jhiTranslate="shineWebAppFrontendApp.activitySubmission.home.title">Activity Submissions</span>
+        <button class="btn btn-primary float-right jh-create-entity create-activity-submission" [routerLink]="['/', { outlets: { popup: ['activity-submission-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="shineWebAppFrontendApp.activitySubmission.home.createLabel">
+            Create new Activity Submission
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="activitySubmissions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="submitted"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.submitted">Submitted</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.year">Year</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let activitySubmission of activitySubmissions ;trackBy: trackId">
+                <td><a [routerLink]="['../activity-submission', activitySubmission.id ]">{{activitySubmission.id}}</a></td>
+                <td>{{activitySubmission.submitted}}</td>
+                <td>{{activitySubmission.year}}</td>
+                <td>{{activitySubmission.weekNumber}}</td>
+                <td>{{activitySubmission.dateCreation | date:'medium'}}</td>
+                <td>{{activitySubmission.dateModification | date:'medium'}}</td>
+                <td>
+                    {{activitySubmission.userModificationLogin}}
+                </td>
+                <td>
+                    {{activitySubmission.userCreationLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../activity-submission', activitySubmission.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'activity-submission/'+ activitySubmission.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'activity-submission/'+ activitySubmission.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="activitySubmissions && activitySubmissions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

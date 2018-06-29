@@ -1,0 +1,33 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "leaves" : {
+            "home": {
+                "title": "Leaves",
+                "createLabel": "Créer un nouveau Leaves",
+                "createOrEditLabel": "Créer ou éditer un Leaves"
+            },
+            "created": "Un nouveau Leaves a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Leaves avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Leaves avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Leaves {{ id }} ?"
+            },
+            "detail": {
+                "title": "Leaves"
+            },
+            "leaveDate": "Leave Date",
+            "nbOfHours": "Nb Of Hours",
+            "year": "Year",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "weekNumber": "Week Number",
+            "comment": "Comment",
+            "user": "User",
+            "leavesSubmission": "Leaves Submission",
+            "leavesValidation": "Leaves Validation",
+            "leavesRejection": "Leaves Rejection",
+            "task": "Task"
+        }
+    }
+}

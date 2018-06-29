@@ -1,0 +1,54 @@
+
+<div *ngIf="leaveConfig">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.detail.title">Leave Config</span> {{leaveConfig.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.nbSickLeaves">Nb Sick Leaves</span></dt>
+        <dd>
+            <span>{{leaveConfig.nbSickLeaves}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.nbAnnualLeaves">Nb Annual Leaves</span></dt>
+        <dd>
+            <span>{{leaveConfig.nbAnnualLeaves}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.nbSpecialLeaves">Nb Special Leaves</span></dt>
+        <dd>
+            <span>{{leaveConfig.nbSpecialLeaves}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{leaveConfig.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{leaveConfig.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.user">User</span></dt>
+        <dd>
+            {{leaveConfig.userLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.userCreation">User Creation</span></dt>
+        <dd>
+            {{leaveConfig.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaveConfig.userModification">User Modification</span></dt>
+        <dd>
+            {{leaveConfig.userModificationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'leave-config/'+ leaveConfig.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

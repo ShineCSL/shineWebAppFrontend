@@ -1,0 +1,27 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "leavesSubmission" : {
+            "home": {
+                "title": "Leaves Submissions",
+                "createLabel": "Create a new Leaves Submission",
+                "createOrEditLabel": "Create or edit a Leaves Submission"
+            },
+            "created": "A new Leaves Submission is created with identifier {{ param }}",
+            "updated": "A Leaves Submission is updated with identifier {{ param }}",
+            "deleted": "A Leaves Submission is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Leaves Submission {{ id }}?"
+            },
+            "detail": {
+                "title": "Leaves Submission"
+            },
+            "submitted": "Submitted",
+            "dateModification": "Date Modification",
+            "dateCreation": "Date Creation",
+            "userModification": "User Modification",
+            "leaves": "Leaves",
+            "userCreation": "User Creation"
+        }
+    }
+}

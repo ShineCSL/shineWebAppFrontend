@@ -1,0 +1,27 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "leavesRejection" : {
+            "home": {
+                "title": "LeavesRejections",
+                "createLabel": "Créer un nouveau Leaves Rejection",
+                "createOrEditLabel": "Créer ou éditer un Leaves Rejection"
+            },
+            "created": "Un nouveau Leaves Rejection a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Leaves Rejection avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Leaves Rejection avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Leaves Rejection {{ id }} ?"
+            },
+            "detail": {
+                "title": "Leaves Rejection"
+            },
+            "rejected": "Rejected",
+            "dateModification": "Date Modification",
+            "dateCreation": "Date Creation",
+            "leaves": "Leaves",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

@@ -1,0 +1,106 @@
+<div>
+    <h2>
+        <span jhiTranslate="shineWebAppFrontendApp.leaves.home.title">Leaves</span>
+        <button class="btn btn-primary float-right jh-create-entity create-leaves" [routerLink]="['/', { outlets: { popup: ['leaves-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="shineWebAppFrontendApp.leaves.home.createLabel">
+            Create new Leaves
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="leaves">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leaveDate"><span jhiTranslate="shineWebAppFrontendApp.leaves.leaveDate">Leave Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nbOfHours"><span jhiTranslate="shineWebAppFrontendApp.leaves.nbOfHours">Nb Of Hours</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.leaves.year">Year</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.leaves.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.leaves.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.leaves.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="comment"><span jhiTranslate="shineWebAppFrontendApp.leaves.comment">Comment</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.leaves.user">User</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesSubmissionId"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission">Leaves Submission</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesValidationId"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation">Leaves Validation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesRejectionId"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection">Leaves Rejection</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="taskCode"><span jhiTranslate="shineWebAppFrontendApp.leaves.task">Task</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let leaves of leaves ;trackBy: trackId">
+                <td><a [routerLink]="['../leaves', leaves.id ]">{{leaves.id}}</a></td>
+                <td>{{leaves.leaveDate | date:'mediumDate'}}</td>
+                <td>{{leaves.nbOfHours}}</td>
+                <td>{{leaves.year}}</td>
+                <td>{{leaves.dateCreation | date:'medium'}}</td>
+                <td>{{leaves.dateModification | date:'medium'}}</td>
+                <td>{{leaves.weekNumber}}</td>
+                <td>{{leaves.comment}}</td>
+                <td>
+                    {{leaves.userLogin}}
+                </td>
+                <td>
+                    <div *ngIf="leaves.leavesSubmissionId">
+                        <a [routerLink]="['../leaves-submission', leaves.leavesSubmissionId  ]" >{{leaves.leavesSubmissionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="leaves.leavesValidationId">
+                        <a [routerLink]="['../leaves-validation', leaves.leavesValidationId  ]" >{{leaves.leavesValidationId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="leaves.leavesRejectionId">
+                        <a [routerLink]="['../leaves-rejection', leaves.leavesRejectionId  ]" >{{leaves.leavesRejectionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="leaves.taskId">
+                        <a [routerLink]="['../task', leaves.taskId  ]" >{{leaves.taskCode}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../leaves', leaves.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leaves/'+ leaves.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leaves/'+ leaves.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="leaves && leaves.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

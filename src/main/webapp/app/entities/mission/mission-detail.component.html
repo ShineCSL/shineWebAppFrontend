@@ -1,0 +1,52 @@
+
+<div *ngIf="mission">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.mission.detail.title">Mission</span> {{mission.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.code">Code</span></dt>
+        <dd>
+            <span>{{mission.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.label">Label</span></dt>
+        <dd>
+            <span>{{mission.label}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{mission.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{mission.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.client">Client</span></dt>
+        <dd>
+            <div *ngIf="mission.clientId">
+                <a [routerLink]="['/client', mission.clientId]">{{mission.clientCode}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.userCreation">User Creation</span></dt>
+        <dd>
+            {{mission.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.userModification">User Modification</span></dt>
+        <dd>
+            {{mission.userModificationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'mission/'+ mission.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

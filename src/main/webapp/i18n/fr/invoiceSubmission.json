@@ -1,0 +1,27 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "invoiceSubmission" : {
+            "home": {
+                "title": "InvoiceSubmissions",
+                "createLabel": "Créer un nouveau Invoice Submission",
+                "createOrEditLabel": "Créer ou éditer un Invoice Submission"
+            },
+            "created": "Un nouveau Invoice Submission a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Invoice Submission avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Invoice Submission avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Invoice Submission {{ id }} ?"
+            },
+            "detail": {
+                "title": "Invoice Submission"
+            },
+            "submitted": "Submitted",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "invoice": "Invoice",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

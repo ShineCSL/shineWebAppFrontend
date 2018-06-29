@@ -1,0 +1,26 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "activityRejection" : {
+            "home": {
+                "title": "ActivityRejections",
+                "createLabel": "Créer un nouveau Activity Rejection",
+                "createOrEditLabel": "Créer ou éditer un Activity Rejection"
+            },
+            "created": "Un nouveau Activity Rejection a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Activity Rejection avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Activity Rejection avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Activity Rejection {{ id }} ?"
+            },
+            "detail": {
+                "title": "Activity Rejection"
+            },
+            "rejected": "Rejected",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

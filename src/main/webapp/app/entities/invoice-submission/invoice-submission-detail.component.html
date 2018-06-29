@@ -1,0 +1,42 @@
+
+<div *ngIf="invoiceSubmission">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.detail.title">Invoice Submission</span> {{invoiceSubmission.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.submitted">Submitted</span></dt>
+        <dd>
+            <span>{{invoiceSubmission.submitted}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{invoiceSubmission.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{invoiceSubmission.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.userCreation">User Creation</span></dt>
+        <dd>
+            {{invoiceSubmission.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.userModification">User Modification</span></dt>
+        <dd>
+            {{invoiceSubmission.userModificationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'invoice-submission/'+ invoiceSubmission.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,92 @@
+
+<div *ngIf="activity">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.activity.detail.title">Activity</span> {{activity.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.activityDate">Activity Date</span></dt>
+        <dd>
+            <span>{{activity.activityDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.nbOfHours">Nb Of Hours</span></dt>
+        <dd>
+            <span>{{activity.nbOfHours}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.day">Day</span></dt>
+        <dd>
+            <span>{{activity.day}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.weekNumber">Week Number</span></dt>
+        <dd>
+            <span>{{activity.weekNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.year">Year</span></dt>
+        <dd>
+            <span>{{activity.year}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{activity.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{activity.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.task">Task</span></dt>
+        <dd>
+            <div *ngIf="activity.taskId">
+                <a [routerLink]="['/task', activity.taskId]">{{activity.taskCode}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.user">User</span></dt>
+        <dd>
+            {{activity.userLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.activitySubmission">Activity Submission</span></dt>
+        <dd>
+            <div *ngIf="activity.activitySubmissionId">
+                <a [routerLink]="['/activity-submission', activity.activitySubmissionId]">{{activity.activitySubmissionId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.activityValidation">Activity Validation</span></dt>
+        <dd>
+            <div *ngIf="activity.activityValidationId">
+                <a [routerLink]="['/activity-validation', activity.activityValidationId]">{{activity.activityValidationId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.activityRejection">Activity Rejection</span></dt>
+        <dd>
+            <div *ngIf="activity.activityRejectionId">
+                <a [routerLink]="['/activity-rejection', activity.activityRejectionId]">{{activity.activityRejectionId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.userCreation">User Creation</span></dt>
+        <dd>
+            {{activity.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.userModification">User Modification</span></dt>
+        <dd>
+            {{activity.userModificationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.mission">Mission</span></dt>
+        <dd>
+            <div *ngIf="activity.missionId">
+                <a [routerLink]="['/mission', activity.missionId]">{{activity.missionCode}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'activity/'+ activity.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

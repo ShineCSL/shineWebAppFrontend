@@ -1,0 +1,94 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCurrencyLabel" jhiTranslate="shineWebAppFrontendApp.currency.home.createOrEditLabel">Create or edit a Currency</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!currency.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="currency.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.currency.labelEn" for="field_labelEn">Label En</label>
+            <input type="text" class="form-control" name="labelEn" id="field_labelEn"
+                [(ngModel)]="currency.labelEn" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.currency.labelFr" for="field_labelFr">Label Fr</label>
+            <input type="text" class="form-control" name="labelFr" id="field_labelFr"
+                [(ngModel)]="currency.labelFr" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.currency.dateCreation" for="field_dateCreation">Date Creation</label>
+            <div class="d-flex">
+                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="currency.dateCreation"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.currency.dateModification" for="field_dateModification">Date Modification</label>
+            <div class="d-flex">
+                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="currency.dateModification"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.currency.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="currency.code" required pattern="^[A-Z0-9()[\\]+-_*/%]*$"/>
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.code?.errors?.pattern" jhiTranslate="entity.validation.pattern" translateValues="{ pattern: 'Code' }">
+                    This field should follow pattern for "Code".
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.currency.userCreation" for="field_userCreation">User Creation</label>
+            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="currency.userCreationId"  required>
+                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.currency.userModification" for="field_userModification">User Modification</label>
+            <select class="form-control" id="field_userModification" name="userModification" [(ngModel)]="currency.userModificationId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

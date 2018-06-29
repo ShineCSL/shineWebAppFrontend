@@ -1,0 +1,42 @@
+
+<div *ngIf="activityRejection">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.activityRejection.detail.title">Activity Rejection</span> {{activityRejection.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityRejection.rejected">Rejected</span></dt>
+        <dd>
+            <span>{{activityRejection.rejected}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityRejection.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{activityRejection.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityRejection.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{activityRejection.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityRejection.userCreation">User Creation</span></dt>
+        <dd>
+            {{activityRejection.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityRejection.userModification">User Modification</span></dt>
+        <dd>
+            {{activityRejection.userModificationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'activity-rejection/'+ activityRejection.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

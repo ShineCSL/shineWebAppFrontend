@@ -1,0 +1,27 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "invoiceValidation" : {
+            "home": {
+                "title": "InvoiceValidations",
+                "createLabel": "Créer un nouveau Invoice Validation",
+                "createOrEditLabel": "Créer ou éditer un Invoice Validation"
+            },
+            "created": "Un nouveau Invoice Validation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Invoice Validation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Invoice Validation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Invoice Validation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Invoice Validation"
+            },
+            "validation": "Validation",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "invoice": "Invoice",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

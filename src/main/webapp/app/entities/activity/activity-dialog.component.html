@@ -1,0 +1,205 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myActivityLabel" jhiTranslate="shineWebAppFrontendApp.activity.home.createOrEditLabel">Create or edit a Activity</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!activity.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="activity.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activityDate" for="field_activityDate">Activity Date</label>
+            <div class="input-group">
+                <input id="field_activityDate" type="text" class="form-control" name="activityDate" ngbDatepicker  #activityDateDp="ngbDatepicker" [(ngModel)]="activity.activityDate"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="activityDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.activityDate?.dirty && editForm.controls.activityDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.activityDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.nbOfHours" for="field_nbOfHours">Nb Of Hours</label>
+            <input type="number" class="form-control" name="nbOfHours" id="field_nbOfHours"
+                [(ngModel)]="activity.nbOfHours" required/>
+            <div [hidden]="!(editForm.controls.nbOfHours?.dirty && editForm.controls.nbOfHours?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nbOfHours?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.nbOfHours?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.day" for="field_day">Day</label>
+            <input type="number" class="form-control" name="day" id="field_day"
+                [(ngModel)]="activity.day" required/>
+            <div [hidden]="!(editForm.controls.day?.dirty && editForm.controls.day?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.day?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.day?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.weekNumber" for="field_weekNumber">Week Number</label>
+            <input type="number" class="form-control" name="weekNumber" id="field_weekNumber"
+                [(ngModel)]="activity.weekNumber" required/>
+            <div [hidden]="!(editForm.controls.weekNumber?.dirty && editForm.controls.weekNumber?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.weekNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.weekNumber?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.year" for="field_year">Year</label>
+            <input type="number" class="form-control" name="year" id="field_year"
+                [(ngModel)]="activity.year" required/>
+            <div [hidden]="!(editForm.controls.year?.dirty && editForm.controls.year?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.year?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.year?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.dateCreation" for="field_dateCreation">Date Creation</label>
+            <div class="d-flex">
+                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="activity.dateCreation"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.dateModification" for="field_dateModification">Date Modification</label>
+            <div class="d-flex">
+                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="activity.dateModification"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.task" for="field_task">Task</label>
+            <select class="form-control" id="field_task" name="task" [(ngModel)]="activity.taskId"  required>
+                <option *ngIf="!editForm.value.task" [ngValue]="null" selected></option>
+                <option [ngValue]="taskOption.id" *ngFor="let taskOption of tasks; trackBy: trackTaskById">{{taskOption.code}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.task?.dirty && editForm.controls.task?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.task?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="activity.userId"  required>
+                <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activitySubmission" for="field_activitySubmission">Activity Submission</label>
+            <select class="form-control" id="field_activitySubmission" name="activitySubmission" [(ngModel)]="activity.activitySubmissionId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="activitySubmissionOption.id" *ngFor="let activitySubmissionOption of activitysubmissions; trackBy: trackActivitySubmissionById">{{activitySubmissionOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activityValidation" for="field_activityValidation">Activity Validation</label>
+            <select class="form-control" id="field_activityValidation" name="activityValidation" [(ngModel)]="activity.activityValidationId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="activityValidationOption.id" *ngFor="let activityValidationOption of activityvalidations; trackBy: trackActivityValidationById">{{activityValidationOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activityRejection" for="field_activityRejection">Activity Rejection</label>
+            <select class="form-control" id="field_activityRejection" name="activityRejection" [(ngModel)]="activity.activityRejectionId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="activityRejectionOption.id" *ngFor="let activityRejectionOption of activityrejections; trackBy: trackActivityRejectionById">{{activityRejectionOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.userCreation" for="field_userCreation">User Creation</label>
+            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="activity.userCreationId"  required>
+                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.userModification" for="field_userModification">User Modification</label>
+            <select class="form-control" id="field_userModification" name="userModification" [(ngModel)]="activity.userModificationId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.mission" for="field_mission">Mission</label>
+            <select class="form-control" id="field_mission" name="mission" [(ngModel)]="activity.missionId"  required>
+                <option *ngIf="!editForm.value.mission" [ngValue]="null" selected></option>
+                <option [ngValue]="missionOption.id" *ngFor="let missionOption of missions; trackBy: trackMissionById">{{missionOption.code}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.mission?.dirty && editForm.controls.mission?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.mission?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

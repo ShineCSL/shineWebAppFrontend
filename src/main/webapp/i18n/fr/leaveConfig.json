@@ -1,0 +1,29 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "leaveConfig" : {
+            "home": {
+                "title": "LeaveConfigs",
+                "createLabel": "Créer un nouveau Leave Config",
+                "createOrEditLabel": "Créer ou éditer un Leave Config"
+            },
+            "created": "Un nouveau Leave Config a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Leave Config avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Leave Config avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Leave Config {{ id }} ?"
+            },
+            "detail": {
+                "title": "Leave Config"
+            },
+            "nbSickLeaves": "Nb Sick Leaves",
+            "nbAnnualLeaves": "Nb Annual Leaves",
+            "nbSpecialLeaves": "Nb Special Leaves",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "user": "User",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

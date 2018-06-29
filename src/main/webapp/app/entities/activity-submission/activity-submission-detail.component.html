@@ -1,0 +1,50 @@
+
+<div *ngIf="activitySubmission">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.detail.title">Activity Submission</span> {{activitySubmission.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.submitted">Submitted</span></dt>
+        <dd>
+            <span>{{activitySubmission.submitted}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.year">Year</span></dt>
+        <dd>
+            <span>{{activitySubmission.year}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.weekNumber">Week Number</span></dt>
+        <dd>
+            <span>{{activitySubmission.weekNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{activitySubmission.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{activitySubmission.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.userModification">User Modification</span></dt>
+        <dd>
+            {{activitySubmission.userModificationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.userCreation">User Creation</span></dt>
+        <dd>
+            {{activitySubmission.userCreationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'activity-submission/'+ activitySubmission.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

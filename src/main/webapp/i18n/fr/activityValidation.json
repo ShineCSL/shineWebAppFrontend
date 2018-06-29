@@ -1,0 +1,28 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "activityValidation" : {
+            "home": {
+                "title": "ActivityValidations",
+                "createLabel": "Créer un nouveau Activity Validation",
+                "createOrEditLabel": "Créer ou éditer un Activity Validation"
+            },
+            "created": "Un nouveau Activity Validation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Activity Validation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Activity Validation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Activity Validation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Activity Validation"
+            },
+            "weekNumber": "Week Number",
+            "year": "Year",
+            "validation": "Validation",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "userModification": "User Modification",
+            "userCreation": "User Creation"
+        }
+    }
+}

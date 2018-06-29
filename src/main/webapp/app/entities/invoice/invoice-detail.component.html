@@ -1,0 +1,97 @@
+
+<div *ngIf="invoice">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.invoice.detail.title">Invoice</span> {{invoice.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.label">Label</span></dt>
+        <dd>
+            <span>{{invoice.label}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.description">Description</span></dt>
+        <dd>
+            <span>{{invoice.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.amount">Amount</span></dt>
+        <dd>
+            <span>{{invoice.amount}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.dateInvoice">Date Invoice</span></dt>
+        <dd>
+            <span>{{invoice.dateInvoice | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{invoice.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{invoice.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.document">Document</span></dt>
+        <dd>
+            <div *ngIf="invoice.document">
+                <a (click)="openFile(invoice.documentContentType, invoice.document)">
+                    <img [src]="'data:' + invoice.documentContentType + ';base64,' + invoice.document" style="max-width: 100%;" alt="invoice image"/>
+                </a>
+                {{invoice.documentContentType}}, {{byteSize(invoice.document)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.rate">Rate</span></dt>
+        <dd>
+            <span>{{invoice.rate}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.typeInvoice">Type Invoice</span></dt>
+        <dd>
+            <div *ngIf="invoice.typeInvoiceId">
+                <a [routerLink]="['/type-invoice', invoice.typeInvoiceId]">{{invoice.typeInvoiceId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceSubmission">Invoice Submission</span></dt>
+        <dd>
+            <div *ngIf="invoice.invoiceSubmissionId">
+                <a [routerLink]="['/invoice-submission', invoice.invoiceSubmissionId]">{{invoice.invoiceSubmissionId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceValidation">Invoice Validation</span></dt>
+        <dd>
+            <div *ngIf="invoice.invoiceValidationId">
+                <a [routerLink]="['/invoice-validation', invoice.invoiceValidationId]">{{invoice.invoiceValidationId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceRejection">Invoice Rejection</span></dt>
+        <dd>
+            <div *ngIf="invoice.invoiceRejectionId">
+                <a [routerLink]="['/invoice-rejection', invoice.invoiceRejectionId]">{{invoice.invoiceRejectionId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.currency">Currency</span></dt>
+        <dd>
+            <div *ngIf="invoice.currencyId">
+                <a [routerLink]="['/currency', invoice.currencyId]">{{invoice.currencyCode}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.userCreation">User Creation</span></dt>
+        <dd>
+            {{invoice.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.userModification">User Modification</span></dt>
+        <dd>
+            {{invoice.userModificationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'invoice/'+ invoice.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

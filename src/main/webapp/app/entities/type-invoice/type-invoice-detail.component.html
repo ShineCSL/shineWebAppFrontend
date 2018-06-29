@@ -1,0 +1,50 @@
+
+<div *ngIf="typeInvoice">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.detail.title">Type Invoice</span> {{typeInvoice.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.code">Code</span></dt>
+        <dd>
+            <span>{{typeInvoice.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.labelEn">Label En</span></dt>
+        <dd>
+            <span>{{typeInvoice.labelEn}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.labelFr">Label Fr</span></dt>
+        <dd>
+            <span>{{typeInvoice.labelFr}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{typeInvoice.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{typeInvoice.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.userCreation">User Creation</span></dt>
+        <dd>
+            {{typeInvoice.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.typeInvoice.userModification">User Modification</span></dt>
+        <dd>
+            {{typeInvoice.userModificationLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'type-invoice/'+ typeInvoice.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

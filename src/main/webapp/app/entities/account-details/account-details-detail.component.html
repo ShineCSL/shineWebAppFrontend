@@ -1,0 +1,72 @@
+
+<div *ngIf="accountDetails">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.accountDetails.detail.title">Account Details</span> {{accountDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.code">Code</span></dt>
+        <dd>
+            <span>{{accountDetails.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.amount">Amount</span></dt>
+        <dd>
+            <span>{{accountDetails.amount}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.type">Type</span></dt>
+        <dd>
+            <span>{{accountDetails.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.rate">Rate</span></dt>
+        <dd>
+            <span>{{accountDetails.rate}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{accountDetails.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.dateModification">Date Modification</span></dt>
+        <dd>
+            <span>{{accountDetails.dateModification | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.client">Client</span></dt>
+        <dd>
+            <div *ngIf="accountDetails.clientId">
+                <a [routerLink]="['/client', accountDetails.clientId]">{{accountDetails.clientId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.userCreation">User Creation</span></dt>
+        <dd>
+            {{accountDetails.userCreationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.userModfication">User Modfication</span></dt>
+        <dd>
+            {{accountDetails.userModficationLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.invoice">Invoice</span></dt>
+        <dd>
+            <div *ngIf="accountDetails.invoiceId">
+                <a [routerLink]="['/invoice', accountDetails.invoiceId]">{{accountDetails.invoiceLabel}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.currency">Currency</span></dt>
+        <dd>
+            <div *ngIf="accountDetails.currencyId">
+                <a [routerLink]="['/currency', accountDetails.currencyId]">{{accountDetails.currencyCode}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'account-details/'+ accountDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

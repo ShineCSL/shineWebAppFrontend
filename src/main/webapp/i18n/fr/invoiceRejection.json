@@ -1,0 +1,27 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "invoiceRejection" : {
+            "home": {
+                "title": "InvoiceRejections",
+                "createLabel": "Créer un nouveau Invoice Rejection",
+                "createOrEditLabel": "Créer ou éditer un Invoice Rejection"
+            },
+            "created": "Un nouveau Invoice Rejection a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Invoice Rejection avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Invoice Rejection avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Invoice Rejection {{ id }} ?"
+            },
+            "detail": {
+                "title": "Invoice Rejection"
+            },
+            "rejected": "Rejected",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "invoice": "Invoice",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

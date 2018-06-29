@@ -1,0 +1,120 @@
+<div>
+    <h2>
+        <span jhiTranslate="shineWebAppFrontendApp.activity.home.title">Activities</span>
+        <button class="btn btn-primary float-right jh-create-entity create-activity" [routerLink]="['/', { outlets: { popup: ['activity-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="shineWebAppFrontendApp.activity.home.createLabel">
+            Create new Activity
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="activities">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="activityDate"><span jhiTranslate="shineWebAppFrontendApp.activity.activityDate">Activity Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nbOfHours"><span jhiTranslate="shineWebAppFrontendApp.activity.nbOfHours">Nb Of Hours</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="day"><span jhiTranslate="shineWebAppFrontendApp.activity.day">Day</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.activity.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.activity.year">Year</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.activity.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.activity.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="taskCode"><span jhiTranslate="shineWebAppFrontendApp.activity.task">Task</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.activity.user">User</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="activitySubmissionId"><span jhiTranslate="shineWebAppFrontendApp.activity.activitySubmission">Activity Submission</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="activityValidationId"><span jhiTranslate="shineWebAppFrontendApp.activity.activityValidation">Activity Validation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="activityRejectionId"><span jhiTranslate="shineWebAppFrontendApp.activity.activityRejection">Activity Rejection</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.activity.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.activity.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="missionCode"><span jhiTranslate="shineWebAppFrontendApp.activity.mission">Mission</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let activity of activities ;trackBy: trackId">
+                <td><a [routerLink]="['../activity', activity.id ]">{{activity.id}}</a></td>
+                <td>{{activity.activityDate | date:'mediumDate'}}</td>
+                <td>{{activity.nbOfHours}}</td>
+                <td>{{activity.day}}</td>
+                <td>{{activity.weekNumber}}</td>
+                <td>{{activity.year}}</td>
+                <td>{{activity.dateCreation | date:'medium'}}</td>
+                <td>{{activity.dateModification | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="activity.taskId">
+                        <a [routerLink]="['../task', activity.taskId  ]" >{{activity.taskCode}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{activity.userLogin}}
+                </td>
+                <td>
+                    <div *ngIf="activity.activitySubmissionId">
+                        <a [routerLink]="['../activity-submission', activity.activitySubmissionId  ]" >{{activity.activitySubmissionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="activity.activityValidationId">
+                        <a [routerLink]="['../activity-validation', activity.activityValidationId  ]" >{{activity.activityValidationId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="activity.activityRejectionId">
+                        <a [routerLink]="['../activity-rejection', activity.activityRejectionId  ]" >{{activity.activityRejectionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{activity.userCreationLogin}}
+                </td>
+                <td>
+                    {{activity.userModificationLogin}}
+                </td>
+                <td>
+                    <div *ngIf="activity.missionId">
+                        <a [routerLink]="['../mission', activity.missionId  ]" >{{activity.missionCode}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../activity', activity.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'activity/'+ activity.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'activity/'+ activity.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="activities && activities.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

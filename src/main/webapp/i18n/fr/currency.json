@@ -1,0 +1,28 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "currency" : {
+            "home": {
+                "title": "Currencies",
+                "createLabel": "Créer un nouveau Currency",
+                "createOrEditLabel": "Créer ou éditer un Currency"
+            },
+            "created": "Un nouveau Currency a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Currency avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Currency avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Currency {{ id }} ?"
+            },
+            "detail": {
+                "title": "Currency"
+            },
+            "labelEn": "Label En",
+            "labelFr": "Label Fr",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "code": "Code",
+            "userCreation": "User Creation",
+            "userModification": "User Modification"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "accountDetails" : {
+            "home": {
+                "title": "AccountDetails",
+                "createLabel": "Créer un nouveau Account Details",
+                "createOrEditLabel": "Créer ou éditer un Account Details"
+            },
+            "created": "Un nouveau Account Details a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Account Details avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Account Details avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Account Details {{ id }} ?"
+            },
+            "detail": {
+                "title": "Account Details"
+            },
+            "code": "Code",
+            "amount": "Amount",
+            "type": "Type",
+            "rate": "Rate",
+            "dateCreation": "Date Creation",
+            "dateModification": "Date Modification",
+            "client": "Client",
+            "userCreation": "User Creation",
+            "userModfication": "User Modfication",
+            "invoice": "Invoice",
+            "currency": "Currency"
+        }
+    }
+}
