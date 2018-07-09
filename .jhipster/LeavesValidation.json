@@ -10,15 +10,7 @@
             "otherEntityRelationshipName": "leavesValidation"
         },
         {
-            "relationshipName": "userModification",
-            "otherEntityName": "user",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "login",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "leavesValidation"
-        },
-        {
-            "relationshipName": "userCreation",
+            "relationshipName": "user",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "relationshipValidateRules": [
@@ -36,12 +28,8 @@
             "fieldValidateRules": []
         },
         {
-            "fieldName": "dateModification",
-            "fieldType": "ZonedDateTime"
-        },
-        {
-            "fieldName": "dateCreation",
-            "fieldType": "ZonedDateTime",
+            "fieldName": "leavesDate",
+            "fieldType": "LocalDate",
             "fieldValidateRules": [
                 "required"
             ]
@@ -53,5 +41,6 @@
     "service": "serviceClass",
     "entityTableName": "leaves_validation",
     "jpaMetamodelFiltering": false,
-    "pagination": "pagination"
+    "pagination": "pagination",
+    "enableEntityAudit": true
 }

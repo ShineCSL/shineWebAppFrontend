@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Client } from './client.model';
 import { ClientService } from './client.service';
 
@@ -11,7 +10,6 @@ export class ClientPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private clientService: ClientService
@@ -31,10 +29,6 @@ export class ClientPopupService {
                 this.clientService.find(id)
                     .subscribe((clientResponse: HttpResponse<Client>) => {
                         const client: Client = clientResponse.body;
-                        client.dateCreation = this.datePipe
-                            .transform(client.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        client.dateModification = this.datePipe
-                            .transform(client.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.clientModalRef(component, client);
                         resolve(this.ngbModalRef);
                     });

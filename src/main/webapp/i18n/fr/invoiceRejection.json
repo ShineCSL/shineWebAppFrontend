@@ -17,11 +17,10 @@
                 "title": "Invoice Rejection"
             },
             "rejected": "Rejected",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
+            "dateInvoice": "Date Invoice",
+            "comment": "Comment",
             "invoice": "Invoice",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "user": "User"
         }
     }
 }

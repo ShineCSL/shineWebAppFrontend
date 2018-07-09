@@ -18,11 +18,7 @@
             },
             "code": "Code",
             "labelEn": "Label En",
-            "labelFr": "Label Fr",
-            "dateModification": "Date Modification",
-            "dateCreation": "Date Creation",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "labelFr": "Label Fr"
         }
     }
 }

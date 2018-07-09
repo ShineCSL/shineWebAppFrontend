@@ -89,27 +89,18 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.dateCreation" for="field_dateCreation">Date Creation</label>
-            <div class="d-flex">
-                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="activity.dateCreation"
-                required/>
-            </div>
-            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.month" for="field_month">Month</label>
+            <input type="number" class="form-control" name="month" id="field_month"
+                [(ngModel)]="activity.month" required/>
+            <div [hidden]="!(editForm.controls.month?.dirty && editForm.controls.month?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.month?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
                 <small class="form-text text-danger"
-                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
-                    This field should be a date and time.
+                    [hidden]="!editForm.controls.month?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
                 </small>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.dateModification" for="field_dateModification">Date Modification</label>
-            <div class="d-flex">
-                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="activity.dateModification"
-                />
             </div>
         </div>
 
@@ -140,47 +131,6 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activitySubmission" for="field_activitySubmission">Activity Submission</label>
-            <select class="form-control" id="field_activitySubmission" name="activitySubmission" [(ngModel)]="activity.activitySubmissionId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="activitySubmissionOption.id" *ngFor="let activitySubmissionOption of activitysubmissions; trackBy: trackActivitySubmissionById">{{activitySubmissionOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activityValidation" for="field_activityValidation">Activity Validation</label>
-            <select class="form-control" id="field_activityValidation" name="activityValidation" [(ngModel)]="activity.activityValidationId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="activityValidationOption.id" *ngFor="let activityValidationOption of activityvalidations; trackBy: trackActivityValidationById">{{activityValidationOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activityRejection" for="field_activityRejection">Activity Rejection</label>
-            <select class="form-control" id="field_activityRejection" name="activityRejection" [(ngModel)]="activity.activityRejectionId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="activityRejectionOption.id" *ngFor="let activityRejectionOption of activityrejections; trackBy: trackActivityRejectionById">{{activityRejectionOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.userCreation" for="field_userCreation">User Creation</label>
-            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="activity.userCreationId"  required>
-                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-            </select>
-        </div>
-        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
-            <small class="form-text text-danger"
-                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
-                This field is required.
-            </small>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.userModification" for="field_userModification">User Modification</label>
-            <select class="form-control" id="field_userModification" name="userModification" [(ngModel)]="activity.userModificationId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.mission" for="field_mission">Mission</label>
             <select class="form-control" id="field_mission" name="mission" [(ngModel)]="activity.missionId"  required>
                 <option *ngIf="!editForm.value.mission" [ngValue]="null" selected></option>
@@ -192,6 +142,27 @@
                 [hidden]="!editForm.controls.mission?.errors?.required" jhiTranslate="entity.validation.required">
                 This field is required.
             </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activityRejection" for="field_activityRejection">Activity Rejection</label>
+            <select class="form-control" id="field_activityRejection" name="activityRejection" [(ngModel)]="activity.activityRejectionId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="activityRejectionOption.id" *ngFor="let activityRejectionOption of activityrejections; trackBy: trackActivityRejectionById">{{activityRejectionOption.rejected}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activitySubmission" for="field_activitySubmission">Activity Submission</label>
+            <select class="form-control" id="field_activitySubmission" name="activitySubmission" [(ngModel)]="activity.activitySubmissionId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="activitySubmissionOption.id" *ngFor="let activitySubmissionOption of activitysubmissions; trackBy: trackActivitySubmissionById">{{activitySubmissionOption.submitted}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.activityValidation" for="field_activityValidation">Activity Validation</label>
+            <select class="form-control" id="field_activityValidation" name="activityValidation" [(ngModel)]="activity.activityValidationId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="activityValidationOption.id" *ngFor="let activityValidationOption of activityvalidations; trackBy: trackActivityValidationById">{{activityValidationOption.validated}}</option>
+            </select>
         </div>
     </div>
     <div class="modal-footer">

@@ -4,43 +4,31 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.code">Code</span></dt>
-        <dd>
-            <span>{{accountDetails.code}}</span>
-        </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.amount">Amount</span></dt>
         <dd>
             <span>{{accountDetails.amount}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.type">Type</span></dt>
-        <dd>
-            <span>{{accountDetails.type}}</span>
         </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.rate">Rate</span></dt>
         <dd>
             <span>{{accountDetails.rate}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.dateCreation">Date Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.label">Label</span></dt>
         <dd>
-            <span>{{accountDetails.dateCreation | date:'medium'}}</span>
+            <span>{{accountDetails.label}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.dateModification">Date Modification</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.description">Description</span></dt>
         <dd>
-            <span>{{accountDetails.dateModification | date:'medium'}}</span>
+            <span>{{accountDetails.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.type">Type</span></dt>
+        <dd>
+            <span>{{accountDetails.type}}</span>
         </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.client">Client</span></dt>
         <dd>
             <div *ngIf="accountDetails.clientId">
                 <a [routerLink]="['/client', accountDetails.clientId]">{{accountDetails.clientId}}</a>
             </div>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.userCreation">User Creation</span></dt>
-        <dd>
-            {{accountDetails.userCreationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.userModfication">User Modfication</span></dt>
-        <dd>
-            {{accountDetails.userModficationLogin}}
         </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.accountDetails.invoice">Invoice</span></dt>
         <dd>

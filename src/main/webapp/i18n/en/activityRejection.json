@@ -17,10 +17,10 @@
                 "title": "Activity Rejection"
             },
             "rejected": "Rejected",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "weekNumber": "Week Number",
+            "year": "Year",
+            "comment": "Comment",
+            "user": "User"
         }
     }
 }

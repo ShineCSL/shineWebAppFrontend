@@ -9,8 +9,8 @@ import { ShineWebAppFrontendTestModule } from '../../../test.module';
 import { LeavesSubmissionDialogComponent } from '../../../../../../main/webapp/app/entities/leaves-submission/leaves-submission-dialog.component';
 import { LeavesSubmissionService } from '../../../../../../main/webapp/app/entities/leaves-submission/leaves-submission.service';
 import { LeavesSubmission } from '../../../../../../main/webapp/app/entities/leaves-submission/leaves-submission.model';
-import { UserService } from '../../../../../../main/webapp/app/shared';
 import { LeavesService } from '../../../../../../main/webapp/app/entities/leaves';
+import { UserService } from '../../../../../../main/webapp/app/shared';
 
 describe('Component Tests', () => {
 
@@ -26,8 +26,8 @@ describe('Component Tests', () => {
                 imports: [ShineWebAppFrontendTestModule],
                 declarations: [LeavesSubmissionDialogComponent],
                 providers: [
-                    UserService,
                     LeavesService,
+                    UserService,
                     LeavesSubmissionService
                 ]
             })

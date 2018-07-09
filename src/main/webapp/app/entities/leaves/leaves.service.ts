@@ -65,10 +65,6 @@ export class LeavesService {
         const copy: Leaves = Object.assign({}, leaves);
         copy.leaveDate = this.dateUtils
             .convertLocalDateFromServer(leaves.leaveDate);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(leaves.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(leaves.dateModification);
         return copy;
     }
 
@@ -79,10 +75,6 @@ export class LeavesService {
         const copy: Leaves = Object.assign({}, leaves);
         copy.leaveDate = this.dateUtils
             .convertLocalDateToServer(leaves.leaveDate);
-
-        copy.dateCreation = this.dateUtils.toDate(leaves.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(leaves.dateModification);
         return copy;
     }
 }

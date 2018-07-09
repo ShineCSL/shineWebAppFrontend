@@ -18,47 +18,32 @@
                 [(ngModel)]="leavesSubmission.submitted" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateModification" for="field_dateModification">Date Modification</label>
-            <div class="d-flex">
-                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="leavesSubmission.dateModification"
-                />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateCreation" for="field_dateCreation">Date Creation</label>
-            <div class="d-flex">
-                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="leavesSubmission.dateCreation"
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesSubmission.leavesDate" for="field_leavesDate">Leaves Date</label>
+            <div class="input-group">
+                <input id="field_leavesDate" type="text" class="form-control" name="leavesDate" ngbDatepicker  #leavesDateDp="ngbDatepicker" [(ngModel)]="leavesSubmission.leavesDate"
                 required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="leavesDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
             </div>
-            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
+            <div [hidden]="!(editForm.controls.leavesDate?.dirty && editForm.controls.leavesDate?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.leavesDate?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
-                </small>
-                <small class="form-text text-danger"
-                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
-                    This field should be a date and time.
                 </small>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userModification" for="field_userModification">User Modification</label>
-            <select class="form-control" id="field_userModification" name="userModification" [(ngModel)]="leavesSubmission.userModificationId" >
-                <option [ngValue]="null"></option>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesSubmission.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="leavesSubmission.userId"  required>
+                <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
                 <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
             </select>
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userCreation" for="field_userCreation">User Creation</label>
-            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="leavesSubmission.userCreationId"  required>
-                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-            </select>
-        </div>
-        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
+        <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
             <small class="form-text text-danger"
-                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
                 This field is required.
             </small>
         </div>

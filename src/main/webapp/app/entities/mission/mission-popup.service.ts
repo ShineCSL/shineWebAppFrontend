@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Mission } from './mission.model';
 import { MissionService } from './mission.service';
 
@@ -11,7 +10,6 @@ export class MissionPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private missionService: MissionService
@@ -31,10 +29,6 @@ export class MissionPopupService {
                 this.missionService.find(id)
                     .subscribe((missionResponse: HttpResponse<Mission>) => {
                         const mission: Mission = missionResponse.body;
-                        mission.dateCreation = this.datePipe
-                            .transform(mission.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        mission.dateModification = this.datePipe
-                            .transform(mission.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.missionModalRef(component, mission);
                         resolve(this.ngbModalRef);
                     });

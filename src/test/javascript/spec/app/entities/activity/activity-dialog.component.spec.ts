@@ -11,10 +11,10 @@ import { ActivityService } from '../../../../../../main/webapp/app/entities/acti
 import { Activity } from '../../../../../../main/webapp/app/entities/activity/activity.model';
 import { TaskService } from '../../../../../../main/webapp/app/entities/task';
 import { UserService } from '../../../../../../main/webapp/app/shared';
+import { MissionService } from '../../../../../../main/webapp/app/entities/mission';
+import { ActivityRejectionService } from '../../../../../../main/webapp/app/entities/activity-rejection';
 import { ActivitySubmissionService } from '../../../../../../main/webapp/app/entities/activity-submission';
 import { ActivityValidationService } from '../../../../../../main/webapp/app/entities/activity-validation';
-import { ActivityRejectionService } from '../../../../../../main/webapp/app/entities/activity-rejection';
-import { MissionService } from '../../../../../../main/webapp/app/entities/mission';
 
 describe('Component Tests', () => {
 
@@ -32,10 +32,10 @@ describe('Component Tests', () => {
                 providers: [
                     TaskService,
                     UserService,
+                    MissionService,
+                    ActivityRejectionService,
                     ActivitySubmissionService,
                     ActivityValidationService,
-                    ActivityRejectionService,
-                    MissionService,
                     ActivityService
                 ]
             })

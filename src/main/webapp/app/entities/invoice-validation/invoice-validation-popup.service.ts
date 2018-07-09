@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { InvoiceValidation } from './invoice-validation.model';
 import { InvoiceValidationService } from './invoice-validation.service';
 
@@ -11,7 +10,6 @@ export class InvoiceValidationPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private invoiceValidationService: InvoiceValidationService
@@ -31,10 +29,13 @@ export class InvoiceValidationPopupService {
                 this.invoiceValidationService.find(id)
                     .subscribe((invoiceValidationResponse: HttpResponse<InvoiceValidation>) => {
                         const invoiceValidation: InvoiceValidation = invoiceValidationResponse.body;
-                        invoiceValidation.dateCreation = this.datePipe
-                            .transform(invoiceValidation.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        invoiceValidation.dateModification = this.datePipe
-                            .transform(invoiceValidation.dateModification, 'yyyy-MM-ddTHH:mm:ss');
+                        if (invoiceValidation.dateInvoice) {
+                            invoiceValidation.dateInvoice = {
+                                year: invoiceValidation.dateInvoice.getFullYear(),
+                                month: invoiceValidation.dateInvoice.getMonth() + 1,
+                                day: invoiceValidation.dateInvoice.getDate()
+                            };
+                        }
                         this.ngbModalRef = this.invoiceValidationModalRef(component, invoiceValidation);
                         resolve(this.ngbModalRef);
                     });

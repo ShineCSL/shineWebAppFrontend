@@ -11,10 +11,10 @@ import { ActivityPopupService } from './activity-popup.service';
 import { ActivityService } from './activity.service';
 import { Task, TaskService } from '../task';
 import { User, UserService } from '../../shared';
+import { Mission, MissionService } from '../mission';
+import { ActivityRejection, ActivityRejectionService } from '../activity-rejection';
 import { ActivitySubmission, ActivitySubmissionService } from '../activity-submission';
 import { ActivityValidation, ActivityValidationService } from '../activity-validation';
-import { ActivityRejection, ActivityRejectionService } from '../activity-rejection';
-import { Mission, MissionService } from '../mission';
 
 @Component({
     selector: 'jhi-activity-dialog',
@@ -29,13 +29,13 @@ export class ActivityDialogComponent implements OnInit {
 
     users: User[];
 
-    activitysubmissions: ActivitySubmission[];
-
-    activityvalidations: ActivityValidation[];
+    missions: Mission[];
 
     activityrejections: ActivityRejection[];
 
-    missions: Mission[];
+    activitysubmissions: ActivitySubmission[];
+
+    activityvalidations: ActivityValidation[];
     activityDateDp: any;
 
     constructor(
@@ -44,10 +44,10 @@ export class ActivityDialogComponent implements OnInit {
         private activityService: ActivityService,
         private taskService: TaskService,
         private userService: UserService,
+        private missionService: MissionService,
+        private activityRejectionService: ActivityRejectionService,
         private activitySubmissionService: ActivitySubmissionService,
         private activityValidationService: ActivityValidationService,
-        private activityRejectionService: ActivityRejectionService,
-        private missionService: MissionService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -58,14 +58,14 @@ export class ActivityDialogComponent implements OnInit {
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.userService.query()
             .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.missionService.query()
+            .subscribe((res: HttpResponse<Mission[]>) => { this.missions = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.activityRejectionService.query()
+            .subscribe((res: HttpResponse<ActivityRejection[]>) => { this.activityrejections = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.activitySubmissionService.query()
             .subscribe((res: HttpResponse<ActivitySubmission[]>) => { this.activitysubmissions = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.activityValidationService.query()
             .subscribe((res: HttpResponse<ActivityValidation[]>) => { this.activityvalidations = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.activityRejectionService.query()
-            .subscribe((res: HttpResponse<ActivityRejection[]>) => { this.activityrejections = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.missionService.query()
-            .subscribe((res: HttpResponse<Mission[]>) => { this.missions = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -110,11 +110,7 @@ export class ActivityDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackActivitySubmissionById(index: number, item: ActivitySubmission) {
-        return item.id;
-    }
-
-    trackActivityValidationById(index: number, item: ActivityValidation) {
+    trackMissionById(index: number, item: Mission) {
         return item.id;
     }
 
@@ -122,7 +118,11 @@ export class ActivityDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackMissionById(index: number, item: Mission) {
+    trackActivitySubmissionById(index: number, item: ActivitySubmission) {
+        return item.id;
+    }
+
+    trackActivityValidationById(index: number, item: ActivityValidation) {
         return item.id;
     }
 }

@@ -16,12 +16,10 @@
             "detail": {
                 "title": "Invoice Validation"
             },
-            "validation": "Validation",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
+            "validated": "Validated",
+            "dateInvoice": "Date Invoice",
             "invoice": "Invoice",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "user": "User"
         }
     }
 }

@@ -10,7 +10,6 @@ import { AccountDetailsDialogComponent } from '../../../../../../main/webapp/app
 import { AccountDetailsService } from '../../../../../../main/webapp/app/entities/account-details/account-details.service';
 import { AccountDetails } from '../../../../../../main/webapp/app/entities/account-details/account-details.model';
 import { ClientService } from '../../../../../../main/webapp/app/entities/client';
-import { UserService } from '../../../../../../main/webapp/app/shared';
 import { InvoiceService } from '../../../../../../main/webapp/app/entities/invoice';
 import { CurrencyService } from '../../../../../../main/webapp/app/entities/currency';
 
@@ -29,7 +28,6 @@ describe('Component Tests', () => {
                 declarations: [AccountDetailsDialogComponent],
                 providers: [
                     ClientService,
-                    UserService,
                     InvoiceService,
                     CurrencyService,
                     AccountDetailsService

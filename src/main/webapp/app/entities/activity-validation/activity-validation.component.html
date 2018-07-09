@@ -19,11 +19,8 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.year">Year</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="validation"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.validation">Validation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="validated"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.validated">Validated</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.activityValidation.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -32,14 +29,9 @@
                 <td><a [routerLink]="['../activity-validation', activityValidation.id ]">{{activityValidation.id}}</a></td>
                 <td>{{activityValidation.weekNumber}}</td>
                 <td>{{activityValidation.year}}</td>
-                <td>{{activityValidation.validation}}</td>
-                <td>{{activityValidation.dateCreation | date:'medium'}}</td>
-                <td>{{activityValidation.dateModification | date:'medium'}}</td>
+                <td>{{activityValidation.validated}}</td>
                 <td>
-                    {{activityValidation.userModificationLogin}}
-                </td>
-                <td>
-                    {{activityValidation.userCreationLogin}}
+                    {{activityValidation.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

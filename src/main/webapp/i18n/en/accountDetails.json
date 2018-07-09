@@ -16,15 +16,12 @@
             "detail": {
                 "title": "Account Details"
             },
-            "code": "Code",
             "amount": "Amount",
-            "type": "Type",
             "rate": "Rate",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
+            "label": "Label",
+            "description": "Description",
+            "type": "Type",
             "client": "Client",
-            "userCreation": "User Creation",
-            "userModfication": "User Modfication",
             "invoice": "Invoice",
             "currency": "Currency"
         }

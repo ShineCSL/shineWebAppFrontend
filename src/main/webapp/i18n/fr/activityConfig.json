@@ -1,0 +1,23 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "activityConfig" : {
+            "home": {
+                "title": "ActivityConfigs",
+                "createLabel": "Créer un nouveau Activity Config",
+                "createOrEditLabel": "Créer ou éditer un Activity Config"
+            },
+            "created": "Un nouveau Activity Config a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Activity Config avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Activity Config avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Activity Config {{ id }} ?"
+            },
+            "detail": {
+                "title": "Activity Config"
+            },
+            "user": "User",
+            "approver": "Approver"
+        }
+    }
+}

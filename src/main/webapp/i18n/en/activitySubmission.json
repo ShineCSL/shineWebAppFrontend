@@ -19,10 +19,7 @@
             "submitted": "Submitted",
             "year": "Year",
             "weekNumber": "Week Number",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
-            "userModification": "User Modification",
-            "userCreation": "User Creation"
+            "user": "User"
         }
     }
 }

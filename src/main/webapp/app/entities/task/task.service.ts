@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { Task } from './task.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class TaskService {
 
     private resourceUrl =  SERVER_API_URL + 'api/tasks';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(task: Task): Observable<EntityResponseType> {
         const copy = this.convert(task);
@@ -63,10 +61,6 @@ export class TaskService {
      */
     private convertItemFromServer(task: Task): Task {
         const copy: Task = Object.assign({}, task);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(task.dateModification);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(task.dateCreation);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class TaskService {
      */
     private convert(task: Task): Task {
         const copy: Task = Object.assign({}, task);
-
-        copy.dateModification = this.dateUtils.toDate(task.dateModification);
-
-        copy.dateCreation = this.dateUtils.toDate(task.dateCreation);
         return copy;
     }
 }

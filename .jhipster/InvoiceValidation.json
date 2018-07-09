@@ -10,7 +10,7 @@
             "otherEntityRelationshipName": "invoiceValidation"
         },
         {
-            "relationshipName": "userCreation",
+            "relationshipName": "user",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "relationshipValidateRules": [
@@ -19,31 +19,19 @@
             "otherEntityField": "login",
             "ownerSide": true,
             "otherEntityRelationshipName": "invoiceValidation"
-        },
-        {
-            "relationshipName": "userModification",
-            "otherEntityName": "user",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "login",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "invoiceValidation"
         }
     ],
     "fields": [
         {
-            "fieldName": "validation",
+            "fieldName": "validated",
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "dateCreation",
-            "fieldType": "ZonedDateTime",
+            "fieldName": "dateInvoice",
+            "fieldType": "LocalDate",
             "fieldValidateRules": [
                 "required"
             ]
-        },
-        {
-            "fieldName": "dateModification",
-            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20180627103931",
@@ -52,5 +40,6 @@
     "service": "serviceClass",
     "entityTableName": "invoice_validation",
     "jpaMetamodelFiltering": false,
-    "pagination": "pagination"
+    "pagination": "pagination",
+    "enableEntityAudit": true
 }

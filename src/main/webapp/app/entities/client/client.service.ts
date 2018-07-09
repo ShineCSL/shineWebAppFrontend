@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { Client } from './client.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class ClientService {
 
     private resourceUrl =  SERVER_API_URL + 'api/clients';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(client: Client): Observable<EntityResponseType> {
         const copy = this.convert(client);
@@ -63,10 +61,6 @@ export class ClientService {
      */
     private convertItemFromServer(client: Client): Client {
         const copy: Client = Object.assign({}, client);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(client.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(client.dateModification);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class ClientService {
      */
     private convert(client: Client): Client {
         const copy: Client = Object.assign({}, client);
-
-        copy.dateCreation = this.dateUtils.toDate(client.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(client.dateModification);
         return copy;
     }
 }

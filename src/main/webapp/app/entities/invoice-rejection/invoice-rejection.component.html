@@ -18,10 +18,9 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="rejected"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.rejected">Rejected</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateInvoice"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.dateInvoice">Date Invoice</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="comment"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.comment">Comment</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceRejection.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -29,13 +28,10 @@
             <tr *ngFor="let invoiceRejection of invoiceRejections ;trackBy: trackId">
                 <td><a [routerLink]="['../invoice-rejection', invoiceRejection.id ]">{{invoiceRejection.id}}</a></td>
                 <td>{{invoiceRejection.rejected}}</td>
-                <td>{{invoiceRejection.dateCreation | date:'medium'}}</td>
-                <td>{{invoiceRejection.dateModification | date:'medium'}}</td>
+                <td>{{invoiceRejection.dateInvoice | date:'mediumDate'}}</td>
+                <td>{{invoiceRejection.comment}}</td>
                 <td>
-                    {{invoiceRejection.userCreationLogin}}
-                </td>
-                <td>
-                    {{invoiceRejection.userModificationLogin}}
+                    {{invoiceRejection.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

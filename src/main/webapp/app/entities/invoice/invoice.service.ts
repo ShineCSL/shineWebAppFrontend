@@ -65,10 +65,6 @@ export class InvoiceService {
         const copy: Invoice = Object.assign({}, invoice);
         copy.dateInvoice = this.dateUtils
             .convertLocalDateFromServer(invoice.dateInvoice);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(invoice.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(invoice.dateModification);
         return copy;
     }
 
@@ -79,10 +75,6 @@ export class InvoiceService {
         const copy: Invoice = Object.assign({}, invoice);
         copy.dateInvoice = this.dateUtils
             .convertLocalDateToServer(invoice.dateInvoice);
-
-        copy.dateCreation = this.dateUtils.toDate(invoice.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(invoice.dateModification);
         return copy;
     }
 }

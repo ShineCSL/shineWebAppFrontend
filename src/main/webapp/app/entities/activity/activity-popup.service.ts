@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Activity } from './activity.model';
 import { ActivityService } from './activity.service';
 
@@ -11,7 +10,6 @@ export class ActivityPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private activityService: ActivityService
@@ -38,10 +36,6 @@ export class ActivityPopupService {
                                 day: activity.activityDate.getDate()
                             };
                         }
-                        activity.dateCreation = this.datePipe
-                            .transform(activity.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        activity.dateModification = this.datePipe
-                            .transform(activity.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.activityModalRef(component, activity);
                         resolve(this.ngbModalRef);
                     });

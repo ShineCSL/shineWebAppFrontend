@@ -60,30 +60,6 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.dateCreation" for="field_dateCreation">Date Creation</label>
-            <div class="d-flex">
-                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="invoice.dateCreation"
-                required/>
-            </div>
-            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-                <small class="form-text text-danger"
-                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
-                    This field should be a date and time.
-                </small>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.dateModification" for="field_dateModification">Date Modification</label>
-            <div class="d-flex">
-                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="invoice.dateModification"
-                />
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.document" for="field_document">Document</label>
             <div>
                 <img [src]="'data:' + invoice.documentContentType + ';base64,' + invoice.document" style="max-height: 100px;" *ngIf="invoice.document" alt="invoice image"/>
@@ -107,40 +83,6 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.typeInvoice" for="field_typeInvoice">Type Invoice</label>
-            <select class="form-control" id="field_typeInvoice" name="typeInvoice" [(ngModel)]="invoice.typeInvoiceId" required>
-                <option *ngIf="!editForm.value.typeInvoice" [ngValue]="null" selected></option>
-                <option [ngValue]="typeInvoiceOption.id" *ngFor="let typeInvoiceOption of typeinvoices; trackBy: trackTypeInvoiceById">{{typeInvoiceOption.id}}</option>
-            </select>
-        </div>
-        <div [hidden]="!(editForm.controls.typeInvoice?.dirty && editForm.controls.typeInvoice?.invalid)">
-            <small class="form-text text-danger"
-                [hidden]="!editForm.controls.typeInvoice?.errors?.required" jhiTranslate="entity.validation.required">
-                This field is required.
-            </small>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.invoiceSubmission" for="field_invoiceSubmission">Invoice Submission</label>
-            <select class="form-control" id="field_invoiceSubmission" name="invoiceSubmission" [(ngModel)]="invoice.invoiceSubmissionId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="invoiceSubmissionOption.id" *ngFor="let invoiceSubmissionOption of invoicesubmissions; trackBy: trackInvoiceSubmissionById">{{invoiceSubmissionOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.invoiceValidation" for="field_invoiceValidation">Invoice Validation</label>
-            <select class="form-control" id="field_invoiceValidation" name="invoiceValidation" [(ngModel)]="invoice.invoiceValidationId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="invoiceValidationOption.id" *ngFor="let invoiceValidationOption of invoicevalidations; trackBy: trackInvoiceValidationById">{{invoiceValidationOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.invoiceRejection" for="field_invoiceRejection">Invoice Rejection</label>
-            <select class="form-control" id="field_invoiceRejection" name="invoiceRejection" [(ngModel)]="invoice.invoiceRejectionId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="invoiceRejectionOption.id" *ngFor="let invoiceRejectionOption of invoicerejections; trackBy: trackInvoiceRejectionById">{{invoiceRejectionOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.currency" for="field_currency">Currency</label>
             <select class="form-control" id="field_currency" name="currency" [(ngModel)]="invoice.currencyId"  required>
                 <option *ngIf="!editForm.value.currency" [ngValue]="null" selected></option>
@@ -154,24 +96,38 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.userCreation" for="field_userCreation">User Creation</label>
-            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="invoice.userCreationId"  required>
-                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.invoiceRejection" for="field_invoiceRejection">Invoice Rejection</label>
+            <select class="form-control" id="field_invoiceRejection" name="invoiceRejection" [(ngModel)]="invoice.invoiceRejectionId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="invoiceRejectionOption.id" *ngFor="let invoiceRejectionOption of invoicerejections; trackBy: trackInvoiceRejectionById">{{invoiceRejectionOption.rejected}}</option>
             </select>
-        </div>
-        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
-            <small class="form-text text-danger"
-                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
-                This field is required.
-            </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.userModification" for="field_userModification">User Modification</label>
-            <select class="form-control" id="field_userModification" name="userModification" [(ngModel)]="invoice.userModificationId" >
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.invoiceSubmission" for="field_invoiceSubmission">Invoice Submission</label>
+            <select class="form-control" id="field_invoiceSubmission" name="invoiceSubmission" [(ngModel)]="invoice.invoiceSubmissionId">
                 <option [ngValue]="null"></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                <option [ngValue]="invoiceSubmissionOption.id" *ngFor="let invoiceSubmissionOption of invoicesubmissions; trackBy: trackInvoiceSubmissionById">{{invoiceSubmissionOption.submitted}}</option>
             </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.invoiceValidation" for="field_invoiceValidation">Invoice Validation</label>
+            <select class="form-control" id="field_invoiceValidation" name="invoiceValidation" [(ngModel)]="invoice.invoiceValidationId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="invoiceValidationOption.id" *ngFor="let invoiceValidationOption of invoicevalidations; trackBy: trackInvoiceValidationById">{{invoiceValidationOption.validated}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.invoice.typeInvoice" for="field_typeInvoice">Type Invoice</label>
+            <select class="form-control" id="field_typeInvoice" name="typeInvoice" [(ngModel)]="invoice.typeInvoiceId"  required>
+                <option *ngIf="!editForm.value.typeInvoice" [ngValue]="null" selected></option>
+                <option [ngValue]="typeInvoiceOption.id" *ngFor="let typeInvoiceOption of typeinvoices; trackBy: trackTypeInvoiceById">{{typeInvoiceOption.code}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.typeInvoice?.dirty && editForm.controls.typeInvoice?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.typeInvoice?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
         </div>
     </div>
     <div class="modal-footer">

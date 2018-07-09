@@ -5,14 +5,10 @@ export class ActivityValidation implements BaseEntity {
         public id?: number,
         public weekNumber?: number,
         public year?: number,
-        public validation?: boolean,
-        public dateCreation?: any,
-        public dateModification?: any,
-        public userModificationLogin?: string,
-        public userModificationId?: number,
-        public userCreationLogin?: string,
-        public userCreationId?: number,
+        public validated?: boolean,
+        public userLogin?: string,
+        public userId?: number,
     ) {
-        this.validation = false;
+        this.validated = false;
     }
 }

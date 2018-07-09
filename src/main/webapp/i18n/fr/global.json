@@ -29,8 +29,14 @@
                 "task": "Task",
                 "typeInvoice": "Type Invoice",
                 "mission": "Mission",
+                "activityConfig": "Activity Config",
+                "invoiceConfig": "Invoice Config",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
+            "modules": {
+                "title": "Modules",
+                "leaves": "Leaves" 
+             },
             "account": {
                 "main": "Compte",
                 "settings": "Profil",
@@ -51,6 +57,7 @@
                 "audits": "Audits",
                 "apidocs": "API",
                 "database": "Base de données",
+                "entity-audit": "Entity audit",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
             "language": "Langue"

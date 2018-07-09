@@ -3,15 +3,12 @@ import { BaseEntity } from './../../shared';
 export class InvoiceValidation implements BaseEntity {
     constructor(
         public id?: number,
-        public validation?: boolean,
-        public dateCreation?: any,
-        public dateModification?: any,
+        public validated?: boolean,
+        public dateInvoice?: any,
         public invoiceId?: number,
-        public userCreationLogin?: string,
-        public userCreationId?: number,
-        public userModificationLogin?: string,
-        public userModificationId?: number,
+        public userLogin?: string,
+        public userId?: number,
     ) {
-        this.validation = false;
+        this.validated = false;
     }
 }

@@ -24,6 +24,7 @@ export class InvoiceValidationDialogComponent implements OnInit {
     invoices: Invoice[];
 
     users: User[];
+    dateInvoiceDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

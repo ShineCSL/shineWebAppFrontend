@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { LeavesValidation } from './leaves-validation.model';
 import { LeavesValidationService } from './leaves-validation.service';
 
@@ -11,7 +10,6 @@ export class LeavesValidationPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private leavesValidationService: LeavesValidationService
@@ -31,10 +29,13 @@ export class LeavesValidationPopupService {
                 this.leavesValidationService.find(id)
                     .subscribe((leavesValidationResponse: HttpResponse<LeavesValidation>) => {
                         const leavesValidation: LeavesValidation = leavesValidationResponse.body;
-                        leavesValidation.dateModification = this.datePipe
-                            .transform(leavesValidation.dateModification, 'yyyy-MM-ddTHH:mm:ss');
-                        leavesValidation.dateCreation = this.datePipe
-                            .transform(leavesValidation.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
+                        if (leavesValidation.leavesDate) {
+                            leavesValidation.leavesDate = {
+                                year: leavesValidation.leavesDate.getFullYear(),
+                                month: leavesValidation.leavesDate.getMonth() + 1,
+                                day: leavesValidation.leavesDate.getDate()
+                            };
+                        }
                         this.ngbModalRef = this.leavesValidationModalRef(component, leavesValidation);
                         resolve(this.ngbModalRef);
                     });

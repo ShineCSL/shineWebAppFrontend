@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Task } from './task.model';
 import { TaskService } from './task.service';
 
@@ -11,7 +10,6 @@ export class TaskPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private taskService: TaskService
@@ -31,10 +29,6 @@ export class TaskPopupService {
                 this.taskService.find(id)
                     .subscribe((taskResponse: HttpResponse<Task>) => {
                         const task: Task = taskResponse.body;
-                        task.dateModification = this.datePipe
-                            .transform(task.dateModification, 'yyyy-MM-ddTHH:mm:ss');
-                        task.dateCreation = this.datePipe
-                            .transform(task.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.taskModalRef(component, task);
                         resolve(this.ngbModalRef);
                     });

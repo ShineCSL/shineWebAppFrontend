@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { ActivityValidation } from './activity-validation.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class ActivityValidationService {
 
     private resourceUrl =  SERVER_API_URL + 'api/activity-validations';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(activityValidation: ActivityValidation): Observable<EntityResponseType> {
         const copy = this.convert(activityValidation);
@@ -63,10 +61,6 @@ export class ActivityValidationService {
      */
     private convertItemFromServer(activityValidation: ActivityValidation): ActivityValidation {
         const copy: ActivityValidation = Object.assign({}, activityValidation);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(activityValidation.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(activityValidation.dateModification);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class ActivityValidationService {
      */
     private convert(activityValidation: ActivityValidation): ActivityValidation {
         const copy: ActivityValidation = Object.assign({}, activityValidation);
-
-        copy.dateCreation = this.dateUtils.toDate(activityValidation.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(activityValidation.dateModification);
         return copy;
     }
 }

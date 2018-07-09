@@ -18,49 +18,53 @@
                 [(ngModel)]="activityRejection.rejected" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.dateCreation" for="field_dateCreation">Date Creation</label>
-            <div class="d-flex">
-                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="activityRejection.dateCreation"
-                required/>
-            </div>
-            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.weekNumber" for="field_weekNumber">Week Number</label>
+            <input type="number" class="form-control" name="weekNumber" id="field_weekNumber"
+                [(ngModel)]="activityRejection.weekNumber" required/>
+            <div [hidden]="!(editForm.controls.weekNumber?.dirty && editForm.controls.weekNumber?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.weekNumber?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
                 <small class="form-text text-danger"
-                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
-                    This field should be a date and time.
+                    [hidden]="!editForm.controls.weekNumber?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.dateModification" for="field_dateModification">Date Modification</label>
-            <div class="d-flex">
-                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="activityRejection.dateModification"
-                />
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.year" for="field_year">Year</label>
+            <input type="number" class="form-control" name="year" id="field_year"
+                [(ngModel)]="activityRejection.year" required/>
+            <div [hidden]="!(editForm.controls.year?.dirty && editForm.controls.year?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.year?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.year?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
             </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.comment" for="field_comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="field_comment"
+                [(ngModel)]="activityRejection.comment" />
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.userCreation" for="field_userCreation">User Creation</label>
-            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="activityRejection.userCreationId"  required>
-                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="activityRejection.userId"  required>
+                <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
                 <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
             </select>
         </div>
-        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
+        <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
             <small class="form-text text-danger"
-                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
+                [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
                 This field is required.
             </small>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activityRejection.userModification" for="field_userModification">User Modification</label>
-            <select class="form-control" id="field_userModification" name="userModification" [(ngModel)]="activityRejection.userModificationId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-            </select>
         </div>
     </div>
     <div class="modal-footer">

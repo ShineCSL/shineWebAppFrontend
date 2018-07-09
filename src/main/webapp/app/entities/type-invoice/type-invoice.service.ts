@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { TypeInvoice } from './type-invoice.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class TypeInvoiceService {
 
     private resourceUrl =  SERVER_API_URL + 'api/type-invoices';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(typeInvoice: TypeInvoice): Observable<EntityResponseType> {
         const copy = this.convert(typeInvoice);
@@ -63,10 +61,6 @@ export class TypeInvoiceService {
      */
     private convertItemFromServer(typeInvoice: TypeInvoice): TypeInvoice {
         const copy: TypeInvoice = Object.assign({}, typeInvoice);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(typeInvoice.dateModification);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(typeInvoice.dateCreation);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class TypeInvoiceService {
      */
     private convert(typeInvoice: TypeInvoice): TypeInvoice {
         const copy: TypeInvoice = Object.assign({}, typeInvoice);
-
-        copy.dateModification = this.dateUtils.toDate(typeInvoice.dateModification);
-
-        copy.dateCreation = this.dateUtils.toDate(typeInvoice.dateCreation);
         return copy;
     }
 }

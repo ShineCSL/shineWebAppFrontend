@@ -10,7 +10,6 @@ import { MissionDialogComponent } from '../../../../../../main/webapp/app/entiti
 import { MissionService } from '../../../../../../main/webapp/app/entities/mission/mission.service';
 import { Mission } from '../../../../../../main/webapp/app/entities/mission/mission.model';
 import { ClientService } from '../../../../../../main/webapp/app/entities/client';
-import { UserService } from '../../../../../../main/webapp/app/shared';
 
 describe('Component Tests', () => {
 
@@ -27,7 +26,6 @@ describe('Component Tests', () => {
                 declarations: [MissionDialogComponent],
                 providers: [
                     ClientService,
-                    UserService,
                     MissionService
                 ]
             })

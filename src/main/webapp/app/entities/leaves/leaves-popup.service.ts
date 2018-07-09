@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Leaves } from './leaves.model';
 import { LeavesService } from './leaves.service';
 
@@ -11,7 +10,6 @@ export class LeavesPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private leavesService: LeavesService
@@ -38,10 +36,6 @@ export class LeavesPopupService {
                                 day: leaves.leaveDate.getDate()
                             };
                         }
-                        leaves.dateCreation = this.datePipe
-                            .transform(leaves.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        leaves.dateModification = this.datePipe
-                            .transform(leaves.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.leavesModalRef(component, leaves);
                         resolve(this.ngbModalRef);
                     });

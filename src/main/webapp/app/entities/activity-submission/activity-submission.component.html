@@ -20,10 +20,7 @@
             <th jhiSortBy="submitted"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.submitted">Submitted</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.year">Year</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.activitySubmission.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -33,13 +30,8 @@
                 <td>{{activitySubmission.submitted}}</td>
                 <td>{{activitySubmission.year}}</td>
                 <td>{{activitySubmission.weekNumber}}</td>
-                <td>{{activitySubmission.dateCreation | date:'medium'}}</td>
-                <td>{{activitySubmission.dateModification | date:'medium'}}</td>
                 <td>
-                    {{activitySubmission.userModificationLogin}}
-                </td>
-                <td>
-                    {{activitySubmission.userCreationLogin}}
+                    {{activitySubmission.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

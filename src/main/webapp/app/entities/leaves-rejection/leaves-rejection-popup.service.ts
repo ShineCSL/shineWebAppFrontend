@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { LeavesRejection } from './leaves-rejection.model';
 import { LeavesRejectionService } from './leaves-rejection.service';
 
@@ -11,7 +10,6 @@ export class LeavesRejectionPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private leavesRejectionService: LeavesRejectionService
@@ -31,10 +29,13 @@ export class LeavesRejectionPopupService {
                 this.leavesRejectionService.find(id)
                     .subscribe((leavesRejectionResponse: HttpResponse<LeavesRejection>) => {
                         const leavesRejection: LeavesRejection = leavesRejectionResponse.body;
-                        leavesRejection.dateModification = this.datePipe
-                            .transform(leavesRejection.dateModification, 'yyyy-MM-ddTHH:mm:ss');
-                        leavesRejection.dateCreation = this.datePipe
-                            .transform(leavesRejection.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
+                        if (leavesRejection.leavesDate) {
+                            leavesRejection.leavesDate = {
+                                year: leavesRejection.leavesDate.getFullYear(),
+                                month: leavesRejection.leavesDate.getMonth() + 1,
+                                day: leavesRejection.leavesDate.getDate()
+                            };
+                        }
                         this.ngbModalRef = this.leavesRejectionModalRef(component, leavesRejection);
                         resolve(this.ngbModalRef);
                     });

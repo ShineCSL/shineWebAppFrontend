@@ -4,25 +4,17 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.validation">Validation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.validated">Validated</span></dt>
         <dd>
-            <span>{{invoiceValidation.validation}}</span>
+            <span>{{invoiceValidation.validated}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.dateCreation">Date Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.dateInvoice">Date Invoice</span></dt>
         <dd>
-            <span>{{invoiceValidation.dateCreation | date:'medium'}}</span>
+            <span>{{invoiceValidation.dateInvoice | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.dateModification">Date Modification</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.user">User</span></dt>
         <dd>
-            <span>{{invoiceValidation.dateModification | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.userCreation">User Creation</span></dt>
-        <dd>
-            {{invoiceValidation.userCreationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.userModification">User Modification</span></dt>
-        <dd>
-            {{invoiceValidation.userModificationLogin}}
+            {{invoiceValidation.userLogin}}
         </dd>
     </dl>
 

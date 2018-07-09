@@ -9,7 +9,6 @@ import { ShineWebAppFrontendTestModule } from '../../../test.module';
 import { TaskDialogComponent } from '../../../../../../main/webapp/app/entities/task/task-dialog.component';
 import { TaskService } from '../../../../../../main/webapp/app/entities/task/task.service';
 import { Task } from '../../../../../../main/webapp/app/entities/task/task.model';
-import { UserService } from '../../../../../../main/webapp/app/shared';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [ShineWebAppFrontendTestModule],
                 declarations: [TaskDialogComponent],
                 providers: [
-                    UserService,
                     TaskService
                 ]
             })

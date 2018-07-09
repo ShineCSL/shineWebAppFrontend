@@ -17,11 +17,7 @@
                 "title": "Client"
             },
             "code": "Code",
-            "label": "Label",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "label": "Label"
         }
     }
 }

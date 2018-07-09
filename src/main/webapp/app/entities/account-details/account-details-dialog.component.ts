@@ -10,7 +10,6 @@ import { AccountDetails } from './account-details.model';
 import { AccountDetailsPopupService } from './account-details-popup.service';
 import { AccountDetailsService } from './account-details.service';
 import { Client, ClientService } from '../client';
-import { User, UserService } from '../../shared';
 import { Invoice, InvoiceService } from '../invoice';
 import { Currency, CurrencyService } from '../currency';
 
@@ -25,8 +24,6 @@ export class AccountDetailsDialogComponent implements OnInit {
 
     clients: Client[];
 
-    users: User[];
-
     invoices: Invoice[];
 
     currencies: Currency[];
@@ -36,7 +33,6 @@ export class AccountDetailsDialogComponent implements OnInit {
         private jhiAlertService: JhiAlertService,
         private accountDetailsService: AccountDetailsService,
         private clientService: ClientService,
-        private userService: UserService,
         private invoiceService: InvoiceService,
         private currencyService: CurrencyService,
         private eventManager: JhiEventManager
@@ -47,8 +43,6 @@ export class AccountDetailsDialogComponent implements OnInit {
         this.isSaving = false;
         this.clientService.query()
             .subscribe((res: HttpResponse<Client[]>) => { this.clients = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.userService.query()
-            .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.invoiceService
             .query({filter: 'accountdetails-is-null'})
             .subscribe((res: HttpResponse<Invoice[]>) => {
@@ -101,10 +95,6 @@ export class AccountDetailsDialogComponent implements OnInit {
     }
 
     trackClientById(index: number, item: Client) {
-        return item.id;
-    }
-
-    trackUserById(index: number, item: User) {
         return item.id;
     }
 

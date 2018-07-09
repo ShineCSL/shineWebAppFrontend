@@ -21,17 +21,13 @@
             <th jhiSortBy="description"><span jhiTranslate="shineWebAppFrontendApp.invoice.description">Description</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="amount"><span jhiTranslate="shineWebAppFrontendApp.invoice.amount">Amount</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="dateInvoice"><span jhiTranslate="shineWebAppFrontendApp.invoice.dateInvoice">Date Invoice</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.invoice.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.invoice.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="document"><span jhiTranslate="shineWebAppFrontendApp.invoice.document">Document</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="rate"><span jhiTranslate="shineWebAppFrontendApp.invoice.rate">Rate</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="typeInvoiceId"><span jhiTranslate="shineWebAppFrontendApp.invoice.typeInvoice">Type Invoice</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="invoiceSubmissionId"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceSubmission">Invoice Submission</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="invoiceValidationId"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceValidation">Invoice Validation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="invoiceRejectionId"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceRejection">Invoice Rejection</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="currencyCode"><span jhiTranslate="shineWebAppFrontendApp.invoice.currency">Currency</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoice.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoice.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="invoiceRejectionRejected"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceRejection">Invoice Rejection</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="invoiceSubmissionSubmitted"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceSubmission">Invoice Submission</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="invoiceValidationValidated"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceValidation">Invoice Validation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="typeInvoiceCode"><span jhiTranslate="shineWebAppFrontendApp.invoice.typeInvoice">Type Invoice</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -42,8 +38,6 @@
                 <td>{{invoice.description}}</td>
                 <td>{{invoice.amount}}</td>
                 <td>{{invoice.dateInvoice | date:'mediumDate'}}</td>
-                <td>{{invoice.dateCreation | date:'medium'}}</td>
-                <td>{{invoice.dateModification | date:'medium'}}</td>
                 <td>
                     <a *ngIf="invoice.document" (click)="openFile(invoice.documentContentType, invoice.document)">
                         <img [src]="'data:' + invoice.documentContentType + ';base64,' + invoice.document" style="max-height: 30px;" alt="invoice image"/>
@@ -52,35 +46,29 @@
                 </td>
                 <td>{{invoice.rate}}</td>
                 <td>
-                    <div *ngIf="invoice.typeInvoiceId">
-                        <a [routerLink]="['../type-invoice', invoice.typeInvoiceId  ]" >{{invoice.typeInvoiceId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="invoice.invoiceSubmissionId">
-                        <a [routerLink]="['../invoice-submission', invoice.invoiceSubmissionId  ]" >{{invoice.invoiceSubmissionId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="invoice.invoiceValidationId">
-                        <a [routerLink]="['../invoice-validation', invoice.invoiceValidationId  ]" >{{invoice.invoiceValidationId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="invoice.invoiceRejectionId">
-                        <a [routerLink]="['../invoice-rejection', invoice.invoiceRejectionId  ]" >{{invoice.invoiceRejectionId}}</a>
-                    </div>
-                </td>
-                <td>
                     <div *ngIf="invoice.currencyId">
                         <a [routerLink]="['../currency', invoice.currencyId  ]" >{{invoice.currencyCode}}</a>
                     </div>
                 </td>
                 <td>
-                    {{invoice.userCreationLogin}}
+                    <div *ngIf="invoice.invoiceRejectionId">
+                        <a [routerLink]="['../invoice-rejection', invoice.invoiceRejectionId  ]" >{{invoice.invoiceRejectionRejected}}</a>
+                    </div>
                 </td>
                 <td>
-                    {{invoice.userModificationLogin}}
+                    <div *ngIf="invoice.invoiceSubmissionId">
+                        <a [routerLink]="['../invoice-submission', invoice.invoiceSubmissionId  ]" >{{invoice.invoiceSubmissionSubmitted}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="invoice.invoiceValidationId">
+                        <a [routerLink]="['../invoice-validation', invoice.invoiceValidationId  ]" >{{invoice.invoiceValidationValidated}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="invoice.typeInvoiceId">
+                        <a [routerLink]="['../type-invoice', invoice.typeInvoiceId  ]" >{{invoice.typeInvoiceCode}}</a>
+                    </div>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

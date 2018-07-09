@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { LeaveConfig } from './leave-config.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class LeaveConfigService {
 
     private resourceUrl =  SERVER_API_URL + 'api/leave-configs';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(leaveConfig: LeaveConfig): Observable<EntityResponseType> {
         const copy = this.convert(leaveConfig);
@@ -63,10 +61,6 @@ export class LeaveConfigService {
      */
     private convertItemFromServer(leaveConfig: LeaveConfig): LeaveConfig {
         const copy: LeaveConfig = Object.assign({}, leaveConfig);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(leaveConfig.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(leaveConfig.dateModification);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class LeaveConfigService {
      */
     private convert(leaveConfig: LeaveConfig): LeaveConfig {
         const copy: LeaveConfig = Object.assign({}, leaveConfig);
-
-        copy.dateCreation = this.dateUtils.toDate(leaveConfig.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(leaveConfig.dateModification);
         return copy;
     }
 }

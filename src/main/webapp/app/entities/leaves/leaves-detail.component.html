@@ -16,14 +16,6 @@
         <dd>
             <span>{{leaves.year}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.dateCreation">Date Creation</span></dt>
-        <dd>
-            <span>{{leaves.dateCreation | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.dateModification">Date Modification</span></dt>
-        <dd>
-            <span>{{leaves.dateModification | date:'medium'}}</span>
-        </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.weekNumber">Week Number</span></dt>
         <dd>
             <span>{{leaves.weekNumber}}</span>
@@ -32,32 +24,40 @@
         <dd>
             <span>{{leaves.comment}}</span>
         </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.day">Day</span></dt>
+        <dd>
+            <span>{{leaves.day}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.month">Month</span></dt>
+        <dd>
+            <span>{{leaves.month}}</span>
+        </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.user">User</span></dt>
         <dd>
             {{leaves.userLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission">Leaves Submission</span></dt>
-        <dd>
-            <div *ngIf="leaves.leavesSubmissionId">
-                <a [routerLink]="['/leaves-submission', leaves.leavesSubmissionId]">{{leaves.leavesSubmissionId}}</a>
-            </div>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation">Leaves Validation</span></dt>
-        <dd>
-            <div *ngIf="leaves.leavesValidationId">
-                <a [routerLink]="['/leaves-validation', leaves.leavesValidationId]">{{leaves.leavesValidationId}}</a>
-            </div>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection">Leaves Rejection</span></dt>
-        <dd>
-            <div *ngIf="leaves.leavesRejectionId">
-                <a [routerLink]="['/leaves-rejection', leaves.leavesRejectionId]">{{leaves.leavesRejectionId}}</a>
-            </div>
         </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.task">Task</span></dt>
         <dd>
             <div *ngIf="leaves.taskId">
                 <a [routerLink]="['/task', leaves.taskId]">{{leaves.taskCode}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission">Leaves Submission</span></dt>
+        <dd>
+            <div *ngIf="leaves.leavesSubmissionId">
+                <a [routerLink]="['/leaves-submission', leaves.leavesSubmissionId]">{{leaves.leavesSubmissionSubmitted}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation">Leaves Validation</span></dt>
+        <dd>
+            <div *ngIf="leaves.leavesValidationId">
+                <a [routerLink]="['/leaves-validation', leaves.leavesValidationId]">{{leaves.leavesValidationValidated}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection">Leaves Rejection</span></dt>
+        <dd>
+            <div *ngIf="leaves.leavesRejectionId">
+                <a [routerLink]="['/leaves-rejection', leaves.leavesRejectionId]">{{leaves.leavesRejectionRejected}}</a>
             </div>
         </dd>
     </dl>

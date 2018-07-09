@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { TypeInvoice } from './type-invoice.model';
 import { TypeInvoiceService } from './type-invoice.service';
 
@@ -11,7 +10,6 @@ export class TypeInvoicePopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private typeInvoiceService: TypeInvoiceService
@@ -31,10 +29,6 @@ export class TypeInvoicePopupService {
                 this.typeInvoiceService.find(id)
                     .subscribe((typeInvoiceResponse: HttpResponse<TypeInvoice>) => {
                         const typeInvoice: TypeInvoice = typeInvoiceResponse.body;
-                        typeInvoice.dateModification = this.datePipe
-                            .transform(typeInvoice.dateModification, 'yyyy-MM-ddTHH:mm:ss');
-                        typeInvoice.dateCreation = this.datePipe
-                            .transform(typeInvoice.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.typeInvoiceModalRef(component, typeInvoice);
                         resolve(this.ngbModalRef);
                     });

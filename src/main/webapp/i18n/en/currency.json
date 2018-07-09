@@ -16,13 +16,9 @@
             "detail": {
                 "title": "Currency"
             },
-            "labelEn": "Label En",
-            "labelFr": "Label Fr",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
             "code": "Code",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "labelEn": "Label En",
+            "labelFr": "Label Fr"
         }
     }
 }

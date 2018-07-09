@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Currency } from './currency.model';
 import { CurrencyService } from './currency.service';
 
@@ -11,7 +10,6 @@ export class CurrencyPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private currencyService: CurrencyService
@@ -31,10 +29,6 @@ export class CurrencyPopupService {
                 this.currencyService.find(id)
                     .subscribe((currencyResponse: HttpResponse<Currency>) => {
                         const currency: Currency = currencyResponse.body;
-                        currency.dateCreation = this.datePipe
-                            .transform(currency.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        currency.dateModification = this.datePipe
-                            .transform(currency.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.currencyModalRef(component, currency);
                         resolve(this.ngbModalRef);
                     });

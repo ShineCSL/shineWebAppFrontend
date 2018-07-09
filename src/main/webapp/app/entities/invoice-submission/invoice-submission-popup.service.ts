@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { InvoiceSubmission } from './invoice-submission.model';
 import { InvoiceSubmissionService } from './invoice-submission.service';
 
@@ -11,7 +10,6 @@ export class InvoiceSubmissionPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private invoiceSubmissionService: InvoiceSubmissionService
@@ -31,10 +29,13 @@ export class InvoiceSubmissionPopupService {
                 this.invoiceSubmissionService.find(id)
                     .subscribe((invoiceSubmissionResponse: HttpResponse<InvoiceSubmission>) => {
                         const invoiceSubmission: InvoiceSubmission = invoiceSubmissionResponse.body;
-                        invoiceSubmission.dateCreation = this.datePipe
-                            .transform(invoiceSubmission.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        invoiceSubmission.dateModification = this.datePipe
-                            .transform(invoiceSubmission.dateModification, 'yyyy-MM-ddTHH:mm:ss');
+                        if (invoiceSubmission.dateInvoice) {
+                            invoiceSubmission.dateInvoice = {
+                                year: invoiceSubmission.dateInvoice.getFullYear(),
+                                month: invoiceSubmission.dateInvoice.getMonth() + 1,
+                                day: invoiceSubmission.dateInvoice.getDate()
+                            };
+                        }
                         this.ngbModalRef = this.invoiceSubmissionModalRef(component, invoiceSubmission);
                         resolve(this.ngbModalRef);
                     });

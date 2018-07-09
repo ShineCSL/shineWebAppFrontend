@@ -8,21 +8,13 @@
         <dd>
             <span>{{invoiceSubmission.submitted}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateCreation">Date Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateInvoice">Date Invoice</span></dt>
         <dd>
-            <span>{{invoiceSubmission.dateCreation | date:'medium'}}</span>
+            <span>{{invoiceSubmission.dateInvoice | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateModification">Date Modification</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.user">User</span></dt>
         <dd>
-            <span>{{invoiceSubmission.dateModification | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.userCreation">User Creation</span></dt>
-        <dd>
-            {{invoiceSubmission.userCreationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.userModification">User Modification</span></dt>
-        <dd>
-            {{invoiceSubmission.userModificationLogin}}
+            {{invoiceSubmission.userLogin}}
         </dd>
     </dl>
 

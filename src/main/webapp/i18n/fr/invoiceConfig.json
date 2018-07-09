@@ -1,0 +1,23 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "invoiceConfig" : {
+            "home": {
+                "title": "InvoiceConfigs",
+                "createLabel": "Créer un nouveau Invoice Config",
+                "createOrEditLabel": "Créer ou éditer un Invoice Config"
+            },
+            "created": "Un nouveau Invoice Config a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Invoice Config avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Invoice Config avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Invoice Config {{ id }} ?"
+            },
+            "detail": {
+                "title": "Invoice Config"
+            },
+            "user": "User",
+            "approver": "Approver"
+        }
+    }
+}

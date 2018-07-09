@@ -17,25 +17,19 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="validation"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.validation">Validation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="validated"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.validated">Validated</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateInvoice"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.dateInvoice">Date Invoice</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceValidation.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let invoiceValidation of invoiceValidations ;trackBy: trackId">
                 <td><a [routerLink]="['../invoice-validation', invoiceValidation.id ]">{{invoiceValidation.id}}</a></td>
-                <td>{{invoiceValidation.validation}}</td>
-                <td>{{invoiceValidation.dateCreation | date:'medium'}}</td>
-                <td>{{invoiceValidation.dateModification | date:'medium'}}</td>
+                <td>{{invoiceValidation.validated}}</td>
+                <td>{{invoiceValidation.dateInvoice | date:'mediumDate'}}</td>
                 <td>
-                    {{invoiceValidation.userCreationLogin}}
-                </td>
-                <td>
-                    {{invoiceValidation.userModificationLogin}}
+                    {{invoiceValidation.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

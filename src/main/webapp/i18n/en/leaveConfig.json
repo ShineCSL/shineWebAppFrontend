@@ -19,11 +19,8 @@
             "nbSickLeaves": "Nb Sick Leaves",
             "nbAnnualLeaves": "Nb Annual Leaves",
             "nbSpecialLeaves": "Nb Special Leaves",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
             "user": "User",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "approver": "Approver"
         }
     }
 }

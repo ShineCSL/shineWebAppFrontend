@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { LeavesSubmission } from './leaves-submission.model';
 import { LeavesSubmissionService } from './leaves-submission.service';
 
@@ -11,7 +10,6 @@ export class LeavesSubmissionPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private leavesSubmissionService: LeavesSubmissionService
@@ -31,10 +29,13 @@ export class LeavesSubmissionPopupService {
                 this.leavesSubmissionService.find(id)
                     .subscribe((leavesSubmissionResponse: HttpResponse<LeavesSubmission>) => {
                         const leavesSubmission: LeavesSubmission = leavesSubmissionResponse.body;
-                        leavesSubmission.dateModification = this.datePipe
-                            .transform(leavesSubmission.dateModification, 'yyyy-MM-ddTHH:mm:ss');
-                        leavesSubmission.dateCreation = this.datePipe
-                            .transform(leavesSubmission.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
+                        if (leavesSubmission.leavesDate) {
+                            leavesSubmission.leavesDate = {
+                                year: leavesSubmission.leavesDate.getFullYear(),
+                                month: leavesSubmission.leavesDate.getMonth() + 1,
+                                day: leavesSubmission.leavesDate.getDate()
+                            };
+                        }
                         this.ngbModalRef = this.leavesSubmissionModalRef(component, leavesSubmission);
                         resolve(this.ngbModalRef);
                     });

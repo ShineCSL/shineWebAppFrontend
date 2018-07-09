@@ -13,21 +13,9 @@
                    [(ngModel)]="task.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.task.leave" for="field_leave">Leave</label>
-            <input type="checkbox" class="form-control" name="leave" id="field_leave"
-                [(ngModel)]="task.leave" />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.task.dateModification" for="field_dateModification">Date Modification</label>
-            <div class="d-flex">
-                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="task.dateModification"
-                />
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.task.code" for="field_code">Code</label>
             <input type="text" class="form-control" name="code" id="field_code"
-                [(ngModel)]="task.code" required pattern="^[A-Z0-9()[\\]+-_*/%]*$"/>
+                [(ngModel)]="task.code" required pattern="^[A-Z0-9()\[\]#$+*%\-_/\\]*$"/>
             <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
@@ -50,43 +38,11 @@
                 [(ngModel)]="task.labelFr" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.task.dateCreation" for="field_dateCreation">Date Creation</label>
-            <div class="d-flex">
-                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="task.dateCreation"
-                required/>
-            </div>
-            <div [hidden]="!(editForm.controls.dateCreation?.dirty && editForm.controls.dateCreation?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.dateCreation?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-                <small class="form-text text-danger"
-                    [hidden]="!editForm.controls.dateCreation?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
-                    This field should be a date and time.
-                </small>
-            </div>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.task.leave" for="field_leave">Leave</label>
+            <input type="checkbox" class="form-control" name="leave" id="field_leave"
+                [(ngModel)]="task.leave" />
         </div>
 
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.task.userCreation" for="field_userCreation">User Creation</label>
-            <select class="form-control" id="field_userCreation" name="userCreation" [(ngModel)]="task.userCreationId"  required>
-                <option *ngIf="!editForm.value.userCreation" [ngValue]="null" selected></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-            </select>
-        </div>
-        <div [hidden]="!(editForm.controls.userCreation?.dirty && editForm.controls.userCreation?.invalid)">
-            <small class="form-text text-danger"
-                [hidden]="!editForm.controls.userCreation?.errors?.required" jhiTranslate="entity.validation.required">
-                This field is required.
-            </small>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.task.userModification" for="field_userModification">User Modification</label>
-            <select class="form-control" id="field_userModification" name="userModification" [(ngModel)]="task.userModificationId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

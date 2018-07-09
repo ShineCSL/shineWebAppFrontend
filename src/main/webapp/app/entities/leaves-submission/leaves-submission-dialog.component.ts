@@ -9,8 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { LeavesSubmission } from './leaves-submission.model';
 import { LeavesSubmissionPopupService } from './leaves-submission-popup.service';
 import { LeavesSubmissionService } from './leaves-submission.service';
-import { User, UserService } from '../../shared';
 import { Leaves, LeavesService } from '../leaves';
+import { User, UserService } from '../../shared';
 
 @Component({
     selector: 'jhi-leaves-submission-dialog',
@@ -21,26 +21,27 @@ export class LeavesSubmissionDialogComponent implements OnInit {
     leavesSubmission: LeavesSubmission;
     isSaving: boolean;
 
-    users: User[];
-
     leaves: Leaves[];
+
+    users: User[];
+    leavesDateDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private leavesSubmissionService: LeavesSubmissionService,
-        private userService: UserService,
         private leavesService: LeavesService,
+        private userService: UserService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.userService.query()
-            .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.leavesService.query()
             .subscribe((res: HttpResponse<Leaves[]>) => { this.leaves = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.userService.query()
+            .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -77,11 +78,11 @@ export class LeavesSubmissionDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackUserById(index: number, item: User) {
+    trackLeavesById(index: number, item: Leaves) {
         return item.id;
     }
 
-    trackLeavesById(index: number, item: Leaves) {
+    trackUserById(index: number, item: User) {
         return item.id;
     }
 }

@@ -63,10 +63,8 @@ export class InvoiceSubmissionService {
      */
     private convertItemFromServer(invoiceSubmission: InvoiceSubmission): InvoiceSubmission {
         const copy: InvoiceSubmission = Object.assign({}, invoiceSubmission);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(invoiceSubmission.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(invoiceSubmission.dateModification);
+        copy.dateInvoice = this.dateUtils
+            .convertLocalDateFromServer(invoiceSubmission.dateInvoice);
         return copy;
     }
 
@@ -75,10 +73,8 @@ export class InvoiceSubmissionService {
      */
     private convert(invoiceSubmission: InvoiceSubmission): InvoiceSubmission {
         const copy: InvoiceSubmission = Object.assign({}, invoiceSubmission);
-
-        copy.dateCreation = this.dateUtils.toDate(invoiceSubmission.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(invoiceSubmission.dateModification);
+        copy.dateInvoice = this.dateUtils
+            .convertLocalDateToServer(invoiceSubmission.dateInvoice);
         return copy;
     }
 }

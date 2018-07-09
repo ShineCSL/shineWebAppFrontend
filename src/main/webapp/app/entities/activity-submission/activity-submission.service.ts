@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { ActivitySubmission } from './activity-submission.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class ActivitySubmissionService {
 
     private resourceUrl =  SERVER_API_URL + 'api/activity-submissions';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(activitySubmission: ActivitySubmission): Observable<EntityResponseType> {
         const copy = this.convert(activitySubmission);
@@ -63,10 +61,6 @@ export class ActivitySubmissionService {
      */
     private convertItemFromServer(activitySubmission: ActivitySubmission): ActivitySubmission {
         const copy: ActivitySubmission = Object.assign({}, activitySubmission);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(activitySubmission.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(activitySubmission.dateModification);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class ActivitySubmissionService {
      */
     private convert(activitySubmission: ActivitySubmission): ActivitySubmission {
         const copy: ActivitySubmission = Object.assign({}, activitySubmission);
-
-        copy.dateCreation = this.dateUtils.toDate(activitySubmission.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(activitySubmission.dateModification);
         return copy;
     }
 }

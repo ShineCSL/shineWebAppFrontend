@@ -1,0 +1,30 @@
+
+<div *ngIf="activityConfig">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.activityConfig.detail.title">Activity Config</span> {{activityConfig.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityConfig.user">User</span></dt>
+        <dd>
+            {{activityConfig.userLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityConfig.approver">Approver</span></dt>
+        <dd>
+            {{activityConfig.approverLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'activity-config/'+ activityConfig.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

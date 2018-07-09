@@ -10,20 +10,12 @@
             "otherEntityRelationshipName": "leavesRejection"
         },
         {
-            "relationshipName": "userCreation",
+            "relationshipName": "user",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "relationshipValidateRules": [
                 "required"
             ],
-            "otherEntityField": "login",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "leavesRejection"
-        },
-        {
-            "relationshipName": "userModification",
-            "otherEntityName": "user",
-            "relationshipType": "many-to-one",
             "otherEntityField": "login",
             "ownerSide": true,
             "otherEntityRelationshipName": "leavesRejection"
@@ -35,15 +27,15 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "dateModification",
-            "fieldType": "ZonedDateTime"
-        },
-        {
-            "fieldName": "dateCreation",
-            "fieldType": "ZonedDateTime",
+            "fieldName": "leavesDate",
+            "fieldType": "LocalDate",
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20180627093752",
@@ -52,5 +44,6 @@
     "service": "serviceClass",
     "entityTableName": "leaves_rejection",
     "jpaMetamodelFiltering": false,
-    "pagination": "pagination"
+    "pagination": "pagination",
+    "enableEntityAudit": true
 }

@@ -4,13 +4,10 @@ export class LeavesValidation implements BaseEntity {
     constructor(
         public id?: number,
         public validated?: boolean,
-        public dateModification?: any,
-        public dateCreation?: any,
+        public leavesDate?: any,
         public leavesId?: number,
-        public userModificationLogin?: string,
-        public userModificationId?: number,
-        public userCreationLogin?: string,
-        public userCreationId?: number,
+        public userLogin?: string,
+        public userId?: number,
     ) {
         this.validated = false;
     }

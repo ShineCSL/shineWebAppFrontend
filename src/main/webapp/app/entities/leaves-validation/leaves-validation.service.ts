@@ -63,10 +63,8 @@ export class LeavesValidationService {
      */
     private convertItemFromServer(leavesValidation: LeavesValidation): LeavesValidation {
         const copy: LeavesValidation = Object.assign({}, leavesValidation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(leavesValidation.dateModification);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(leavesValidation.dateCreation);
+        copy.leavesDate = this.dateUtils
+            .convertLocalDateFromServer(leavesValidation.leavesDate);
         return copy;
     }
 
@@ -75,10 +73,8 @@ export class LeavesValidationService {
      */
     private convert(leavesValidation: LeavesValidation): LeavesValidation {
         const copy: LeavesValidation = Object.assign({}, leavesValidation);
-
-        copy.dateModification = this.dateUtils.toDate(leavesValidation.dateModification);
-
-        copy.dateCreation = this.dateUtils.toDate(leavesValidation.dateCreation);
+        copy.leavesDate = this.dateUtils
+            .convertLocalDateToServer(leavesValidation.leavesDate);
         return copy;
     }
 }

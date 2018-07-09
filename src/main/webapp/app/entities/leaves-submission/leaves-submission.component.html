@@ -18,10 +18,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="submitted"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.submitted">Submitted</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesDate"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.leavesDate">Leaves Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -29,13 +27,9 @@
             <tr *ngFor="let leavesSubmission of leavesSubmissions ;trackBy: trackId">
                 <td><a [routerLink]="['../leaves-submission', leavesSubmission.id ]">{{leavesSubmission.id}}</a></td>
                 <td>{{leavesSubmission.submitted}}</td>
-                <td>{{leavesSubmission.dateModification | date:'medium'}}</td>
-                <td>{{leavesSubmission.dateCreation | date:'medium'}}</td>
+                <td>{{leavesSubmission.leavesDate | date:'mediumDate'}}</td>
                 <td>
-                    {{leavesSubmission.userModificationLogin}}
-                </td>
-                <td>
-                    {{leavesSubmission.userCreationLogin}}
+                    {{leavesSubmission.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

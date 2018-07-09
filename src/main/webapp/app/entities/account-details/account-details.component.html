@@ -17,15 +17,12 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="code"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.code">Code</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="amount"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.amount">Amount</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="type"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.type">Type</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="rate"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.rate">Rate</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="label"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.label">Label</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="description"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.description">Description</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.type">Type</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="clientId"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.client">Client</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModficationLogin"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.userModfication">User Modfication</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="invoiceLabel"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.invoice">Invoice</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="currencyCode"><span jhiTranslate="shineWebAppFrontendApp.accountDetails.currency">Currency</span> <span class="fa fa-sort"></span></th>
             <th></th>
@@ -34,22 +31,15 @@
             <tbody>
             <tr *ngFor="let accountDetails of accountDetails ;trackBy: trackId">
                 <td><a [routerLink]="['../account-details', accountDetails.id ]">{{accountDetails.id}}</a></td>
-                <td>{{accountDetails.code}}</td>
                 <td>{{accountDetails.amount}}</td>
-                <td>{{accountDetails.type}}</td>
                 <td>{{accountDetails.rate}}</td>
-                <td>{{accountDetails.dateCreation | date:'medium'}}</td>
-                <td>{{accountDetails.dateModification | date:'medium'}}</td>
+                <td>{{accountDetails.label}}</td>
+                <td>{{accountDetails.description}}</td>
+                <td>{{accountDetails.type}}</td>
                 <td>
                     <div *ngIf="accountDetails.clientId">
                         <a [routerLink]="['../client', accountDetails.clientId  ]" >{{accountDetails.clientId}}</a>
                     </div>
-                </td>
-                <td>
-                    {{accountDetails.userCreationLogin}}
-                </td>
-                <td>
-                    {{accountDetails.userModficationLogin}}
                 </td>
                 <td>
                     <div *ngIf="accountDetails.invoiceId">

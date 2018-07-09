@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { ActivityRejection } from './activity-rejection.model';
 import { ActivityRejectionService } from './activity-rejection.service';
 
@@ -11,7 +10,6 @@ export class ActivityRejectionPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private activityRejectionService: ActivityRejectionService
@@ -31,10 +29,6 @@ export class ActivityRejectionPopupService {
                 this.activityRejectionService.find(id)
                     .subscribe((activityRejectionResponse: HttpResponse<ActivityRejection>) => {
                         const activityRejection: ActivityRejection = activityRejectionResponse.body;
-                        activityRejection.dateCreation = this.datePipe
-                            .transform(activityRejection.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        activityRejection.dateModification = this.datePipe
-                            .transform(activityRejection.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.activityRejectionModalRef(component, activityRejection);
                         resolve(this.ngbModalRef);
                     });

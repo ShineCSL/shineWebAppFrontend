@@ -4,13 +4,11 @@ export class InvoiceRejection implements BaseEntity {
     constructor(
         public id?: number,
         public rejected?: boolean,
-        public dateCreation?: any,
-        public dateModification?: any,
+        public dateInvoice?: any,
+        public comment?: string,
         public invoiceId?: number,
-        public userCreationLogin?: string,
-        public userCreationId?: number,
-        public userModificationLogin?: string,
-        public userModificationId?: number,
+        public userLogin?: string,
+        public userId?: number,
     ) {
         this.rejected = false;
     }

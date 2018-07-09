@@ -17,11 +17,10 @@
                 "title": "Leaves Rejection"
             },
             "rejected": "Rejected",
-            "dateModification": "Date Modification",
-            "dateCreation": "Date Creation",
+            "leavesDate": "Leaves Date",
+            "comment": "Comment",
             "leaves": "Leaves",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "user": "User"
         }
     }
 }

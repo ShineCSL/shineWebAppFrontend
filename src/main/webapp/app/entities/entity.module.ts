@@ -19,6 +19,8 @@ import { ShineWebAppFrontendLeavesValidationModule } from './leaves-validation/l
 import { ShineWebAppFrontendTaskModule } from './task/task.module';
 import { ShineWebAppFrontendTypeInvoiceModule } from './type-invoice/type-invoice.module';
 import { ShineWebAppFrontendMissionModule } from './mission/mission.module';
+import { ShineWebAppFrontendActivityConfigModule } from './activity-config/activity-config.module';
+import { ShineWebAppFrontendInvoiceConfigModule } from './invoice-config/invoice-config.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -42,6 +44,8 @@ import { ShineWebAppFrontendMissionModule } from './mission/mission.module';
         ShineWebAppFrontendTaskModule,
         ShineWebAppFrontendTypeInvoiceModule,
         ShineWebAppFrontendMissionModule,
+        ShineWebAppFrontendActivityConfigModule,
+        ShineWebAppFrontendInvoiceConfigModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

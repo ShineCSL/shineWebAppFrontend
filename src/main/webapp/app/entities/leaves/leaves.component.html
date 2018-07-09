@@ -20,15 +20,15 @@
             <th jhiSortBy="leaveDate"><span jhiTranslate="shineWebAppFrontendApp.leaves.leaveDate">Leave Date</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="nbOfHours"><span jhiTranslate="shineWebAppFrontendApp.leaves.nbOfHours">Nb Of Hours</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.leaves.year">Year</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.leaves.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.leaves.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.leaves.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="comment"><span jhiTranslate="shineWebAppFrontendApp.leaves.comment">Comment</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="day"><span jhiTranslate="shineWebAppFrontendApp.leaves.day">Day</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="month"><span jhiTranslate="shineWebAppFrontendApp.leaves.month">Month</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.leaves.user">User</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="leavesSubmissionId"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission">Leaves Submission</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="leavesValidationId"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation">Leaves Validation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="leavesRejectionId"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection">Leaves Rejection</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="taskCode"><span jhiTranslate="shineWebAppFrontendApp.leaves.task">Task</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesSubmissionSubmitted"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission">Leaves Submission</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesValidationValidated"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation">Leaves Validation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesRejectionRejected"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection">Leaves Rejection</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -38,31 +38,31 @@
                 <td>{{leaves.leaveDate | date:'mediumDate'}}</td>
                 <td>{{leaves.nbOfHours}}</td>
                 <td>{{leaves.year}}</td>
-                <td>{{leaves.dateCreation | date:'medium'}}</td>
-                <td>{{leaves.dateModification | date:'medium'}}</td>
                 <td>{{leaves.weekNumber}}</td>
                 <td>{{leaves.comment}}</td>
+                <td>{{leaves.day}}</td>
+                <td>{{leaves.month}}</td>
                 <td>
                     {{leaves.userLogin}}
                 </td>
                 <td>
+                    <div *ngIf="leaves.taskId">
+                        <a [routerLink]="['../task', leaves.taskId  ]" >{{leaves.taskCode}}</a>
+                    </div>
+                </td>
+                <td>
                     <div *ngIf="leaves.leavesSubmissionId">
-                        <a [routerLink]="['../leaves-submission', leaves.leavesSubmissionId  ]" >{{leaves.leavesSubmissionId}}</a>
+                        <a [routerLink]="['../leaves-submission', leaves.leavesSubmissionId  ]" >{{leaves.leavesSubmissionSubmitted}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="leaves.leavesValidationId">
-                        <a [routerLink]="['../leaves-validation', leaves.leavesValidationId  ]" >{{leaves.leavesValidationId}}</a>
+                        <a [routerLink]="['../leaves-validation', leaves.leavesValidationId  ]" >{{leaves.leavesValidationValidated}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="leaves.leavesRejectionId">
-                        <a [routerLink]="['../leaves-rejection', leaves.leavesRejectionId  ]" >{{leaves.leavesRejectionId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="leaves.taskId">
-                        <a [routerLink]="['../task', leaves.taskId  ]" >{{leaves.taskCode}}</a>
+                        <a [routerLink]="['../leaves-rejection', leaves.leavesRejectionId  ]" >{{leaves.leavesRejectionRejected}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { ActivityRejection } from './activity-rejection.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class ActivityRejectionService {
 
     private resourceUrl =  SERVER_API_URL + 'api/activity-rejections';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(activityRejection: ActivityRejection): Observable<EntityResponseType> {
         const copy = this.convert(activityRejection);
@@ -63,10 +61,6 @@ export class ActivityRejectionService {
      */
     private convertItemFromServer(activityRejection: ActivityRejection): ActivityRejection {
         const copy: ActivityRejection = Object.assign({}, activityRejection);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(activityRejection.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(activityRejection.dateModification);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class ActivityRejectionService {
      */
     private convert(activityRejection: ActivityRejection): ActivityRejection {
         const copy: ActivityRejection = Object.assign({}, activityRejection);
-
-        copy.dateCreation = this.dateUtils.toDate(activityRejection.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(activityRejection.dateModification);
         return copy;
     }
 }

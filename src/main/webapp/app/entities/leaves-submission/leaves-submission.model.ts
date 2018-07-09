@@ -4,13 +4,10 @@ export class LeavesSubmission implements BaseEntity {
     constructor(
         public id?: number,
         public submitted?: boolean,
-        public dateModification?: any,
-        public dateCreation?: any,
-        public userModificationLogin?: string,
-        public userModificationId?: number,
+        public leavesDate?: any,
         public leavesId?: number,
-        public userCreationLogin?: string,
-        public userCreationId?: number,
+        public userLogin?: string,
+        public userId?: number,
     ) {
         this.submitted = false;
     }

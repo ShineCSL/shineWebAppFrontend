@@ -8,21 +8,17 @@
         <dd>
             <span>{{leavesRejection.rejected}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.dateModification">Date Modification</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.leavesDate">Leaves Date</span></dt>
         <dd>
-            <span>{{leavesRejection.dateModification | date:'medium'}}</span>
+            <span>{{leavesRejection.leavesDate | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.dateCreation">Date Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.comment">Comment</span></dt>
         <dd>
-            <span>{{leavesRejection.dateCreation | date:'medium'}}</span>
+            <span>{{leavesRejection.comment}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.userCreation">User Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.user">User</span></dt>
         <dd>
-            {{leavesRejection.userCreationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesRejection.userModification">User Modification</span></dt>
-        <dd>
-            {{leavesRejection.userModificationLogin}}
+            {{leavesRejection.userLogin}}
         </dd>
     </dl>
 

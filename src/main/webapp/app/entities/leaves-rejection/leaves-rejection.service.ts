@@ -63,10 +63,8 @@ export class LeavesRejectionService {
      */
     private convertItemFromServer(leavesRejection: LeavesRejection): LeavesRejection {
         const copy: LeavesRejection = Object.assign({}, leavesRejection);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(leavesRejection.dateModification);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(leavesRejection.dateCreation);
+        copy.leavesDate = this.dateUtils
+            .convertLocalDateFromServer(leavesRejection.leavesDate);
         return copy;
     }
 
@@ -75,10 +73,8 @@ export class LeavesRejectionService {
      */
     private convert(leavesRejection: LeavesRejection): LeavesRejection {
         const copy: LeavesRejection = Object.assign({}, leavesRejection);
-
-        copy.dateModification = this.dateUtils.toDate(leavesRejection.dateModification);
-
-        copy.dateCreation = this.dateUtils.toDate(leavesRejection.dateCreation);
+        copy.leavesDate = this.dateUtils
+            .convertLocalDateToServer(leavesRejection.leavesDate);
         return copy;
     }
 }

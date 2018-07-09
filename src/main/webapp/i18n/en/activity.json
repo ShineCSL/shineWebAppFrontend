@@ -21,16 +21,13 @@
             "day": "Day",
             "weekNumber": "Week Number",
             "year": "Year",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
+            "month": "Month",
             "task": "Task",
             "user": "User",
-            "activitySubmission": "Activity Submission",
-            "activityValidation": "Activity Validation",
+            "mission": "Mission",
             "activityRejection": "Activity Rejection",
-            "userCreation": "User Creation",
-            "userModification": "User Modification",
-            "mission": "Mission"
+            "activitySubmission": "Activity Submission",
+            "activityValidation": "Activity Validation"
         }
     }
 }

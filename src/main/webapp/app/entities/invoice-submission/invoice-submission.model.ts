@@ -4,13 +4,10 @@ export class InvoiceSubmission implements BaseEntity {
     constructor(
         public id?: number,
         public submitted?: boolean,
-        public dateCreation?: any,
-        public dateModification?: any,
+        public dateInvoice?: any,
         public invoiceId?: number,
-        public userCreationLogin?: string,
-        public userCreationId?: number,
-        public userModificationLogin?: string,
-        public userModificationId?: number,
+        public userLogin?: string,
+        public userId?: number,
     ) {
         this.submitted = false;
     }

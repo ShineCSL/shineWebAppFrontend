@@ -12,27 +12,11 @@
         <dd>
             <span>{{mission.label}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.dateCreation">Date Creation</span></dt>
-        <dd>
-            <span>{{mission.dateCreation | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.dateModification">Date Modification</span></dt>
-        <dd>
-            <span>{{mission.dateModification | date:'medium'}}</span>
-        </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.mission.client">Client</span></dt>
         <dd>
             <div *ngIf="mission.clientId">
                 <a [routerLink]="['/client', mission.clientId]">{{mission.clientCode}}</a>
             </div>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.userCreation">User Creation</span></dt>
-        <dd>
-            {{mission.userCreationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.mission.userModification">User Modification</span></dt>
-        <dd>
-            {{mission.userModificationLogin}}
         </dd>
     </dl>
 

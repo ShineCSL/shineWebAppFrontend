@@ -7,6 +7,8 @@ import { ShineWebAppFrontendSharedModule } from '../shared';
 import {
     adminState,
     AuditsComponent,
+    EntityAuditComponent,
+    EntityAuditModalComponent,
     UserMgmtComponent,
     UserDialogComponent,
     UserDeleteDialogComponent,
@@ -27,7 +29,8 @@ import {
     LogsService,
     UserResolvePagingParams,
     UserResolve,
-    UserModalService
+    UserModalService,
+    EntityAuditService,
 } from './';
 
 @NgModule({
@@ -50,7 +53,9 @@ import {
         JhiHealthModalComponent,
         JhiDocsComponent,
         JhiMetricsMonitoringComponent,
-        JhiMetricsMonitoringModalComponent
+        JhiMetricsMonitoringModalComponent,
+        EntityAuditComponent,
+        EntityAuditModalComponent
     ],
     entryComponents: [
         UserMgmtDialogComponent,
@@ -66,7 +71,8 @@ import {
         LogsService,
         UserResolvePagingParams,
         UserResolve,
-        UserModalService
+        UserModalService,
+        EntityAuditService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

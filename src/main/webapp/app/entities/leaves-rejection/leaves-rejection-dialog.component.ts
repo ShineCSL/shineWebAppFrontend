@@ -24,6 +24,7 @@ export class LeavesRejectionDialogComponent implements OnInit {
     leaves: Leaves[];
 
     users: User[];
+    leavesDateDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

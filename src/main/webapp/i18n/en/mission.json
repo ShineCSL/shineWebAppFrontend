@@ -18,11 +18,7 @@
             },
             "code": "Code",
             "label": "Label",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
-            "client": "Client",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "client": "Client"
         }
     }
 }

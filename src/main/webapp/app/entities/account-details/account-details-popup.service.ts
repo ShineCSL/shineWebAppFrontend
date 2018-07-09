@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { AccountDetails } from './account-details.model';
 import { AccountDetailsService } from './account-details.service';
 
@@ -11,7 +10,6 @@ export class AccountDetailsPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private accountDetailsService: AccountDetailsService
@@ -31,10 +29,6 @@ export class AccountDetailsPopupService {
                 this.accountDetailsService.find(id)
                     .subscribe((accountDetailsResponse: HttpResponse<AccountDetails>) => {
                         const accountDetails: AccountDetails = accountDetailsResponse.body;
-                        accountDetails.dateCreation = this.datePipe
-                            .transform(accountDetails.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        accountDetails.dateModification = this.datePipe
-                            .transform(accountDetails.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.accountDetailsModalRef(component, accountDetails);
                         resolve(this.ngbModalRef);
                     });

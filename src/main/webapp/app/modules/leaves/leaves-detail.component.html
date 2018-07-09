@@ -1,0 +1,74 @@
+
+<div *ngIf="leaves">
+<!--     <h2><span jhiTranslate="shineWebAppFrontendApp.leaves.detail.title">Leaves</span> {{leaves.id}}</h2> -->
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leaveDate">Leave Date</span></dt>
+        <dd>
+            <span>{{leaves.leaveDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.nbOfHours">Nb Of Hours</span></dt>
+        <dd>
+            <span>{{leaves.nbOfHours}}</span>
+        </dd>
+<!--         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.year">Year</span></dt> -->
+<!--         <dd> -->
+<!--             <span>{{leaves.year}}</span> -->
+<!--         </dd> -->
+<!--         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.weekNumber">Week Number</span></dt> -->
+<!--         <dd> -->
+<!--             <span>{{leaves.weekNumber}}</span> -->
+<!--         </dd> -->
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.comment">Comment</span></dt>
+        <dd>
+            <span>{{leaves.comment}}</span>
+        </dd>
+<!--         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.day">Day</span></dt> -->
+<!--         <dd> -->
+<!--             <span>{{leaves.day}}</span> -->
+<!--         </dd> -->
+<!--         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.user">User</span></dt> -->
+<!--         <dd> -->
+<!--             {{leaves.userLogin}} -->
+<!--         </dd> -->
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.task">Task</span></dt>
+        <dd>
+            <div *ngIf="leaves.taskId">
+                <a [routerLink]="['/task', leaves.taskId]">{{leaves.taskCode}}</a>
+            </div>
+        </dd>
+<!--         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission">Leaves Submission</span></dt> -->
+<!--         <dd> -->
+<!--             <div *ngIf="leaves.leavesSubmissionId"> -->
+<!--                 <a [routerLink]="['/leaves-submission', leaves.leavesSubmissionId]">{{leaves.leavesSubmissionSubmitted}}</a> -->
+<!--             </div> -->
+<!--         </dd> -->
+<!--         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation">Leaves Validation</span></dt> -->
+<!--         <dd> -->
+<!--             <div *ngIf="leaves.leavesValidationId"> -->
+<!--                 <a [routerLink]="['/leaves-validation', leaves.leavesValidationId]">{{leaves.leavesValidationValidated}}</a> -->
+<!--             </div> -->
+<!--         </dd> -->
+<!--         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection">Leaves Rejection</span></dt> -->
+<!--         <dd> -->
+<!--             <div *ngIf="leaves.leavesRejectionId"> -->
+<!--                 <a [routerLink]="['/leaves-rejection', leaves.leavesRejectionId]">{{leaves.leavesRejectionRejected}}</a> -->
+<!--             </div> -->
+<!--         </dd> -->
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'leaves/'+ leaves.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

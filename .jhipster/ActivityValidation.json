@@ -3,15 +3,7 @@
     "clientRootFolder": "",
     "relationships": [
         {
-            "relationshipName": "userModification",
-            "otherEntityName": "user",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "login",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "activityValidation"
-        },
-        {
-            "relationshipName": "userCreation",
+            "relationshipName": "user",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "relationshipValidateRules": [
@@ -32,19 +24,8 @@
             "fieldType": "Integer"
         },
         {
-            "fieldName": "validation",
+            "fieldName": "validated",
             "fieldType": "Boolean"
-        },
-        {
-            "fieldName": "dateCreation",
-            "fieldType": "ZonedDateTime",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
-            "fieldName": "dateModification",
-            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20180627113908",
@@ -53,5 +34,6 @@
     "service": "serviceClass",
     "entityTableName": "activity_validation",
     "jpaMetamodelFiltering": false,
-    "pagination": "pagination"
+    "pagination": "pagination",
+    "enableEntityAudit": true
 }

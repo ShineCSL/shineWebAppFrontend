@@ -10,10 +10,10 @@ import { LeavesDialogComponent } from '../../../../../../main/webapp/app/entitie
 import { LeavesService } from '../../../../../../main/webapp/app/entities/leaves/leaves.service';
 import { Leaves } from '../../../../../../main/webapp/app/entities/leaves/leaves.model';
 import { UserService } from '../../../../../../main/webapp/app/shared';
+import { TaskService } from '../../../../../../main/webapp/app/entities/task';
 import { LeavesSubmissionService } from '../../../../../../main/webapp/app/entities/leaves-submission';
 import { LeavesValidationService } from '../../../../../../main/webapp/app/entities/leaves-validation';
 import { LeavesRejectionService } from '../../../../../../main/webapp/app/entities/leaves-rejection';
-import { TaskService } from '../../../../../../main/webapp/app/entities/task';
 
 describe('Component Tests', () => {
 
@@ -30,10 +30,10 @@ describe('Component Tests', () => {
                 declarations: [LeavesDialogComponent],
                 providers: [
                     UserService,
+                    TaskService,
                     LeavesSubmissionService,
                     LeavesValidationService,
                     LeavesRejectionService,
-                    TaskService,
                     LeavesService
                 ]
             })

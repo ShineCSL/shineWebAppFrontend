@@ -9,7 +9,6 @@ import { ShineWebAppFrontendTestModule } from '../../../test.module';
 import { TypeInvoiceDialogComponent } from '../../../../../../main/webapp/app/entities/type-invoice/type-invoice-dialog.component';
 import { TypeInvoiceService } from '../../../../../../main/webapp/app/entities/type-invoice/type-invoice.service';
 import { TypeInvoice } from '../../../../../../main/webapp/app/entities/type-invoice/type-invoice.model';
-import { UserService } from '../../../../../../main/webapp/app/shared';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [ShineWebAppFrontendTestModule],
                 declarations: [TypeInvoiceDialogComponent],
                 providers: [
-                    UserService,
                     TypeInvoiceService
                 ]
             })

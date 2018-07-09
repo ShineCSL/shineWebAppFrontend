@@ -49,20 +49,6 @@
                 [(ngModel)]="leaves.year" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.dateCreation" for="field_dateCreation">Date Creation</label>
-            <div class="d-flex">
-                <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="leaves.dateCreation"
-                />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.dateModification" for="field_dateModification">Date Modification</label>
-            <div class="d-flex">
-                <input id="field_dateModification" type="datetime-local" class="form-control" name="dateModification" [(ngModel)]="leaves.dateModification"
-                />
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.weekNumber" for="field_weekNumber">Week Number</label>
             <input type="number" class="form-control" name="weekNumber" id="field_weekNumber"
                 [(ngModel)]="leaves.weekNumber" />
@@ -71,6 +57,36 @@
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.comment" for="field_comment">Comment</label>
             <input type="text" class="form-control" name="comment" id="field_comment"
                 [(ngModel)]="leaves.comment" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.day" for="field_day">Day</label>
+            <input type="number" class="form-control" name="day" id="field_day"
+                [(ngModel)]="leaves.day" required/>
+            <div [hidden]="!(editForm.controls.day?.dirty && editForm.controls.day?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.day?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.day?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.month" for="field_month">Month</label>
+            <input type="number" class="form-control" name="month" id="field_month"
+                [(ngModel)]="leaves.month" required/>
+            <div [hidden]="!(editForm.controls.month?.dirty && editForm.controls.month?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.month?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.month?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
         </div>
 
         <div class="form-group">
@@ -87,27 +103,6 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission" for="field_leavesSubmission">Leaves Submission</label>
-            <select class="form-control" id="field_leavesSubmission" name="leavesSubmission" [(ngModel)]="leaves.leavesSubmissionId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="leavesSubmissionOption.id" *ngFor="let leavesSubmissionOption of leavessubmissions; trackBy: trackLeavesSubmissionById">{{leavesSubmissionOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation" for="field_leavesValidation">Leaves Validation</label>
-            <select class="form-control" id="field_leavesValidation" name="leavesValidation" [(ngModel)]="leaves.leavesValidationId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="leavesValidationOption.id" *ngFor="let leavesValidationOption of leavesvalidations; trackBy: trackLeavesValidationById">{{leavesValidationOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection" for="field_leavesRejection">Leaves Rejection</label>
-            <select class="form-control" id="field_leavesRejection" name="leavesRejection" [(ngModel)]="leaves.leavesRejectionId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="leavesRejectionOption.id" *ngFor="let leavesRejectionOption of leavesrejections; trackBy: trackLeavesRejectionById">{{leavesRejectionOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.task" for="field_task">Task</label>
             <select class="form-control" id="field_task" name="task" [(ngModel)]="leaves.taskId"  required>
                 <option *ngIf="!editForm.value.task" [ngValue]="null" selected></option>
@@ -119,6 +114,27 @@
                 [hidden]="!editForm.controls.task?.errors?.required" jhiTranslate="entity.validation.required">
                 This field is required.
             </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesSubmission" for="field_leavesSubmission">Leaves Submission</label>
+            <select class="form-control" id="field_leavesSubmission" name="leavesSubmission" [(ngModel)]="leaves.leavesSubmissionId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="leavesSubmissionOption.id" *ngFor="let leavesSubmissionOption of leavessubmissions; trackBy: trackLeavesSubmissionById">{{leavesSubmissionOption.submitted}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesValidation" for="field_leavesValidation">Leaves Validation</label>
+            <select class="form-control" id="field_leavesValidation" name="leavesValidation" [(ngModel)]="leaves.leavesValidationId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="leavesValidationOption.id" *ngFor="let leavesValidationOption of leavesvalidations; trackBy: trackLeavesValidationById">{{leavesValidationOption.validated}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesRejection" for="field_leavesRejection">Leaves Rejection</label>
+            <select class="form-control" id="field_leavesRejection" name="leavesRejection" [(ngModel)]="leaves.leavesRejectionId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="leavesRejectionOption.id" *ngFor="let leavesRejectionOption of leavesrejections; trackBy: trackLeavesRejectionById">{{leavesRejectionOption.rejected}}</option>
+            </select>
         </div>
     </div>
     <div class="modal-footer">

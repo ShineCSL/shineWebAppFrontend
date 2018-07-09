@@ -20,17 +20,13 @@
             "description": "Description",
             "amount": "Amount",
             "dateInvoice": "Date Invoice",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
             "document": "Document",
             "rate": "Rate",
-            "typeInvoice": "Type Invoice",
+            "currency": "Currency",
+            "invoiceRejection": "Invoice Rejection",
             "invoiceSubmission": "Invoice Submission",
             "invoiceValidation": "Invoice Validation",
-            "invoiceRejection": "Invoice Rejection",
-            "currency": "Currency",
-            "userCreation": "User Creation",
-            "userModification": "User Modification"
+            "typeInvoice": "Type Invoice"
         }
     }
 }

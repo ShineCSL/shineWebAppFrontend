@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { ActivitySubmission } from './activity-submission.model';
 import { ActivitySubmissionService } from './activity-submission.service';
 
@@ -11,7 +10,6 @@ export class ActivitySubmissionPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private activitySubmissionService: ActivitySubmissionService
@@ -31,10 +29,6 @@ export class ActivitySubmissionPopupService {
                 this.activitySubmissionService.find(id)
                     .subscribe((activitySubmissionResponse: HttpResponse<ActivitySubmission>) => {
                         const activitySubmission: ActivitySubmission = activitySubmissionResponse.body;
-                        activitySubmission.dateCreation = this.datePipe
-                            .transform(activitySubmission.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        activitySubmission.dateModification = this.datePipe
-                            .transform(activitySubmission.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.activitySubmissionModalRef(component, activitySubmission);
                         resolve(this.ngbModalRef);
                     });

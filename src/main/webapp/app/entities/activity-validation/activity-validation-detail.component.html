@@ -12,25 +12,13 @@
         <dd>
             <span>{{activityValidation.year}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.validation">Validation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.validated">Validated</span></dt>
         <dd>
-            <span>{{activityValidation.validation}}</span>
+            <span>{{activityValidation.validated}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.dateCreation">Date Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.user">User</span></dt>
         <dd>
-            <span>{{activityValidation.dateCreation | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.dateModification">Date Modification</span></dt>
-        <dd>
-            <span>{{activityValidation.dateModification | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.userModification">User Modification</span></dt>
-        <dd>
-            {{activityValidation.userModificationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.activityValidation.userCreation">User Creation</span></dt>
-        <dd>
-            {{activityValidation.userCreationLogin}}
+            {{activityValidation.userLogin}}
         </dd>
     </dl>
 

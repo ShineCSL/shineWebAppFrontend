@@ -19,11 +19,7 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="code"><span jhiTranslate="shineWebAppFrontendApp.mission.code">Code</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="label"><span jhiTranslate="shineWebAppFrontendApp.mission.label">Label</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.mission.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.mission.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="clientCode"><span jhiTranslate="shineWebAppFrontendApp.mission.client">Client</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.mission.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.mission.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -32,18 +28,10 @@
                 <td><a [routerLink]="['../mission', mission.id ]">{{mission.id}}</a></td>
                 <td>{{mission.code}}</td>
                 <td>{{mission.label}}</td>
-                <td>{{mission.dateCreation | date:'medium'}}</td>
-                <td>{{mission.dateModification | date:'medium'}}</td>
                 <td>
                     <div *ngIf="mission.clientId">
                         <a [routerLink]="['../client', mission.clientId  ]" >{{mission.clientCode}}</a>
                     </div>
-                </td>
-                <td>
-                    {{mission.userCreationLogin}}
-                </td>
-                <td>
-                    {{mission.userModificationLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

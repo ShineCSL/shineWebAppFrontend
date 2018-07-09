@@ -19,10 +19,6 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="code"><span jhiTranslate="shineWebAppFrontendApp.client.code">Code</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="label"><span jhiTranslate="shineWebAppFrontendApp.client.label">Label</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.client.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.client.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.client.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.client.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -31,14 +27,6 @@
                 <td><a [routerLink]="['../client', client.id ]">{{client.id}}</a></td>
                 <td>{{client.code}}</td>
                 <td>{{client.label}}</td>
-                <td>{{client.dateCreation | date:'medium'}}</td>
-                <td>{{client.dateModification | date:'medium'}}</td>
-                <td>
-                    {{client.userCreationLogin}}
-                </td>
-                <td>
-                    {{client.userModificationLogin}}
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

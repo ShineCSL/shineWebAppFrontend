@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { Currency } from './currency.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class CurrencyService {
 
     private resourceUrl =  SERVER_API_URL + 'api/currencies';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(currency: Currency): Observable<EntityResponseType> {
         const copy = this.convert(currency);
@@ -63,10 +61,6 @@ export class CurrencyService {
      */
     private convertItemFromServer(currency: Currency): Currency {
         const copy: Currency = Object.assign({}, currency);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(currency.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(currency.dateModification);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class CurrencyService {
      */
     private convert(currency: Currency): Currency {
         const copy: Currency = Object.assign({}, currency);
-
-        copy.dateCreation = this.dateUtils.toDate(currency.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(currency.dateModification);
         return copy;
     }
 }

@@ -9,12 +9,11 @@ import { ShineWebAppFrontendTestModule } from '../../../test.module';
 import { InvoiceDialogComponent } from '../../../../../../main/webapp/app/entities/invoice/invoice-dialog.component';
 import { InvoiceService } from '../../../../../../main/webapp/app/entities/invoice/invoice.service';
 import { Invoice } from '../../../../../../main/webapp/app/entities/invoice/invoice.model';
-import { TypeInvoiceService } from '../../../../../../main/webapp/app/entities/type-invoice';
+import { CurrencyService } from '../../../../../../main/webapp/app/entities/currency';
+import { InvoiceRejectionService } from '../../../../../../main/webapp/app/entities/invoice-rejection';
 import { InvoiceSubmissionService } from '../../../../../../main/webapp/app/entities/invoice-submission';
 import { InvoiceValidationService } from '../../../../../../main/webapp/app/entities/invoice-validation';
-import { InvoiceRejectionService } from '../../../../../../main/webapp/app/entities/invoice-rejection';
-import { CurrencyService } from '../../../../../../main/webapp/app/entities/currency';
-import { UserService } from '../../../../../../main/webapp/app/shared';
+import { TypeInvoiceService } from '../../../../../../main/webapp/app/entities/type-invoice';
 
 describe('Component Tests', () => {
 
@@ -30,12 +29,11 @@ describe('Component Tests', () => {
                 imports: [ShineWebAppFrontendTestModule],
                 declarations: [InvoiceDialogComponent],
                 providers: [
-                    TypeInvoiceService,
+                    CurrencyService,
+                    InvoiceRejectionService,
                     InvoiceSubmissionService,
                     InvoiceValidationService,
-                    InvoiceRejectionService,
-                    CurrencyService,
-                    UserService,
+                    TypeInvoiceService,
                     InvoiceService
                 ]
             })

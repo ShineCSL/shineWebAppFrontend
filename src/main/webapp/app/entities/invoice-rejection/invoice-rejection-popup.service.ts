@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { InvoiceRejection } from './invoice-rejection.model';
 import { InvoiceRejectionService } from './invoice-rejection.service';
 
@@ -11,7 +10,6 @@ export class InvoiceRejectionPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private invoiceRejectionService: InvoiceRejectionService
@@ -31,10 +29,13 @@ export class InvoiceRejectionPopupService {
                 this.invoiceRejectionService.find(id)
                     .subscribe((invoiceRejectionResponse: HttpResponse<InvoiceRejection>) => {
                         const invoiceRejection: InvoiceRejection = invoiceRejectionResponse.body;
-                        invoiceRejection.dateCreation = this.datePipe
-                            .transform(invoiceRejection.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        invoiceRejection.dateModification = this.datePipe
-                            .transform(invoiceRejection.dateModification, 'yyyy-MM-ddTHH:mm:ss');
+                        if (invoiceRejection.dateInvoice) {
+                            invoiceRejection.dateInvoice = {
+                                year: invoiceRejection.dateInvoice.getFullYear(),
+                                month: invoiceRejection.dateInvoice.getMonth() + 1,
+                                day: invoiceRejection.dateInvoice.getDate()
+                            };
+                        }
                         this.ngbModalRef = this.invoiceRejectionModalRef(component, invoiceRejection);
                         resolve(this.ngbModalRef);
                     });

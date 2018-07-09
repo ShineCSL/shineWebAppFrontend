@@ -21,6 +21,8 @@ import { ShineWebAppFrontendContactUsModule } from './contact-us/contact-us.modu
 import { ShineWebAppFrontendAboutModule } from './about/about.module';
 import { ShineWebAppFrontendShineServicesModule } from './shine-services/shine-services.module';
 
+import { ShineWebAppFrontendCustomModule } from './modules/custom.module';
+
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import {
@@ -46,7 +48,8 @@ import {
         ParticlesModule,
         ShineWebAppFrontendContactUsModule,
         ShineWebAppFrontendAboutModule,
-        ShineWebAppFrontendShineServicesModule
+        ShineWebAppFrontendShineServicesModule,
+        ShineWebAppFrontendCustomModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

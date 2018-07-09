@@ -8,21 +8,13 @@
         <dd>
             <span>{{leavesValidation.validated}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.dateModification">Date Modification</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.leavesDate">Leaves Date</span></dt>
         <dd>
-            <span>{{leavesValidation.dateModification | date:'medium'}}</span>
+            <span>{{leavesValidation.leavesDate | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.dateCreation">Date Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.user">User</span></dt>
         <dd>
-            <span>{{leavesValidation.dateCreation | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.userModification">User Modification</span></dt>
-        <dd>
-            {{leavesValidation.userModificationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.userCreation">User Creation</span></dt>
-        <dd>
-            {{leavesValidation.userCreationLogin}}
+            {{leavesValidation.userLogin}}
         </dd>
     </dl>
 

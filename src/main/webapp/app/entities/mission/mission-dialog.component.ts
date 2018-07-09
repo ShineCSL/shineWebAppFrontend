@@ -10,7 +10,6 @@ import { Mission } from './mission.model';
 import { MissionPopupService } from './mission-popup.service';
 import { MissionService } from './mission.service';
 import { Client, ClientService } from '../client';
-import { User, UserService } from '../../shared';
 
 @Component({
     selector: 'jhi-mission-dialog',
@@ -23,14 +22,11 @@ export class MissionDialogComponent implements OnInit {
 
     clients: Client[];
 
-    users: User[];
-
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private missionService: MissionService,
         private clientService: ClientService,
-        private userService: UserService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -39,8 +35,6 @@ export class MissionDialogComponent implements OnInit {
         this.isSaving = false;
         this.clientService.query()
             .subscribe((res: HttpResponse<Client[]>) => { this.clients = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.userService.query()
-            .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -78,10 +72,6 @@ export class MissionDialogComponent implements OnInit {
     }
 
     trackClientById(index: number, item: Client) {
-        return item.id;
-    }
-
-    trackUserById(index: number, item: User) {
         return item.id;
     }
 }

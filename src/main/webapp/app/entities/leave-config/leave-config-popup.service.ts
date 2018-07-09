@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { LeaveConfig } from './leave-config.model';
 import { LeaveConfigService } from './leave-config.service';
 
@@ -11,7 +10,6 @@ export class LeaveConfigPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private leaveConfigService: LeaveConfigService
@@ -31,10 +29,6 @@ export class LeaveConfigPopupService {
                 this.leaveConfigService.find(id)
                     .subscribe((leaveConfigResponse: HttpResponse<LeaveConfig>) => {
                         const leaveConfig: LeaveConfig = leaveConfigResponse.body;
-                        leaveConfig.dateCreation = this.datePipe
-                            .transform(leaveConfig.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        leaveConfig.dateModification = this.datePipe
-                            .transform(leaveConfig.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.leaveConfigModalRef(component, leaveConfig);
                         resolve(this.ngbModalRef);
                     });

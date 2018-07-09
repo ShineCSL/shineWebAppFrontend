@@ -8,21 +8,13 @@
         <dd>
             <span>{{leavesSubmission.submitted}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateModification">Date Modification</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.leavesDate">Leaves Date</span></dt>
         <dd>
-            <span>{{leavesSubmission.dateModification | date:'medium'}}</span>
+            <span>{{leavesSubmission.leavesDate | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.dateCreation">Date Creation</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.user">User</span></dt>
         <dd>
-            <span>{{leavesSubmission.dateCreation | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userModification">User Modification</span></dt>
-        <dd>
-            {{leavesSubmission.userModificationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leavesSubmission.userCreation">User Creation</span></dt>
-        <dd>
-            {{leavesSubmission.userCreationLogin}}
+            {{leavesSubmission.userLogin}}
         </dd>
     </dl>
 

@@ -65,10 +65,6 @@ export class ActivityService {
         const copy: Activity = Object.assign({}, activity);
         copy.activityDate = this.dateUtils
             .convertLocalDateFromServer(activity.activityDate);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(activity.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(activity.dateModification);
         return copy;
     }
 
@@ -79,10 +75,6 @@ export class ActivityService {
         const copy: Activity = Object.assign({}, activity);
         copy.activityDate = this.dateUtils
             .convertLocalDateToServer(activity.activityDate);
-
-        copy.dateCreation = this.dateUtils.toDate(activity.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(activity.dateModification);
         return copy;
     }
 }

@@ -17,11 +17,9 @@
                 "title": "Leaves Submission"
             },
             "submitted": "Submitted",
-            "dateModification": "Date Modification",
-            "dateCreation": "Date Creation",
-            "userModification": "User Modification",
+            "leavesDate": "Leaves Date",
             "leaves": "Leaves",
-            "userCreation": "User Creation"
+            "user": "User"
         }
     }
 }

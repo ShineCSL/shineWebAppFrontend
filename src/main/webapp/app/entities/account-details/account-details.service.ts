@@ -3,8 +3,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { AccountDetails } from './account-details.model';
 import { createRequestOption } from '../../shared';
 
@@ -15,7 +13,7 @@ export class AccountDetailsService {
 
     private resourceUrl =  SERVER_API_URL + 'api/account-details';
 
-    constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
+    constructor(private http: HttpClient) { }
 
     create(accountDetails: AccountDetails): Observable<EntityResponseType> {
         const copy = this.convert(accountDetails);
@@ -63,10 +61,6 @@ export class AccountDetailsService {
      */
     private convertItemFromServer(accountDetails: AccountDetails): AccountDetails {
         const copy: AccountDetails = Object.assign({}, accountDetails);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(accountDetails.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(accountDetails.dateModification);
         return copy;
     }
 
@@ -75,10 +69,6 @@ export class AccountDetailsService {
      */
     private convert(accountDetails: AccountDetails): AccountDetails {
         const copy: AccountDetails = Object.assign({}, accountDetails);
-
-        copy.dateCreation = this.dateUtils.toDate(accountDetails.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(accountDetails.dateModification);
         return copy;
     }
 }

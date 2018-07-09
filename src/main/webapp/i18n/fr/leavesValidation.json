@@ -17,11 +17,9 @@
                 "title": "Leaves Validation"
             },
             "validated": "Validated",
-            "dateModification": "Date Modification",
-            "dateCreation": "Date Creation",
+            "leavesDate": "Leaves Date",
             "leaves": "Leaves",
-            "userModification": "User Modification",
-            "userCreation": "User Creation"
+            "user": "User"
         }
     }
 }

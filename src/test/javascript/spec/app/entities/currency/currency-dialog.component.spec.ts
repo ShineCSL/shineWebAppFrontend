@@ -9,7 +9,6 @@ import { ShineWebAppFrontendTestModule } from '../../../test.module';
 import { CurrencyDialogComponent } from '../../../../../../main/webapp/app/entities/currency/currency-dialog.component';
 import { CurrencyService } from '../../../../../../main/webapp/app/entities/currency/currency.service';
 import { Currency } from '../../../../../../main/webapp/app/entities/currency/currency.model';
-import { UserService } from '../../../../../../main/webapp/app/shared';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [ShineWebAppFrontendTestModule],
                 declarations: [CurrencyDialogComponent],
                 providers: [
-                    UserService,
                     CurrencyService
                 ]
             })

@@ -63,10 +63,8 @@ export class InvoiceValidationService {
      */
     private convertItemFromServer(invoiceValidation: InvoiceValidation): InvoiceValidation {
         const copy: InvoiceValidation = Object.assign({}, invoiceValidation);
-        copy.dateCreation = this.dateUtils
-            .convertDateTimeFromServer(invoiceValidation.dateCreation);
-        copy.dateModification = this.dateUtils
-            .convertDateTimeFromServer(invoiceValidation.dateModification);
+        copy.dateInvoice = this.dateUtils
+            .convertLocalDateFromServer(invoiceValidation.dateInvoice);
         return copy;
     }
 
@@ -75,10 +73,8 @@ export class InvoiceValidationService {
      */
     private convert(invoiceValidation: InvoiceValidation): InvoiceValidation {
         const copy: InvoiceValidation = Object.assign({}, invoiceValidation);
-
-        copy.dateCreation = this.dateUtils.toDate(invoiceValidation.dateCreation);
-
-        copy.dateModification = this.dateUtils.toDate(invoiceValidation.dateModification);
+        copy.dateInvoice = this.dateUtils
+            .convertLocalDateToServer(invoiceValidation.dateInvoice);
         return copy;
     }
 }

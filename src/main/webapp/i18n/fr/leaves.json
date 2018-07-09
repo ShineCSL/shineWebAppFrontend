@@ -19,15 +19,15 @@
             "leaveDate": "Leave Date",
             "nbOfHours": "Nb Of Hours",
             "year": "Year",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
             "weekNumber": "Week Number",
             "comment": "Comment",
+            "day": "Day",
+            "month": "Month",
             "user": "User",
+            "task": "Task",
             "leavesSubmission": "Leaves Submission",
             "leavesValidation": "Leaves Validation",
-            "leavesRejection": "Leaves Rejection",
-            "task": "Task"
+            "leavesRejection": "Leaves Rejection"
         }
     }
 }

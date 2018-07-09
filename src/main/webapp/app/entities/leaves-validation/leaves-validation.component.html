@@ -18,10 +18,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="validated"><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.validated">Validated</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesDate"><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.leavesDate">Leaves Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.leavesValidation.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -29,13 +27,9 @@
             <tr *ngFor="let leavesValidation of leavesValidations ;trackBy: trackId">
                 <td><a [routerLink]="['../leaves-validation', leavesValidation.id ]">{{leavesValidation.id}}</a></td>
                 <td>{{leavesValidation.validated}}</td>
-                <td>{{leavesValidation.dateModification | date:'medium'}}</td>
-                <td>{{leavesValidation.dateCreation | date:'medium'}}</td>
+                <td>{{leavesValidation.leavesDate | date:'mediumDate'}}</td>
                 <td>
-                    {{leavesValidation.userModificationLogin}}
-                </td>
-                <td>
-                    {{leavesValidation.userCreationLogin}}
+                    {{leavesValidation.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

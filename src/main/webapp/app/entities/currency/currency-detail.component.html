@@ -4,6 +4,10 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.currency.code">Code</span></dt>
+        <dd>
+            <span>{{currency.code}}</span>
+        </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.currency.labelEn">Label En</span></dt>
         <dd>
             <span>{{currency.labelEn}}</span>
@@ -11,26 +15,6 @@
         <dt><span jhiTranslate="shineWebAppFrontendApp.currency.labelFr">Label Fr</span></dt>
         <dd>
             <span>{{currency.labelFr}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.currency.dateCreation">Date Creation</span></dt>
-        <dd>
-            <span>{{currency.dateCreation | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.currency.dateModification">Date Modification</span></dt>
-        <dd>
-            <span>{{currency.dateModification | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.currency.code">Code</span></dt>
-        <dd>
-            <span>{{currency.code}}</span>
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.currency.userCreation">User Creation</span></dt>
-        <dd>
-            {{currency.userCreationLogin}}
-        </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.currency.userModification">User Modification</span></dt>
-        <dd>
-            {{currency.userModificationLogin}}
         </dd>
     </dl>
 

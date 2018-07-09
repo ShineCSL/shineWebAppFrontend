@@ -3,14 +3,6 @@
     "clientRootFolder": "",
     "relationships": [
         {
-            "relationshipName": "userModification",
-            "otherEntityName": "user",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "login",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "leavesSubmission"
-        },
-        {
             "relationshipName": "leaves",
             "otherEntityName": "leaves",
             "relationshipType": "one-to-one",
@@ -18,7 +10,7 @@
             "otherEntityRelationshipName": "leavesSubmission"
         },
         {
-            "relationshipName": "userCreation",
+            "relationshipName": "user",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "relationshipValidateRules": [
@@ -35,12 +27,8 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "dateModification",
-            "fieldType": "ZonedDateTime"
-        },
-        {
-            "fieldName": "dateCreation",
-            "fieldType": "ZonedDateTime",
+            "fieldName": "leavesDate",
+            "fieldType": "LocalDate",
             "fieldValidateRules": [
                 "required"
             ]
@@ -52,5 +40,6 @@
     "service": "serviceClass",
     "entityTableName": "leaves_submission",
     "jpaMetamodelFiltering": false,
-    "pagination": "pagination"
+    "pagination": "pagination",
+    "enableEntityAudit": true
 }

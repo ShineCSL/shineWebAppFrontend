@@ -2,7 +2,6 @@ import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Invoice } from './invoice.model';
 import { InvoiceService } from './invoice.service';
 
@@ -11,7 +10,6 @@ export class InvoicePopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private invoiceService: InvoiceService
@@ -38,10 +36,6 @@ export class InvoicePopupService {
                                 day: invoice.dateInvoice.getDate()
                             };
                         }
-                        invoice.dateCreation = this.datePipe
-                            .transform(invoice.dateCreation, 'yyyy-MM-ddTHH:mm:ss');
-                        invoice.dateModification = this.datePipe
-                            .transform(invoice.dateModification, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.invoiceModalRef(component, invoice);
                         resolve(this.ngbModalRef);
                     });

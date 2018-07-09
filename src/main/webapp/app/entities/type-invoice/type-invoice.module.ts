@@ -2,7 +2,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { ShineWebAppFrontendSharedModule } from '../../shared';
-import { ShineWebAppFrontendAdminModule } from '../../admin/admin.module';
 import {
     TypeInvoiceService,
     TypeInvoicePopupService,
@@ -25,7 +24,6 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         ShineWebAppFrontendSharedModule,
-        ShineWebAppFrontendAdminModule,
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [

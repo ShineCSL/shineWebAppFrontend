@@ -18,10 +18,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="submitted"><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.submitted">Submitted</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateCreation"><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateCreation">Date Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateModification"><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateModification">Date Modification</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userCreationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.userCreation">User Creation</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="userModificationLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.userModification">User Modification</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateInvoice"><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.dateInvoice">Date Invoice</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.invoiceSubmission.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -29,13 +27,9 @@
             <tr *ngFor="let invoiceSubmission of invoiceSubmissions ;trackBy: trackId">
                 <td><a [routerLink]="['../invoice-submission', invoiceSubmission.id ]">{{invoiceSubmission.id}}</a></td>
                 <td>{{invoiceSubmission.submitted}}</td>
-                <td>{{invoiceSubmission.dateCreation | date:'medium'}}</td>
-                <td>{{invoiceSubmission.dateModification | date:'medium'}}</td>
+                <td>{{invoiceSubmission.dateInvoice | date:'mediumDate'}}</td>
                 <td>
-                    {{invoiceSubmission.userCreationLogin}}
-                </td>
-                <td>
-                    {{invoiceSubmission.userModificationLogin}}
+                    {{invoiceSubmission.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

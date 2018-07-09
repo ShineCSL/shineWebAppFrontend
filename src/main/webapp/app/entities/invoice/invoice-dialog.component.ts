@@ -9,12 +9,11 @@ import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { Invoice } from './invoice.model';
 import { InvoicePopupService } from './invoice-popup.service';
 import { InvoiceService } from './invoice.service';
-import { TypeInvoice, TypeInvoiceService } from '../type-invoice';
+import { Currency, CurrencyService } from '../currency';
+import { InvoiceRejection, InvoiceRejectionService } from '../invoice-rejection';
 import { InvoiceSubmission, InvoiceSubmissionService } from '../invoice-submission';
 import { InvoiceValidation, InvoiceValidationService } from '../invoice-validation';
-import { InvoiceRejection, InvoiceRejectionService } from '../invoice-rejection';
-import { Currency, CurrencyService } from '../currency';
-import { User, UserService } from '../../shared';
+import { TypeInvoice, TypeInvoiceService } from '../type-invoice';
 
 @Component({
     selector: 'jhi-invoice-dialog',
@@ -25,17 +24,15 @@ export class InvoiceDialogComponent implements OnInit {
     invoice: Invoice;
     isSaving: boolean;
 
-    typeinvoices: TypeInvoice[];
+    currencies: Currency[];
+
+    invoicerejections: InvoiceRejection[];
 
     invoicesubmissions: InvoiceSubmission[];
 
     invoicevalidations: InvoiceValidation[];
 
-    invoicerejections: InvoiceRejection[];
-
-    currencies: Currency[];
-
-    users: User[];
+    typeinvoices: TypeInvoice[];
     dateInvoiceDp: any;
 
     constructor(
@@ -43,12 +40,11 @@ export class InvoiceDialogComponent implements OnInit {
         private dataUtils: JhiDataUtils,
         private jhiAlertService: JhiAlertService,
         private invoiceService: InvoiceService,
-        private typeInvoiceService: TypeInvoiceService,
+        private currencyService: CurrencyService,
+        private invoiceRejectionService: InvoiceRejectionService,
         private invoiceSubmissionService: InvoiceSubmissionService,
         private invoiceValidationService: InvoiceValidationService,
-        private invoiceRejectionService: InvoiceRejectionService,
-        private currencyService: CurrencyService,
-        private userService: UserService,
+        private typeInvoiceService: TypeInvoiceService,
         private elementRef: ElementRef,
         private eventManager: JhiEventManager
     ) {
@@ -56,16 +52,18 @@ export class InvoiceDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.typeInvoiceService
+        this.currencyService.query()
+            .subscribe((res: HttpResponse<Currency[]>) => { this.currencies = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.invoiceRejectionService
             .query({filter: 'invoice-is-null'})
-            .subscribe((res: HttpResponse<TypeInvoice[]>) => {
-                if (!this.invoice.typeInvoiceId) {
-                    this.typeinvoices = res.body;
+            .subscribe((res: HttpResponse<InvoiceRejection[]>) => {
+                if (!this.invoice.invoiceRejectionId) {
+                    this.invoicerejections = res.body;
                 } else {
-                    this.typeInvoiceService
-                        .find(this.invoice.typeInvoiceId)
-                        .subscribe((subRes: HttpResponse<TypeInvoice>) => {
-                            this.typeinvoices = [subRes.body].concat(res.body);
+                    this.invoiceRejectionService
+                        .find(this.invoice.invoiceRejectionId)
+                        .subscribe((subRes: HttpResponse<InvoiceRejection>) => {
+                            this.invoicerejections = [subRes.body].concat(res.body);
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
@@ -95,23 +93,8 @@ export class InvoiceDialogComponent implements OnInit {
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.invoiceRejectionService
-            .query({filter: 'invoice-is-null'})
-            .subscribe((res: HttpResponse<InvoiceRejection[]>) => {
-                if (!this.invoice.invoiceRejectionId) {
-                    this.invoicerejections = res.body;
-                } else {
-                    this.invoiceRejectionService
-                        .find(this.invoice.invoiceRejectionId)
-                        .subscribe((subRes: HttpResponse<InvoiceRejection>) => {
-                            this.invoicerejections = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.currencyService.query()
-            .subscribe((res: HttpResponse<Currency[]>) => { this.currencies = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.userService.query()
-            .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.typeInvoiceService.query()
+            .subscribe((res: HttpResponse<TypeInvoice[]>) => { this.typeinvoices = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -164,7 +147,11 @@ export class InvoiceDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackTypeInvoiceById(index: number, item: TypeInvoice) {
+    trackCurrencyById(index: number, item: Currency) {
+        return item.id;
+    }
+
+    trackInvoiceRejectionById(index: number, item: InvoiceRejection) {
         return item.id;
     }
 
@@ -176,15 +163,7 @@ export class InvoiceDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackInvoiceRejectionById(index: number, item: InvoiceRejection) {
-        return item.id;
-    }
-
-    trackCurrencyById(index: number, item: Currency) {
-        return item.id;
-    }
-
-    trackUserById(index: number, item: User) {
+    trackTypeInvoiceById(index: number, item: TypeInvoice) {
         return item.id;
     }
 }

@@ -9,7 +9,6 @@ import { ShineWebAppFrontendTestModule } from '../../../test.module';
 import { ClientDialogComponent } from '../../../../../../main/webapp/app/entities/client/client-dialog.component';
 import { ClientService } from '../../../../../../main/webapp/app/entities/client/client.service';
 import { Client } from '../../../../../../main/webapp/app/entities/client/client.model';
-import { UserService } from '../../../../../../main/webapp/app/shared';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [ShineWebAppFrontendTestModule],
                 declarations: [ClientDialogComponent],
                 providers: [
-                    UserService,
                     ClientService
                 ]
             })

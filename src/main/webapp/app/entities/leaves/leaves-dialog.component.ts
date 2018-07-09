@@ -10,10 +10,10 @@ import { Leaves } from './leaves.model';
 import { LeavesPopupService } from './leaves-popup.service';
 import { LeavesService } from './leaves.service';
 import { User, UserService } from '../../shared';
+import { Task, TaskService } from '../task';
 import { LeavesSubmission, LeavesSubmissionService } from '../leaves-submission';
 import { LeavesValidation, LeavesValidationService } from '../leaves-validation';
 import { LeavesRejection, LeavesRejectionService } from '../leaves-rejection';
-import { Task, TaskService } from '../task';
 
 @Component({
     selector: 'jhi-leaves-dialog',
@@ -26,13 +26,13 @@ export class LeavesDialogComponent implements OnInit {
 
     users: User[];
 
+    tasks: Task[];
+
     leavessubmissions: LeavesSubmission[];
 
     leavesvalidations: LeavesValidation[];
 
     leavesrejections: LeavesRejection[];
-
-    tasks: Task[];
     leaveDateDp: any;
 
     constructor(
@@ -40,10 +40,10 @@ export class LeavesDialogComponent implements OnInit {
         private jhiAlertService: JhiAlertService,
         private leavesService: LeavesService,
         private userService: UserService,
+        private taskService: TaskService,
         private leavesSubmissionService: LeavesSubmissionService,
         private leavesValidationService: LeavesValidationService,
         private leavesRejectionService: LeavesRejectionService,
-        private taskService: TaskService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -52,6 +52,8 @@ export class LeavesDialogComponent implements OnInit {
         this.isSaving = false;
         this.userService.query()
             .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.taskService.query()
+            .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.leavesSubmissionService
             .query({filter: 'leaves-is-null'})
             .subscribe((res: HttpResponse<LeavesSubmission[]>) => {
@@ -91,8 +93,6 @@ export class LeavesDialogComponent implements OnInit {
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.taskService.query()
-            .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -133,6 +133,10 @@ export class LeavesDialogComponent implements OnInit {
         return item.id;
     }
 
+    trackTaskById(index: number, item: Task) {
+        return item.id;
+    }
+
     trackLeavesSubmissionById(index: number, item: LeavesSubmission) {
         return item.id;
     }
@@ -142,10 +146,6 @@ export class LeavesDialogComponent implements OnInit {
     }
 
     trackLeavesRejectionById(index: number, item: LeavesRejection) {
-        return item.id;
-    }
-
-    trackTaskById(index: number, item: Task) {
         return item.id;
     }
 }

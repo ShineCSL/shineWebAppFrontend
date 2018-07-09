@@ -18,11 +18,8 @@
             },
             "weekNumber": "Week Number",
             "year": "Year",
-            "validation": "Validation",
-            "dateCreation": "Date Creation",
-            "dateModification": "Date Modification",
-            "userModification": "User Modification",
-            "userCreation": "User Creation"
+            "validated": "Validated",
+            "user": "User"
         }
     }
 }
