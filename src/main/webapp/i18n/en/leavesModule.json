@@ -1,0 +1,38 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "myLeaves" : {
+            "home": {
+                "title": "Leaves",
+                "createLabel": "Create a new Leave",
+                "createOrEditLabel": "Create or edit a Leave"
+            },
+            "created": "A new Leave is created",
+            "updated": "A Leave is updated",
+            "deleted": "A Leave is deleted",
+            "delete": {
+                "question": "Are you sure you want to delete Leave?"
+            },
+            "detail": {
+                "title": "Leave"
+            },
+            "fullDay": "Full Day",
+            "leavesFrom": "Leave From",
+            "leavesTo": "Leave To",
+            "nbOfHours": "Nb Of Hours",
+            "year": "Year",
+            "weekNumber": "Week Number",
+            "comment": "Comment",
+            "day": "Day",
+            "month": "Month",
+            "user": "User",
+            "task": "Task",
+            "leavesSubmission": "Leave Submission",
+            "leavesValidation": "Leave Validation",
+            "leavesRejection": "Leave Rejection"
+        },
+        "leavesValidation" : {
+        	
+        }
+    }
+}

@@ -10,16 +10,21 @@ import { Leaves } from '../../entities/leaves/leaves.model';
 import { LeavesService } from '../../entities/leaves/leaves.service';
 import { LeavesPopupService } from '../../entities/leaves/leaves-popup.service';
 import { Task, TaskService } from '../../entities/task';
-import { User, UserService } from '../../shared';
-import { Account, Principal } from '../../shared';
+import { User, UserService, Account, Principal, DateUserUtils } from '../../shared';
+
+import { TranslateService } from '@ngx-translate/core';
+
+import { JhiDateUtils } from 'ng-jhipster';
+
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 import * as _moment from 'moment';
 
 @Component({
     selector: 'jhi-leaves-dialog',
-    templateUrl: './leaves-dialog.component.html'
+    templateUrl: './my-leaves-dialog.component.html'
 })
-export class LeavesDialogComponent implements OnInit {
+export class MyLeavesDialogComponent implements OnInit {
 
     leaves: Leaves;
     user: User;
@@ -29,7 +34,15 @@ export class LeavesDialogComponent implements OnInit {
 
     tasks: Task[];
 
-    leaveDateDp: any;
+    leavesFromDp: any;
+    leavesToDp: any;
+
+    leavesFullDayChecked = true;
+
+    filter: string;
+    orderTask: string;
+    language: string;
+    reverse: string;
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -39,17 +52,26 @@ export class LeavesDialogComponent implements OnInit {
         private taskService: TaskService,
         private eventManager: JhiEventManager,
         private principal: Principal,
+        private dateUtils: JhiDateUtils,
+        private dateUser: DateUserUtils,
+        private translateService: TranslateService
     ) {
+        this.filter = '';
+        this.orderTask = '';
+        this.reverse = 'asc';
+        this.markCalendarDisabled = this.markCalendarDisabled.bind(this);
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.leaves.fullDay = true;
         this.principal.identity().then((account) => {
             this.account = account;
             this.userService.find(this.account.login).subscribe((response) => {
                 this.user = response.body;
             });
         });
+        this.language = this.translateService.currentLang;
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
@@ -60,18 +82,7 @@ export class LeavesDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        var now = new Date();
-        var day = now.getDay();
-        var week = this.moment.format('W');
-        var year = now.getFullYear();
-        this.leaves.day = day;
-        this.leaves.weekNumber = +week;
-        this.leaves.year = year;
-        alert('day: ' + day);
-        alert('week: ' + week);
-        alert('year: ' + year);
-        alert('userID: ' + this.user.id);
-        this.leaves.userId = this.user.id;
+        this.dateUser.setDateUser(this.leaves, this.leaves.leavesFrom);
         if (this.leaves.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.leavesService.update(this.leaves));
@@ -103,6 +114,52 @@ export class LeavesDialogComponent implements OnInit {
     trackTaskById(index: number, item: Task) {
         return item.id;
     }
+
+    isleavesFullDayChecked(e) {
+        if (e.target.checked) {
+            this.leavesFullDayChecked = true;
+            if (this.leaves.leavesFrom) {
+                this.setLeavesTo(this.leaves.leavesFrom);
+            }
+        } else {
+            this.leavesFullDayChecked = false;
+            this.leaves.nbOfHours = null;
+            if (this.leaves.leavesFrom) {
+                this.setLeavesTo(this.leaves.leavesFrom);
+            }
+        }
+     }
+
+    setLeavesTo(e) {
+        this.leaves.leavesTo = e;
+        if (this.leavesFullDayChecked) {
+            this.leaves.nbOfHours = 8;
+        }
+    }
+
+    setNbOfHours(e) {
+        if (this.leavesFullDayChecked) {
+            this.leaves.nbOfHours = this.dateUser.getBusinessDaysBetweenDates(this.leaves.leavesFrom, e) * 8;
+        }
+    }
+
+    isWeekend(date: NgbDateStruct) {
+        const d = new Date(date.year, date.month - 1, date.day);
+        return this.dateUser.isWeekend(d);
+    }    
+
+    isHoliday(date: NgbDateStruct) {
+      const d = new Date(date.year, date.month - 1, date.day);
+      return this.dateUser.isHoliday(d);
+    }
+    
+    markCalendarDisabled(date: NgbDateStruct){
+        return this.dateUser.markCalendarDisabled(date);
+    }
+    
+    getCalendarTooltip(date: NgbDateStruct) {
+        return this.dateUser.getCalendarHolidayTooltip(date);
+    }
 }
 
 @Component({
@@ -122,10 +179,10 @@ export class LeavesPopupComponent implements OnInit, OnDestroy {
         this.routeSub = this.route.params.subscribe((params) => {
             if ( params['id'] ) {
                 this.leavesPopupService
-                    .open(LeavesDialogComponent as Component, params['id']);
+                    .open(MyLeavesDialogComponent as Component, params['id']);
             } else {
                 this.leavesPopupService
-                    .open(LeavesDialogComponent as Component);
+                    .open(MyLeavesDialogComponent as Component);
             }
         });
     }

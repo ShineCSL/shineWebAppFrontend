@@ -3,10 +3,10 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@a
 import { JhiPaginationUtil } from 'ng-jhipster';
 
 import { UserRouteAccessService } from '../../shared';
-import { LeavesComponent } from './leaves.component';
-import { LeavesDetailComponent } from './leaves-detail.component';
-import { LeavesPopupComponent } from './leaves-dialog.component';
-import { LeavesDeletePopupComponent } from './leaves-delete-dialog.component';
+import { MyLeavesComponent } from './my-leaves.component';
+import { MyLeavesDetailComponent } from './my-leaves-detail.component';
+import { LeavesPopupComponent } from './my-leaves-dialog.component';
+import { LeavesDeletePopupComponent } from './my-leaves-delete-dialog.component';
 
 @Injectable()
 export class LeavesResolvePagingParams implements Resolve<any> {
@@ -26,8 +26,8 @@ export class LeavesResolvePagingParams implements Resolve<any> {
 
 export const leavesModuleRoute: Routes = [
     {
-        path: 'leaves-module',
-        component: LeavesComponent,
+        path: 'my-leaves',
+        component: MyLeavesComponent,
         resolve: {
             'pagingParams': LeavesResolvePagingParams
         },
@@ -38,7 +38,7 @@ export const leavesModuleRoute: Routes = [
         canActivate: [UserRouteAccessService]
     }, {
         path: 'leaves-module/:id',
-        component: LeavesDetailComponent,
+        component: MyLeavesDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'shineWebAppFrontendApp.leaves.home.title'

@@ -16,7 +16,9 @@
             "detail": {
                 "title": "Leaves"
             },
-            "leaveDate": "Leave Date",
+            "fullDay": "Full Day",
+            "leavesFrom": "Leaves From",
+            "leavesTo": "Leaves To",
             "nbOfHours": "Nb Of Hours",
             "year": "Year",
             "weekNumber": "Week Number",

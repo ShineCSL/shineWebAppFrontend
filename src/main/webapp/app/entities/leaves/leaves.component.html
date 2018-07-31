@@ -17,7 +17,9 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="leaveDate"><span jhiTranslate="shineWebAppFrontendApp.leaves.leaveDate">Leave Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fullDay"><span jhiTranslate="shineWebAppFrontendApp.leaves.fullDay">Full Day</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesFrom"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesFrom">Leaves From</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesTo"><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesTo">Leaves To</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="nbOfHours"><span jhiTranslate="shineWebAppFrontendApp.leaves.nbOfHours">Nb Of Hours</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.leaves.year">Year</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.leaves.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th>
@@ -35,7 +37,9 @@
             <tbody>
             <tr *ngFor="let leaves of leaves ;trackBy: trackId">
                 <td><a [routerLink]="['../leaves', leaves.id ]">{{leaves.id}}</a></td>
-                <td>{{leaves.leaveDate | date:'mediumDate'}}</td>
+                <td>{{leaves.fullDay}}</td>
+                <td>{{leaves.leavesFrom | date:'mediumDate'}}</td>
+                <td>{{leaves.leavesTo | date:'mediumDate'}}</td>
                 <td>{{leaves.nbOfHours}}</td>
                 <td>{{leaves.year}}</td>
                 <td>{{leaves.weekNumber}}</td>

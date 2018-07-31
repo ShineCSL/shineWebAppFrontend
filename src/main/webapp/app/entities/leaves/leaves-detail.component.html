@@ -4,9 +4,17 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leaveDate">Leave Date</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.fullDay">Full Day</span></dt>
         <dd>
-            <span>{{leaves.leaveDate | date:'mediumDate'}}</span>
+            <span>{{leaves.fullDay}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesFrom">Leaves From</span></dt>
+        <dd>
+            <span>{{leaves.leavesFrom | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.leavesTo">Leaves To</span></dt>
+        <dd>
+            <span>{{leaves.leavesTo | date:'mediumDate'}}</span>
         </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.leaves.nbOfHours">Nb Of Hours</span></dt>
         <dd>

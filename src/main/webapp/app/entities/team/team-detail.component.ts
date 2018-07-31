@@ -4,22 +4,22 @@ import { HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Leaves } from '../../entities/leaves/leaves.model';
-import { LeavesService } from '../../entities/leaves/leaves.service';
+import { Team } from './team.model';
+import { TeamService } from './team.service';
 
 @Component({
-    selector: 'jhi-leaves-detail',
-    templateUrl: './leaves-detail.component.html'
+    selector: 'jhi-team-detail',
+    templateUrl: './team-detail.component.html'
 })
-export class LeavesDetailComponent implements OnInit, OnDestroy {
+export class TeamDetailComponent implements OnInit, OnDestroy {
 
-    leaves: Leaves;
+    team: Team;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
     constructor(
         private eventManager: JhiEventManager,
-        private leavesService: LeavesService,
+        private teamService: TeamService,
         private route: ActivatedRoute
     ) {
     }
@@ -28,13 +28,13 @@ export class LeavesDetailComponent implements OnInit, OnDestroy {
         this.subscription = this.route.params.subscribe((params) => {
             this.load(params['id']);
         });
-        this.registerChangeInLeaves();
+        this.registerChangeInTeams();
     }
 
     load(id) {
-        this.leavesService.find(id)
-            .subscribe((leavesResponse: HttpResponse<Leaves>) => {
-                this.leaves = leavesResponse.body;
+        this.teamService.find(id)
+            .subscribe((teamResponse: HttpResponse<Team>) => {
+                this.team = teamResponse.body;
             });
     }
     previousState() {
@@ -46,10 +46,10 @@ export class LeavesDetailComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    registerChangeInLeaves() {
+    registerChangeInTeams() {
         this.eventSubscriber = this.eventManager.subscribe(
-            'leavesListModification',
-            (response) => this.load(this.leaves.id)
+            'teamListModification',
+            (response) => this.load(this.team.id)
         );
     }
 }

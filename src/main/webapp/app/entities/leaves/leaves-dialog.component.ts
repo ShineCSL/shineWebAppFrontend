@@ -33,7 +33,8 @@ export class LeavesDialogComponent implements OnInit {
     leavesvalidations: LeavesValidation[];
 
     leavesrejections: LeavesRejection[];
-    leaveDateDp: any;
+    leavesFromDp: any;
+    leavesToDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

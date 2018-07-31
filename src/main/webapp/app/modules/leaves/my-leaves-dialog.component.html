@@ -1,0 +1,190 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myLeavesLabel" jhiTranslate="shineWebAppFrontendApp.myLeaves.home.createOrEditLabel">Create or edit a Leaves</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+<!--         <div class="form-group" [hidden]="!leaves.id"> -->
+<!--             <label for="id" jhiTranslate="global.field.id">ID</label> -->
+<!--             <input type="text" class="form-control" id="id" name="id" -->
+<!--                    [(ngModel)]="leaves.id" readonly /> -->
+<!--         </div> -->
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.fullDay" for="field_fullDay">Full Day</label>
+            <input type="checkbox" class="form-control" name="fullDay" id="field_fullDay"
+                [(ngModel)]="leaves.fullDay" (change)="isleavesFullDayChecked($event)"/>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesFrom" for="field_leavesFrom">Leaves From</label>
+            <div class="input-group">
+                <input id="field_leavesFrom" type="text" (ngModelChange)="setLeavesTo($event)" class="form-control" name="leavesFrom" ngbDatepicker  
+                	#leavesFromDp="ngbDatepicker" [(ngModel)]="leaves.leavesFrom" placeholder="yyyy-mm-dd"
+                	[dayTemplate]="customDay" [showWeekNumbers]="true" [markDisabled]="markCalendarDisabled" required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="leavesFromDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.leavesFrom?.dirty && editForm.controls.leavesFrom?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.leavesFrom?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        
+        <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="isWeekendsDisabled" let-focused="focused">
+		  <span class="custom-day" 
+		  		[class.focused]="focused"
+		        [class.bg-primary]="selected" 
+		        [class.hidden]="date.month !== currentMonth" 
+		        [class.text-muted]="disabled" 
+		        [ngbTooltip]="getCalendarTooltip(date)"
+		        [class.holiday]="!!isHoliday(date)"
+            	[class.weekend]="isWeekend(date)">
+		    {{ date.day }}
+		  </span>
+		</ng-template>
+        
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesTo" for="field_leavesTo">Leaves To</label>
+            <div class="input-group">
+                <input id="field_leavesTo" type="text" (ngModelChange)="setNbOfHours($event)" class="form-control" name="leavesTo" ngbDatepicker  
+                [dayTemplate]="customDay" #leavesToDp="ngbDatepicker" [(ngModel)]="leaves.leavesTo"
+                [disabled]="!leavesFullDayChecked" [minDate]="leaves.leavesFrom" placeholder="yyyy-mm-dd"
+                [showWeekNumbers]="true" [markDisabled]="markCalendarDisabled" required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="leavesToDp.toggle()" [disabled]="!leavesFullDayChecked"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.leavesTo?.dirty && editForm.controls.leavesTo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.leavesTo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.nbOfHours" for="field_nbOfHours">Nb Of Hours</label>
+            <ng-container *ngIf = "leavesFullDayChecked">
+				<input type="number" class="form-control" name="nbOfHours" id="field_nbOfHours"
+	                [(ngModel)]="leaves.nbOfHours" [disabled]="true" jhiCustomInteger required/>   
+			</ng-container>
+			<ng-container *ngIf = "!leavesFullDayChecked">
+	            <input type="number" class="form-control" name="nbOfHours" id="field_nbOfHours"
+	                [(ngModel)]="leaves.nbOfHours" [min]="1" [max]="7" jhiCustomInteger required/>
+	            <div [hidden]="!(editForm.controls.nbOfHours?.dirty && editForm.controls.nbOfHours?.invalid)">
+	                <small class="form-text text-danger"
+	                   [hidden]="!editForm.controls.nbOfHours?.errors?.required" jhiTranslate="entity.validation.required">
+	                   This field is required.
+	                </small>
+	                <small class="form-text text-danger"
+	                    [hidden]="!editForm.controls.nbOfHours?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 1 }">
+	                    This field should be at least 1.
+	                </small>
+	                <small class="form-text text-danger"
+	                    [hidden]="!editForm.controls.nbOfHours?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 7 }">
+	                    This field cannot be more than 7.
+	                </small>
+	                <small class="form-text text-danger"
+	                    [hidden]="!editForm.controls.nbOfHours?.errors?.jhiCustomInteger" jhiTranslate="shineWebAppFrontendApp.common.validators.integer">
+	                    This field should be an integer.
+	                </small>
+	            </div>			
+			</ng-container>
+        </div>
+<!--         <div class="form-group"> -->
+<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.year" for="field_year">Year</label> -->
+<!--             <input type="number" class="form-control" name="year" id="field_year" -->
+<!--                 [(ngModel)]="leaves.year" /> -->
+<!--         </div> -->
+<!--         <div class="form-group"> -->
+<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.weekNumber" for="field_weekNumber">Week Number</label> -->
+<!--             <input type="number" class="form-control" name="weekNumber" id="field_weekNumber" -->
+<!--                 [(ngModel)]="leaves.weekNumber" /> -->
+<!--         </div> -->
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.comment" for="field_comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="field_comment"
+                [(ngModel)]="leaves.comment" />
+        </div>
+<!--         <div class="form-group"> -->
+<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.day" for="field_day">Day</label> -->
+<!--             <input type="number" class="form-control" name="day" id="field_day" -->
+<!--                 [(ngModel)]="leaves.day" required/> -->
+<!--             <div [hidden]="!(editForm.controls.day?.dirty && editForm.controls.day?.invalid)"> -->
+<!--                 <small class="form-text text-danger" -->
+<!--                    [hidden]="!editForm.controls.day?.errors?.required" jhiTranslate="entity.validation.required"> -->
+<!--                    This field is required. -->
+<!--                 </small> -->
+<!--                 <small class="form-text text-danger" -->
+<!--                     [hidden]="!editForm.controls.day?.errors?.number" jhiTranslate="entity.validation.number"> -->
+<!--                     This field should be a number. -->
+<!--                 </small> -->
+<!--             </div> -->
+<!--         </div> -->
+
+<!--         <div class="form-group"> -->
+<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.user" for="field_user">User</label> -->
+<!--             <select class="form-control" id="field_user" name="user" [(ngModel)]="leaves.userId"  required> -->
+<!--                 <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option> -->
+<!--                 <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option> -->
+<!--             </select> -->
+<!--         </div> -->
+<!--         <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)"> -->
+<!--             <small class="form-text text-danger" -->
+<!--                 [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required"> -->
+<!--                 This field is required. -->
+<!--             </small> -->
+<!--         </div> -->
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.task" for="field_task">Task</label>
+            <select class="form-control" id="field_task" name="task" [(ngModel)]="leaves.taskId"  required>
+                <option *ngIf="!editForm.value.task" [ngValue]="null" selected></option>
+                <ng-container *ngIf = "language === 'en'">
+                	<option [ngValue]="taskOption.id" *ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
+			    </ng-container>
+				<ng-container *ngIf = "language === 'fr'">
+					<option [ngValue]="taskOption.id" *ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelFr}}</option>               
+				</ng-container>
+			</select>
+        </div>
+        <div [hidden]="!(editForm.controls.task?.dirty && editForm.controls.task?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.task?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+<!--         <div class="form-group"> -->
+<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesSubmission" for="field_leavesSubmission">Leaves Submission</label> -->
+<!--             <select class="form-control" id="field_leavesSubmission" name="leavesSubmission" [(ngModel)]="leaves.leavesSubmissionId"> -->
+<!--                 <option [ngValue]="null"></option> -->
+<!--                 <option [ngValue]="leavesSubmissionOption.id" *ngFor="let leavesSubmissionOption of leavessubmissions; trackBy: trackLeavesSubmissionById">{{leavesSubmissionOption.submitted}}</option> -->
+<!--             </select> -->
+<!--         </div> -->
+<!--         <div class="form-group"> -->
+<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesValidation" for="field_leavesValidation">Leaves Validation</label> -->
+<!--             <select class="form-control" id="field_leavesValidation" name="leavesValidation" [(ngModel)]="leaves.leavesValidationId"> -->
+<!--                 <option [ngValue]="null"></option> -->
+<!--                 <option [ngValue]="leavesValidationOption.id" *ngFor="let leavesValidationOption of leavesvalidations; trackBy: trackLeavesValidationById">{{leavesValidationOption.validated}}</option> -->
+<!--             </select> -->
+<!--         </div> -->
+<!--         <div class="form-group"> -->
+<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesRejection" for="field_leavesRejection">Leaves Rejection</label> -->
+<!--             <select class="form-control" id="field_leavesRejection" name="leavesRejection" [(ngModel)]="leaves.leavesRejectionId"> -->
+<!--                 <option [ngValue]="null"></option> -->
+<!--                 <option [ngValue]="leavesRejectionOption.id" *ngFor="let leavesRejectionOption of leavesrejections; trackBy: trackLeavesRejectionById">{{leavesRejectionOption.rejected}}</option> -->
+<!--             </select> -->
+<!--         </div> -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

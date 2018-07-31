@@ -4,20 +4,20 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Leaves } from '../../entities/leaves/leaves.model';
-import { LeavesService } from '../../entities/leaves/leaves.service';
-import { LeavesPopupService } from '../../entities/leaves/leaves-popup.service';
+import { Team } from './team.model';
+import { TeamPopupService } from './team-popup.service';
+import { TeamService } from './team.service';
 
 @Component({
-    selector: 'jhi-leaves-delete-dialog',
-    templateUrl: './leaves-delete-dialog.component.html'
+    selector: 'jhi-team-delete-dialog',
+    templateUrl: './team-delete-dialog.component.html'
 })
-export class LeavesDeleteDialogComponent {
+export class TeamDeleteDialogComponent {
 
-    leaves: Leaves;
+    team: Team;
 
     constructor(
-        private leavesService: LeavesService,
+        private teamService: TeamService,
         public activeModal: NgbActiveModal,
         private eventManager: JhiEventManager
     ) {
@@ -28,10 +28,10 @@ export class LeavesDeleteDialogComponent {
     }
 
     confirmDelete(id: number) {
-        this.leavesService.delete(id).subscribe((response) => {
+        this.teamService.delete(id).subscribe((response) => {
             this.eventManager.broadcast({
-                name: 'leavesListModification',
-                content: 'Deleted an leaves'
+                name: 'teamListModification',
+                content: 'Deleted an team'
             });
             this.activeModal.dismiss(true);
         });
@@ -39,22 +39,22 @@ export class LeavesDeleteDialogComponent {
 }
 
 @Component({
-    selector: 'jhi-leaves-delete-popup',
+    selector: 'jhi-team-delete-popup',
     template: ''
 })
-export class LeavesDeletePopupComponent implements OnInit, OnDestroy {
+export class TeamDeletePopupComponent implements OnInit, OnDestroy {
 
     routeSub: any;
 
     constructor(
         private route: ActivatedRoute,
-        private leavesPopupService: LeavesPopupService
+        private teamPopupService: TeamPopupService
     ) {}
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            this.leavesPopupService
-                .open(LeavesDeleteDialogComponent as Component, params['id']);
+            this.teamPopupService
+                .open(TeamDeleteDialogComponent as Component, params['id']);
         });
     }
 

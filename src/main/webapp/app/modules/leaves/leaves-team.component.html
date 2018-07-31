@@ -1,0 +1,165 @@
+<div>
+    <h2>
+        <span jhiTranslate="shineWebAppFrontendApp.myLeaves.home.title">Leaves</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+	<br/>
+	<div>
+		<div class="card">
+			<div class="card-header">
+				<a class="card-link" (click)="toggle()"> <span> <i
+						[ngClass]="{true:'fa fa-chevron-up', false:'fa fa-chevron-down'}[opened]"
+						aria-hidden="true"></i> <span
+						jhiTranslate="shineWebAppFrontendApp.common.searchCriterias">Search
+							criterias</span>
+				</span>
+				</a>
+			</div>
+			<div [ngClass]="{hideSearch: !opened}">
+				<div class="card-body">
+					<div class="form-row">
+						<div class="form-group col-md-4">
+							<label class="form-control-label"
+								jhiTranslate="shineWebAppFrontendApp.myLeaves.task"
+								for="field_task">Task</label> <select class="form-control"
+								id="field_task" name="task" [(ngModel)]="taskId">
+								<option [ngValue]="null" selected></option>
+								<ng-container *ngIf="language === 'en'">
+								<option [ngValue]="taskOption.id"
+									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
+								</ng-container>
+								<ng-container *ngIf="language === 'fr'">
+								<option [ngValue]="taskOption.id"
+									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelFr}}</option>
+								</ng-container>
+							</select>
+						</div>
+						<div class="form-group col-md-4">
+							<label class="form-control-label"
+								jhiTranslate="shineWebAppFrontendApp.myLeaves.month"
+								for="field_task">Month</label> <select class="form-control"
+								id="field_month" name="month" [(ngModel)]="currentMonth">
+								<option [ngValue]="null" selected></option>
+								<option [ngValue]="monthOption.id"
+									*ngFor="let monthOption of months trackBy: id">{{monthOption.name}}</option>
+							</select>
+						</div>
+						<div class="form-group col-md-4">
+							<label class="form-control-label"
+								jhiTranslate="shineWebAppFrontendApp.myLeaves.year"
+								for="field_task">Year</label> <select class="form-control"
+								id="field_year" name="year" ng-init="currentYear"
+								[(ngModel)]="currentYear">
+								<option [ngValue]="yearOption.id"
+									*ngFor="let yearOption of years; trackBy: id">{{yearOption.name}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-row">
+						<button type="submit" (click)="submitFilter()"
+							class="btn btn-primary btn-sm">
+							<span class="fa fa-search"></span> <span
+								class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="table-responsive" *ngIf="leaves">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+<!--             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th> -->
+           	<th jhiSortBy="fullDay"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.fullDay">Full Day</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesFrom"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesFrom">Leaves From</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="leavesTo"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesTo">Leaves To</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nbOfHours"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.nbOfHours">Nb Of Hours</span> <span class="fa fa-sort"></span></th>
+<!--             <th jhiSortBy="year"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.year">Year</span> <span class="fa fa-sort"></span></th> -->
+<!--             <th jhiSortBy="weekNumber"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.weekNumber">Week Number</span> <span class="fa fa-sort"></span></th> -->
+            <th jhiSortBy="comment"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.comment">Comment</span> <span class="fa fa-sort"></span></th>
+<!--             <th jhiSortBy="day"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.day">Day</span> <span class="fa fa-sort"></span></th> -->
+<!--             <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.user">User</span> <span class="fa fa-sort"></span></th> -->
+            <th jhiSortBy="taskCode"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.task">Task</span> <span class="fa fa-sort"></span></th>
+<!--             <th jhiSortBy="leavesSubmissionSubmitted"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesSubmission">Leaves Submission</span> <span class="fa fa-sort"></span></th> -->
+<!--             <th jhiSortBy="leavesValidationValidated"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesValidation">Leaves Validation</span> <span class="fa fa-sort"></span></th> -->
+<!--             <th jhiSortBy="leavesRejectionRejected"><span jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesRejection">Leaves Rejection</span> <span class="fa fa-sort"></span></th> -->
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let leaves of leaves ;trackBy: trackId">
+<!--                 <td><a [routerLink]="['../leaves', leaves.id ]">{{leaves.id}}</a></td> -->
+                <td>	         
+                	<span [ngClass]="{true:'text-success', false:'text-danger'}[leaves.fullDay]">
+               	 		<i [ngClass]="{true:'fa fa-check icon-green', false:'fa fa-times icon-red'}[leaves.fullDay]" aria-hidden="true"></i>
+              		</span>
+              	</td>
+                <td>{{leaves.leavesFrom | date:'mediumDate'}}</td>
+                <td>{{leaves.leavesTo | date:'mediumDate'}}</td>
+                <td>{{leaves.nbOfHours}}</td>
+<!--                 <td>{{leaves.year}}</td> -->
+<!--                 <td>{{leaves.weekNumber}}</td> -->
+                <td>{{leaves.comment}}</td>
+<!--                 <td>{{leaves.day}}</td> -->
+<!--                 <td> -->
+<!--                     {{leaves.userLogin}} -->
+<!--                 </td> -->
+                <td>{{leaves.taskCode}}</td>
+<!--                 <td> -->
+<!--                     <div *ngIf="leaves.leavesSubmissionId"> -->
+<!--                         <a [routerLink]="['../leaves-submission', leaves.leavesSubmissionId  ]" >{{leaves.leavesSubmissionSubmitted}}</a> -->
+<!--                     </div> -->
+<!--                 </td> -->
+<!--                 <td> -->
+<!--                     <div *ngIf="leaves.leavesValidationId"> -->
+<!--                         <a [routerLink]="['../leaves-validation', leaves.leavesValidationId  ]" >{{leaves.leavesValidationValidated}}</a> -->
+<!--                     </div> -->
+<!--                 </td> -->
+<!--                 <td> -->
+<!--                     <div *ngIf="leaves.leavesRejectionId"> -->
+<!--                         <a [routerLink]="['../leaves-rejection', leaves.leavesRejectionId  ]" >{{leaves.leavesRejectionRejected}}</a> -->
+<!--                     </div> -->
+<!--                 </td> -->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+<!--                         <button type="submit" -->
+<!--                                 [routerLink]="['../leaves-module', leaves.id ]" -->
+<!--                                 class="btn btn-info btn-sm"> -->
+<!--                             <span class="fa fa-eye"></span> -->
+<!--                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span> -->
+<!--                         </button> -->
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leaves.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leaves.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="leaves && leaves.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -31,11 +31,14 @@
                 "mission": "Mission",
                 "activityConfig": "Activity Config",
                 "invoiceConfig": "Invoice Config",
+                "publicHoliday": "Public Holiday",
+                "team": "Team",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "modules": {
                 "title": "Modules",
-                "leaves": "Leaves" 
+                "leaves": "Leaves",
+                "myLeaves": "My Leaves" 
              },
             "account": {
                 "main": "Compte",

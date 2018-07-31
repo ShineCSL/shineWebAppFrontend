@@ -29,11 +29,18 @@ export class LeavesPopupService {
                 this.leavesService.find(id)
                     .subscribe((leavesResponse: HttpResponse<Leaves>) => {
                         const leaves: Leaves = leavesResponse.body;
-                        if (leaves.leaveDate) {
-                            leaves.leaveDate = {
-                                year: leaves.leaveDate.getFullYear(),
-                                month: leaves.leaveDate.getMonth() + 1,
-                                day: leaves.leaveDate.getDate()
+                        if (leaves.leavesFrom) {
+                            leaves.leavesFrom = {
+                                year: leaves.leavesFrom.getFullYear(),
+                                month: leaves.leavesFrom.getMonth() + 1,
+                                day: leaves.leavesFrom.getDate()
+                            };
+                        }
+                        if (leaves.leavesTo) {
+                            leaves.leavesTo = {
+                                year: leaves.leavesTo.getFullYear(),
+                                month: leaves.leavesTo.getMonth() + 1,
+                                day: leaves.leavesTo.getDate()
                             };
                         }
                         this.ngbModalRef = this.leavesModalRef(component, leaves);

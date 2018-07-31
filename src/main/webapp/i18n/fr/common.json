@@ -1,0 +1,12 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "common" : {
+            "searchCriterias": "Critères de recherche",
+            "validators" : {
+            	"integer": "Ce champs doit être un entier.",
+            	"endDate": "Date de fin doit être égale ou supérieur � date de début."          	
+        	}
+        }
+    }
+}

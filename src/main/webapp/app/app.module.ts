@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2Webstorage, LocalStorageService, SessionStorageService  } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 import { ParticlesModule } from 'angular-particle';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
@@ -49,7 +51,9 @@ import {
         ShineWebAppFrontendContactUsModule,
         ShineWebAppFrontendAboutModule,
         ShineWebAppFrontendShineServicesModule,
-        ShineWebAppFrontendCustomModule
+        ShineWebAppFrontendCustomModule,
+        MDBBootstrapModule.forRoot(),
+        ChartsModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

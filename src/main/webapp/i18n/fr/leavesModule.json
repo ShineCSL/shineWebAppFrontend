@@ -1,0 +1,38 @@
+
+{
+    "shineWebAppFrontendApp": {
+        "myLeaves" : {
+            "home": {
+                "title": "Congés",
+                "createLabel": "Créer un nouveau congé",
+                "createOrEditLabel": "Créer ou modifier un congé"
+            },
+            "created": "Un nouveau congé a été créé",
+            "updated": "Un nouveau congé a été modifié",
+            "deleted": "Un nouveau congé a été supprimé",
+            "delete": {
+                "question": "Etes-vous s r de supprimer le congé"
+            },
+            "detail": {
+                "title": "Congés"
+            },
+            "fullDay": "Jour complet",
+            "leavesFrom": "Congé de",
+            "leavesTo": "Congé �",
+            "nbOfHours": "Nombre d''heures'",
+            "year": "Année",
+            "weekNumber": "Numéro de semaine",
+            "comment": "Commentaire",
+            "day": "Jour",
+            "month": "Mois",
+            "user": "Utilisateur",
+            "task": "Tâche",
+            "leavesSubmission": "Leaves Submission",
+            "leavesValidation": "Leaves Validation",
+            "leavesRejection": "Leaves Rejection"
+        },
+        "leavesValidation" : {
+        	
+        }
+    }
+}

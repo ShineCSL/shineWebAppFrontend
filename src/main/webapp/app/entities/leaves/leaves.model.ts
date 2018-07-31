@@ -3,7 +3,9 @@ import { BaseEntity } from './../../shared';
 export class Leaves implements BaseEntity {
     constructor(
         public id?: number,
-        public leaveDate?: any,
+        public fullDay?: boolean,
+        public leavesFrom?: any,
+        public leavesTo?: any,
         public nbOfHours?: number,
         public year?: number,
         public weekNumber?: number,
@@ -21,5 +23,6 @@ export class Leaves implements BaseEntity {
         public leavesRejectionRejected?: string,
         public leavesRejectionId?: number,
     ) {
+        this.fullDay = false;
     }
 }

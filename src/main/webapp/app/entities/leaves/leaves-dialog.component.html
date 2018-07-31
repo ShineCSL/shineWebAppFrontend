@@ -13,17 +13,38 @@
                    [(ngModel)]="leaves.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leaveDate" for="field_leaveDate">Leave Date</label>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.fullDay" for="field_fullDay">Full Day</label>
+            <input type="checkbox" class="form-control" name="fullDay" id="field_fullDay"
+                [(ngModel)]="leaves.fullDay" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesFrom" for="field_leavesFrom">Leaves From</label>
             <div class="input-group">
-                <input id="field_leaveDate" type="text" class="form-control" name="leaveDate" ngbDatepicker  #leaveDateDp="ngbDatepicker" [(ngModel)]="leaves.leaveDate"
+                <input id="field_leavesFrom" type="text" class="form-control" name="leavesFrom" ngbDatepicker  #leavesFromDp="ngbDatepicker" [(ngModel)]="leaves.leavesFrom"
                 required/>
                 <span class="input-group-append">
-                    <button type="button" class="btn btn-secondary" (click)="leaveDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                    <button type="button" class="btn btn-secondary" (click)="leavesFromDp.toggle()"><i class="fa fa-calendar"></i></button>
                 </span>
             </div>
-            <div [hidden]="!(editForm.controls.leaveDate?.dirty && editForm.controls.leaveDate?.invalid)">
+            <div [hidden]="!(editForm.controls.leavesFrom?.dirty && editForm.controls.leavesFrom?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.leaveDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.leavesFrom?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.leavesTo" for="field_leavesTo">Leaves To</label>
+            <div class="input-group">
+                <input id="field_leavesTo" type="text" class="form-control" name="leavesTo" ngbDatepicker  #leavesToDp="ngbDatepicker" [(ngModel)]="leaves.leavesTo"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="leavesToDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.leavesTo?.dirty && editForm.controls.leavesTo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.leavesTo?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>

@@ -1,0 +1,40 @@
+
+<div *ngIf="team">
+    <h2><span jhiTranslate="shineWebAppFrontendApp.team.detail.title">Team</span> {{team.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shineWebAppFrontendApp.team.code">Code</span></dt>
+        <dd>
+            <span>{{team.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.team.label">Label</span></dt>
+        <dd>
+            <span>{{team.label}}</span>
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.team.supervisor">Supervisor</span></dt>
+        <dd>
+            {{team.supervisorLogin}}
+        </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.team.resources">Resources</span></dt>
+        <dd>
+            <span *ngFor="let resources of team.resources; let last = last">
+                {{resources.login}}{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'team/'+ team.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

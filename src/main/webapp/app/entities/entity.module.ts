@@ -21,6 +21,8 @@ import { ShineWebAppFrontendTypeInvoiceModule } from './type-invoice/type-invoic
 import { ShineWebAppFrontendMissionModule } from './mission/mission.module';
 import { ShineWebAppFrontendActivityConfigModule } from './activity-config/activity-config.module';
 import { ShineWebAppFrontendInvoiceConfigModule } from './invoice-config/invoice-config.module';
+import { ShineWebAppFrontendPublicHolidayModule } from './public-holiday/public-holiday.module';
+import { ShineWebAppFrontendTeamModule } from './team/team.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -46,6 +48,8 @@ import { ShineWebAppFrontendInvoiceConfigModule } from './invoice-config/invoice
         ShineWebAppFrontendMissionModule,
         ShineWebAppFrontendActivityConfigModule,
         ShineWebAppFrontendInvoiceConfigModule,
+        ShineWebAppFrontendPublicHolidayModule,
+        ShineWebAppFrontendTeamModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

@@ -14,6 +14,7 @@ import {
     JhiLoginModalComponent,
     Principal,
     HasAnyAuthorityDirective,
+    DateUserUtils,
 } from './';
 
 @NgModule({
@@ -34,7 +35,8 @@ import {
         CSRFService,
         AuthServerProvider,
         UserService,
-        DatePipe
+        DatePipe,
+        DateUserUtils
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
