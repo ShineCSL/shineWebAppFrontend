@@ -225,14 +225,38 @@ ui bootstrap tweaks
    display: inline-block;
    width: 2rem;
 }
+
 .custom-day:hover, .custom-day.focused {
    background-color: #e6e6e6;
 }
-.weekend, .weekend:hover, .holiday, .holiday.weekend, .holiday:hover {
+
+.weekend, .weekend:hover, .holiday.weekend {
    color: white;
    background-color: #f0ad4e;
    border-radius: 1rem;
 }
+
+.holiday, .holiday:hover {
+   color: white;
+   background-color: #9370DB;
+   border-radius: 1rem;
+}
+
+.leave-taken, .leave-taken:hover {
+   color: white;
+   background-color: #aaaaaa;
+   border-radius: 1rem;
+}
+
 .hidden {
    display: none;
+}
+
+.side-border {
+  border-left: 1px solid #dddddd;
+}
+
+.move-left {
+    width: auto;
+    box-shadow: none;
 }

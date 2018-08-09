@@ -38,7 +38,8 @@
             "modules": {
                 "title": "Modules",
                 "leaves": "Leaves",
-                "myLeaves": "My Leaves"
+                "myLeaves": "My Leaves",
+                "leavesTeam": "Team view"
              },
             "account": {
                 "main": "Account",

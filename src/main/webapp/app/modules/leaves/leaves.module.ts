@@ -16,12 +16,20 @@ import {
     MyLeavesComponent,
     MyLeavesDetailComponent,
     MyLeavesDialogComponent,
+    LeavesTeamComponent,
     LeavesPopupComponent,
     LeavesDeletePopupComponent,
     MyLeavesDeleteDialogComponent,
+    LeavesSubmitPopupComponent,
+    MyLeavesSubmitDialogComponent,
+    LeavesValidatePopupComponent,
+    MyLeavesValidateDialogComponent,
+    LeavesRejectPopupComponent,
+    MyLeavesRejectDialogComponent,
     leavesModuleRoute,
     leavesModulePopupRoute,
     LeavesResolvePagingParams,
+    LeavesDetailsUtils
 } from './';
 
 const ENTITY_STATES = [
@@ -42,21 +50,36 @@ const ENTITY_STATES = [
         MyLeavesDetailComponent,
         MyLeavesDialogComponent,
         MyLeavesDeleteDialogComponent,
+        MyLeavesSubmitDialogComponent,
+        MyLeavesValidateDialogComponent,
+        MyLeavesRejectDialogComponent,
+        LeavesTeamComponent,
         LeavesPopupComponent,
         LeavesDeletePopupComponent,
+        LeavesValidatePopupComponent,
+        LeavesRejectPopupComponent,
+        LeavesSubmitPopupComponent,
         CustomIntegerDirective
     ],
     entryComponents: [
         MyLeavesComponent,
         MyLeavesDialogComponent,
+        LeavesTeamComponent,
         LeavesPopupComponent,
         MyLeavesDeleteDialogComponent,
+        MyLeavesSubmitDialogComponent,
+        MyLeavesValidateDialogComponent,
+        MyLeavesRejectDialogComponent,
         LeavesDeletePopupComponent,
+        LeavesSubmitPopupComponent,
+        LeavesValidatePopupComponent,
+        LeavesRejectPopupComponent,
     ],
     providers: [
         LeavesService,
         LeavesPopupService,
         LeavesResolvePagingParams,
+        LeavesDetailsUtils
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

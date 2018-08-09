@@ -26,6 +26,7 @@ import * as _moment from 'moment';
 })
 export class MyLeavesDialogComponent implements OnInit {
 
+    leaveTakenError: boolean;
     leaves: Leaves;
     user: User;
     account: Account;
@@ -43,6 +44,8 @@ export class MyLeavesDialogComponent implements OnInit {
     orderTask: string;
     language: string;
     reverse: string;
+    
+    leavesTaken: Leaves[];
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -64,6 +67,7 @@ export class MyLeavesDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+        this.leaveTakenError = false;
         this.leaves.fullDay = true;
         this.principal.identity().then((account) => {
             this.account = account;
@@ -74,21 +78,29 @@ export class MyLeavesDialogComponent implements OnInit {
         this.language = this.translateService.currentLang;
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.leavesService.query().subscribe((res: HttpResponse<Leaves[]>) => this.leavesTaken = res.body);
     }
 
     clear() {
+        this.leaveTakenError = false;
         this.activeModal.dismiss('cancel');
     }
 
     save() {
         this.isSaving = true;
-        this.dateUser.setDateUser(this.leaves, this.leaves.leavesFrom);
-        if (this.leaves.id !== undefined) {
-            this.subscribeToSaveResponse(
-                this.leavesService.update(this.leaves));
-        } else {
-            this.subscribeToSaveResponse(
-                this.leavesService.create(this.leaves));
+        if(this.existLeaveTakenInRange(this.leaves.leavesFrom, this.leaves.leavesTo)){
+            this.leaveTakenError = true;
+            this.onSaveError();
+        }else{
+            this.leaveTakenError = false;
+            this.dateUser.setDateUser(this.leaves, this.leaves.leavesFrom);
+            if (this.leaves.id !== undefined) {
+                this.subscribeToSaveResponse(
+                    this.leavesService.update(this.leaves));
+            } else {
+                this.subscribeToSaveResponse(
+                    this.leavesService.create(this.leaves));
+            }
         }
     }
 
@@ -146,17 +158,54 @@ export class MyLeavesDialogComponent implements OnInit {
     isWeekend(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
         return this.dateUser.isWeekend(d);
-    }    
+    }
 
     isHoliday(date: NgbDateStruct) {
       const d = new Date(date.year, date.month - 1, date.day);
       return this.dateUser.isHoliday(d);
     }
     
-    markCalendarDisabled(date: NgbDateStruct){
-        return this.dateUser.markCalendarDisabled(date);
+    isCalendarLeaveTaken(date: NgbDateStruct) {
+        const d = new Date(date.year, date.month - 1, date.day);
+        return this.isLeaveTaken(d);
+    }
+
+    isLeaveTaken(date: Date) {
+        let leaveTaken = false;
+        this.leavesTaken.forEach(item => {
+            if (item.leavesFrom <= date && item.leavesTo >= date) {
+                leaveTaken = true;
+            }
+        });        
+        return leaveTaken;
+    }
+
+    existLeaveTakenInRange(from, to) {
+        let existLeaveTaken = false;
+        console.log(from);
+        console.log(to);
+        const dateFrom = new Date(from.year, from.month - 1, from.day);
+        const dateTo = new Date(to.year, to.month - 1, to.day);
+        console.log(dateFrom.toLocaleDateString());
+        console.log(dateFrom.getDay());
+
+        console.log(dateTo.toLocaleDateString());
+        this.leavesTaken.forEach(item => {
+            if(this.dateUser.isDateRangesOverlap(dateFrom, dateTo, item.leavesFrom, item.leavesTo)) {
+                existLeaveTaken = true;
+            }
+        });        
+        return existLeaveTaken;
     }
     
+    markCalendarDisabled(date: NgbDateStruct) {
+        const d = new Date(date.year, date.month - 1, date.day);
+        if (d.getDay() === 0 || d.getDay() === 6 || this.isHoliday(date) || this.isCalendarLeaveTaken(date)) {
+            return date.day;
+        }
+        return null;
+    }
+
     getCalendarTooltip(date: NgbDateStruct) {
         return this.dateUser.getCalendarHolidayTooltip(date);
     }

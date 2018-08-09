@@ -37,8 +37,9 @@
             },
             "modules": {
                 "title": "Modules",
-                "leaves": "Leaves",
-                "myLeaves": "My Leaves" 
+                "leaves": "Congés",
+                "myLeaves": "Mes Congés",
+                "leavesTeam": "Vue d''équipe" 
              },
             "account": {
                 "main": "Compte",

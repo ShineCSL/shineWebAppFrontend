@@ -7,18 +7,21 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
+        <div class="alert alert-danger" *ngIf="leaveTakenError" jhiTranslate="shineWebAppFrontendApp.myLeaves.errors.leaveExist">
+            Leave already exists in date range
+        </div>
 <!--         <div class="form-group" [hidden]="!leaves.id"> -->
 <!--             <label for="id" jhiTranslate="global.field.id">ID</label> -->
 <!--             <input type="text" class="form-control" id="id" name="id" -->
 <!--                    [(ngModel)]="leaves.id" readonly /> -->
 <!--         </div> -->
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.fullDay" for="field_fullDay">Full Day</label>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.fullDay" for="field_fullDay">Full Day</label>
             <input type="checkbox" class="form-control" name="fullDay" id="field_fullDay"
                 [(ngModel)]="leaves.fullDay" (change)="isleavesFullDayChecked($event)"/>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesFrom" for="field_leavesFrom">Leaves From</label>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.leavesFrom" for="field_leavesFrom">Leaves From</label>
             <div class="input-group">
                 <input id="field_leavesFrom" type="text" (ngModelChange)="setLeavesTo($event)" class="form-control" name="leavesFrom" ngbDatepicker  
                 	#leavesFromDp="ngbDatepicker" [(ngModel)]="leaves.leavesFrom" placeholder="yyyy-mm-dd"
@@ -43,13 +46,14 @@
 		        [class.text-muted]="disabled" 
 		        [ngbTooltip]="getCalendarTooltip(date)"
 		        [class.holiday]="!!isHoliday(date)"
-            	[class.weekend]="isWeekend(date)">
+            	[class.weekend]="isWeekend(date)"
+            	[class.leave-taken]="isCalendarLeaveTaken(date)">
 		    {{ date.day }}
 		  </span>
 		</ng-template>
         
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesTo" for="field_leavesTo">Leaves To</label>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.leavesTo" for="field_leavesTo">Leaves To</label>
             <div class="input-group">
                 <input id="field_leavesTo" type="text" (ngModelChange)="setNbOfHours($event)" class="form-control" name="leavesTo" ngbDatepicker  
                 [dayTemplate]="customDay" #leavesToDp="ngbDatepicker" [(ngModel)]="leaves.leavesTo"
@@ -67,7 +71,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leaves.nbOfHours" for="field_nbOfHours">Nb Of Hours</label>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.nbOfHours" for="field_nbOfHours">Nb Of Hours</label>
             <ng-container *ngIf = "leavesFullDayChecked">
 				<input type="number" class="form-control" name="nbOfHours" id="field_nbOfHours"
 	                [(ngModel)]="leaves.nbOfHours" [disabled]="true" jhiCustomInteger required/>   
@@ -106,7 +110,7 @@
 <!--                 [(ngModel)]="leaves.weekNumber" /> -->
 <!--         </div> -->
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.comment" for="field_comment">Comment</label>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.comment" for="field_comment">Comment</label>
             <input type="text" class="form-control" name="comment" id="field_comment"
                 [(ngModel)]="leaves.comment" />
         </div>
@@ -140,7 +144,7 @@
 <!--             </small> -->
 <!--         </div> -->
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.task" for="field_task">Task</label>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.task" for="field_task">Task</label>
             <select class="form-control" id="field_task" name="task" [(ngModel)]="leaves.taskId"  required>
                 <option *ngIf="!editForm.value.task" [ngValue]="null" selected></option>
                 <ng-container *ngIf = "language === 'en'">

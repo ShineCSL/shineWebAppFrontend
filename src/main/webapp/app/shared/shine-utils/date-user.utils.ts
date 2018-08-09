@@ -12,7 +12,10 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { PublicHoliday } from '../../entities/public-holiday/public-holiday.model';
 import { User } from '../user/user.model';
 
-import * as _moment from 'moment';
+import * as moment from 'moment';
+import { extendMoment } from 'moment-range';
+
+const momentRange = extendMoment(moment);
 
 @Injectable()
 export class DateUserUtils {
@@ -45,7 +48,7 @@ export class DateUserUtils {
     }
 
     setDateUser(entity: any, date: any) {
-        const now = _moment(this.dateUtils.convertLocalDateToServer(date));
+        const now = moment(this.dateUtils.convertLocalDateToServer(date));
         const day = now.date();
         const week = now.week();
         const month = now.month() + 1;
@@ -58,35 +61,35 @@ export class DateUserUtils {
     }
 
     getCurrentYear(date: string) {
-        let now = _moment();
+        let now = moment();
         if (date) {
-            now = _moment(this.dateUtils.convertLocalDateToServer(date));
+            now = moment(this.dateUtils.convertLocalDateToServer(date));
         }
         const year = now.year();
         return year;
     }
 
     getCurrentMonth(date: string) {
-        let now = _moment();
+        let now = moment();
         if (date) {
-            now = _moment(this.dateUtils.convertLocalDateToServer(date));
+            now = moment(this.dateUtils.convertLocalDateToServer(date));
         }
         const month = now.month() + 1;
         return month;
     }
 
     getCurrentWeek(date: string) {
-        let now = _moment();
+        let now = moment();
         if (date) {
-            now = _moment(this.dateUtils.convertLocalDateToServer(date));
+            now = moment(this.dateUtils.convertLocalDateToServer(date));
         }
         const week = now.week();
         return week;
     }
 
     getBusinessDaysBetweenDates(from: string, to: string) {
-        const dateFrom = _moment(this.dateUtils.convertLocalDateToServer(from));
-        const dateTo = _moment(this.dateUtils.convertLocalDateToServer(to));
+        const dateFrom = moment(this.dateUtils.convertLocalDateToServer(from));
+        const dateTo = moment(this.dateUtils.convertLocalDateToServer(to));
         let businessDays = 0;
         while (dateFrom.isSameOrBefore(dateTo, 'day')) {
           if (dateFrom.day() !== 0 && dateFrom.day() !== 6 && !this.isHoliday(dateFrom.toDate())) {
@@ -98,15 +101,21 @@ export class DateUserUtils {
     }
 
     isEndDateSameOrAfterStartDate(from: string, to: string) {
-        const dateFrom = _moment(this.dateUtils.convertLocalDateToServer(from));
-        const dateTo = _moment(this.dateUtils.convertLocalDateToServer(to));
+        const dateFrom = moment(this.dateUtils.convertLocalDateToServer(from));
+        const dateTo = moment(this.dateUtils.convertLocalDateToServer(to));
         return dateTo.isSameOrAfter(dateFrom);
     }
 
-    isHoliday(date: Date) {
-        return !!this.publicHolidays.find((item) => {return new Date(item.dateHoliday).getTime() === date.getTime(); });
+    isDateRangesOverlap(range1Start, range1End, range2Start, range2End){
+        const range1 =  momentRange.range(range1Start, range1End);
+        const range2 = momentRange.range(range2Start, range2End);
+        return range1.overlaps(range2, { adjacent: true }); // true
     }
-    
+
+    isHoliday(date: Date) {
+        return !!this.publicHolidays.find((item) => new Date(item.dateHoliday).getTime() === date.getTime());
+    }
+
     getHoliday(date: Date) {
         const holiday = this.publicHolidays.find((item) => new Date(item.dateHoliday).getTime() === date.getTime());
         return holiday ? holiday.label : '';
@@ -115,7 +124,7 @@ export class DateUserUtils {
     isWeekend(date: Date) {
         return (date.getDay() === 0 || date.getDay() === 6);
     }
-    
+
     markCalendarDisabled(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
         if (d.getDay() === 0 || d.getDay() === 6 || this.isHoliday(d)) {
@@ -132,8 +141,8 @@ export class DateUserUtils {
         } else {
           return '';
         }
-    }   
-  
+    }
+
     loadMonths() {
         const months = [
                          { 'id': 1, 'name': 'January'},

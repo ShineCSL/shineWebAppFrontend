@@ -34,6 +34,11 @@ export class LeavesService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    getSumHoursByUserYearAndTask(userLogin: string, year: number, taskCode: string): Observable<HttpResponse<number>> {
+        return this.http.get<any>(`${this.resourceUrl}/sumhours/${userLogin}/${year}/${taskCode}`, { observe: 'response'})
+            .map((res: HttpResponse<any>) => res.body);
+    }
+
     query(req?: any): Observable<HttpResponse<Leaves[]>> {
         const options = createRequestOption(req);
         return this.http.get<Leaves[]>(this.resourceUrl, { params: options, observe: 'response' })

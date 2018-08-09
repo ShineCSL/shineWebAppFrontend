@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
-import { Leaves, LeavesService } from '../../entities/leaves/leaves';
-import { ITEMS_PER_PAGE, Principal, User, UserService, Account, DateUserUtils } from '../../shared';
+import { Leaves, LeavesService } from '../../entities/leaves';
+import { ITEMS_PER_PAGE, Principal, DateUserUtils } from '../../shared';
 import { Task, TaskService } from '../../entities/task';
-import { LeaveConfig, LeaveConfigService } from '../../entities/leave-config';
+import { LeavesDetail } from './leaves-detail.model';
+import { LeavesDetailsUtils } from './leaves-details.utils';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -50,17 +51,12 @@ currentAccount: any;
     orderTask: string;
     language: string;
 
-    leaveConfigs: LeaveConfig[];
-    account: Account;
-    user: User;
-
-
+    leavesDetail: LeavesDetail;
 
     constructor(
         private leavesService: LeavesService,
         private parseLinks: JhiParseLinks,
         private jhiAlertService: JhiAlertService,
-        private principal: Principal,
         private activatedRoute: ActivatedRoute,
         private router: Router,
         private eventManager: JhiEventManager,
@@ -68,8 +64,8 @@ currentAccount: any;
         private location: Location,
         private dateUser: DateUserUtils,
         private translateService: TranslateService,
-        private leaveConfigService: LeaveConfigService,
-        private userService: UserService
+        private principal: Principal,
+        private leavesDetailsUtils: LeavesDetailsUtils
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
@@ -82,34 +78,29 @@ currentAccount: any;
         this.orderTask = '';
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        
-        this.principal.identity().then((account) => {
-            this.account = account;
-            this.userService.find(this.account.login).subscribe((response) => {
-                this.user = response.body;
-                this.leaveConfigService.query({'user.login.equals': this.user})
-                    .subscribe((res: HttpResponse<LeaveConfig[]>) => { this.leaveConfigs = res.body; }, 
-                            (res: HttpErrorResponse) => this.onError(res.message));
-            });
-        });
     }
 
     loadAll() {
-        const query = this.getQueryFromSearchCriterias();
         // alert(JSON.stringify(query));
+        this.leavesDetailsUtils.getLeaveDetails(null).then((res) => {
+            this.leavesDetail = res;
+        });
+        const query = this.getQueryFromSearchCriterias();
         this.leavesService.query(query).subscribe(
                 (res: HttpResponse<Leaves[]>) => this.onSuccess(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
+
     loadPage(page: number) {
         if (page !== this.previousPage) {
             this.previousPage = page;
             this.transition();
         }
     }
+
     transition() {
-        this.router.navigate(['/leaves-module'], {queryParams:
+        this.router.navigate(['/my-leaves'], {queryParams:
             {
                 page: this.page,
                 size: this.itemsPerPage,
@@ -121,13 +112,17 @@ currentAccount: any;
 
     clear() {
         this.page = 0;
-        this.router.navigate(['/leaves-module', {
+        this.router.navigate(['/my-leaves', {
             page: this.page,
             sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
         }]);
         this.loadAll();
     }
+
     ngOnInit() {
+       // this.leavesDetailsUtils.getLeavesDetails()
+        //    .subscribe(data => { this.leavesDetail = data});
+       // alert(JSON.stringify(this.leavesDetail));
         this.currentMonth = this.dateUser.getCurrentMonth(null);
         this.currentYear = this.dateUser.getCurrentYear(null);
         this.months = this.dateUser.loadMonths();
@@ -147,6 +142,7 @@ currentAccount: any;
     trackId(index: number, item: Leaves) {
         return item.id;
     }
+
     registerChangeInLeaves() {
         this.eventSubscriber = this.eventManager.subscribe('leavesListModification', (response) => this.loadAll());
     }
@@ -166,17 +162,16 @@ currentAccount: any;
         // this.page = pagingParams.page;
         this.leaves = data;
     }
+
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
 
     submitFilter() {
-        alert(this.currentYear);
-        alert(this.currentMonth);
         this.loadAll();
     }
 
-    toggle() {
+    toggleSearchCriterias() {
         this.opened = !this.opened;
     }
 

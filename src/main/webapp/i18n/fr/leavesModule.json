@@ -3,7 +3,7 @@
     "shineWebAppFrontendApp": {
         "myLeaves" : {
             "home": {
-                "title": "Congés",
+                "title": "Mes Congés",
                 "createLabel": "Créer un nouveau congé",
                 "createOrEditLabel": "Créer ou modifier un congé"
             },
@@ -11,28 +11,62 @@
             "updated": "Un nouveau congé a été modifié",
             "deleted": "Un nouveau congé a été supprimé",
             "delete": {
-                "question": "Etes-vous s r de supprimer le congé"
+                "question": "Etes-vous sur de supprimer le congé"
             },
             "detail": {
                 "title": "Congés"
             },
+            "submit": {
+                "title": "Envoie de congé pour validation",          
+                "question": "Etes vous sur de vouloir soumettre ce congé?"
+            },
+            "validate": {
+                "title": "Validation de congé",          
+                "question": "Etes vous sur de vouloir valider ce congé?"
+            },
+            "reject": {
+                "title": "Rejet de congé",          
+                "question": "Etes vous sur de vouloir rejeter ce congé?"
+            },
+            "errors":{
+            	"leaveExist": "Congé existe dans la plage de date saisie"
+            }
+        },
+        "leavesTeam" : {
+        	"home": {
+                "title": "Vue d'équipe",
+                "createLabel": "Créer un nouveau congé",
+                "createOrEditLabel": "Créer ou modifier un congé"
+            },
+            "totalAnnualLeaves": "Total congé annuel",
+            "totalSickLeaves": "Total congé maladie",
+            "totalSpecialLeaves": "Total congé special",
+            "remainingAnnualLeaves": "Congé annuel restant",
+            "remainingSickLeaves": "Congé maladie restant",
+            "remainingSpecialLeaves": "Congé special restant",
+            "listLeaves": {
+                "title": "Congés soumis",
+                "userSelected": "Utilisateur selectioné"
+            }    
+        },
+        "leavesCommon" : {
             "fullDay": "Jour complet",
             "leavesFrom": "Congé de",
-            "leavesTo": "Congé �",
-            "nbOfHours": "Nombre d''heures'",
+            "leavesTo": "Congé jusqu'a",
+            "nbOfHours": "Nombre d'heures",
             "year": "Année",
             "weekNumber": "Numéro de semaine",
             "comment": "Commentaire",
             "day": "Jour",
             "month": "Mois",
             "user": "Utilisateur",
-            "task": "Tâche",
-            "leavesSubmission": "Leaves Submission",
-            "leavesValidation": "Leaves Validation",
-            "leavesRejection": "Leaves Rejection"
-        },
-        "leavesValidation" : {
-        	
+            "task": "Type de congé",
+            "submitted": "Soumis",
+            "validated": "Validé",
+            "rejected": "Rejeté",
+            "submit": "Soumettre",
+            "validate": "Valider",
+            "reject": "Rejeter"        
         }
     }
 }
