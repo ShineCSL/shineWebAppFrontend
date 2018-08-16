@@ -1,0 +1,51 @@
+
+
+
+
+/* ==============================================================
+Shine Colors
+===============================================================*/
+// Declare the color as RGB; SASS will treat this as hex
+$green: #BFA658;
+$gray: rgb(192, 192, 200);
+$red: rgb(255, 0, 0);
+$blue: #4795D6;
+$yellow: #FFDA5C;
+
+// Declare an alpha
+$alpha: .6;
+
+body {
+    background-color: #fff;
+}
+
+.jumbotron {
+	padding: 1rem 1rem;
+}
+
+.main {
+	padding-top: 71px;
+}
+/* fix padding under menu after resize */
+/* @media screen and (min-width:1390px) and (max-width: 1526px) { */
+/* 	.main { */
+/* 		padding-top: 95px; */
+/* 	} */
+/* } */
+
+/* @media screen and (min-width:1182px) and (max-width: 1390px) { */
+/* 	.main { */
+/* 		padding-top: 117px; */
+/* 	} */
+/* } */
+
+/* @media screen and (max-width: 1200px) { */
+/* 	.main { */
+/* 		padding-top: 61px; */
+/* 	} */
+/* } */
+@media screen and (max-width: 1200px) {
+	.main {
+		padding-top: 61px;
+	}
+}

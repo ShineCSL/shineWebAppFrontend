@@ -1,3 +1,4 @@
+@import '../../content/scss/shine';
 
 /* ==========================================================================
 Main page styles
@@ -24,3 +25,11 @@ only screen and (                min-resolution: 2dppx) {
         background-size: contain;
     }
 }
+
+a {color: #000;}
+
+a:link{text-decoration:none;}
+
+.box1{background: rgba($green, $alpha);}
+.box2{background: rgba($yellow, $alpha);}
+.box3{background: rgba($blue, $alpha);}

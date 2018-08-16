@@ -41,13 +41,13 @@ Navbar
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
     .jh-navbar-toggler {
         display: none;
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
     .jh-logo-container {
         width: 100%;
     }
@@ -76,14 +76,34 @@ Logo styles
 }
 
 .dropdown-menu .sub-menu {
-        left: 100%;
-        position: absolute;
-        top: 0;
-        visibility: hidden;
-        margin-top: -1px;
-    }
-    
-    .dropdown-menu li:hover > .sub-menu {
-        visibility: visible;
-        display: block;
-    }
+	left: 80%;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	margin-top: -1px;
+}
+
+.dropdown-menu li:hover>.sub-menu {
+	visibility: visible;
+	display: block;
+}
+
+
+.top-bar .nav-link {
+	@media screen and (max-width: 1200px) {
+		background-color: #FFB89A;
+	}
+	color: #2F4F4F;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 12px 18px!important;
+}
+
+.top-bar .navbar-nav .nav-item {
+	margin: 0
+}
+.top-bar .nav-link:hover, .top-bar .nav-item.active a {
+	color: #2F4F4F;
+	border-bottom: 3px solid #000;
+	border-radius: 0;
+}
