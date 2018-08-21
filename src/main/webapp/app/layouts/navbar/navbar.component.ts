@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
+import { NavigationEnd } from '@angular/router';
 
 import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';
@@ -15,14 +16,18 @@ import { VERSION } from '../../app.constants';
         'navbar.scss'
     ]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterViewInit {
     inProduction: boolean;
     isNavbarCollapsed: boolean;
     languages: any[];
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+    private activeSiteSection: string;
+  
+    @ViewChild('navHome', {read: ElementRef}) public navHome: ElementRef;
 
+      
     constructor(
         private loginService: LoginService,
         private languageService: JhiLanguageService,
@@ -45,6 +50,16 @@ export class NavbarComponent implements OnInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
+     
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                this.SiteURLActiveCheck(event);
+            }
+        });
+    }
+  
+    ngAfterViewInit() {
+
     }
 
     changeLanguage(languageKey: string) {
@@ -75,5 +90,21 @@ export class NavbarComponent implements OnInit {
 
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
+    }
+
+    private SiteURLActiveCheck(event: NavigationEnd): void {
+        if (event.url.indexOf('#home') !== -1) {
+            this.activeSiteSection = 'home';
+        } else if (event.url.indexOf('#services') !== -1) {
+            this.activeSiteSection = 'services';
+        } else if (event.url.indexOf('#contact') !== -1) {
+            this.activeSiteSection = 'contact';
+        } else {
+            this.activeSiteSection = '';
+        }
+    }
+
+    isSectionActive(section: string): boolean {
+        return section === this.activeSiteSection;
     }
 }

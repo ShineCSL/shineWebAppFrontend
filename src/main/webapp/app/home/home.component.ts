@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { Account, LoginModalService, Principal } from '../shared';
+import { NavigationEnd } from '@angular/router';
 
 @Component({
     selector: 'jhi-home',
@@ -10,18 +12,24 @@ import { Account, LoginModalService, Principal } from '../shared';
     styleUrls: [
         'home.scss'
     ]
-
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
     account: Account;
     modalRef: NgbModalRef;
 
-    style: object = {};
-    params: object = {};
-    width = 100;
-    height = 100;
+    imgSrc1 = require('../../content/images/creativity.jpg');
+    imgSrc2 = require('../../content/images/engagement.jpg');
+    imgSrc3 = require('../../content/images/people.jpg');
+    imgSrc4 = require('../../content/images/technology1.jpg');
+  
+    images: Array<string> = [];
+
+    @ViewChild('home', { read: ElementRef }) public home: ElementRef;
+    @ViewChild('services', { read: ElementRef }) public services: ElementRef;
+    @ViewChild('contact', { read: ElementRef }) public contact: ElementRef;
 
     constructor(
+        private router: Router,
         private principal: Principal,
         private loginModalService: LoginModalService,
         private eventManager: JhiEventManager
@@ -33,129 +41,23 @@ export class HomeComponent implements OnInit {
             this.account = account;
         });
         this.registerAuthenticationSuccess();
-        this.style = {
-            'position': 'fixed',
-            'width': '100%',
-            'height': '100%',
-            'z-index': -1,
-            'top': 0,
-            'left': 0,
-            'right': 0,
-            'bottom': 0,
-            'background-color': 'rgb(182, 25, 36)'
-        };
-
-        this.params = {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 700
-                    }
-                },
-                color: {
-                    value: '#eeeeee'
-                },
-                shape: {
-                    type: 'circle',
-                    stroke: {
-                        width: 0,
-                        color: '#eeeeee'
-                    },
-                    polygon: {
-                        nb_sides: 5
-                    },
-                    image: {
-                        src: 'img/github.svg',
-                        width: 100,
-                        height: 100
-                    }
-
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#eeeeee',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'repulse'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true
-        };
+        this.router.events.subscribe((event) => {
+          if (event instanceof NavigationEnd) {
+              const tree = this.router.parseUrl(this.router.url);
+              if (tree.fragment) {
+                console.log(tree.fragment);
+                  const element = document.querySelector("#" + tree.fragment);
+                  if (element) { 
+                    element.scrollIntoView({behavior:"smooth"});
+                  }
+              }
+           }
+        });
+       this.images.push(this.imgSrc1, this.imgSrc2, this.imgSrc3);
+    }
+  
+    ngAfterViewInit() {
+         console.log('navHome: ' + document.getElementById("navHome"));
     }
 
     registerAuthenticationSuccess() {
@@ -172,5 +74,37 @@ export class HomeComponent implements OnInit {
 
     login() {
         this.modalRef = this.loginModalService.open();
+    }
+
+    @HostListener('window:scroll', ['$event'])
+    checkScroll(event) {
+      const homePosition = this.home.nativeElement.offsetTop;
+      const servicesPosition = this.services.nativeElement.offsetTop;
+      const diffHomeServices = servicesPosition - homePosition;
+      const contactPosition = this.contact.nativeElement.offsetTop;  
+      const diffServicesContact = contactPosition - servicesPosition;
+      const scrollPosition = window.pageYOffset;
+      if (scrollPosition <= diffHomeServices/2) {
+          var navHome = document.getElementById("navHome");
+          navHome.className = 'nav-item active';
+          var navServices = document.getElementById("navServices");
+          navServices.className = 'nav-item';
+          var navContact = document.getElementById("navContact");
+          navContact.className = 'nav-item';
+      } else if (scrollPosition >= diffHomeServices/2 && scrollPosition < servicesPosition + diffServicesContact/2) {
+          var navHome = document.getElementById("navHome");
+          navHome.className = 'nav-item';
+          var navServices = document.getElementById("navServices");
+          navServices.className = 'nav-item active';
+          var navContact = document.getElementById("navContact");
+          navContact.className = 'nav-item';
+      } else if (scrollPosition >= servicesPosition +  diffServicesContact/2) {
+          var navHome = document.getElementById("navHome");
+          navHome.className = 'nav-item';
+          var navServices = document.getElementById("navServices");
+          navServices.className = 'nav-item';
+          var navContact = document.getElementById("navContact");
+          navContact.className = 'nav-item active';
+      }
     }
 }

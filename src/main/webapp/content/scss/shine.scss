@@ -22,30 +22,3 @@ body {
 .jumbotron {
 	padding: 1rem 1rem;
 }
-
-.main {
-	padding-top: 71px;
-}
-/* fix padding under menu after resize */
-/* @media screen and (min-width:1390px) and (max-width: 1526px) { */
-/* 	.main { */
-/* 		padding-top: 95px; */
-/* 	} */
-/* } */
-
-/* @media screen and (min-width:1182px) and (max-width: 1390px) { */
-/* 	.main { */
-/* 		padding-top: 117px; */
-/* 	} */
-/* } */
-
-/* @media screen and (max-width: 1200px) { */
-/* 	.main { */
-/* 		padding-top: 61px; */
-/* 	} */
-/* } */
-@media screen and (max-width: 1200px) {
-	.main {
-		padding-top: 61px;
-	}
-}

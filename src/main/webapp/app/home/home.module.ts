@@ -6,11 +6,13 @@ import { ShineWebAppFrontendSharedModule } from '../shared';
 
 import { HOME_ROUTE, HomeComponent } from './';
 
+import { NavbarComponent } from '../layouts/navbar/navbar.component';
+
 @NgModule({
     imports: [
         ShineWebAppFrontendSharedModule,
         RouterModule.forChild([ HOME_ROUTE ]),
-        ParticlesModule,
+        ParticlesModule
     ],
     declarations: [
         HomeComponent,
@@ -18,6 +20,7 @@ import { HOME_ROUTE, HomeComponent } from './';
     entryComponents: [
     ],
     providers: [
+      NavbarComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })

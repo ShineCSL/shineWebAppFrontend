@@ -3,7 +3,7 @@
         <a class="jh-navbar-toggler float-right" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
             <i class="fa fa-bars"></i>
         </a>
-        <a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">
+        <a class="navbar-brand logo float-left" routerLink="/" fragment="home" (click)="collapseNavbar()">
             <span class="logo-img"></span>
             <span jhiTranslate="global.title" class="navbar-title">ShineWebAppFrontend</span> 
 <!--            <span class="navbar-version">{{version}}</span> -->
@@ -11,8 +11,8 @@
     </div>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+            <li class="nav-item" [class.active]="isSectionActive('home')" id ="navHome">
+                <a class="nav-link" routerLink="/" fragment="home" (click)="collapseNavbar()">
                     <span>
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <span jhiTranslate="global.menu.home">Home</span>
@@ -20,8 +20,8 @@
                 </a>
             </li>
 
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/services" (click)="collapseNavbar()">
+            <li class="nav-item" [class.active]="isSectionActive('services')" id ="navServices">
+                <a class="nav-link" routerLink="/" fragment="services" (click)="collapseNavbar()">
                     <span>
                         <i class="fa fa-handshake-o" aria-hidden="true"></i>
                         <span jhiTranslate="global.menu.services">Our Services</span>
@@ -29,8 +29,8 @@
                 </a>
             </li>
 
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/contact" (click)="collapseNavbar()">
+            <li class="nav-item" [class.active]="isSectionActive('contact')" id ="navContact">
+                <a class="nav-link" routerLink="/" fragment="contact" (click)="collapseNavbar()">
                     <span>
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                         <span jhiTranslate="global.menu.contact">Contact us</span>

@@ -91,19 +91,19 @@ Logo styles
 
 .top-bar .nav-link {
 	@media screen and (max-width: 1200px) {
-		background-color: #FFB89A;
+		background-color: #DCDCDC;
 	}
-	color: #2F4F4F;
+	color: #8A2BE2;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 550;
 	padding: 12px 18px!important;
 }
 
 .top-bar .navbar-nav .nav-item {
 	margin: 0
 }
-.top-bar .nav-link:hover, .top-bar .nav-item.active a {
-	color: #2F4F4F;
-	border-bottom: 3px solid #000;
+.top-bar .nav-link:hover, .top-bar .nav-item.active {
+	color: #8A2BE2;
+	border-bottom: 3px solid #8A2BE2;
 	border-radius: 0;
 }
