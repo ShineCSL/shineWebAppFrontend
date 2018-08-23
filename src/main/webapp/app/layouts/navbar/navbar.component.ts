@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
@@ -16,7 +16,7 @@ import { VERSION } from '../../app.constants';
         'navbar.scss'
     ]
 })
-export class NavbarComponent implements OnInit, AfterViewInit {
+export class NavbarComponent implements OnInit {
     inProduction: boolean;
     isNavbarCollapsed: boolean;
     languages: any[];
@@ -24,10 +24,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     modalRef: NgbModalRef;
     version: string;
     private activeSiteSection: string;
-  
+
     @ViewChild('navHome', {read: ElementRef}) public navHome: ElementRef;
 
-      
     constructor(
         private loginService: LoginService,
         private languageService: JhiLanguageService,
@@ -50,16 +49,13 @@ export class NavbarComponent implements OnInit, AfterViewInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
-     
+
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
                 this.SiteURLActiveCheck(event);
             }
         });
-    }
-  
-    ngAfterViewInit() {
-
+        this.activeSiteSection = 'home';
     }
 
     changeLanguage(languageKey: string) {

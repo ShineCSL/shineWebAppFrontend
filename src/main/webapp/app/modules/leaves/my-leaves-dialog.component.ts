@@ -44,7 +44,7 @@ export class MyLeavesDialogComponent implements OnInit {
     orderTask: string;
     language: string;
     reverse: string;
-    
+
     leavesTaken: Leaves[];
 
     constructor(
@@ -88,10 +88,10 @@ export class MyLeavesDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        if(this.existLeaveTakenInRange(this.leaves.leavesFrom, this.leaves.leavesTo)){
+        if (this.existLeaveTakenInRange(this.leaves.leavesFrom, this.leaves.leavesTo)) {
             this.leaveTakenError = true;
             this.onSaveError();
-        }else{
+        } else {
             this.leaveTakenError = false;
             this.dateUser.setDateUser(this.leaves, this.leaves.leavesFrom);
             if (this.leaves.id !== undefined) {
@@ -164,7 +164,7 @@ export class MyLeavesDialogComponent implements OnInit {
       const d = new Date(date.year, date.month - 1, date.day);
       return this.dateUser.isHoliday(d);
     }
-    
+
     isCalendarLeaveTaken(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
         return this.isLeaveTaken(d);
@@ -172,11 +172,11 @@ export class MyLeavesDialogComponent implements OnInit {
 
     isLeaveTaken(date: Date) {
         let leaveTaken = false;
-        this.leavesTaken.forEach(item => {
+        this.leavesTaken.forEach((item) => {
             if (item.leavesFrom <= date && item.leavesTo >= date) {
                 leaveTaken = true;
             }
-        });        
+        });
         return leaveTaken;
     }
 
@@ -190,14 +190,14 @@ export class MyLeavesDialogComponent implements OnInit {
         console.log(dateFrom.getDay());
 
         console.log(dateTo.toLocaleDateString());
-        this.leavesTaken.forEach(item => {
-            if(this.dateUser.isDateRangesOverlap(dateFrom, dateTo, item.leavesFrom, item.leavesTo)) {
+        this.leavesTaken.forEach((item) => {
+            if (this.dateUser.isDateRangesOverlap(dateFrom, dateTo, item.leavesFrom, item.leavesTo)) {
                 existLeaveTaken = true;
             }
-        });        
+        });
         return existLeaveTaken;
     }
-    
+
     markCalendarDisabled(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
         if (d.getDay() === 0 || d.getDay() === 6 || this.isHoliday(date) || this.isCalendarLeaveTaken(date)) {

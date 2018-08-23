@@ -32,8 +32,8 @@ export class MyLeavesDeleteDialogComponent {
     confirmDelete(id: number) {
         const leavesRejectionId = this.leaves.leavesRejectionId;
         this.leavesService.delete(id).subscribe((response) => {
-            if(leavesRejectionId) {
-                this.leavesRejectionService.delete(leavesRejectionId).subscribe((response) => {
+            if (leavesRejectionId) {
+                this.leavesRejectionService.delete(leavesRejectionId).subscribe((res) => {
                     this.eventManager.broadcast({
                         name: 'leavesListModification',
                         content: 'Deleted an leaves'

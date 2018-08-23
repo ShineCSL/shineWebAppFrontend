@@ -33,7 +33,7 @@ export class MyLeavesValidateDialogComponent {
     }
 
     confirmValidate(id: number) {
-        let leavesValidation = new LeavesValidation();
+        const leavesValidation = new LeavesValidation();
         leavesValidation.validated = true;
         leavesValidation.leavesDate = this.leaves.leavesFrom;
         leavesValidation.leavesId = this.leaves.id;
@@ -41,7 +41,7 @@ export class MyLeavesValidateDialogComponent {
         leavesValidation.userId = this.leaves.userId;
         this.leavesValidationService.create(leavesValidation).subscribe((response) => {
             this.leaves.leavesValidationId = response.body.id;
-            this.leavesService.update(this.leaves).subscribe((response) => {
+            this.leavesService.update(this.leaves).subscribe((res) => {
                 this.eventManager.broadcast({
                     name: 'leavesListModification',
                     content: 'Validate'
@@ -50,7 +50,7 @@ export class MyLeavesValidateDialogComponent {
             }, (res: HttpErrorResponse) => this.onError(res.message));
         }, (res: HttpErrorResponse) => this.onError(res.message));
     }
-    
+
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
     }

@@ -12,7 +12,6 @@ import { LeavesSubmitPopupComponent } from './my-leaves-submit-dialog.component'
 import { LeavesValidatePopupComponent } from './my-leaves-validate-dialog.component';
 import { LeavesRejectPopupComponent } from './my-leaves-reject-dialog.component';
 
-
 @Injectable()
 export class LeavesResolvePagingParams implements Resolve<any> {
 

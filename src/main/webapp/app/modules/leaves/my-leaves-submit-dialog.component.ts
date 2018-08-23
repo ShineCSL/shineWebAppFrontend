@@ -35,7 +35,7 @@ export class MyLeavesSubmitDialogComponent {
     }
 
     confirmSubmit(id: number) {
-        let leavesSubmission = new LeavesSubmission();
+        const leavesSubmission = new LeavesSubmission();
         leavesSubmission.submitted = true;
         leavesSubmission.leavesDate = this.leaves.leavesFrom;
         leavesSubmission.leavesId = this.leaves.id;
@@ -43,22 +43,22 @@ export class MyLeavesSubmitDialogComponent {
         leavesSubmission.userId = this.leaves.userId;
         this.submit(leavesSubmission);
     }
-    
-    private submit(leavesSubmission: LeavesSubmission){
+
+    private submit(leavesSubmission: LeavesSubmission) {
         this.leavesSubmissionService.create(leavesSubmission).subscribe((response) => {
             this.leaves.leavesSubmissionId = response.body.id;
             const leavesRejectionId = this.leaves.leavesRejectionId;
             this.leaves.leavesRejectionId = null;
-            this.leavesService.update(this.leaves).subscribe((response) => {
+            this.leavesService.update(this.leaves).subscribe((res1) => {
                 console.log(leavesRejectionId);
-                if(leavesRejectionId) {
-                    this.leavesRejectionService.delete(leavesRejectionId).subscribe((response) => {
+                if (leavesRejectionId) {
+                    this.leavesRejectionService.delete(leavesRejectionId).subscribe((res2) => {
                         this.eventManager.broadcast({
                             name: 'leavesListModification',
                             content: 'Submit'
                         });
                         this.activeModal.dismiss(true);
-                    }, (res: HttpErrorResponse) => this.onError(res.message));
+                    }, (res2: HttpErrorResponse) => this.onError(res2.message));
                 } else {
                     this.eventManager.broadcast({
                         name: 'leavesListModification',
@@ -66,10 +66,10 @@ export class MyLeavesSubmitDialogComponent {
                     });
                     this.activeModal.dismiss(true);
                 }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        }, (res: HttpErrorResponse) => this.onError(res.message));
+            }, (res1: HttpErrorResponse) => this.onError(res1.message));
+        }, (response: HttpErrorResponse) => this.onError(response.message));
     }
-    
+
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
     }

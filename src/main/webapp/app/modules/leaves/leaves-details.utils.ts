@@ -17,7 +17,6 @@ export class LeavesDetailsUtils {
     leaveConfigs: LeaveConfig[];
     leavesDetail: LeavesDetail = new LeavesDetail();
     leavesDetails: LeavesDetail[] = [];
-    
 
     constructor(
             private principal: Principal,
@@ -40,9 +39,9 @@ export class LeavesDetailsUtils {
     getLeaveDetails(userLogin: string): Promise<LeavesDetail> {
         this.leaveConfigs = [];
         this.user = new User();
-        if(userLogin){
+        if (userLogin) {
             return this.userService.find(userLogin).toPromise().then((response) => {
-                const user = response.body;  
+                const user = response.body;
                 return Observable.forkJoin(
                         [this.getLeavesConfig(user.id),
                          this.getSumAnnualLeavesTaken(user.login),
@@ -50,11 +49,11 @@ export class LeavesDetailsUtils {
                          this.getSumSpecialLeavesTaken(user.login)]).map((data) => {
                              this.leaveConfigs = data[0];
                              const leaveConfig: LeaveConfig = this.leaveConfigs[0];
-                             this.setLeavesDetail(leaveConfig, this.getTakenLeavesData(data[1]), 
+                             this.setLeavesDetail(leaveConfig, this.getTakenLeavesData(data[1]),
                                     this.getTakenLeavesData(data[2]), this.getTakenLeavesData(data[3]));
                              }).toPromise().then(() => this.leavesDetail);
-            });    
-        }else{
+            });
+        } else {
             return this.principal.identity().then((account) => {
                 this.account = account;
                 return this.userService.find(this.account.login).toPromise().then((response) => {
@@ -66,7 +65,7 @@ export class LeavesDetailsUtils {
                              this.getSumSpecialLeavesTaken(null)]).map((data) => {
                                  this.leaveConfigs = data[0];
                                  const leaveConfig: LeaveConfig = this.leaveConfigs[0];
-                                 this.setLeavesDetail(leaveConfig, this.getTakenLeavesData(data[1]), 
+                                 this.setLeavesDetail(leaveConfig, this.getTakenLeavesData(data[1]),
                                          this.getTakenLeavesData(data[2]), this.getTakenLeavesData(data[3]));
                                  }).toPromise().then(() => this.leavesDetail);
                 });
@@ -81,9 +80,9 @@ export class LeavesDetailsUtils {
             return 0;
         }
     }
-    
-    private setLeavesDetail(leaveConfig: LeaveConfig, takenAnnualLeaves: number, takenSickLeaves: number, 
-            takenSpecialLeaves: number){
+
+    private setLeavesDetail(leaveConfig: LeaveConfig, takenAnnualLeaves: number, takenSickLeaves: number,
+            takenSpecialLeaves: number) {
         this.leavesDetail = new LeavesDetail();
         this.leavesDetail.userId = leaveConfig.userId;
         this.leavesDetail.userLogin = leaveConfig.userLogin;
@@ -100,28 +99,28 @@ export class LeavesDetailsUtils {
         this.leavesDetail.remainingSpecialLeaves = (this.leavesDetail.totalSpecialLeaves
               - this.leavesDetail.takenSpecialLeaves);
     }
-    
+
     getLeavesDetailsForApprover(approverId: number): Promise<LeavesDetail[]> {
         this.leavesDetails = [];
         return  this.leaveConfigService.query({'approverId.equals': approverId}).toPromise().then(
                 (res) => {
-                    this.leaveConfigs = res.body; 
+                    this.leaveConfigs = res.body;
                     return this.processLeaveDetails(this.leaveConfigs).then(() => this.leavesDetails);
             });
     }
 
     private processLeaveDetails(leaveConfigs: LeaveConfig[]): Promise<LeavesDetail[]> {
-        leaveConfigs.forEach(item => {
+        leaveConfigs.forEach((item) => {
             this.getLeaveDetails(item.userLogin).then((res) => {
                 this.leavesDetails.push(res);
             });
-        }); 
+        });
         return Promise.all(this.leavesDetails);
     }
 
     private getLeavesConfig(userId: number) {
         let user = this.user.id;
-        if(userId){
+        if (userId) {
             user = userId;
         }
         return  this.leaveConfigService.query({'userId.equals': user})
@@ -130,27 +129,27 @@ export class LeavesDetailsUtils {
 
     private getSumAnnualLeavesTaken(userLogin: string) {
         let user = this.account.login;
-        if(userLogin){
+        if (userLogin) {
             user = userLogin;
-        }        
+        }
         return  this.leavesService.getSumHoursByUserYearAndTask(user, this.dateUser.getCurrentYear(null),
             'ANNUAL_LEAVE').map((res: HttpResponse<any>) => res, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     private getSumSickLeavesTaken(userLogin: string) {
         let user = this.account.login;
-        if(userLogin){
+        if (userLogin) {
             user = userLogin;
-        }    
+        }
         return  this.leavesService.getSumHoursByUserYearAndTask(user, this.dateUser.getCurrentYear(null),
              'SICK_LEAVE').map((res: HttpResponse<any>) => res, (res: HttpErrorResponse) => this.onError(res.message));
      }
 
     private getSumSpecialLeavesTaken(userLogin: string) {
         let user = this.account.login;
-        if(userLogin){
+        if (userLogin) {
             user = userLogin;
-        }  
+        }
         return  this.leavesService.getSumHoursByUserYearAndTask(user, this.dateUser.getCurrentYear(null),
              'SPECIAL_LEAVE').map((res: HttpResponse<any>) => res, (res: HttpErrorResponse) => this.onError(res.message));
     }

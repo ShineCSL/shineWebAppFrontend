@@ -1,8 +1,8 @@
 export class LeavesDetail {
     constructor(
-        public userId?: number,    
+        public userId?: number,
         public userLogin?: string,
-                
+
         public totalAnnualLeaves?: number,
         public totalSickLeaves?: number,
         public totalSpecialLeaves?: number,

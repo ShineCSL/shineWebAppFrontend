@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     imgSrc2 = require('../../content/images/engagement.jpg');
     imgSrc3 = require('../../content/images/people.jpg');
     imgSrc4 = require('../../content/images/technology1.jpg');
-  
+
     images: Array<string> = [];
 
     @ViewChild('home', { read: ElementRef }) public home: ElementRef;
@@ -46,18 +46,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
               const tree = this.router.parseUrl(this.router.url);
               if (tree.fragment) {
                 console.log(tree.fragment);
-                  const element = document.querySelector("#" + tree.fragment);
-                  if (element) { 
-                    element.scrollIntoView({behavior:"smooth"});
+                  const element = document.querySelector('#' + tree.fragment);
+                  if (element) {
+                    element.scrollIntoView({behavior: 'smooth'});
                   }
               }
            }
         });
        this.images.push(this.imgSrc1, this.imgSrc2, this.imgSrc3);
     }
-  
+
     ngAfterViewInit() {
-         console.log('navHome: ' + document.getElementById("navHome"));
+         console.log('navHome: ' + document.getElementById('navHome'));
     }
 
     registerAuthenticationSuccess() {
@@ -81,29 +81,23 @@ export class HomeComponent implements OnInit, AfterViewInit {
       const homePosition = this.home.nativeElement.offsetTop;
       const servicesPosition = this.services.nativeElement.offsetTop;
       const diffHomeServices = servicesPosition - homePosition;
-      const contactPosition = this.contact.nativeElement.offsetTop;  
+      const contactPosition = this.contact.nativeElement.offsetTop;
       const diffServicesContact = contactPosition - servicesPosition;
       const scrollPosition = window.pageYOffset;
-      if (scrollPosition <= diffHomeServices/2) {
-          var navHome = document.getElementById("navHome");
+      const navHome = document.getElementById('navHome');
+      const navServices = document.getElementById('navServices');
+      const navContact = document.getElementById('navContact');
+      if (scrollPosition <= (diffHomeServices / 2)) {
           navHome.className = 'nav-item active';
-          var navServices = document.getElementById("navServices");
           navServices.className = 'nav-item';
-          var navContact = document.getElementById("navContact");
           navContact.className = 'nav-item';
-      } else if (scrollPosition >= diffHomeServices/2 && scrollPosition < servicesPosition + diffServicesContact/2) {
-          var navHome = document.getElementById("navHome");
+      } else if (scrollPosition >= (diffHomeServices / 2) && scrollPosition < servicesPosition + (diffServicesContact / 2)) {
           navHome.className = 'nav-item';
-          var navServices = document.getElementById("navServices");
           navServices.className = 'nav-item active';
-          var navContact = document.getElementById("navContact");
           navContact.className = 'nav-item';
-      } else if (scrollPosition >= servicesPosition +  diffServicesContact/2) {
-          var navHome = document.getElementById("navHome");
+      } else if (scrollPosition >= servicesPosition +  (diffServicesContact / 2)) {
           navHome.className = 'nav-item';
-          var navServices = document.getElementById("navServices");
           navServices.className = 'nav-item';
-          var navContact = document.getElementById("navContact");
           navContact.className = 'nav-item active';
       }
     }

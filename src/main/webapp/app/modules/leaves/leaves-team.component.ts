@@ -55,7 +55,7 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     userSelectedId: number;
     userSelectedLogin: string;
     userFilteredLogin: string;
-    leaveValidated: boolean = false;
+    leaveValidated = false;
 
     constructor(
         private leavesService: LeavesService,
@@ -91,7 +91,7 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         });
         this.loadLeaves();
     }
-    
+
     loadLeaves() {
         // alert(JSON.stringify(query));
         const query = this.getQueryFromSearchCriterias();
@@ -220,11 +220,11 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         });
         return query;
     }
-    
+
     trackUserByUserLogin(index: number, item: LeavesDetail) {
         return item.userLogin;
     }
-    
+
     onChangeUserSelect(event) {
         this.userFilteredLogin = event.target.options[event.target.selectedIndex].text;
     }

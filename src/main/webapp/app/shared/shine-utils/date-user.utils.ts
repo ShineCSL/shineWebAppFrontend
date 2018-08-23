@@ -106,7 +106,7 @@ export class DateUserUtils {
         return dateTo.isSameOrAfter(dateFrom);
     }
 
-    isDateRangesOverlap(range1Start, range1End, range2Start, range2End){
+    isDateRangesOverlap(range1Start, range1End, range2Start, range2End) {
         const range1 =  momentRange.range(range1Start, range1End);
         const range2 = momentRange.range(range2Start, range2End);
         return range1.overlaps(range2, { adjacent: true }); // true

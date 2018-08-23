@@ -35,7 +35,7 @@ export class MyLeavesRejectDialogComponent {
     }
 
     confirmReject(id: number) {
-        let leavesRejection = new LeavesRejection();
+        const leavesRejection = new LeavesRejection();
         leavesRejection.rejected = true;
         leavesRejection.leavesDate = this.leaves.leavesFrom;
         leavesRejection.leavesId = this.leaves.id;
@@ -43,24 +43,24 @@ export class MyLeavesRejectDialogComponent {
         leavesRejection.userId = this.leaves.userId;
         this.reject(leavesRejection);
     }
-    
+
     private reject(leavesRejection: LeavesRejection) {
         this.leavesRejectionService.create(leavesRejection).subscribe((response) => {
             this.leaves.leavesRejectionId = response.body.id;
             const leavesSubmissionId = this.leaves.leavesSubmissionId;
             this.leaves.leavesSubmissionId = null;
-            this.leavesService.update(this.leaves).subscribe((response) => {
-                this.leavesSubmissionService.delete(leavesSubmissionId).subscribe((response) => {
+            this.leavesService.update(this.leaves).subscribe((res1) => {
+                this.leavesSubmissionService.delete(leavesSubmissionId).subscribe((res2) => {
                     this.eventManager.broadcast({
                         name: 'leavesListModification',
                         content: 'Reject'
                     });
                     this.activeModal.dismiss(true);
-                }, (res: HttpErrorResponse) => this.onError(res.message));
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        }, (res: HttpErrorResponse) => this.onError(res.message));
+                }, (res2: HttpErrorResponse) => this.onError(res2.message));
+            }, (res1: HttpErrorResponse) => this.onError(res1.message));
+        }, (response: HttpErrorResponse) => this.onError(response.message));
     }
-    
+
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
     }
