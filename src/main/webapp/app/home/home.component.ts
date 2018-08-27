@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     imgSrc2 = require('../../content/images/engagement.jpg');
     imgSrc3 = require('../../content/images/people.jpg');
     imgSrc4 = require('../../content/images/technology1.jpg');
-
+   
     images: Array<string> = [];
 
     @ViewChild('home', { read: ElementRef }) public home: ElementRef;
@@ -43,12 +43,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.registerAuthenticationSuccess();
         this.router.events.subscribe((event) => {
           if (event instanceof NavigationEnd) {
+              this.router.navigated = false;
               const tree = this.router.parseUrl(this.router.url);
               if (tree.fragment) {
-                console.log(tree.fragment);
                   const element = document.querySelector('#' + tree.fragment);
                   if (element) {
-                    element.scrollIntoView({behavior: 'smooth'});
+                    element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
                   }
               }
            }
@@ -84,21 +84,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
       const contactPosition = this.contact.nativeElement.offsetTop;
       const diffServicesContact = contactPosition - servicesPosition;
       const scrollPosition = window.pageYOffset;
-      const navHome = document.getElementById('navHome');
-      const navServices = document.getElementById('navServices');
-      const navContact = document.getElementById('navContact');
+      const navItemHome = document.getElementById('navItemHome');
+      const navItemServices = document.getElementById('navItemServices');
+      const navItemContact = document.getElementById('navItemContact');
+      const navShine = document.getElementById('navShine');
+
       if (scrollPosition <= (diffHomeServices / 2)) {
-          navHome.className = 'nav-item active';
-          navServices.className = 'nav-item';
-          navContact.className = 'nav-item';
+          navItemHome.className = 'nav-item active';
+          navItemServices.className = 'nav-item';
+          navItemContact.className = 'nav-item';
+          navShine.classList.remove('bg-nav-white');
       } else if (scrollPosition >= (diffHomeServices / 2) && scrollPosition < servicesPosition + (diffServicesContact / 2)) {
-          navHome.className = 'nav-item';
-          navServices.className = 'nav-item active';
-          navContact.className = 'nav-item';
+          navItemHome.className = 'nav-item';
+          navItemServices.className = 'nav-item active';
+          navItemContact.className = 'nav-item';
+          navShine.classList.add('bg-nav-white');
       } else if (scrollPosition >= servicesPosition +  (diffServicesContact / 2)) {
-          navHome.className = 'nav-item';
-          navServices.className = 'nav-item';
-          navContact.className = 'nav-item active';
+          navItemHome.className = 'nav-item';
+          navItemServices.className = 'nav-item';
+          navItemContact.className = 'nav-item active';
+          navShine.classList.add('bg-nav-white');
       }
     }
 }

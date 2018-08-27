@@ -9,10 +9,6 @@ body, h1, h2, h3, h4 {
     font-weight: 300;
 }
 
-body {
-	padding-top: 70px;
-}
-
 a {
     color: #533f03;
     font-weight: bold;
@@ -223,45 +219,3 @@ ui bootstrap tweaks
  }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
-.custom-day {
-   text-align: center;
-   padding: 0.185rem 0.25rem;
-   border-radius: 0.25rem;
-   display: inline-block;
-   width: 2rem;
-}
-
-.custom-day:hover, .custom-day.focused {
-   background-color: #e6e6e6;
-}
-
-.weekend, .weekend:hover, .holiday.weekend {
-   color: white;
-   background-color: #f0ad4e;
-   border-radius: 1rem;
-}
-
-.holiday, .holiday:hover {
-   color: white;
-   background-color: #9370DB;
-   border-radius: 1rem;
-}
-
-.leave-taken, .leave-taken:hover {
-   color: white;
-   background-color: #aaaaaa;
-   border-radius: 1rem;
-}
-
-.hidden {
-   display: none;
-}
-
-.side-border {
-  border-left: 1px solid #dddddd;
-}
-
-.move-left {
-    width: auto;
-    box-shadow: none;
-}

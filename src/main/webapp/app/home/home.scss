@@ -26,24 +26,31 @@ only screen and (                min-resolution: 2dppx) {
     }
 }
 
-a {color: #000;}
-
-a:link{text-decoration:none;}
-
-.box1{background: rgba($green, $alpha);}
-.box2{background: rgba($yellow, $alpha);}
-.box3{background: rgba($blue, $alpha);}
+.box1{background: rgba($shine-green, $alpha);}
+.box2{background: rgba($shine-yellow, $alpha);}
+.box3{background: rgba($shine-blue, $alpha);}
 
 .container-section {
 	width: 100%;
 	height: 100%;
-	min-height: 93vh;
+	min-height: 100vh;
+	.title-padding {
+		padding-top: 80px;
+	}
 }
 
 .carousel-inner,.carousel,.item,.fill {
   width:100%;
-  background-position:center center;
-  height: 93vh;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+}
+
+a.carousel-control:hover, a.carousel-control.right:hover {
+ background-image: linear-gradient(to right, rgba(250, 0, 0, 0) 0px, rgba(255, 0, 0, 0.5) 100%);
+}
+a.carousel-control.left:hover{
+ background-image: linear-gradient(to left, rgba(250, 0, 0, 0) 0px, rgba(255, 0, 0, 0.5) 100%);
 }
 
 .bgImgServicesCenter{
@@ -51,5 +58,87 @@ a:link{text-decoration:none;}
     background-image: url('../../content/images/technology1.jpg');
     background-repeat: no-repeat;
     background-position: center; 
-    position: relative;;
+    position: relative;
 }
+
+.intro-text {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+	color: $white;
+	.intro-lead-in { 
+		font-size : 22px;
+		font-style: italic;
+		line-height: 22px;
+		margin-bottom: 25px;
+		font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
+	.intro-heading {
+		font-size: 50px;
+		font-weight: 700;
+		line-height: 50px;
+		margin-bottom: 25px;
+		font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
+}
+
+.btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 300px;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.btn-xl {
+  padding: 1rem 2rem;
+}
+
+.btn-primary {
+  background-color: $shine-green;
+  border-color: $shine-green;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $white;
+    background-color: darken($shine-red, 5%) !important;
+  }
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(240, 95, 64,.5) !important;
+  }
+}
+
+hr {
+  max-width: 50px;
+  border-width: 3px;
+  border-color: $shine-red;
+}
+
+hr.light {
+  border-color: $white;
+}
+
+@keyframes delayedShow {
+  from {
+    margin-left: 0%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 100%;
+    width: 300%;
+  }
+}
+
+.delayedShow{
+	animation-duration: 5s;
+  	animation-delay: 0s;
+  	animation-name: delayedShow;
+  	animation-iteration-count: infinite;
+}
+
+.text-shine-gray {
+	color: $shine-dark-gray;
+}
+

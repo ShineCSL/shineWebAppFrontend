@@ -25,7 +25,9 @@ export class NavbarComponent implements OnInit {
     version: string;
     private activeSiteSection: string;
 
-    @ViewChild('navHome', {read: ElementRef}) public navHome: ElementRef;
+    @ViewChild('navShine') navShine: ElementRef;
+    @ViewChild('navItemServices') navItemServices: ElementRef;
+    @ViewChild('navItemContact') navItemContact: ElementRef;
 
     constructor(
         private loginService: LoginService,
@@ -89,16 +91,30 @@ export class NavbarComponent implements OnInit {
     }
 
     private SiteURLActiveCheck(event: NavigationEnd): void {
-        if (event.url.indexOf('#home') !== -1) {
-            this.activeSiteSection = 'home';
-        } else if (event.url.indexOf('#services') !== -1) {
-            this.activeSiteSection = 'services';
-        } else if (event.url.indexOf('#contact') !== -1) {
-            this.activeSiteSection = 'contact';
-        } else {
-            this.activeSiteSection = '';
-        }
+    	if (event.url.indexOf('#home') !== -1) {
+ 			this.activeSiteSection = 'home';
+ 			this.removeNavBgWhite();
+ 		} else if (event.url.indexOf('#services') !== -1) {
+ 			this.activeSiteSection = 'services';
+ 			this.setNavBgWhite();
+ 		} else if (event.url.indexOf('#contact') !== -1) {
+ 			this.activeSiteSection = 'contact';
+ 			this.setNavBgWhite();
+ 		} else {
+ 			this.activeSiteSection = '';
+ 			this.removeNavBgWhite();
+ 			this.navItemServices.nativeElement.className = 'nav-item';
+ 			this.navItemContact.nativeElement.className = 'nav-item';
+ 		}
     }
+
+ 	private setNavBgWhite() {
+ 		this.navShine.nativeElement.classList.add('bg-nav-white');
+ 	}
+
+ 	private removeNavBgWhite() {
+ 		this.navShine.nativeElement.classList.remove('bg-nav-white');
+ 	}
 
     isSectionActive(section: string): boolean {
         return section === this.activeSiteSection;

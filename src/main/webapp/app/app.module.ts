@@ -19,9 +19,6 @@ import { ShineWebAppFrontendHomeModule } from './home/home.module';
 import { ShineWebAppFrontendAdminModule } from './admin/admin.module';
 import { ShineWebAppFrontendAccountModule } from './account/account.module';
 import { ShineWebAppFrontendEntityModule } from './entities/entity.module';
-import { ShineWebAppFrontendContactUsModule } from './contact-us/contact-us.module';
-import { ShineWebAppFrontendAboutModule } from './about/about.module';
-import { ShineWebAppFrontendShineServicesModule } from './shine-services/shine-services.module';
 
 import { ShineWebAppFrontendCustomModule } from './modules/custom.module';
 
@@ -48,9 +45,6 @@ import {
         ShineWebAppFrontendAccountModule,
         ShineWebAppFrontendEntityModule,
         ParticlesModule,
-        ShineWebAppFrontendContactUsModule,
-        ShineWebAppFrontendAboutModule,
-        ShineWebAppFrontendShineServicesModule,
         ShineWebAppFrontendCustomModule,
         MDBBootstrapModule.forRoot(),
         ChartsModule

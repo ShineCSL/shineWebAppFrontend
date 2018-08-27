@@ -1,3 +1,4 @@
+@import '../../../content/scss/shine';
 
 /* ==========================================================================
 Navbar
@@ -34,11 +35,20 @@ Navbar
     .jh-navbar-toggler {
         color: #ccc;
         font-size: 1.5em;
-        padding: 10px;
+        padding: 0.5rem 1rem;
         &:hover {
-            color: #fff;
+            color: #5F9EA0;
         }
     }
+}
+
+.jh-navbar-toggler {
+    color: #ccc;
+    font-size: 1.5em;
+    padding: 0.5rem 1rem;
+    &:hover {
+       color: #5F9EA0;
+	}
 }
 
 @media screen and (min-width: 1200px) {
@@ -88,22 +98,56 @@ Logo styles
 	display: block;
 }
 
+#navShine {
+	transition: padding .3s;	
+}
+
+.navbar {
+	@media screen and (max-width: 1200px) {
+		padding: 0px 0px;
+	}	
+}
 
 .top-bar .nav-link {
 	@media screen and (max-width: 1200px) {
-		background-color: #DCDCDC;
+		background-color: $shine-dark-gray;
 	}
-	color: #8A2BE2;
-	font-size: 16px;
-	font-weight: 550;
+	color: $shine-light-gray;
+	font-size: 15px;
+	font-weight: 500;
 	padding: 12px 18px!important;
 }
 
 .top-bar .navbar-nav .nav-item {
-	margin: 0
+	margin: 0;
+	text-decoration: none;
 }
-.top-bar .nav-link:hover, .top-bar .nav-item.active {
-	color: #8A2BE2;
-	border-bottom: 3px solid #8A2BE2;
+
+.top-bar .nav-link:hover {
+	color: $shine-light-gray;
+	border-bottom: 2px solid $shine-light-gray;
 	border-radius: 0;
+	outline: 0;
+	color: $white;
+}
+
+.top-bar .nav-item.active {
+	border-bottom: 2px solid $shine-light-gray;
+	border-radius: 0;
+	outline: 0;
+}
+
+.top-bar .nav-item.active > a:hover {
+	border-bottom: 0;
+	border-radius: 0;
+	color: $white;
+}
+
+a.dropdown-toggle {  
+    border-bottom: transparent solid 2px;  
+}  
+
+.bg-nav-white {
+	padding: 0;
+    background-color: $shine-dark-gray;
 }
