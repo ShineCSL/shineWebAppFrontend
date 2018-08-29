@@ -43,11 +43,11 @@ Navbar
 }
 
 .jh-navbar-toggler {
-    color: #ccc;
+    color: $shine-yellow;
     font-size: 1.5em;
     padding: 0.5rem 1rem;
     &:hover {
-       color: #5F9EA0;
+       color: $shine-blue;
 	}
 }
 
@@ -108,44 +108,60 @@ Logo styles
 	}	
 }
 
-.top-bar .nav-link {
-	@media screen and (max-width: 1200px) {
-		background-color: $shine-dark-gray;
+.top-bar {
+	.nav-link {
+		@media screen and (max-width: 1200px) {
+			background-color: $shine-dark-gray;
+		}
+		color: $shine-light-gray;
+		font-size: 15px;
+		font-weight: 500;
+		padding: 12px 18px!important;
+		
+		&:hover {
+			border-bottom: 2px solid $shine-yellow;
+			border-radius: 0;
+			outline: 0;
+			color: $shine-yellow;
+		}
+		
+		&.active {
+			border-bottom: 0;	
+			color: $shine-yellow;
+		}
+		
+		&.active:hover {
+			border-bottom: 0;
+			border-radius: 0;
+			outline: 0;			
+			color: $shine-green;
+		}
 	}
-	color: $shine-light-gray;
-	font-size: 15px;
-	font-weight: 500;
-	padding: 12px 18px!important;
+	
+	.nav-item.active {
+		border-bottom: 2px solid $shine-yellow;	
+		border-radius: 0;
+		outline: 0;
+		color: $shine-yellow;
+	}	
 }
 
 .top-bar .navbar-nav .nav-item {
-	margin: 0;
+	margin-bottom: 2px;
 	text-decoration: none;
-}
-
-.top-bar .nav-link:hover {
-	color: $shine-light-gray;
-	border-bottom: 2px solid $shine-light-gray;
-	border-radius: 0;
-	outline: 0;
-	color: $white;
-}
-
-.top-bar .nav-item.active {
-	border-bottom: 2px solid $shine-light-gray;
-	border-radius: 0;
-	outline: 0;
-}
-
-.top-bar .nav-item.active > a:hover {
-	border-bottom: 0;
-	border-radius: 0;
-	color: $white;
 }
 
 a.dropdown-toggle {  
     border-bottom: transparent solid 2px;  
 }  
+
+.dropdown-item:hover {
+	background-color: $shine-yellow;
+}
+
+.dropdown-item.active {
+	background-color: $shine-yellow;
+}
 
 .bg-nav-white {
 	padding: 0;

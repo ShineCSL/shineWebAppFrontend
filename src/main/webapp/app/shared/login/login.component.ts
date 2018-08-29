@@ -44,6 +44,8 @@ export class JhiLoginModalComponent implements AfterViewInit {
     }
 
     login() {
+                	console.log('login');
+    
         this.loginService.login({
             username: this.username,
             password: this.password,
@@ -65,6 +67,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
             // // since login is succesful, go to stored previousState and clear previousState
             const redirect = this.stateStorageService.getUrl();
             if (redirect) {
+            	console.log(redirect);
                 this.stateStorageService.storeUrl(null);
                 this.router.navigate([redirect]);
             }

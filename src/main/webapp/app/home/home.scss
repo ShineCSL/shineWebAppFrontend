@@ -46,6 +46,15 @@ only screen and (                min-resolution: 2dppx) {
   height: 100vh;
 }
 
+.fill-opacity {
+  width:100%;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  /*opacity: 0.8;*/
+  background-image: linear-gradient(to right, rgba(250, 0, 0, 0) 0px, rgba(255, 0, 0, 0.5) 100%);
+}
+
 a.carousel-control:hover, a.carousel-control.right:hover {
  background-image: linear-gradient(to right, rgba(250, 0, 0, 0) 0px, rgba(255, 0, 0, 0.5) 100%);
 }
@@ -64,8 +73,14 @@ a.carousel-control.left:hover{
 .intro-text {
     position: absolute;
     top: 10%;
-    left: 5%;
-	color: $white;
+    left: 50%;
+    transform: translate(-50%, 0);
+  	margin: 0 auto;
+    width: 40%;
+	color: $shine-yellow;
+	@media screen and (max-width: 480px) {
+    	width: 80%;
+	}
 	.intro-lead-in { 
 		font-size : 22px;
 		font-style: italic;
@@ -75,11 +90,26 @@ a.carousel-control.left:hover{
 	}
 	.intro-heading {
 		font-size: 50px;
+		@media screen and (max-width: 480px) {
+    		font-size: 30px;
+    		font-weight: 600;
+		}
 		font-weight: 700;
 		line-height: 50px;
 		margin-bottom: 25px;
 		font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		background: linear-gradient(to right top, $shine-yellow 0%, $shine-yellow 50%, $shine-blue 50%);
+  		-webkit-background-clip: text;
+  		-webkit-text-fill-color: transparent;
 	}
+}
+
+.center-bottom {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  	margin: 0 auto;
 }
 
 .btn {
@@ -95,24 +125,25 @@ a.carousel-control.left:hover{
 }
 
 .btn-primary {
-  background-color: $shine-green;
-  border-color: $shine-green;
+  background-color: $shine-yellow;
+  border-color: $shine-yellow;
+  color: $shine-blue;
   &:hover,
   &:focus,
   &:active {
     color: $white;
-    background-color: darken($shine-red, 5%) !important;
+    background-color: darken($shine-green, 5%) !important;
   }
   &:active,
   &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(240, 95, 64,.5) !important;
+    box-shadow: 0 0 0 0.2rem rgba($shine-green,.5) !important;
   }
 }
 
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: $shine-red;
+  border-color: $shine-blue;
 }
 
 hr.light {
@@ -132,7 +163,7 @@ hr.light {
 }
 
 .delayedShow{
-	animation-duration: 5s;
+	animation-duration: 8s;
   	animation-delay: 0s;
   	animation-name: delayedShow;
   	animation-iteration-count: infinite;
@@ -142,3 +173,7 @@ hr.light {
 	color: $shine-dark-gray;
 }
 
+.img-full {
+    width: 100%;
+    height: auto;
+}

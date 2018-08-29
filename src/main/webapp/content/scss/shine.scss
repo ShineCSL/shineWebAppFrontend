@@ -4,14 +4,50 @@
 Shine Colors
 ===============================================================*/
 // Declare the color as RGB; SASS will treat this as hex
-$shine-green: #F79E54 !default;
-$shine-blue: #4795D6 !default;
-$shine-red: #FA6D58 !default;
-$shine-yellow: #FFDA5C !default;
+$shine-green: #F79E54;
+$shine-blue: #4795D6;
+$shine-red: #FA6D58;
+$shine-yellow: #FFDA5C;
 $shine-light-gray: #d2d2d2;
 $shine-dark-gray: #212529;
 $white: #fff !default;
 $black: #000 !default;
+
+@mixin no-padding($side) {
+    @if $side == 'all' {
+        .no-padding {
+            padding: 0 !important;
+        }
+    } @else {
+        .no-padding-#{$side} {
+            padding-#{$side}: 0 !important;
+        }
+    }
+}
+
+@include no-padding("left");
+@include no-padding("right");
+@include no-padding("top");
+@include no-padding("bottom");
+@include no-padding("all");
+
+@mixin no-margin($side) {
+    @if $side == 'all' {
+        .no-margin {
+            margin: 0 !important;
+        }
+    } @else {
+        .no-margin-#{$side} {
+            margin-#{$side}: 0 !important;
+        }
+    }
+}
+
+@include no-margin("left");
+@include no-margin("right");
+@include no-margin("top");
+@include no-margin("bottom");
+@include no-margin("all");
 
 // Declare an alpha
 $alpha: 1;
@@ -19,6 +55,26 @@ $alpha: 1;
 body {
     background-color: #fff;
     @include body-font;
+}
+
+a {
+	outline: 0;
+	text-decoration: none;
+}
+
+.a-color-yellow {
+	color: $shine-yellow;
+	&:hover {
+       color: $shine-blue;
+	}
+}
+
+.element-color-yellow {
+	color: $shine-yellow;
+}
+
+.element-color-blue {
+	color: $shine-blue;
 }
 
 h1,
@@ -78,6 +134,6 @@ h6 {
     box-shadow: none;
 }
 
-.srceen-padding {
+.screen-padding {
 	padding-top: 70px;
 }
