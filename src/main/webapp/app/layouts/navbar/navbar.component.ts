@@ -111,7 +111,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
  		} else if (url.indexOf('#services') !== -1) {
  			this.activeSiteSection = 'services';
  			this.setNavBgWhite();		
- 		} else if (url.indexOf('#contact') !== -1) {
+ 		} else if (url.indexOf('#values') !== -1) {
+ 			this.activeSiteSection = 'values';
+ 			this.setNavBgWhite();
+ 		}else if (url.indexOf('#contact') !== -1) {
  			this.activeSiteSection = 'contact';
  			this.setNavBgWhite();
  		} else if (url.indexOf('/my-leaves') !== -1) {

@@ -33,17 +33,68 @@ only screen and (                min-resolution: 2dppx) {
 .container-section {
 	width: 100%;
 	height: 100%;
+	position: relative;
 	min-height: 100vh;
 	.title-padding {
 		padding-top: 80px;
 	}
 }
 
-.carousel-inner,.carousel,.item,.fill {
-  width:100%;
+.seperator-services {
+    position: absolute;
+    top: 0;
+    left: 0;
+  	height: 300px;
+  	width: 100%;
+  	background-color: $shine-orange;
+	clip-path: polygon(100% 0, 0 0, 0 65%, 50% 50%, 100% 35%);
+}
+
+.seperator-values {
+    position: absolute;
+    top: 0;
+    left: 0;
+  	height: 300px;
+  	width: 100%;
+  	background-color: $shine-blue;
+	clip-path: polygon(100% 0, 0 0, 0 35%, 50% 60%, 100% 35%);
+}
+
+.seperator-contact {
+    position: absolute;
+    top: 0;
+    left: 0;
+  	height: 300px;
+  	width: 100%;
+  	background-color: $shine-red;
+	clip-path: polygon(100% 0, 0 0, 0 35%, 50% 50%, 100% 65%);
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+}
+
+:host /deep/ .carousel-inner {
+  height: 100%;
+}
+
+.item, .fill {
+  width: 100%;
   background-size: cover;
   position: relative;
-  height: 100vh;
+  height: 100%;
+  margin: auto;
+}
+
+:host /deep/ .carousel-item {
+  height: 100%;
 }
 
 .fill-opacity {
@@ -62,14 +113,6 @@ a.carousel-control.left:hover{
  background-image: linear-gradient(to left, rgba(250, 0, 0, 0) 0px, rgba(255, 0, 0, 0.5) 100%);
 }
 
-.bgImgServicesCenter{
-	background-size: cover;
-    background-image: url('../../content/images/technology1.jpg');
-    background-repeat: no-repeat;
-    background-position: center; 
-    position: relative;
-}
-
 .intro-text {
     position: absolute;
     top: 10%;
@@ -86,7 +129,6 @@ a.carousel-control.left:hover{
 		font-style: italic;
 		line-height: 22px;
 		margin-bottom: 25px;
-		font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	}
 	.intro-heading {
 		font-size: 50px;
@@ -97,8 +139,7 @@ a.carousel-control.left:hover{
 		font-weight: 700;
 		line-height: 50px;
 		margin-bottom: 25px;
-		font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-		background: linear-gradient(to right top, $shine-yellow 0%, $shine-yellow 50%, $shine-blue 50%);
+		background: linear-gradient(to right top, $white 50%, $shine-yellow 50%);
   		-webkit-background-clip: text;
   		-webkit-text-fill-color: transparent;
 	}
@@ -110,6 +151,24 @@ a.carousel-control.left:hover{
     left: 50%;
     transform: translate(-50%, -50%);
   	margin: 0 auto;
+}
+
+.scroll-center-right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+  	margin: 0 auto;
+  	z-index: 100;
+}
+
+.scroll-center-right-values {
+    position: absolute;
+    top: 50%;
+    right: 1%;
+    transform: translate(-50%, -50%);
+  	margin: 0 auto;
+  	z-index: 100;
 }
 
 .btn {
@@ -125,25 +184,25 @@ a.carousel-control.left:hover{
 }
 
 .btn-primary {
-  background-color: $shine-yellow;
-  border-color: $shine-yellow;
-  color: $shine-blue;
+  background-color: $shine-green;
+  border-color: $shine-green;
+  color: $white;
   &:hover,
   &:focus,
   &:active {
     color: $white;
-    background-color: darken($shine-green, 5%) !important;
+    background-color: darken($shine-red, 5%) !important;
   }
   &:active,
   &:focus {
-    box-shadow: 0 0 0 0.2rem rgba($shine-green,.5) !important;
+    box-shadow: 0 0 0 0.2rem rgba($shine-red,.5) !important;
   }
 }
 
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: $shine-blue;
+  border-color: $shine-yellow;
 }
 
 hr.light {
@@ -176,4 +235,69 @@ hr.light {
 .img-full {
     width: 100%;
     height: auto;
+}
+
+.wrapper {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.wrapper-inner {
+	display: table-cell;
+	width: 100%;
+	height: 100%;
+}
+
+.scroll-down {
+	display: block;
+	position: relative;
+	text-align: center;
+	top: -10px;
+	margin-left: 10px;
+}
+
+.arrow-down {
+	display: block;
+	margin: 0 auto;
+	width: 10px;
+	height: 25px;
+}
+
+.arrow-down:after {
+	content: '';
+	display: block;
+	margin-left: 13px;
+	padding: 0;
+	width: 8px;
+	height: 8px;
+	border-top: 1px solid $shine-yellow;
+	border-right: 1px solid $shine-yellow;
+	-moz-transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+	-ms-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+.scroll-title {
+	display: block;
+	text-transform: uppercase;
+	color: $shine-yellow;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: .1em;
+	writing-mode: vertical-rl;
+  	text-orientation: sideways;
+}
+
+.scroll-down::before {
+	position: absolute;
+	top: -109px;
+	left: 50%;
+	margin-left: 11px;
+	width: 1px;
+	height: 116px;
+	background: $shine-yellow;
+	content: ' ';
 }

@@ -113,7 +113,7 @@ Logo styles
 		@media screen and (max-width: 1200px) {
 			background-color: $shine-dark-gray;
 		}
-		color: $shine-light-gray;
+		color: $white;
 		font-size: 15px;
 		font-weight: 500;
 		padding: 12px 18px!important;
@@ -147,6 +147,9 @@ Logo styles
 }
 
 .top-bar .navbar-nav .nav-item {
+	@media screen and (max-width: 1200px) {
+		margin-bottom: 0px;
+	}
 	margin-bottom: 2px;
 	text-decoration: none;
 }
