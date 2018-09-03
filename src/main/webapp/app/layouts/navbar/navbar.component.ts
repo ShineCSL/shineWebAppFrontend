@@ -156,6 +156,12 @@ export class NavbarComponent implements OnInit, AfterViewInit {
  		} else if (url.indexOf('/docs') !== -1) {
  			this.activeSiteSection = 'docs';
  			this.activeSiteMenu = 'navItemAdmin';
+ 		} else if (url.indexOf('/settings') !== -1) {
+ 			this.activeSiteSection = 'settings';
+ 			this.activeSiteMenu = 'navItemAccount';
+ 		} else if (url.indexOf('/password') !== -1) {
+ 			this.activeSiteSection = 'password';
+ 			this.activeSiteMenu = 'navItemAccount';
  		} else {
  			this.activeSiteSection = '';
  			this.setNavBgWhite();
