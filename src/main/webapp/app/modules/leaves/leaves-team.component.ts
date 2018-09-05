@@ -152,7 +152,6 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     }
 
     trackLeavesDetailByUserLogin(index: number, item: LeavesDetail) {
-    	console.log(item.userLogin);
         return item.userLogin;
     }
 
