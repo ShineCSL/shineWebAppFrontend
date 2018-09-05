@@ -38,10 +38,10 @@
         <dd>
             {{activity.userLogin}}
         </dd>
-        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.mission">Mission</span></dt>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.activity.client">Client</span></dt>
         <dd>
-            <div *ngIf="activity.missionId">
-                <a [routerLink]="['/mission', activity.missionId]">{{activity.missionCode}}</a>
+            <div *ngIf="activity.clientId">
+                <a [routerLink]="['/client', activity.clientId]">{{activity.clientCode}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.activity.activityRejection">Activity Rejection</span></dt>

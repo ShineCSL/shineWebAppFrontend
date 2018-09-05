@@ -23,6 +23,7 @@
             "document": "Document",
             "rate": "Rate",
             "currency": "Currency",
+            "user": "User",
             "invoiceRejection": "Invoice Rejection",
             "invoiceSubmission": "Invoice Submission",
             "invoiceValidation": "Invoice Validation",

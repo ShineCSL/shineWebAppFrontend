@@ -10,6 +10,7 @@ import { InvoiceDialogComponent } from '../../../../../../main/webapp/app/entiti
 import { InvoiceService } from '../../../../../../main/webapp/app/entities/invoice/invoice.service';
 import { Invoice } from '../../../../../../main/webapp/app/entities/invoice/invoice.model';
 import { CurrencyService } from '../../../../../../main/webapp/app/entities/currency';
+import { UserService } from '../../../../../../main/webapp/app/shared';
 import { InvoiceRejectionService } from '../../../../../../main/webapp/app/entities/invoice-rejection';
 import { InvoiceSubmissionService } from '../../../../../../main/webapp/app/entities/invoice-submission';
 import { InvoiceValidationService } from '../../../../../../main/webapp/app/entities/invoice-validation';
@@ -30,6 +31,7 @@ describe('Component Tests', () => {
                 declarations: [InvoiceDialogComponent],
                 providers: [
                     CurrencyService,
+                    UserService,
                     InvoiceRejectionService,
                     InvoiceSubmissionService,
                     InvoiceValidationService,

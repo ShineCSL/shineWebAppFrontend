@@ -25,7 +25,7 @@
             <th jhiSortBy="month"><span jhiTranslate="shineWebAppFrontendApp.activity.month">Month</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="taskCode"><span jhiTranslate="shineWebAppFrontendApp.activity.task">Task</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.activity.user">User</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="missionCode"><span jhiTranslate="shineWebAppFrontendApp.activity.mission">Mission</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="clientCode"><span jhiTranslate="shineWebAppFrontendApp.activity.client">Client</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="activityRejectionRejected"><span jhiTranslate="shineWebAppFrontendApp.activity.activityRejection">Activity Rejection</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="activitySubmissionSubmitted"><span jhiTranslate="shineWebAppFrontendApp.activity.activitySubmission">Activity Submission</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="activityValidationValidated"><span jhiTranslate="shineWebAppFrontendApp.activity.activityValidation">Activity Validation</span> <span class="fa fa-sort"></span></th>
@@ -50,8 +50,8 @@
                     {{activity.userLogin}}
                 </td>
                 <td>
-                    <div *ngIf="activity.missionId">
-                        <a [routerLink]="['../mission', activity.missionId  ]" >{{activity.missionCode}}</a>
+                    <div *ngIf="activity.clientId">
+                        <a [routerLink]="['../client', activity.clientId  ]" >{{activity.clientCode}}</a>
                     </div>
                 </td>
                 <td>

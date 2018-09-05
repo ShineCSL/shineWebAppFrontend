@@ -81,10 +81,13 @@ currentAccount: any;
     }
 
     loadAll() {
-        // alert(JSON.stringify(query));
         this.leavesDetailsUtils.getLeaveDetails(null).then((res) => {
             this.leavesDetail = res;
         });
+        this.loadLeaves();
+    }
+
+    private loadLeaves() {
         const query = this.getQueryFromSearchCriterias();
         this.leavesService.query(query).subscribe(
                 (res: HttpResponse<Leaves[]>) => this.onSuccess(res.body, res.headers),
@@ -144,7 +147,7 @@ currentAccount: any;
     }
 
     registerChangeInLeaves() {
-        this.eventSubscriber = this.eventManager.subscribe('leavesListModification', (response) => this.loadAll());
+        this.eventSubscriber = this.eventManager.subscribe('leavesListModification', (response) => this.loadLeaves());
     }
 
     sort() {

@@ -39,6 +39,10 @@
                 <a [routerLink]="['/currency', invoice.currencyId]">{{invoice.currencyCode}}</a>
             </div>
         </dd>
+        <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.user">User</span></dt>
+        <dd>
+            {{invoice.userLogin}}
+        </dd>
         <dt><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceRejection">Invoice Rejection</span></dt>
         <dd>
             <div *ngIf="invoice.invoiceRejectionId">

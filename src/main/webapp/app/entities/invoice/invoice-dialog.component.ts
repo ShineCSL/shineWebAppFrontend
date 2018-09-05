@@ -10,6 +10,7 @@ import { Invoice } from './invoice.model';
 import { InvoicePopupService } from './invoice-popup.service';
 import { InvoiceService } from './invoice.service';
 import { Currency, CurrencyService } from '../currency';
+import { User, UserService } from '../../shared';
 import { InvoiceRejection, InvoiceRejectionService } from '../invoice-rejection';
 import { InvoiceSubmission, InvoiceSubmissionService } from '../invoice-submission';
 import { InvoiceValidation, InvoiceValidationService } from '../invoice-validation';
@@ -26,6 +27,8 @@ export class InvoiceDialogComponent implements OnInit {
 
     currencies: Currency[];
 
+    users: User[];
+
     invoicerejections: InvoiceRejection[];
 
     invoicesubmissions: InvoiceSubmission[];
@@ -41,6 +44,7 @@ export class InvoiceDialogComponent implements OnInit {
         private jhiAlertService: JhiAlertService,
         private invoiceService: InvoiceService,
         private currencyService: CurrencyService,
+        private userService: UserService,
         private invoiceRejectionService: InvoiceRejectionService,
         private invoiceSubmissionService: InvoiceSubmissionService,
         private invoiceValidationService: InvoiceValidationService,
@@ -54,6 +58,8 @@ export class InvoiceDialogComponent implements OnInit {
         this.isSaving = false;
         this.currencyService.query()
             .subscribe((res: HttpResponse<Currency[]>) => { this.currencies = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.userService.query()
+            .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.invoiceRejectionService
             .query({filter: 'invoice-is-null'})
             .subscribe((res: HttpResponse<InvoiceRejection[]>) => {
@@ -148,6 +154,10 @@ export class InvoiceDialogComponent implements OnInit {
     }
 
     trackCurrencyById(index: number, item: Currency) {
+        return item.id;
+    }
+
+    trackUserById(index: number, item: User) {
         return item.id;
     }
 

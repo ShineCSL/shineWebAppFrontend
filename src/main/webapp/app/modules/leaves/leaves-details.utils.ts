@@ -34,6 +34,7 @@ export class LeavesDetailsUtils {
         this.principal.identity().then((account) => {
             this.account = account;
         });
+        this.leavesDetails = [];
     }
 
     getLeaveDetails(userLogin: string): Promise<LeavesDetail> {
@@ -101,7 +102,7 @@ export class LeavesDetailsUtils {
     }
 
     getLeavesDetailsForApprover(approverId: number): Promise<LeavesDetail[]> {
-        this.leavesDetails = [];
+        this.leaveConfigs = [];
         return  this.leaveConfigService.query({'approverId.equals': approverId}).toPromise().then(
                 (res) => {
                     this.leaveConfigs = res.body;
@@ -110,6 +111,7 @@ export class LeavesDetailsUtils {
     }
 
     private processLeaveDetails(leaveConfigs: LeaveConfig[]): Promise<LeavesDetail[]> {
+        this.leavesDetails = [];
         leaveConfigs.forEach((item) => {
             this.getLeaveDetails(item.userLogin).then((res) => {
                 this.leavesDetails.push(res);

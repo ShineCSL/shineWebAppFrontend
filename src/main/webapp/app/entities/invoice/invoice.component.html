@@ -24,6 +24,7 @@
             <th jhiSortBy="document"><span jhiTranslate="shineWebAppFrontendApp.invoice.document">Document</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="rate"><span jhiTranslate="shineWebAppFrontendApp.invoice.rate">Rate</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="currencyCode"><span jhiTranslate="shineWebAppFrontendApp.invoice.currency">Currency</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="shineWebAppFrontendApp.invoice.user">User</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="invoiceRejectionRejected"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceRejection">Invoice Rejection</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="invoiceSubmissionSubmitted"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceSubmission">Invoice Submission</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="invoiceValidationValidated"><span jhiTranslate="shineWebAppFrontendApp.invoice.invoiceValidation">Invoice Validation</span> <span class="fa fa-sort"></span></th>
@@ -49,6 +50,9 @@
                     <div *ngIf="invoice.currencyId">
                         <a [routerLink]="['../currency', invoice.currencyId  ]" >{{invoice.currencyCode}}</a>
                     </div>
+                </td>
+                <td>
+                    {{invoice.userLogin}}
                 </td>
                 <td>
                     <div *ngIf="invoice.invoiceRejectionId">

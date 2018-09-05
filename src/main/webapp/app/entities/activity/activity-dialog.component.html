@@ -131,15 +131,15 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.mission" for="field_mission">Mission</label>
-            <select class="form-control" id="field_mission" name="mission" [(ngModel)]="activity.missionId"  required>
-                <option *ngIf="!editForm.value.mission" [ngValue]="null" selected></option>
-                <option [ngValue]="missionOption.id" *ngFor="let missionOption of missions; trackBy: trackMissionById">{{missionOption.code}}</option>
+            <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.activity.client" for="field_client">Client</label>
+            <select class="form-control" id="field_client" name="client" [(ngModel)]="activity.clientId"  required>
+                <option *ngIf="!editForm.value.client" [ngValue]="null" selected></option>
+                <option [ngValue]="clientOption.id" *ngFor="let clientOption of clients; trackBy: trackClientById">{{clientOption.code}}</option>
             </select>
         </div>
-        <div [hidden]="!(editForm.controls.mission?.dirty && editForm.controls.mission?.invalid)">
+        <div [hidden]="!(editForm.controls.client?.dirty && editForm.controls.client?.invalid)">
             <small class="form-text text-danger"
-                [hidden]="!editForm.controls.mission?.errors?.required" jhiTranslate="entity.validation.required">
+                [hidden]="!editForm.controls.client?.errors?.required" jhiTranslate="entity.validation.required">
                 This field is required.
             </small>
         </div>

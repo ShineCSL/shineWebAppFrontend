@@ -50,20 +50,12 @@ export class MyLeavesSubmitDialogComponent {
             const leavesRejectionId = this.leaves.leavesRejectionId;
             this.leaves.leavesRejectionId = null;
             this.leavesService.update(this.leaves).subscribe((res1) => {
-                console.log(leavesRejectionId);
+                console.log('MyLeavesSubmitDialogComponent' + leavesRejectionId);
                 if (leavesRejectionId) {
                     this.leavesRejectionService.delete(leavesRejectionId).subscribe((res2) => {
-                        this.eventManager.broadcast({
-                            name: 'leavesListModification',
-                            content: 'Submit'
-                        });
                         this.activeModal.dismiss(true);
                     }, (res2: HttpErrorResponse) => this.onError(res2.message));
                 } else {
-                    this.eventManager.broadcast({
-                        name: 'leavesListModification',
-                        content: 'Submit'
-                    });
                     this.activeModal.dismiss(true);
                 }
             }, (res1: HttpErrorResponse) => this.onError(res1.message));

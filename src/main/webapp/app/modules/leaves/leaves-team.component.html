@@ -20,16 +20,16 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let leavesDetails of leavesDetails ;trackBy: trackId">                
-                <td><button type="button" class="btn btn-link" (click)="selectUser(leavesDetails.userId, leavesDetails.userLogin)">
-                       {{leavesDetails.userLogin}}
+            <tr *ngFor="let leavesDetail of leavesDetails; trackBy: trackLeavesDetailByUserLogin">                
+                <td><button type="button" class="btn btn-link" (click)="selectUser(leavesDetail.userId, leavesDetail.userLogin)">
+                       {{leavesDetail.userLogin}}
                     </button></td>
-                <td class="side-border text-center"><span class="badge badge-primary badge-pill">{{leavesDetails.totalAnnualLeaves}}</span></td>
-                <td class="text-center"><span class="badge badge-warning badge-pill">{{leavesDetails.remainingAnnualLeaves}}</span></td>
-                <td class="side-border text-center"><span class="badge badge-primary badge-pill">{{leavesDetails.totalSickLeaves}}</span></td>
-                <td class="text-center"><span class="badge badge-warning badge-pill">{{leavesDetails.remainingSickLeaves}}</span></td>                
-                <td class="side-border text-center"><span class="badge badge-primary badge-pill">{{leavesDetails.totalSpecialLeaves}}</span></td>
-                <td class="text-center"><span class="badge badge-warning badge-pill">{{leavesDetails.remainingSpecialLeaves}}</span></td>               
+                <td class="side-border text-center"><span class="badge badge-primary badge-pill">{{leavesDetail.totalAnnualLeaves}}</span></td>
+                <td class="text-center"><span class="badge badge-warning badge-pill">{{leavesDetail.remainingAnnualLeaves}}</span></td>
+                <td class="side-border text-center"><span class="badge badge-primary badge-pill">{{leavesDetail.totalSickLeaves}}</span></td>
+                <td class="text-center"><span class="badge badge-warning badge-pill">{{leavesDetail.remainingSickLeaves}}</span></td>                
+                <td class="side-border text-center"><span class="badge badge-primary badge-pill">{{leavesDetail.totalSpecialLeaves}}</span></td>
+                <td class="text-center"><span class="badge badge-warning badge-pill">{{leavesDetail.remainingSpecialLeaves}}</span></td>               
             </tr>
             </tbody>
         </table>

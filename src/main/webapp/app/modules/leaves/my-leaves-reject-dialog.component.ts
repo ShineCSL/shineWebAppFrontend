@@ -51,10 +51,6 @@ export class MyLeavesRejectDialogComponent {
             this.leaves.leavesSubmissionId = null;
             this.leavesService.update(this.leaves).subscribe((res1) => {
                 this.leavesSubmissionService.delete(leavesSubmissionId).subscribe((res2) => {
-                    this.eventManager.broadcast({
-                        name: 'leavesListModification',
-                        content: 'Reject'
-                    });
                     this.activeModal.dismiss(true);
                 }, (res2: HttpErrorResponse) => this.onError(res2.message));
             }, (res1: HttpErrorResponse) => this.onError(res1.message));

@@ -24,7 +24,7 @@
             "month": "Month",
             "task": "Task",
             "user": "User",
-            "mission": "Mission",
+            "client": "Client",
             "activityRejection": "Activity Rejection",
             "activitySubmission": "Activity Submission",
             "activityValidation": "Activity Validation"

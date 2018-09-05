@@ -107,7 +107,7 @@ export const leavesModulePopupRoute: Routes = [
         path: 'leaves-module/:id/validate',
         component: LeavesValidatePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'shineWebAppFrontendApp.leaves.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -117,7 +117,7 @@ export const leavesModulePopupRoute: Routes = [
         path: 'leaves-module/:id/reject',
         component: LeavesRejectPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'shineWebAppFrontendApp.leaves.home.title'
         },
         canActivate: [UserRouteAccessService],

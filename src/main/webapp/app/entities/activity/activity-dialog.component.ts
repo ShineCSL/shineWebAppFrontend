@@ -11,7 +11,7 @@ import { ActivityPopupService } from './activity-popup.service';
 import { ActivityService } from './activity.service';
 import { Task, TaskService } from '../task';
 import { User, UserService } from '../../shared';
-import { Mission, MissionService } from '../mission';
+import { Client, ClientService } from '../client';
 import { ActivityRejection, ActivityRejectionService } from '../activity-rejection';
 import { ActivitySubmission, ActivitySubmissionService } from '../activity-submission';
 import { ActivityValidation, ActivityValidationService } from '../activity-validation';
@@ -29,7 +29,7 @@ export class ActivityDialogComponent implements OnInit {
 
     users: User[];
 
-    missions: Mission[];
+    clients: Client[];
 
     activityrejections: ActivityRejection[];
 
@@ -44,7 +44,7 @@ export class ActivityDialogComponent implements OnInit {
         private activityService: ActivityService,
         private taskService: TaskService,
         private userService: UserService,
-        private missionService: MissionService,
+        private clientService: ClientService,
         private activityRejectionService: ActivityRejectionService,
         private activitySubmissionService: ActivitySubmissionService,
         private activityValidationService: ActivityValidationService,
@@ -58,8 +58,8 @@ export class ActivityDialogComponent implements OnInit {
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.userService.query()
             .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.missionService.query()
-            .subscribe((res: HttpResponse<Mission[]>) => { this.missions = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.clientService.query()
+            .subscribe((res: HttpResponse<Client[]>) => { this.clients = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.activityRejectionService.query()
             .subscribe((res: HttpResponse<ActivityRejection[]>) => { this.activityrejections = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.activitySubmissionService.query()
@@ -110,7 +110,7 @@ export class ActivityDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackMissionById(index: number, item: Mission) {
+    trackClientById(index: number, item: Client) {
         return item.id;
     }
 

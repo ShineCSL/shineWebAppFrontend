@@ -12,6 +12,8 @@ export class Invoice implements BaseEntity {
         public rate?: number,
         public currencyCode?: string,
         public currencyId?: number,
+        public userLogin?: string,
+        public userId?: number,
         public invoiceRejectionRejected?: string,
         public invoiceRejectionId?: number,
         public invoiceSubmissionSubmitted?: string,

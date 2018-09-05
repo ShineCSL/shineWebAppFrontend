@@ -42,10 +42,6 @@ export class MyLeavesValidateDialogComponent {
         this.leavesValidationService.create(leavesValidation).subscribe((response) => {
             this.leaves.leavesValidationId = response.body.id;
             this.leavesService.update(this.leaves).subscribe((res) => {
-                this.eventManager.broadcast({
-                    name: 'leavesListModification',
-                    content: 'Validate'
-                });
                 this.activeModal.dismiss(true);
             }, (res: HttpErrorResponse) => this.onError(res.message));
         }, (res: HttpErrorResponse) => this.onError(res.message));

@@ -49,7 +49,7 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
 
     filter: string;
     orderTask: string;
-    language: string;
+    language: string = '';
 
     leavesDetails: LeavesDetail[];
     userSelectedId: number;
@@ -93,7 +93,6 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     }
 
     loadLeaves() {
-        // alert(JSON.stringify(query));
         const query = this.getQueryFromSearchCriterias();
         this.leavesService.query(query).subscribe(
                 (res: HttpResponse<Leaves[]>) => this.onSuccess(res.body, res.headers),
@@ -152,8 +151,13 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         return item.id;
     }
 
+    trackLeavesDetailByUserLogin(index: number, item: LeavesDetail) {
+    	console.log(item.userLogin);
+        return item.userLogin;
+    }
+
     registerChangeInLeaves() {
-        this.eventSubscriber = this.eventManager.subscribe('leavesListModification', (response) => this.loadAll());
+        this.eventSubscriber = this.eventManager.subscribe('leavesTeamModification', (response) => this.loadLeaves());
     }
 
     sort() {

@@ -88,6 +88,7 @@ export class MyLeavesDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
+        console.log('MyLeavesDialogComponent ' +this.account.login);
         if (this.existLeaveTakenInRange(this.leaves.leavesFrom, this.leaves.leavesTo)) {
             this.leaveTakenError = true;
             this.onSaveError();
