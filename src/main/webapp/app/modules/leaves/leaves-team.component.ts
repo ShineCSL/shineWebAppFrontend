@@ -88,7 +88,7 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
             this.setSortingOptions(data);
         });
         this.filter = '';
-        this.orderTask = '';
+        this.orderTask = 'code';
         this.orderLeavesDetails = 'userLogin';
         this.reverseLists = false;     
         this.taskService.query()

@@ -103,11 +103,11 @@
 								<option [ngValue]="null" selected></option>
 								<ng-container *ngIf="language === 'en'">
 								<option [ngValue]="taskOption.id"
-									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
+									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverseLists); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
 								</ng-container>
 								<ng-container *ngIf="language === 'fr'">
 								<option [ngValue]="taskOption.id"
-									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelFr}}</option>
+									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverseLists); trackBy: trackTaskById">{{taskOption.labelFr}}</option>
 								</ng-container>
 							</select>
 						</div>
@@ -198,7 +198,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm"
                                 *ngIf="leave.leavesSubmissionSubmitted!=='true'">
-                            <span class="fa fa-remove"></span>
+                            <span class="fa fa-trash-o"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>
                         <button type="submit"
@@ -207,7 +207,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-info btn-sm"
                                 *ngIf="leave.leavesSubmissionSubmitted!=='true'">
-                            <span class="fa fa-share-square"></span>
+                            <span class="fa fa-arrow-circle-o-right"></span>
                             <span class="d-none d-md-inline" jhiTranslate="shineWebAppFrontendApp.leavesCommon.submit">Submit</span>
                         </button>
                     </div>

@@ -50,6 +50,7 @@ currentAccount: any;
     /* Orders and filters*/
     filter: string;
     orderTask: string;
+    reverseLists: Boolean;
 
     language: string;
     leavesDetail: LeavesDetail;
@@ -72,7 +73,8 @@ currentAccount: any;
             this.setSortingOptions(data);
         });
         this.filter = '';
-        this.orderTask = '';
+        this.orderTask = 'code';
+        this.reverseLists = false;
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }

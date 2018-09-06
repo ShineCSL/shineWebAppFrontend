@@ -133,69 +133,91 @@ export class NavbarComponent implements OnInit, AfterViewInit {
  		} else if (url.indexOf('/my-leaves') !== -1) {
  			this.activeSiteSection = 'myLeaves';
  			this.activeSiteMenu = 'navItemModules';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/leaves-team') !== -1) {
  			this.activeSiteSection = 'leavesTeam';
  			this.activeSiteMenu = 'navItemModules';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/client') !== -1) {
  			this.activeSiteSection = 'client';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/currency') !== -1) {
  			this.activeSiteSection = 'currency';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/leave-config') !== -1) {
  			this.activeSiteSection = 'leaveConfig';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/task') !== -1) {
  			this.activeSiteSection = 'task';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/type-invoice') !== -1) {
  			this.activeSiteSection = 'typeInvoice';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/mission') !== -1) {
  			this.activeSiteSection = 'mission';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/activity-config') !== -1) {
  			this.activeSiteSection = 'activityConfig';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/invoice-config') !== -1) {
  			this.activeSiteSection = 'invoiceConfig';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/public-holiday') !== -1) {
  			this.activeSiteSection = 'publicHoliday';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/team') !== -1) {
  			this.activeSiteSection = 'team';
  			this.activeSiteMenu = 'navItemMenu';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/user-management') !== -1) {
  			this.activeSiteSection = 'userManagement';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/jhi-metrics') !== -1) {
  			this.activeSiteSection = 'jhiMetrics';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/jhi-health') !== -1) {
  			this.activeSiteSection = 'jhiHealth';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/jhi-configuration') !== -1) {
  			this.activeSiteSection = 'jhiConfiguration';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/audits') !== -1) {
  			this.activeSiteSection = 'audits';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/logs') !== -1) {
  			this.activeSiteSection = 'logs';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/entity-audit') !== -1) {
  			this.activeSiteSection = 'entityAudit';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/docs') !== -1) {
  			this.activeSiteSection = 'docs';
  			this.activeSiteMenu = 'navItemAdmin';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/settings') !== -1) {
  			this.activeSiteSection = 'settings';
  			this.activeSiteMenu = 'navItemAccount';
+ 			this.setNavBgWhite();
  		} else if (url.indexOf('/password') !== -1) {
  			this.activeSiteSection = 'password';
  			this.activeSiteMenu = 'navItemAccount';
+ 			this.setNavBgWhite();
  		} else {
  			this.activeSiteSection = '';
  			this.setNavBgWhite();
