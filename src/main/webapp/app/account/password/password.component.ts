@@ -19,7 +19,7 @@ export class PasswordComponent implements OnInit {
   constructor(private passwordService: PasswordService, private principal: Principal) {}
 
   ngOnInit() {
-    this.principal.identity().then(account => {
+    this.principal.identity().then((account) => {
       this.account = account;
     });
   }

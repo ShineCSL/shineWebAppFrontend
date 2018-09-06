@@ -52,8 +52,8 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     orderTask: string;
     orderLeavesDetails: string;
     reverseLists: Boolean;
-    
-    language: string = '';
+
+    language = '';
 
     leavesDetails: LeavesDetail[];
     userSelectedId: number;
@@ -76,7 +76,6 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         private userService: UserService,
         private leavesDetailsUtils: LeavesDetailsUtils
     ) {
-    	console.log('constructor');
         this.itemsPerPage = ITEMS_PER_PAGE;
         /*this.routeData = this.activatedRoute.data.subscribe((data) => {
             this.page = data.pagingParams.page;
@@ -90,7 +89,7 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         this.filter = '';
         this.orderTask = 'code';
         this.orderLeavesDetails = 'userLogin';
-        this.reverseLists = false;     
+        this.reverseLists = false;
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
@@ -253,12 +252,11 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     }
 
     private setSortingOptions(data) {
-        	console.log(data);
       if (data && Object.keys(data).length > 0) {
         this.page = data.page;
         this.previousPage = data.page;
         if (data.sort) {
-          const sort = data.sort.split(",");
+          const sort = data.sort.split(',');
           this.predicate = sort[0];
           if (sort[1] === 'asc') {
             this.reverse = true;

@@ -206,7 +206,7 @@ currentAccount: any;
         this.page = data.page;
         this.previousPage = data.page;
         if (data.sort) {
-          const sort = data.sort.split(",");
+          const sort = data.sort.split(',');
           this.predicate = sort[0];
           if (sort[1] === 'asc') {
             this.reverse = true;

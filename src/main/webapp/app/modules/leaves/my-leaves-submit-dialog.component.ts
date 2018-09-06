@@ -50,7 +50,6 @@ export class MyLeavesSubmitDialogComponent {
             const leavesRejectionId = this.leaves.leavesRejectionId;
             this.leaves.leavesRejectionId = null;
             this.leavesService.update(this.leaves).subscribe((res1) => {
-                console.log('MyLeavesSubmitDialogComponent' + leavesRejectionId);
                 if (leavesRejectionId) {
                     this.leavesRejectionService.delete(leavesRejectionId).subscribe((res2) => {
                         this.eventManager.broadcast({

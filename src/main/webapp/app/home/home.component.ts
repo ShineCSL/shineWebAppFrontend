@@ -21,8 +21,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     imgCustomerEngagement = require('../../content/images/customer-engagement.jpg');
     imgPeople = require('../../content/images/people.jpg');
     imgTechnology = require('../../content/images/technology.jpg');
-    
+
     images: Array<string> = [];
+
+    @ViewChild('home', { read: ElementRef }) public home: ElementRef;
+    @ViewChild('services', { read: ElementRef }) public services: ElementRef;
+    @ViewChild('values', { read: ElementRef }) public values: ElementRef;
+    @ViewChild('contact', { read: ElementRef }) public contact: ElementRef;
 
     constructor(
         private router: Router,
@@ -31,21 +36,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
         private eventManager: JhiEventManager
     ) {
     }
-    
-    @ViewChild('home', { read: ElementRef }) public home: ElementRef;
-    @ViewChild('services', { read: ElementRef }) public services: ElementRef;
-    @ViewChild('values', { read: ElementRef }) public values: ElementRef;
-    @ViewChild('contact', { read: ElementRef }) public contact: ElementRef;
 
     ngOnInit() {
-        this.principal.identity().then((account) => {
-            this.account = account;
-        });
-        this.registerAuthenticationSuccess();
-
-       this.images.push(this.imgCreativity, this.imgCustomerEngagement, this.imgPeople);
-       this.router.navigated = false;
-       this.initHome();
+      this.principal.identity().then((account) => {
+        this.account = account;
+      });
+      this.registerAuthenticationSuccess();
+      this.images.push(this.imgCreativity, this.imgCustomerEngagement, this.imgPeople);
+      this.router.navigated = false;
+      this.initHome();
     }
 
     ngAfterViewInit() {
@@ -82,77 +81,78 @@ export class HomeComponent implements OnInit, AfterViewInit {
       const diffValuesContact = contactPosition - valuesPosition;
       const scrollPosition = window.pageYOffset;
       const navShine = document.getElementById('navShine');
-
+      const homeNavItems = ['Home', 'Services', 'Values', 'Contact'];
+      const menuNavBlack = 'bg-nav-dark-gray';
       if (scrollPosition <= (diffHomeServices / 2)) {
-          this.setInactiveAllItems(["Home", "Services", "Values", "Contact"]);
-          this.setActiveItem("Home");
-          navShine.classList.remove('bg-nav-white');          
+          this.setInactiveAllItems(homeNavItems);
+          this.setActiveItem('Home');
+          navShine.classList.remove(menuNavBlack);
       } else if (scrollPosition >= (diffHomeServices / 2) && scrollPosition < servicesPosition + (diffServicesValues / 2)) {
-          this.setInactiveAllItems(["Home", "Services", "Values", "Contact"]);
-          this.setActiveItem("Services");
-          navShine.classList.add('bg-nav-white');        
+          this.setInactiveAllItems(homeNavItems);
+          this.setActiveItem('Services');
+          navShine.classList.add(menuNavBlack);
       } else if (scrollPosition >= (diffServicesValues / 2) && scrollPosition < valuesPosition + (diffValuesContact / 2)) {
-          this.setInactiveAllItems(["Home", "Services", "Values", "Contact"]);
-          this.setActiveItem("Values");
-          navShine.classList.add('bg-nav-white');
+          this.setInactiveAllItems(homeNavItems);
+          this.setActiveItem('Values');
+          navShine.classList.add(menuNavBlack);
       } else if (scrollPosition >= valuesPosition + (diffValuesContact / 2)) {
-          this.setInactiveAllItems(["Home", "Services", "Values", "Contact"]);
-          this.setActiveItem("Contact");
-          navShine.classList.add('bg-nav-white');          
+          this.setInactiveAllItems(homeNavItems);
+          this.setActiveItem('Contact');
+          navShine.classList.add(menuNavBlack);
       } else {
-      	  console.log('scroll not home');
+        console.log('scroll not home');
       }
     }
 
-	setInactiveAllItems(arrayItems: string[]){
-		for(let item of arrayItems){
-			const navItem = document.getElementById('navItem' + item);
-     		const aItem = document.getElementById('aItem' + item);
-     		navItem.className = 'nav-item';
-          	aItem.className = 'nav-link';    
-		}
-	}
-
-	setActiveItem(item: string){
-		const navItem = document.getElementById('navItem' + item);
-     	const aItem = document.getElementById('aItem' + item);
-     	navItem.className = 'nav-item active';
-        aItem.className = 'nav-link active';   
-	}
-   
-    initHome(): void {
-    	const url = this.router.url;
-    	const navItemHome = document.getElementById('navItemHome');
-      	const navItemServices = document.getElementById('navItemServices');
-      	const navItemValues = document.getElementById('navItemValues');
-      	const navItemContact = document.getElementById('navItemContact');
-    	if (url === '/') {
- 			navItemHome.className = 'nav-item active';	
-    	} else if (url.indexOf('#home') !== -1) {
- 			navItemHome.className = 'nav-item active';
- 			this.scrollInto(100);	
- 		} else if (url.indexOf('#services') !== -1) {
- 			navItemServices.className = 'nav-item active';
- 			this.scrollInto(100);
- 		} else if (url.indexOf('#values') !== -1) {
- 			navItemValues.className = 'nav-item active';
- 			this.scrollInto(100);
- 		} else if (url.indexOf('#contact') !== -1) {
- 			navItemContact.className = 'nav-item active';
- 			this.scrollInto(100);
- 		}
+    setInactiveAllItems(arrayItems: string[]) {
+      for (const item of arrayItems) {
+        const navItem = document.getElementById('navItem' + item);
+        const aItem = document.getElementById('aItem' + item);
+        navItem.className = 'nav-item';
+        aItem.className = 'nav-link';
+      }
     }
 
-	scrollInto(wait: number): void {
-        const tree = this.router.parseUrl(this.router.url);
-        console.log(tree.fragment);
-        if (tree.fragment) {
-        	const element = document.querySelector('#' + tree.fragment);
-	        if (element) {                  
-		      setTimeout(() => {
-		        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-		      }, wait);	        
-	      }
-        }	
-	}
+    setActiveItem(item: string) {
+      const navItem = document.getElementById('navItem' + item);
+      const aItem = document.getElementById('aItem' + item);
+      navItem.className = 'nav-item active';
+      aItem.className = 'nav-link active';
+    }
+
+    initHome(): void {
+      const url = this.router.url;
+      const navItemHome = document.getElementById('navItemHome');
+      const navItemServices = document.getElementById('navItemServices');
+      const navItemValues = document.getElementById('navItemValues');
+      const navItemContact = document.getElementById('navItemContact');
+      if (url === '/') {
+        navItemHome.className = 'nav-item active';
+        this.scrollInto(100);
+      } else if (url.indexOf('#home') !== -1) {
+        navItemHome.className = 'nav-item active';
+        this.scrollInto(100);
+      } else if (url.indexOf('#services') !== -1) {
+        navItemServices.className = 'nav-item active';
+        this.scrollInto(100);
+      } else if (url.indexOf('#values') !== -1) {
+        navItemValues.className = 'nav-item active';
+        this.scrollInto(100);
+      } else if (url.indexOf('#contact') !== -1) {
+        navItemContact.className = 'nav-item active';
+        this.scrollInto(100);
+      }
+    }
+
+    scrollInto(wait: number): void {
+      const tree = this.router.parseUrl(this.router.url);
+      if (tree.fragment) {
+        const element = document.querySelector('#' + tree.fragment);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+          }, wait);
+        }
+      }
+    }
 }

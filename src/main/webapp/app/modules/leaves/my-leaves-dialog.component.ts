@@ -184,14 +184,8 @@ export class MyLeavesDialogComponent implements OnInit {
 
     existLeaveTakenInRange(from, to) {
         let existLeaveTaken = false;
-        console.log(from);
-        console.log(to);
         const dateFrom = new Date(from.year, from.month - 1, from.day);
         const dateTo = new Date(to.year, to.month - 1, to.day);
-        console.log(dateFrom.toLocaleDateString());
-        console.log(dateFrom.getDay());
-
-        console.log(dateTo.toLocaleDateString());
         this.leavesTaken.forEach((item) => {
             if (this.dateUser.isDateRangesOverlap(dateFrom, dateTo, item.leavesFrom, item.leavesTo)) {
                 existLeaveTaken = true;
