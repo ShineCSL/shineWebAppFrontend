@@ -44,6 +44,7 @@ export class MyLeavesDialogComponent implements OnInit {
     orderTask: string;
     language: string;
     reverse: string;
+    reverseLists: Boolean;
 
     leavesTaken: Leaves[];
 
@@ -60,8 +61,9 @@ export class MyLeavesDialogComponent implements OnInit {
         private translateService: TranslateService
     ) {
         this.filter = '';
-        this.orderTask = '';
+        this.orderTask = 'code';
         this.reverse = 'asc';
+        this.reverseLists = false;
         this.markCalendarDisabled = this.markCalendarDisabled.bind(this);
     }
 

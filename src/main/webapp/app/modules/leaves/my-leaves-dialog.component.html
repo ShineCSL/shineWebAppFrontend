@@ -148,10 +148,10 @@
             <select class="form-control" id="field_task" name="task" [(ngModel)]="leaves.taskId"  required>
                 <option *ngIf="!editForm.value.task" [ngValue]="null" selected></option>
                 <ng-container *ngIf = "language === 'en'">
-                	<option [ngValue]="taskOption.id" *ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
+                	<option [ngValue]="taskOption.id" *ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverseLists); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
 			    </ng-container>
 				<ng-container *ngIf = "language === 'fr'">
-					<option [ngValue]="taskOption.id" *ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelFr}}</option>               
+					<option [ngValue]="taskOption.id" *ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverseLists); trackBy: trackTaskById">{{taskOption.labelFr}}</option>               
 				</ng-container>
 			</select>
         </div>
