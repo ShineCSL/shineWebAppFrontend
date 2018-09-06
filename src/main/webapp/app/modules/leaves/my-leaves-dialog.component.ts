@@ -33,7 +33,7 @@ export class MyLeavesDialogComponent implements OnInit {
     isSaving: boolean;
     moment: _moment.Moment = _moment();
 
-    tasks: Task[];
+    tasks: Task[] = [];
 
     leavesFromDp: any;
     leavesToDp: any;
@@ -88,7 +88,6 @@ export class MyLeavesDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        console.log('MyLeavesDialogComponent ' +this.account.login);
         if (this.existLeaveTakenInRange(this.leaves.leavesFrom, this.leaves.leavesTo)) {
             this.leaveTakenError = true;
             this.onSaveError();

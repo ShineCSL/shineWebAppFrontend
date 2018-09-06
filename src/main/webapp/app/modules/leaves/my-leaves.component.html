@@ -160,53 +160,53 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let leaves of leaves ;trackBy: trackId">
+            <tr *ngFor="let leave of leaves; trackBy: trackId">
                 <td>	         
                 	<span>
-               	 		<i [ngClass]="{true:'fa fa-star', false:'fa fa-star-o'}[leaves.fullDay]" aria-hidden="true"></i>
+               	 		<i [ngClass]="{true:'fa fa-star', false:'fa fa-star-o'}[leave.fullDay]" aria-hidden="true"></i>
               		</span>
               	</td>
-                <td>{{leaves.leavesFrom | date:'mediumDate'}}</td>
-                <td>{{leaves.leavesTo | date:'mediumDate'}}</td>
-                <td>{{leaves.nbOfHours}}</td>
-                <td>{{leaves.comment}}</td>
-                <td>{{leaves.taskCode}}</td>
+                <td>{{leave.leavesFrom | date:'mediumDate'}}</td>
+                <td>{{leave.leavesTo | date:'mediumDate'}}</td>
+                <td>{{leave.nbOfHours}}</td>
+                <td>{{leave.comment}}</td>
+                <td>{{leave.taskCode}}</td>
                 <td>	         
-                	<span [ngClass]="{'true':'text-success', null:'text-danger'}[leaves.leavesSubmissionSubmitted]">
-               	 		<i [ngClass]="{'true':'fa fa-check icon-green', null:'fa fa-times icon-red'}[leaves.leavesSubmissionSubmitted]" aria-hidden="true"></i>
+                	<span [ngClass]="{'true':'text-success', null:'text-danger'}[leave.leavesSubmissionSubmitted]">
+               	 		<i [ngClass]="{'true':'fa fa-check icon-green', null:'fa fa-times icon-red'}[leave.leavesSubmissionSubmitted]" aria-hidden="true"></i>
               		</span>
               	</td>
                 <td>	         
-                	<span [ngClass]="{'true':'text-success'}[leaves.leavesValidationValidated]">
-               	 		<i [ngClass]="{'true':'fa fa-check icon-green'}[leaves.leavesValidationValidated]" aria-hidden="true"></i>
+                	<span [ngClass]="{'true':'text-success'}[leave.leavesValidationValidated]">
+               	 		<i [ngClass]="{'true':'fa fa-check icon-green'}[leave.leavesValidationValidated]" aria-hidden="true"></i>
               		</span>
               	</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leaves.id + '/edit'} }]"
+                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leave.id + '/edit'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm"
-                                *ngIf="leaves.leavesSubmissionSubmitted!=='true'">
+                                *ngIf="leave.leavesSubmissionSubmitted!=='true'">
                             <span class="fa fa-pencil"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leaves.id + '/delete'} }]"
+                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leave.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm"
-                                *ngIf="leaves.leavesSubmissionSubmitted!=='true'">
+                                *ngIf="leave.leavesSubmissionSubmitted!=='true'">
                             <span class="fa fa-remove"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leaves.id + '/submit'} }]"
+                                [routerLink]="['/', { outlets: { popup: 'leaves-module/'+ leave.id + '/submit'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-info btn-sm"
-                                *ngIf="leaves.leavesSubmissionSubmitted!=='true'">
+                                *ngIf="leave.leavesSubmissionSubmitted!=='true'">
                             <span class="fa fa-share-square"></span>
                             <span class="d-none d-md-inline" jhiTranslate="shineWebAppFrontendApp.leavesCommon.submit">Submit</span>
                         </button>

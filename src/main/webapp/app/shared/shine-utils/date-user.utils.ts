@@ -47,9 +47,7 @@ export class DateUserUtils {
         );
     }
 
-    setDateUser(entity: any, date: any) {
-            console.log('DateUserUtils ' + this.user.login);
-    
+    setDateUser(entity: any, date: any) {    
         const now = moment(this.dateUtils.convertLocalDateToServer(date));
         const day = now.date();
         const week = now.week();

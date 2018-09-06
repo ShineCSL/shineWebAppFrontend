@@ -150,7 +150,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         	const element = document.querySelector('#' + tree.fragment);
 	        if (element) {                  
 		      setTimeout(() => {
-		        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'})
+		        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
 		      }, wait);	        
 	      }
         }	

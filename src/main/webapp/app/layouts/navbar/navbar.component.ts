@@ -45,10 +45,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     ) {
         this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
-            // override the route reuse strategy
-	    this.router.routeReuseStrategy.shouldReuseRoute = function() {
-	        return false;
-	    };
     }
 
     ngOnInit() {
@@ -101,36 +97,74 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     }
 
     private siteURLActiveCheck(): void {
+        // override the route reuse strategy
+       	this.router.navigated = false;
     	const url = this.router.url;
     	if (url === '/') {
  			this.activeSiteSection = 'home';
+ 			this.activeSiteMenu = '';
  			this.removeNavBgWhite();
+ 			const element = document.querySelector('#home');
+ 			element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});		
     	} else if (url.indexOf('#home') !== -1) {
  			this.activeSiteSection = 'home';
+ 			this.activeSiteMenu = ''; 			
  			this.removeNavBgWhite();
+ 			const element = document.querySelector('#home');
+ 			element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
  		} else if (url.indexOf('#services') !== -1) {
  			this.activeSiteSection = 'services';
+ 			this.activeSiteMenu = ''; 			
  			this.setNavBgWhite();		
+ 			const element = document.querySelector('#services');
+ 			element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
  		} else if (url.indexOf('#values') !== -1) {
  			this.activeSiteSection = 'values';
+ 			this.activeSiteMenu = ''; 			
  			this.setNavBgWhite();
+ 			const element = document.querySelector('#values');
+ 			element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
  		}else if (url.indexOf('#contact') !== -1) {
  			this.activeSiteSection = 'contact';
+ 			this.activeSiteMenu = ''; 			
  			this.setNavBgWhite();
+ 			const element = document.querySelector('#contact');
+ 			element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'}); 			
  		} else if (url.indexOf('/my-leaves') !== -1) {
  			this.activeSiteSection = 'myLeaves';
  			this.activeSiteMenu = 'navItemModules';
  		} else if (url.indexOf('/leaves-team') !== -1) {
  			this.activeSiteSection = 'leavesTeam';
  			this.activeSiteMenu = 'navItemModules';
- 		} else if (url.indexOf('/leaves') !== -1) {
- 			this.activeSiteSection = 'leaves';
+ 		} else if (url.indexOf('/client') !== -1) {
+ 			this.activeSiteSection = 'client';
  			this.activeSiteMenu = 'navItemMenu';
- 		} else if (url.indexOf('/account-details') !== -1) {
- 			this.activeSiteSection = 'accountDetails';
+ 		} else if (url.indexOf('/currency') !== -1) {
+ 			this.activeSiteSection = 'currency';
  			this.activeSiteMenu = 'navItemMenu';
- 		} else if (url.indexOf('/activity') !== -1) {
- 			this.activeSiteSection = 'activity';
+ 		} else if (url.indexOf('/leave-config') !== -1) {
+ 			this.activeSiteSection = 'leaveConfig';
+ 			this.activeSiteMenu = 'navItemMenu';
+ 		} else if (url.indexOf('/task') !== -1) {
+ 			this.activeSiteSection = 'task';
+ 			this.activeSiteMenu = 'navItemMenu';
+ 		} else if (url.indexOf('/type-invoice') !== -1) {
+ 			this.activeSiteSection = 'typeInvoice';
+ 			this.activeSiteMenu = 'navItemMenu';
+ 		} else if (url.indexOf('/mission') !== -1) {
+ 			this.activeSiteSection = 'mission';
+ 			this.activeSiteMenu = 'navItemMenu';
+ 		} else if (url.indexOf('/activity-config') !== -1) {
+ 			this.activeSiteSection = 'activityConfig';
+ 			this.activeSiteMenu = 'navItemMenu';
+ 		} else if (url.indexOf('/invoice-config') !== -1) {
+ 			this.activeSiteSection = 'invoiceConfig';
+ 			this.activeSiteMenu = 'navItemMenu';
+ 		} else if (url.indexOf('/public-holiday') !== -1) {
+ 			this.activeSiteSection = 'publicHoliday';
+ 			this.activeSiteMenu = 'navItemMenu';
+ 		} else if (url.indexOf('/team') !== -1) {
+ 			this.activeSiteSection = 'team';
  			this.activeSiteMenu = 'navItemMenu';
  		} else if (url.indexOf('/user-management') !== -1) {
  			this.activeSiteSection = 'userManagement';

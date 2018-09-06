@@ -39,7 +39,7 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     reverse: any;
 
     taskId: number;
-    tasks: Task[];
+    tasks: Task[] = [];
     currentMonth: number;
     currentYear: number;
     months: any;
@@ -47,8 +47,12 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
 
     opened: Boolean = true;
 
+    /* Orders and filters*/
     filter: string;
     orderTask: string;
+    orderLeavesDetails: string;
+    reverseLists: Boolean;
+    
     language: string = '';
 
     leavesDetails: LeavesDetail[];
@@ -72,15 +76,21 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         private userService: UserService,
         private leavesDetailsUtils: LeavesDetailsUtils
     ) {
+    	console.log('constructor');
         this.itemsPerPage = ITEMS_PER_PAGE;
-        this.routeData = this.activatedRoute.data.subscribe((data) => {
+        /*this.routeData = this.activatedRoute.data.subscribe((data) => {
             this.page = data.pagingParams.page;
             this.previousPage = data.pagingParams.page;
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
+        });*/
+        this.routeData = this.activatedRoute.queryParams.subscribe((data) => {
+            this.setSortingOptions(data);
         });
         this.filter = '';
         this.orderTask = '';
+        this.orderLeavesDetails = 'userLogin';
+        this.reverseLists = false;     
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
@@ -108,14 +118,14 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     }
 
     transition() {
-        this.router.navigate(['/leaves-team'], {queryParams:
+        this.router.navigate([], {relativeTo: this.activatedRoute, queryParams:
             {
                 page: this.page,
                 size: this.itemsPerPage,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
-        this.loadAll();
+        this.loadLeaves();
     }
 
     clear() {
@@ -151,12 +161,16 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         return item.id;
     }
 
+    trackTaskById(index: number, item: Task) {
+        return item.id;
+    }
+
     trackLeavesDetailByUserLogin(index: number, item: LeavesDetail) {
         return item.userLogin;
     }
 
     registerChangeInLeaves() {
-        this.eventSubscriber = this.eventManager.subscribe('leavesTeamModification', (response) => this.loadLeaves());
+        this.eventSubscriber = this.eventManager.subscribe('leavesTeamModification', (response) => this.loadAll());
     }
 
     sort() {
@@ -236,5 +250,27 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
         this.userSelectedId = userId;
         this.userSelectedLogin = userLogin;
         this.loadAll();
+    }
+
+    private setSortingOptions(data) {
+        	console.log(data);
+      if (data && Object.keys(data).length > 0) {
+        this.page = data.page;
+        this.previousPage = data.page;
+        if (data.sort) {
+          const sort = data.sort.split(",");
+          this.predicate = sort[0];
+          if (sort[1] === 'asc') {
+            this.reverse = true;
+          } else {
+            this.reverse = false;
+          }
+        }
+      } else {
+        this.page = 1;
+        this.previousPage = 1;
+        this.reverse = false;
+        this.predicate = 'leavesFrom';
+      }
     }
 }

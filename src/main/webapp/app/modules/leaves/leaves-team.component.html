@@ -20,7 +20,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let leavesDetail of leavesDetails; trackBy: trackLeavesDetailByUserLogin">                
+            <tr *ngFor="let leavesDetail of (leavesDetails | orderBy:orderLeavesDetails:reverseLists); trackBy: trackLeavesDetailByUserLogin">                
                 <td><button type="button" class="btn btn-link" (click)="selectUser(leavesDetail.userId, leavesDetail.userLogin)">
                        {{leavesDetail.userLogin}}
                     </button></td>
@@ -56,7 +56,7 @@
 						    <select class="form-control" id="field_user" name="user" 
 						    	[(ngModel)]="userSelectedId" (change)="onChangeUserSelect($event)">
 								<option [ngValue]="null" selected></option>
-                				<option [ngValue]="leavesDetails.userId" *ngFor="let leavesDetails of leavesDetails; trackBy: trackUserByUserLogin">{{leavesDetails.userLogin}}</option>
+                				<option [ngValue]="leavesDetails.userId" *ngFor="let leavesDetails of (leavesDetails | orderBy:orderLeavesDetails:reverseLists); trackBy: trackLeavesDetailByUserLogin">{{leavesDetails.userLogin}}</option>
 							</select>
 						</div>
 						<div class="form-group col-md-2">
@@ -68,11 +68,11 @@
 								<option [ngValue]="null" selected></option>
 								<ng-container *ngIf="language === 'en'">
 								<option [ngValue]="taskOption.id"
-									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
+									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelEn' | orderBy:orderTask:reverseLists); trackBy: trackTaskById">{{taskOption.labelEn}}</option>
 								</ng-container>
 								<ng-container *ngIf="language === 'fr'">
 								<option [ngValue]="taskOption.id"
-									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverse); trackBy: trackTaskById">{{taskOption.labelFr}}</option>
+									*ngFor="let taskOption of (tasks | pureFilter:filter:'labelFr' | orderBy:orderTask:reverseLists); trackBy: trackTaskById">{{taskOption.labelFr}}</option>
 								</ng-container>
 							</select>
 						</div>
@@ -147,7 +147,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let leaves of leaves ;trackBy: trackId">
+            <tr *ngFor="let leaves of leaves; trackBy: trackId">
                 <td>	         
                 	<span>
                	 		<i [ngClass]="{true:'fa fa-star', false:'fa fa-star-o'}[leaves.fullDay]" aria-hidden="true"></i>

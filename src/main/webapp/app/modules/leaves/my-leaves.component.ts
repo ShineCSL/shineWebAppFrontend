@@ -39,7 +39,7 @@ currentAccount: any;
     reverse: any;
 
     taskId: number;
-    tasks: Task[];
+    tasks: Task[] = [];
     currentMonth: number;
     currentYear: number;
     months: any;
@@ -47,10 +47,11 @@ currentAccount: any;
 
     opened: Boolean = true;
 
+    /* Orders and filters*/
     filter: string;
     orderTask: string;
-    language: string;
 
+    language: string;
     leavesDetail: LeavesDetail;
 
     constructor(
@@ -61,18 +62,14 @@ currentAccount: any;
         private router: Router,
         private eventManager: JhiEventManager,
         private taskService: TaskService,
-        private location: Location,
         private dateUser: DateUserUtils,
         private translateService: TranslateService,
         private principal: Principal,
         private leavesDetailsUtils: LeavesDetailsUtils
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
-        this.routeData = this.activatedRoute.data.subscribe((data) => {
-            this.page = data.pagingParams.page;
-            this.previousPage = data.pagingParams.page;
-            this.reverse = data.pagingParams.ascending;
-            this.predicate = data.pagingParams.predicate;
+        this.routeData = this.activatedRoute.queryParams.subscribe((data) => {
+            this.setSortingOptions(data);
         });
         this.filter = '';
         this.orderTask = '';
@@ -110,7 +107,7 @@ currentAccount: any;
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
-        this.loadAll();
+        this.loadLeaves();
     }
 
     clear() {
@@ -123,9 +120,6 @@ currentAccount: any;
     }
 
     ngOnInit() {
-       // this.leavesDetailsUtils.getLeavesDetails()
-        //    .subscribe(data => { this.leavesDetail = data});
-       // alert(JSON.stringify(this.leavesDetail));
         this.currentMonth = this.dateUser.getCurrentMonth(null);
         this.currentYear = this.dateUser.getCurrentYear(null);
         this.months = this.dateUser.loadMonths();
@@ -146,8 +140,12 @@ currentAccount: any;
         return item.id;
     }
 
+    trackTaskById(index: number, item: Task) {
+        return item.id;
+    }
+
     registerChangeInLeaves() {
-        this.eventSubscriber = this.eventManager.subscribe('leavesListModification', (response) => this.loadLeaves());
+        this.eventSubscriber = this.eventManager.subscribe('leavesListModification', (response) => this.loadAll());
     }
 
     sort() {
@@ -199,5 +197,26 @@ currentAccount: any;
               });
         }
         return query;
+    }
+
+    private setSortingOptions(data) {
+      if (data && Object.keys(data).length > 0) {
+        this.page = data.page;
+        this.previousPage = data.page;
+        if (data.sort) {
+          const sort = data.sort.split(",");
+          this.predicate = sort[0];
+          if (sort[1] === 'asc') {
+            this.reverse = true;
+          } else {
+            this.reverse = false;
+          }
+        }
+      } else {
+        this.page = 1;
+        this.previousPage = 1;
+        this.reverse = false;
+        this.predicate = 'leavesFrom';
+      }
     }
 }
