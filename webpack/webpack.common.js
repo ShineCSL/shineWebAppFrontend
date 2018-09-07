@@ -7,7 +7,7 @@ const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
 const utils = require('./utils.js');
 
 var API_URL = {
-	    production: JSON.stringify('http://127.0.0.1:8080/'),
+	    production: JSON.stringify('http://13.59.122.28:8080/'),
 	    development: JSON.stringify('http://127.0.0.1:8088/')
 	};
 
