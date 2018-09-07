@@ -6,6 +6,11 @@ const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
 
 const utils = require('./utils.js');
 
+var API_URL = {
+	    production: JSON.stringify('http://127.0.0.1:8080/'),
+	    development: JSON.stringify('http://127.0.0.1:8088/')
+	};
+
 module.exports = (options) => ({
     resolve: {
         extensions: ['.ts', '.js'],
@@ -51,7 +56,7 @@ module.exports = (options) => ({
                 // If this URL is left empty (""), then it will be relative to the current context.
                 // If you use an API server, in `prod` mode, you will need to enable CORS
                 // (see the `jhipster.cors` common JHipster property in the `application-*.yml` configurations)
-                SERVER_API_URL: `'http://127.0.0.1:8088/'`
+                SERVER_API_URL: API_URL[options.env]
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
