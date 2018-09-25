@@ -84,7 +84,7 @@
 								id="field_month" name="month" [(ngModel)]="currentMonth">
 								<option [ngValue]="null" selected></option>
 								<option [ngValue]="monthOption.id"
-									*ngFor="let monthOption of months trackBy: id">{{monthOption.name}}</option>
+									*ngFor="let monthOption of months trackBy: trackId">{{monthOption.name}}</option>
 							</select>
 						</div>
 						<div class="form-group col-md-2">
@@ -95,7 +95,7 @@
 								id="field_year" name="year" ng-init="currentYear"
 								[(ngModel)]="currentYear">
 								<option [ngValue]="yearOption.id"
-									*ngFor="let yearOption of years; trackBy: id">{{yearOption.name}}</option>
+									*ngFor="let yearOption of years; trackBy: trackId">{{yearOption.name}}</option>
 							</select>
 						</div>
 						<div class="form-group col-md-2">

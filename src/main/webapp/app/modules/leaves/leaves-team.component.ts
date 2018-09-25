@@ -45,13 +45,13 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     months: any;
     years: any;
 
-    opened: Boolean = true;
+    opened = true;
 
     /* Orders and filters*/
     filter: string;
     orderTask: string;
     orderLeavesDetails: string;
-    reverseLists: Boolean;
+    reverseLists = false;
 
     language = '';
 
