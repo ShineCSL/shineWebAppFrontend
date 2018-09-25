@@ -45,7 +45,7 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     months: any;
     years: any;
 
-    opened = true;
+    opened = 'false';
 
     /* Orders and filters*/
     filter: string;
@@ -198,7 +198,11 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
     }
 
     toggleSearchCriterias() {
-        this.opened = !this.opened;
+        if (this.opened === 'true') {
+        	this.opened = 'false';
+        } else {
+        	this.opened = 'true';
+        }
     }
 
     private getQueryFromSearchCriterias() {

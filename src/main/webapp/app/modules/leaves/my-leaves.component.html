@@ -85,14 +85,14 @@
 		<div class="card">
 			<div class="card-header">
 				<a class="card-link" (click)="toggleSearchCriterias()"> <span> <i
-						[ngClass]="{true:'fa fa-chevron-up', false:'fa fa-chevron-down'}[opened]"
+						[ngClass]="{'true':'fa fa-chevron-up', 'false':'fa fa-chevron-down'}[opened]"
 						aria-hidden="true"></i> <span
 						jhiTranslate="shineWebAppFrontendApp.common.searchCriterias">Search
 							criterias</span>
 				</span>
 				</a>
 			</div>
-			<div [ngClass]="{hideSearch: !opened}">
+			<div [ngClass]="{'true': 'hideSearch'}[opened]">
 				<div class="card-body">
 					<div class="form-row">
 						<div class="form-group col-md-4">
