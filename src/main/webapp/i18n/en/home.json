@@ -1,7 +1,6 @@
 {
     "home": {
         "title": "Welcome, Java Hipster!",
-        "subtitle": "This is your homepage",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
@@ -14,6 +13,45 @@
             "follow": "follow @java_hipster on Twitter"
         },
         "like": "If you like JHipster, don't forget to give us a star on",
-        "github": "GitHub"
+        "github": "GitHub",
+        "scroll": "Scroll",
+        "main": {
+        	"subtitle": "Our solutions are tailor-made, flexible and innovative",
+        	"checkServices": "Check our services"
+        },
+        "services": {
+            "title": "At Your Service",
+            "subtitle": "We design the best possible solutions for you",
+            "webSite": {
+            	"title": "Web site",
+            	"text": "We develop web sites using the latest technologies. Our solutions are modern, flexible and responsive at a competitive price."
+            },
+            "webApplications": {
+            	"title": "Web applications",
+            	"text": "We build solutions adapted to your business. Our leitmotiv is quality, automation, modularity, innovation and respect of the deadlines."            	
+            },
+            "resources": {
+            	"title": "Resources Outsourcing",
+            	"text": "Our resources are bilingual (english and french), competent and very dedicated. We also favor a close follow up of the activities by the most experiences members."            
+            },    
+        	"tellMore": "Tell me more"
+        },
+        "values": {
+            "title": "Our values",
+        	"contactUs": "Contact us",        	
+        	"creativity": "Creativity",
+        	"efficiency": {
+            	"title": "Efficiency",
+            	"subtitle": "Automation, flexible solutions and modularity"            
+            },
+        	"customerCommitment": "Customer engagement",
+        	"respect": "Respect for people"
+        },
+        "contact": {
+            "title": "Contact us",
+        	"phone": "Phone",
+        	"address": "Address",
+        	"email": "E-mail"
+        }        
     }
 }

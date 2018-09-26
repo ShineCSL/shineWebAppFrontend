@@ -17,10 +17,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     account: Account;
     modalRef: NgbModalRef;
 
-    imgCreativity = require('../../content/images/creativity.png');
+    imgCreativity = require('../../content/images/creativity.jpg');
     imgCustomerEngagement = require('../../content/images/customer-engagement.jpg');
-    imgPeople = require('../../content/images/people.jpg');
+    imgPeople = require('../../content/images/people.png');
     imgTechnology = require('../../content/images/technology.jpg');
+    imgAutomation = require('../../content/images/automation.jpg');
 
     images: Array<string> = [];
 
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.account = account;
       });
       this.registerAuthenticationSuccess();
-      this.images.push(this.imgCreativity, this.imgCustomerEngagement, this.imgPeople);
+      this.images.push(this.imgCreativity, this.imgAutomation, this.imgCustomerEngagement, this.imgPeople);
       this.router.navigated = false;
       this.initHome();
     }

@@ -1,7 +1,6 @@
 {
     "home": {
         "title": "Bienvenue, Java Hipster !",
-        "subtitle": "Ceci est votre page d'accueil",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },
@@ -14,6 +13,45 @@
             "follow": "Suivez @java_hipster sur Twitter"
         },
         "like": "Si vous aimez JHipster, donnez nous une étoile sur",
-        "github": "GitHub "
+        "github": "GitHub ",     
+        "scroll": "Scroll",
+        "main": {
+            "subtitle": "Nos solutions sont taillées sur mesure, flexibles et innovatives", 
+        	"checkServices": "Nos services"
+        },
+        "services": {
+            "title": "A votre service",
+            "subtitle": "Nous construisons les meilleures solutions pour vous",
+            "webSite": {
+            	"title": "Site web",
+            	"text": " votre site web en utilisant les dernières technologies. Les solutions sont flexibles et responsive à un prix compétitif."
+            },
+            "webApplications": {
+            	"title": "Applications web",
+            	"text": "On construira des solutions adaptées à votre business. Notre leitmotiv est qualité, automatisation, modularité, innovation et respect des délais."            	
+            },
+            "resources": {
+            	"title": "Sous-traitance",
+            	"text": "Nos ressources sont billingues (anglais et francais), compétentes et très dévouées. L'activité de nos ressources sont suivies par nos membres les plus expérimentés pour s'assurer des la qualité du travail effectuée pour nos clients."            
+            },    
+        	"tellMore": "Dis-moi plus"
+        },
+        "values": {
+            "title": "Nos valeurs",
+        	"contactUs": "Contactez-nous",
+        	"creativity": "Créativité",
+        	"efficiency": {
+            	"title": "Efficacité",
+            	"subtitle": "Automatisation, solutions flexibles et modularité"            
+            },
+        	"customerCommitment": "Engagement client",
+        	"respect": "Respect des personnes"
+        },
+        "contact": {
+            "title": "Contactez-nous",
+        	"phone": "Téléphone",
+        	"address": "Adresse",
+        	"email": "E-mail"
+        }          
     }
 }

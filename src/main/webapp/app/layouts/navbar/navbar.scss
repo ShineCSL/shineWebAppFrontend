@@ -32,22 +32,13 @@ Navbar
     a.nav-link {
         font-weight: 400;
     }
-    .jh-navbar-toggler {
-        color: #ccc;
-        font-size: 1.5em;
-        padding: 0.5rem 1rem;
-        &:hover {
-            color: #5F9EA0;
-        }
-    }
-}
-
-.jh-navbar-toggler {
-    color: $shine-yellow;
-    font-size: 1.5em;
-    padding: 0.5rem 1rem;
-    &:hover {
-       color: $shine-blue;
+	.jh-navbar-toggler {
+	    color: $shine-yellow;
+	    font-size: 1.5em;
+	    padding: 0.5rem 1rem;
+	    &:hover {
+	       color: $shine-blue;
+		}
 	}
 }
 
@@ -83,6 +74,14 @@ Logo styles
             background-size: contain;
         }
     }
+    
+    &:hover {
+	   color: $shine-blue;
+	}
+	
+	&:focus {
+	   color: $shine-blue;
+	}
 }
 
 .dropdown-menu .sub-menu {
