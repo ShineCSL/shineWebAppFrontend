@@ -82,27 +82,41 @@ export class HomeComponent implements OnInit, AfterViewInit {
       const diffValuesContact = contactPosition - valuesPosition;
       const scrollPosition = window.pageYOffset;
       const navShine = document.getElementById('navShine');
+      const logoShine = document.getElementById('logoShine');
       const homeNavItems = ['Home', 'Services', 'Values', 'Contact'];
-      const menuNavBlack = 'bg-nav-dark-gray';
       if (scrollPosition <= (diffHomeServices / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Home');
-          navShine.classList.remove(menuNavBlack);
+          this.removeNavBgDarkGray(navShine, logoShine);
       } else if (scrollPosition >= (diffHomeServices / 2) && scrollPosition < servicesPosition + (diffServicesValues / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Services');
-          navShine.classList.add(menuNavBlack);
+          this.setNavBgDarkGray(navShine, logoShine);
       } else if (scrollPosition >= (diffServicesValues / 2) && scrollPosition < valuesPosition + (diffValuesContact / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Values');
-          navShine.classList.add(menuNavBlack);
+          this.setNavBgDarkGray(navShine, logoShine);
       } else if (scrollPosition >= valuesPosition + (diffValuesContact / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Contact');
-          navShine.classList.add(menuNavBlack);
+          this.setNavBgDarkGray(navShine, logoShine);
       } else {
         console.log('scroll not home');
       }
+    }
+    
+    private setNavBgDarkGray(navShine, logoShine) {
+      const menuNavBlack = 'bg-nav-dark-gray';
+      navShine.classList.add(menuNavBlack);   
+      logoShine.classList.remove('logo-blue');   
+      logoShine.classList.add('logo-yellow');
+    }
+
+    private removeNavBgDarkGray(navShine, logoShine) {
+      const menuNavBlack = 'bg-nav-dark-gray';
+      navShine.classList.remove(menuNavBlack);
+      logoShine.classList.remove('logo-yellow');
+      logoShine.classList.add('logo-blue');   
     }
 
     setInactiveAllItems(arrayItems: string[]) {

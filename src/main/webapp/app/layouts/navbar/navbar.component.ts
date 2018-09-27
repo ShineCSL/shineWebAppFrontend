@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     @ViewChild('aItemHome') aItemHome: ElementRef;
     @ViewChild('aItemServices') aItemServices: ElementRef;
     @ViewChild('aItemContact') aItemContact: ElementRef;
+    @ViewChild('logoShine') logoShine: ElementRef;
 
     constructor(
         private loginService: LoginService,
@@ -223,11 +224,15 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     }
 
     private setNavBgDarkGray() {
-      this.navShine.nativeElement.classList.add('bg-nav-dark-gray');
+      this.navShine.nativeElement.classList.add('bg-nav-dark-gray');   
+      this.logoShine.nativeElement.classList.remove('logo-blue');   
+      this.logoShine.nativeElement.classList.add('logo-yellow');
     }
 
     private removeNavBgDarkGray() {
-      this.navShine.nativeElement.classList.remove('bg-nav-dark-gray');
+      this.navShine.nativeElement.classList.remove('bg-nav-dark-gray');   
+      this.logoShine.nativeElement.classList.remove('logo-yellow');
+      this.logoShine.nativeElement.classList.add('logo-blue');   
     }
 
     isSectionActive(section: string): boolean {

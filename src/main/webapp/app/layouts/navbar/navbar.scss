@@ -63,25 +63,48 @@ Navbar
 Logo styles
 ========================================================================== */
 .navbar-brand {
-    &.logo {
+    &.logo-blue {
         padding: 5px 15px;
+        color: $shine-blue;
         .logo-img {
             height: 45px;
             width: 70px;
             display: inline-block;
             vertical-align: middle;
-            background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
+            background: url("../../../content/images/shine.jpg") no-repeat center center;
             background-size: contain;
-        }
+        }      
+            
+	    &:hover {
+		   color: $shine-dark-gray;
+		}
+		
+		&:focus {
+		   color: $shine-blue;
+		}
     }
     
-    &:hover {
-	   color: $shine-blue;
-	}
-	
-	&:focus {
-	   color: $shine-blue;
-	}
+    &.logo-yellow {
+        padding: 5px 15px;
+        color: $shine-yellow;
+        .logo-img {
+            height: 45px;
+            width: 70px;
+            display: inline-block;
+            vertical-align: middle;
+            background: url("../../../content/images/shine.jpg") no-repeat center center;
+            background-size: contain;
+        }      
+            
+	    &:hover {
+		   color: $shine-green;
+		}
+		
+		&:focus {
+		   color: $shine-yellow;
+		}
+    }
+
 }
 
 .dropdown-menu .sub-menu {
