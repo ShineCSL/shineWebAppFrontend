@@ -20,7 +20,7 @@
                 </a>
             </li>
 
-            <li class="nav-item" [class.active]="isSectionActive('services')" id ="navItemServices" #navItemServices>
+            <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('services')" id ="navItemServices" #navItemServices>
                 <a class="nav-link" [class.active]="isSectionActive('services')" routerLink="/" fragment="services" (click)="collapseNavbar()" id ="aItemServices" #aItemServices>
                     <span>
                         <i class="fa fa-handshake-o" aria-hidden="true"></i>
@@ -29,7 +29,7 @@
                 </a>
             </li>
             
-           <li class="nav-item" [class.active]="isSectionActive('values')" id ="navItemValues" #navItemValues>
+           <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('values')" id ="navItemValues" #navItemValues>
                 <a class="nav-link" [class.active]="isSectionActive('values')" routerLink="/" fragment="values" (click)="collapseNavbar()" id ="aItemValues" #aItemValues>
                     <span>
                         <i class="fa fa-handshake-o" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
                 </a>
             </li>
 
-            <li class="nav-item" [class.active]="isSectionActive('contact')" id ="navItemContact" #navItemContact>
+            <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('contact')" id ="navItemContact" #navItemContact>
                 <a class="nav-link" [class.active]="isSectionActive('contact')" routerLink="/" fragment="contact" (click)="collapseNavbar()" id ="aItemContact" #aItemContact>
                     <span>
                         <i class="fa fa-envelope" aria-hidden="true"></i>

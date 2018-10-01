@@ -112,19 +112,31 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         const element = document.querySelector('#home');
         element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
       } else if (url.indexOf('#services') !== -1) {
-        this.activeSiteSection = 'services';
-        this.activeSiteMenu = '';
+        if(!this.isAuthenticated()){
+	        this.activeSiteSection = 'services';
+        } else {
+        	this.activeSiteSection = 'home';
+        }
+        this.activeSiteMenu = '';   
         this.setNavBgDarkGray();
         const element = document.querySelector('#services');
         element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
       } else if (url.indexOf('#values') !== -1) {
-        this.activeSiteSection = 'values';
+        if(!this.isAuthenticated()){
+	        this.activeSiteSection = 'values';
+        } else {
+        	this.activeSiteSection = 'home';
+        }
         this.activeSiteMenu = '';
         this.setNavBgDarkGray();
         const element = document.querySelector('#values');
         element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
       } else if (url.indexOf('#contact') !== -1) {
-        this.activeSiteSection = 'contact';
+        if(!this.isAuthenticated()){
+	        this.activeSiteSection = 'contact';
+        } else {
+        	this.activeSiteSection = 'home';
+        }
         this.activeSiteMenu = '';
         this.setNavBgDarkGray();
         const element = document.querySelector('#contact');

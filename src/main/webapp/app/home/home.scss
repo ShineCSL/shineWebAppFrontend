@@ -112,6 +112,15 @@ only screen and (                min-resolution: 2dppx) {
   margin: auto;
 }
 
+.fill-carousel {
+  width: 100%;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  position:fixed;  
+}
+
 :host /deep/ .carousel-item {
   height: 100%;
 }
@@ -151,12 +160,12 @@ a.carousel-control.left:hover{
 	}
 	.intro-heading {
 		font-size: 50px;
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 768px) {
     		font-size: 30px;
     		font-weight: 600;
 		}
 		font-weight: 700;
-		line-height: 50px;
+		line-height: 45px;
 		margin-bottom: 25px;
 		background: linear-gradient(to right top, $white 50%, $shine-yellow 50%);
   		-webkit-background-clip: text;
@@ -319,4 +328,82 @@ hr.light {
 	height: 63px;
 	background: $shine-yellow;
 	content: ' ';
+}
+
+.imgTechnology {
+    @media screen and (max-width: 480px) {
+    	background: url("../../content/images/technology_mobile.jpeg") no-repeat center top;
+    	background-size: 100% 100%;
+	}
+	@media screen and (min-width: 480px) and (max-width: 800px) {
+    	background: url("../../content/images/technology_tablet.jpeg") no-repeat center top;
+    	background-size: 100% 100%;
+	}
+	@media screen and (min-width: 800px) {
+    	background: url("../../content/images/technology.jpg") no-repeat center top;
+    	background-size: 100% 100%;
+	}
+    background-size: contain;
+    width: 100%;
+  	height: 100vh;
+}
+
+.imgCreativity {
+    @media screen and (max-width: 480px) {
+    	background: url("../../content/images/creativity_mobile.jpeg") no-repeat center top;
+    	background-size: 100% 100%;
+	}
+	@media screen and (min-width: 480px) and (max-width: 800px) {
+    	background: url("../../content/images/creativity_tablet.jpeg") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
+	@media screen and (min-width: 800px) {
+    	background: url("../../content/images/creativity.jpg") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
+}
+
+.imgAutomation {
+    @media screen and (max-width: 480px) {
+    	background: url("../../content/images/automation_mobile.jpeg") no-repeat center top;
+    	background-size: 100% 100%;
+	}
+	@media screen and (min-width: 480px) and (max-width: 800px) {
+    	background: url("../../content/images/automation_tablet.jpeg") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
+	@media screen and (min-width: 800px) {
+    	background: url("../../content/images/automation.jpg") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
+}
+
+.imgCustomerEngagement {
+    @media screen and (max-width: 480px) {
+    	background: url("../../content/images/customer-engagement_mobile.jpeg") no-repeat center top;
+    	background-size: 100% 100%;
+	}
+	@media screen and (min-width: 480px) and (max-width: 800px) {
+    	background: url("../../content/images/customer-engagement_tablet.jpeg") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
+	@media screen and (min-width: 800px) {
+    	background: url("../../content/images/customer-engagement.jpg") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
+}
+
+.imgPeople {
+    @media screen and (max-width: 480px) {
+    	background: url("../../content/images/people_mobile.jpeg") no-repeat center top;
+    	background-size: 100% 100%;
+	}
+	@media screen and (min-width: 480px) and (max-width: 800px) {
+    	background: url("../../content/images/people_tablet.jpeg") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
+	@media screen and (min-width: 800px) {
+    	background: url("../../content/images/people.png") no-repeat center top;
+    	background-size: 100% 100%;    	
+	}
 }

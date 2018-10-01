@@ -17,13 +17,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     account: Account;
     modalRef: NgbModalRef;
 
-    imgCreativity = require('../../content/images/creativity.jpg');
+    /*imgCreativity = require('../../content/images/creativity.jpg');
     imgCustomerEngagement = require('../../content/images/customer-engagement.jpg');
     imgPeople = require('../../content/images/people.png');
     imgTechnology = require('../../content/images/technology.jpg');
     imgAutomation = require('../../content/images/automation.jpg');
 
-    images: Array<string> = [];
+    imgTechnologyMobile = require('../../content/images/technology_mobile.jpg');
+
+    images: Array<string> = [];*/
 
     @ViewChild('home', { read: ElementRef }) public home: ElementRef;
     @ViewChild('services', { read: ElementRef }) public services: ElementRef;
@@ -43,7 +45,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.account = account;
       });
       this.registerAuthenticationSuccess();
-      this.images.push(this.imgCreativity, this.imgAutomation, this.imgCustomerEngagement, this.imgPeople);
+      //this.images.push(this.imgCreativity, this.imgAutomation, this.imgCustomerEngagement, this.imgPeople);
       this.router.navigated = false;
       this.initHome();
     }
@@ -120,19 +122,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     setInactiveAllItems(arrayItems: string[]) {
-      for (const item of arrayItems) {
-        const navItem = document.getElementById('navItem' + item);
-        const aItem = document.getElementById('aItem' + item);
-        navItem.className = 'nav-item';
-        aItem.className = 'nav-link';
+      if (!this.isAuthenticated()) {
+	      for (const item of arrayItems) {
+	        const navItem = document.getElementById('navItem' + item);
+	        const aItem = document.getElementById('aItem' + item);
+	        navItem.className = 'nav-item';
+	        aItem.className = 'nav-link';
+	      }
       }
     }
 
     setActiveItem(item: string) {
-      const navItem = document.getElementById('navItem' + item);
-      const aItem = document.getElementById('aItem' + item);
-      navItem.className = 'nav-item active';
-      aItem.className = 'nav-link active';
+      if (!this.isAuthenticated()) {
+	      const navItem = document.getElementById('navItem' + item);
+	      const aItem = document.getElementById('aItem' + item);
+	      navItem.className = 'nav-item active';
+	      aItem.className = 'nav-link active';
+      } else {
+	      const navItem = document.getElementById('navItemHome');
+	      const aItem = document.getElementById('aItemHome');
+	      navItem.className = 'nav-item active';
+	      aItem.className = 'nav-link active';      
+      }
     }
 
     initHome(): void {
@@ -141,22 +152,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
       const navItemServices = document.getElementById('navItemServices');
       const navItemValues = document.getElementById('navItemValues');
       const navItemContact = document.getElementById('navItemContact');
-      if (url === '/') {
+      if (url === '/' || this.isAuthenticated()) {
         navItemHome.className = 'nav-item active';
-        this.scrollInto(100);
       } else if (url.indexOf('#home') !== -1) {
         navItemHome.className = 'nav-item active';
-        this.scrollInto(100);
       } else if (url.indexOf('#services') !== -1) {
         navItemServices.className = 'nav-item active';
-        this.scrollInto(100);
       } else if (url.indexOf('#values') !== -1) {
         navItemValues.className = 'nav-item active';
-        this.scrollInto(100);
       } else if (url.indexOf('#contact') !== -1) {
         navItemContact.className = 'nav-item active';
-        this.scrollInto(100);
       }
+      this.scrollInto(100);
     }
 
     scrollInto(wait: number): void {
