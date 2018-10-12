@@ -5,9 +5,9 @@ Shine Colors
 ===============================================================*/
 // Declare the color as RGB; SASS will treat this as hex
 $shine-green: #F79E54;
-$shine-blue: #4795D6;
+$shine-blue: #4795d6;
 $shine-red: #FA6D58;
-$shine-yellow: #CCCC00;
+$shine-yellow: #FFD700;
 $shine-orange: #f44336;
 $shine-light-gray: #d2d2d2;
 $shine-dark-gray: #212529;
@@ -63,7 +63,11 @@ a {
 	text-decoration: none;
 }
 
-.element-color-yellow {
+.element-color-shine-main {
+	color: $shine-blue;
+}
+
+.element-color-shine-secondary {
 	color: $shine-yellow;
 }
 

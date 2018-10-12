@@ -148,7 +148,7 @@ a.carousel-control.left:hover{
     transform: translate(-50%, 0);
   	margin: 0 auto;
     width: 40%;
-	color: $shine-yellow;
+	color: $white;
 	@media screen and (max-width: 480px) {
     	width: 80%;
 	}
@@ -159,7 +159,7 @@ a.carousel-control.left:hover{
 		margin-bottom: 25px;
 	}
 	.intro-heading {
-		font-size: 50px;
+		font-size: 45px;
 		@media screen and (max-width: 768px) {
     		font-size: 30px;
     		font-weight: 600;
@@ -167,9 +167,9 @@ a.carousel-control.left:hover{
 		font-weight: 700;
 		line-height: 45px;
 		margin-bottom: 25px;
-		background: linear-gradient(to right top, $white 50%, $shine-yellow 50%);
-  		-webkit-background-clip: text;
-  		-webkit-text-fill-color: transparent;
+		//background: linear-gradient(to right top, $white 50%, $shine-yellow 50%);
+  		//-webkit-background-clip: text;
+  		//-webkit-text-fill-color: transparent;
 	}
 }
 
@@ -212,18 +212,14 @@ a.carousel-control.left:hover{
 }
 
 .btn-primary {
-  background-color: $shine-green;
-  border-color: $shine-green;
+  background-color: $shine-blue;
+  border-color: $shine-blue;
   color: $white;
   &:hover,
   &:focus,
   &:active {
     color: $white;
-    background-color: darken($shine-red, 5%) !important;
-  }
-  &:active,
-  &:focus {
-    box-shadow: 0 0 0 0.2rem rgba($shine-red,.5) !important;
+    background-color: darken($shine-blue, 5%) !important;
   }
 }
 
@@ -299,8 +295,8 @@ hr.light {
 	padding: 0;
 	width: 8px;
 	height: 8px;
-	border-top: 1px solid $shine-yellow;
-	border-right: 1px solid $shine-yellow;
+	border-top: 1px solid $shine-blue;
+	border-right: 1px solid $shine-blue;
 	-moz-transform: rotate(135deg);
 	-webkit-transform: rotate(135deg);
 	-o-transform: rotate(135deg);
@@ -311,7 +307,6 @@ hr.light {
 .scroll-title {
 	display: block;
 	text-transform: uppercase;
-	color: $shine-yellow;
 	font-size: 14px;
 	font-weight: 500;
 	letter-spacing: .1em;
@@ -326,7 +321,7 @@ hr.light {
 	margin-left: 11px;
 	width: 1px;
 	height: 63px;
-	background: $shine-yellow;
+	background: $shine-blue;
 	content: ' ';
 }
 
