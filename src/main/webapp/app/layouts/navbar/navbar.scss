@@ -160,11 +160,11 @@ Logo styles
 	}	
 	
 	.jh-navbar-toggler {
-	    color: $shine-yellow;
+	    color: $shine-blue;
 	    font-size: 1.5em;
 	    padding: 0.5rem 1rem;
 	    &:hover {
-	       color: $shine-blue;
+	       color: darken($shine-blue, 5%) !important;
 		}
 	}
 }
