@@ -21,10 +21,10 @@
         },
         "services": {
             "title": "A votre service",
-            "subtitle": "Nous construisons les meilleures solutions pour vous",
+            "subtitle": "Nous construisons les meilleures solutions pour vous.",
             "webSite": {
             	"title": "Site web",
-            	"text": "Nous développons votre site web en utilisant les dernières technologies. Les solutions sont flexibles et responsive à un prix compétitif."
+            	"text": "Nous développons votre site web en utilisant les dernières technologies. Les solutions sont flexibles, \"responsives\", compatibles multi-navigateur et à un tarif très compétitif."
             },
             "webApplications": {
             	"title": "Applications web",

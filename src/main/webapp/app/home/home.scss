@@ -27,7 +27,7 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 .box1{background: rgba($shine-green, $alpha);}
-.box2{background: rgba($shine-yellow, $alpha);}
+.box2{background: rgba($shine-light-gray, $alpha);}
 .box3{background: rgba($shine-blue, $alpha);}
 
 .container-section {
@@ -40,7 +40,7 @@ only screen and (                min-resolution: 2dppx) {
 	}
 }
 
-@mixin seperator {
+.seperator-intro {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,22 +48,38 @@ only screen and (                min-resolution: 2dppx) {
   	width: 100%;	
 }
 
+.svg-background-services {
+  clip-path: url(#clip-intro-services);
+}
+
+.svg-background-values{
+  clip-path: url(#clip-intro-values);
+}
+
+.svg-background-contact {
+  clip-path: url(#clip-intro-contact);
+}
+
+svg.clip-svg-intro {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+#svg-intro {
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+
 .seperator-services {
-	@include seperator;
-  	background-color: $shine-orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+  	height: 300px;
+  	width: 100%;	  	
+  	background-color: $shine-dark-gray;
 	clip-path: polygon(100% 0, 0 0, 0 65%, 50% 50%, 100% 35%);
-}
-
-.seperator-values {
-	@include seperator;
-  	background-color: $shine-blue;
-	clip-path: polygon(100% 0, 0 0, 0 35%, 50% 60%, 100% 35%);
-}
-
-.seperator-contact {
-	@include seperator;
-  	background-color: $shine-red;
-	clip-path: polygon(100% 0, 0 0, 0 35%, 50% 50%, 100% 65%);
 }
 
 .carousel-wrapper {
@@ -144,25 +160,27 @@ a.carousel-control.left:hover{
 
 .intro-text {
     position: absolute;
-    top: 35%;
-    left: 15%;
-    transform: translate(-50%, 0);
+    top: 30%;
+    left: 5%;
+    //transform: translate(-50%, 0);
   	margin: 0 auto;
     width: 20%;
 	color: $white;
 	text-align: left;
-	@media screen and (max-height: 768px) {
+	@media screen and (max-height: 850px) {
     	top: 20%;
 	}
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: $screen-xs) {
     	width: 80%;
+    	transform: translate(-50%, 0);
 	}
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: $screen-md) {
     	top: 10%;
     	left: 50%;	
         width: 60%;
         text-align: center;
         color: $shine-blue;
+        transform: translate(-50%, 0);
     }
 	.intro-lead-in { 
 		font-size : 22px;
@@ -172,13 +190,13 @@ a.carousel-control.left:hover{
 	}
 	.intro-heading {
 		font-size: 45px;
-		@media screen and (max-width: 900px) {
+		@media screen and (max-width: $screen-lg) {
     		font-size: 30px;
     		font-weight: 600;
 		}
-		@media screen and (max-width: 480px) {
-    		font-size: 20px;
-    		font-weight: 500;
+		@media screen and (max-width: $screen-xs) {
+    		font-size: 25px;
+    		font-weight: 600;
 		}
 		font-weight: 700;
 		line-height: 45px;
@@ -195,6 +213,25 @@ a.carousel-control.left:hover{
     left: 50%;
     transform: translate(-50%, -50%);
   	margin: 0 auto;
+}
+
+.center-button-services {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    //transform: translate(-50%, -50%);
+  	margin: 0 auto;
+  	@media screen and (max-width: $screen-md) {
+    	bottom: 5%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+    }
+    @media screen and (max-height: 850px) {
+    	bottom: 10%;
+	}
+	@media screen and (max-height: 600px) {
+    	bottom: 2%;
+	}
 }
 
 .btn {
@@ -278,7 +315,7 @@ hr.light {
     //transform: translate(-50%, -50%);
   	margin: 0 auto;
   	z-index: 100;
-  	@media screen and (max-width: 800px) {
+  	@media screen and (max-width: $screen-sm) {
         display: none;
 	}
 }
@@ -291,7 +328,7 @@ hr.light {
   	margin: 0 auto;
   	z-index: 100;
   	
-  	@media screen and (max-width: 800px) {
+  	@media screen and (max-width: $screen-sm) {
         display: none;
 	}
 }
@@ -351,15 +388,15 @@ hr.light {
 }
 
 .imgTechnology {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $screen-sm) {
     	background: url("../../content/images/technology_mobile.jpeg") no-repeat center top;
     	background-size: 100% 100%;
 	}
-	@media screen and (min-width: 480px) and (max-width: 800px) {
+	@media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
     	background: url("../../content/images/technology_tablet.jpeg") no-repeat center top;
     	background-size: 100% 100%;
 	}
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/technology2.png") no-repeat center top; 
     	background-size: 100% 100%;
 	}
@@ -369,60 +406,60 @@ hr.light {
 }
 
 .imgCreativity {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/creativity_mobile.jpeg") no-repeat center top;
     	background-size: 100% 100%;
 	}
-	@media screen and (min-width: 480px) and (max-width: 800px) {
+	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/creativity_tablet.jpeg") no-repeat center top;
     	background-size: 100% 100%;    	
 	}
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/creativity.jpg") no-repeat center top;
     	background-size: 100% 100%;    	
 	}
 }
 
 .imgAutomation {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/automation_mobile.jpeg") no-repeat center top;
     	background-size: 100% 100%;
 	}
-	@media screen and (min-width: 480px) and (max-width: 800px) {
+	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/automation_tablet.jpeg") no-repeat center top;
     	background-size: 100% 100%;    	
 	}
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/automation.jpg") no-repeat center top;
     	background-size: 100% 100%;    	
 	}
 }
 
 .imgCustomerEngagement {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/customer-engagement_mobile.jpeg") no-repeat center top;
     	background-size: 100% 100%;
 	}
-	@media screen and (min-width: 480px) and (max-width: 800px) {
+	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/customer-engagement_tablet.jpeg") no-repeat center top;
     	background-size: 100% 100%;    	
 	}
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/customer-engagement.jpg") no-repeat center top;
     	background-size: 100% 100%;    	
 	}
 }
 
 .imgPeople {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/people_mobile.jpeg") no-repeat center top;
     	background-size: 100% 100%;
 	}
-	@media screen and (min-width: 480px) and (max-width: 800px) {
+	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/people_tablet.jpeg") no-repeat center top;
     	background-size: 100% 100%;    	
 	}
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/people.png") no-repeat center top;
     	background-size: 100% 100%;    	
 	}

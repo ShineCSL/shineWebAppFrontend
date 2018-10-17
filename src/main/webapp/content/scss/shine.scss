@@ -1,4 +1,6 @@
 @import 'fonts';
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import 'node_modules/bootstrap/scss/mixins/buttons';
 
 /* ==============================================================
 Shine Colors
@@ -13,6 +15,13 @@ $shine-light-gray: #d2d2d2;
 $shine-dark-gray: #212529;
 $white: #fff !default;
 $black: #000 !default;
+
+$font-size-button-sm: 0.7rem;
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
 
 @mixin no-padding($side) {
     @if $side == 'all' {
@@ -83,6 +92,13 @@ h5,
 h6 {
   font-weight: 700;
   @include heading-font;
+}
+
+/* change all .btn to .btn-sm size on xs */
+@include media-breakpoint-down(md){
+  .btn {
+      @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-button-sm, $line-height-sm, $btn-border-radius-sm);
+  }
 }
 
 .jumbotron {

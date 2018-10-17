@@ -6,8 +6,8 @@
 				<span jhiTranslate="home.main.subtitle">Our solutions are tailor-made, flexible and innovative</span>
 			</div>
 		</div>
-		<div class="center-bottom">
-			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+		<div class="center-button-services">
+			<a class="btn btn-primary btn-xl text-uppercase"
 				routerLink="/" fragment="services"><span jhiTranslate="home.main.checkServices">Check our services</span></a>
 		</div>
 		<div class="scroll-center-right">
@@ -26,7 +26,20 @@
 
 <div id="services" class="container-section" #services>
 	<div class="row position-relative">
-		<div class="seperator-services">
+		<div class="seperator-intro">
+			<div>
+				<svg id="svg-intro" class="clip-svg-intro">
+	        		<rect class="svg-background-services" width="100%" height="100%" fill="#212529"/>
+	    		</svg>
+			</div>
+			
+			<svg>
+	    		<defs>
+	        		<clipPath id="clip-intro-services" clipPathUnits="objectBoundingBox">
+	            		<polygon points="100 0, 0.35 0, 0 0, 0 0.65, 0.4 0.5, 0.6 0.5, 1 0.65" />
+	        		</clipPath>
+	    		</defs>
+			</svg>
 		</div>
 	</div>
 	<div class="container title-padding">
@@ -53,14 +66,14 @@
 		<div class="container">
 			<div class="container-fluid custom_width">
 				<div class="row text-center pt-4 pb-4">
-					<div class="col-md-12 col-sm-12">
+					<div class="col-md-12 col-sm-12 element-color-shine-main">
 						<h3><span jhiTranslate="home.services.subtitle">Let us design the best possible solutions for you</span></h3>
 					</div>
 				</div>
 				<div class="row text-center pt-3 pb-3">
 					<div class="col-md-4">
 						<span class="fa-stack fa-4x"> <i
-							class="fa fa-circle fa-stack-2x element-color-shine-main "></i> <i
+							class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i
 							class="fa fa-mixcloud fa-stack-1x fa-inverse"></i>
 						</span>
 						<h4><span jhiTranslate="home.services.webSite.title">Web site</span>
@@ -74,7 +87,7 @@
 					</div>
 					<div class="col-md-4">
 						<span class="fa-stack fa-4x"> <i
-							class="fa fa-circle fa-stack-2x element-color-shine-main "></i> <i
+							class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i
 							class="fa fa-laptop fa-stack-1x fa-inverse"></i>
 						</span>
 						<h4><span jhiTranslate="home.services.webApplications.title">Web applications</span></h4>
@@ -87,7 +100,7 @@
 					</div>
 					<div class="col-md-4">
 						<span class="fa-stack fa-4x"> <i
-							class="fa fa-circle fa-stack-2x element-color-shine-main "></i> <i
+							class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i
 							class="fa fa-group fa-stack-1x fa-inverse"></i>
 						</span>
 						<h4><span jhiTranslate="home.services.resources.title">Resources Outsourcing</span></h4>
@@ -101,25 +114,11 @@
 				</div>
 				<div class="row text-center pt-5 pb-5">
 					<div class="col-md-12 col-sm-12">
-						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+						<a class="btn btn-primary btn-xl text-uppercase"
 							routerLink="/" fragment="values"><span jhiTranslate="home.services.tellMore">Tell me more</span></a>
 
 					</div>
 				</div>
-<!-- 				<div class="row text-center pt-5 pb-5"> -->
-<!-- 					<div class="col-md-3 col-sm-3"> -->
-<!-- 						<img [src]="imgAws" class="img-full"> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-3 col-sm-3"> -->
-<!-- 						<img [src]="imgWeb" class="img-full"> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-3 col-sm-3"> -->
-<!-- 						<img [src]="imgCloud" class="img-full"> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-3 col-sm-3"> -->
-<!-- 						<img [src]="imgOracle" class="img-full"> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
 			</div>
 		</div>
 	</div>
@@ -127,7 +126,20 @@
 
 <div id="values" class="container-section" #values>
 	<div class="row position-relative">
-		<div class="seperator-values">
+		<div class="seperator-intro">
+			<div>
+				<svg id="svg-intro" class="clip-svg-intro">
+	        		<rect class="svg-background-values" width="100%" height="100%" fill="#212529"/>
+	    		</svg>
+			</div>
+			
+			<svg>
+	    		<defs>
+	        		<clipPath id="clip-intro-values" clipPathUnits="objectBoundingBox">
+	            		<polygon points="1 0, 0 0, 0 0.35, 0.5 0.6, 1 0.35" />
+	        		</clipPath>
+	    		</defs>
+			</svg>
 		</div>
 	</div>
 	<div class="container title-padding">
@@ -158,7 +170,7 @@
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
-								<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+								<a class="btn btn-primary btn-xl text-uppercase"
 									routerLink="/" fragment="contact"><span jhiTranslate="home.values.contactUs">Contact us</span></a>
 							</div>
 						</div>
@@ -174,7 +186,7 @@
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
-								<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+								<a class="btn btn-primary btn-xl text-uppercase"
 									routerLink="/" fragment="contact"><span jhiTranslate="home.values.contactUs">Contact us</span></a>
 							</div>
 						</div>
@@ -191,7 +203,7 @@
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
-								<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+								<a class="btn btn-primary btn-xl text-uppercase"
 									routerLink="/" fragment="contact"><span jhiTranslate="home.values.contactUs">Contact us</span></a>
 							</div>
 						</div>
@@ -207,7 +219,7 @@
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
-								<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+								<a class="btn btn-primary btn-xl text-uppercase"
 									routerLink="/" fragment="contact"><span jhiTranslate="home.values.contactUs">Contact us</span></a>
 							</div>
 						</div>
@@ -225,7 +237,20 @@
 
 <div id="contact" class="container-section" #contact>
 	<div class="row position-relative">
-		<div class="seperator-contact">
+		<div class="seperator-intro">
+			<div>
+				<svg id="svg-intro" class="clip-svg-intro">
+	        		<rect class="svg-background-contact" width="100%" height="100%" fill="#212529"/>
+	    		</svg>
+			</div>
+			
+			<svg>
+	    		<defs>
+	        		<clipPath id="clip-intro-contact" clipPathUnits="objectBoundingBox">
+	            		<polygon points="1 0, 0.35 0, 0 0, 0 0.35, 0.4 0.5, 0.6 0.5, 1 0.35" />
+	        		</clipPath>
+	    		</defs>
+			</svg>
 		</div>
 	</div>
     <div class="container title-padding">
@@ -240,7 +265,7 @@
 		<div class="container">
 			<div class="row pt-3">
 				<div class="col-12">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d935.7189625047101!2d57.47557862923667!3d-20.263982999151096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5be76002547b%3A0x1aa0bd8c9fa309f7!2sShine+Consulting+Ltd!5e0!3m2!1sfr!2smu!4v1535627470761" 
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.876970179897!2d57.473904614274396!3d-20.263936554011636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5bde9c391f5f%3A0x20f6add4609446b5!2sShine+CSL!5e0!3m2!1sfr!2smu!4v1539759747613" 
 					width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
 			</div>

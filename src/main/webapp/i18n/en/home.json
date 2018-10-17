@@ -21,10 +21,10 @@
         },
         "services": {
             "title": "At Your Service",
-            "subtitle": "We design the best possible solutions for you",
+            "subtitle": "We design the best possible solutions for you.",
             "webSite": {
             	"title": "Web site",
-            	"text": "We develop web sites using the latest technologies. Our solutions are modern, flexible and responsive at a competitive price."
+            	"text": "We develop web sites using the latest technologies. Our solutions are modern, flexible, responsive, cross-browser compatible and at a very competitive rate."
             },
             "webApplications": {
             	"title": "Web applications",
