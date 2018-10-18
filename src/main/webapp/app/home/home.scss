@@ -26,9 +26,9 @@ only screen and (                min-resolution: 2dppx) {
     }
 }
 
-.box1{background: rgba($shine-green, $alpha);}
-.box2{background: rgba($shine-light-gray, $alpha);}
-.box3{background: rgba($shine-blue, $alpha);}
+.box1{background: rgba($shine-orange, 1);}
+.box2{background: rgba($shine-orange, 0.5);}
+.box3{background: rgba($shine-orange, 0.8);}
 
 .container-section {
 	width: 100%;
@@ -72,15 +72,15 @@ svg.clip-svg-intro {
   top: 0px;
 }
 
-.seperator-services {
+/*.seperator-services {
     position: absolute;
     top: 0;
     left: 0;
   	height: 300px;
   	width: 100%;	  	
   	background-color: $shine-dark-gray;
-	clip-path: polygon(100% 0, 0 0, 0 65%, 50% 50%, 100% 35%);
-}
+	clip-path: polygon(100% 0, 35% 0, 0 0, 0 35%, 40% 50%, 60% 50%, 100% 35%);
+}*/
 
 .carousel-wrapper {
   position: relative;
