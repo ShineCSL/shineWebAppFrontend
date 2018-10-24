@@ -294,11 +294,6 @@ a.carousel-control.left:hover{
   background-color: $shine-blue;
   border-color: $shine-blue;
   color: $white;
-  &:focus,
-  &:active {
-    color: $white;
-    background-color: darken($shine-blue, 5%) !important;
-  }
   &:hover {
   	opacity: .9;
   }
@@ -365,16 +360,29 @@ hr.light {
 	}
 }
 
-.scroll-down {
+@mixin scroll-line {
 	text-align: center;
 	&:before {
 		position: absolute;
 		top: 0px;
 		margin-left: 24px;
 		width: 1px;
-		height: 63px;
 		background: $shine-blue;
 		content: ' ';
+  	}
+}
+
+.scroll-line-down {
+	@include scroll-line;
+	&:before {
+		height: 63px;
+  	}
+}
+
+.scroll-line-up {
+	@include scroll-line;
+	&:before {
+		height: 80px;
   	}
 }
 
@@ -400,6 +408,30 @@ hr.light {
 		transform: rotate(135deg);
 		left: 21px;
 		top: 55px;
+	}
+}
+
+.arrow-up {
+	position: absolute;
+	//display: block;
+	margin: 0 auto;
+	width: 10px;
+	height: 25px;
+	top: 0px;
+	&:after {
+		position: absolute;
+		content: '';
+		display: block;
+		width: 8px;
+		height: 8px;
+		border-top: 1px solid $shine-blue;
+		border-right: 1px solid $shine-blue;
+		-moz-transform: rotate(315deg);
+		-webkit-transform: rotate(315deg);
+		-o-transform: rotate(315deg);
+		-ms-transform: rotate(315deg);
+		transform: rotate(315deg);
+		left: 21px;
 	}
 }
 

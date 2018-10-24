@@ -157,3 +157,8 @@ h6 {
 .screen-padding {
 	padding-top: 70px;
 }
+
+.btn:focus, .btn.active:focus {
+    outline: none;
+    box-shadow:none;
+}
