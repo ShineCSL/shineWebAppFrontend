@@ -1,0 +1,49 @@
+@import '../../../content/scss/shine';
+
+
+.footer-background {
+	background: $shine-dark-gray;
+}
+
+
+.fa {
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    width: 35px;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: $facebook;
+    color: $white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: $twitter;
+    color: $white;
+}
+
+.fa-linkedin {
+    background: $linkedin;
+    color: $white;
+}
+
+.fa-envelope {
+    background: $google;
+    color: $white;
+}
+
+.footer-text {
+    font-size: 20px;	
+}

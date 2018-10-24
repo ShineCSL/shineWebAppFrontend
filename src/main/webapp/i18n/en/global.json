@@ -165,5 +165,5 @@
         "emailexists": "Email is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID"
     },
-    "footer": "Powered by Shine CSL &copy; 2018"
+    "footer": "Copyright &copy; 2018 | Powered by Shine CSL."
 }

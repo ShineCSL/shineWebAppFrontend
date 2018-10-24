@@ -26,15 +26,58 @@ only screen and (                min-resolution: 2dppx) {
     }
 }
 
-.box1{background: rgba($shine-orange, 1);}
-.box2{background: rgba($shine-orange, 0.5);}
-.box3{background: rgba($shine-orange, 0.8);}
+.box1 {
+	background: rgba($shine-orange, 1);
+	&:hover {
+	    opacity: .9;
+	}
+}
+
+.box2 {
+	background: rgba($shine-orange, 0.5);
+	&:hover {
+	    opacity: .9;
+	}	
+}
+
+.box3{
+	background: rgba($shine-orange, 0.8);
+	&:hover {
+	    opacity: .9;
+	}
+}
+
+a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    z-index: 10;
+    /*workaround to make clickable in IE */
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}
 
 .container-section {
 	width: 100%;
 	height: 100%;
 	position: relative;
 	min-height: 100vh;
+	.title-padding {
+		padding-top: 80px;
+	}
+}
+
+.container-section-contact {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	//min-height: 100vh;
 	.title-padding {
 		padding-top: 80px;
 	}
@@ -167,6 +210,7 @@ a.carousel-control.left:hover{
     width: 20%;
 	color: $white;
 	text-align: left;
+	//@include charmonman;
 	@media screen and (max-height: 850px) {
     	top: 20%;
 	}
@@ -250,11 +294,13 @@ a.carousel-control.left:hover{
   background-color: $shine-blue;
   border-color: $shine-blue;
   color: $white;
-  &:hover,
   &:focus,
   &:active {
     color: $white;
     background-color: darken($shine-blue, 5%) !important;
+  }
+  &:hover {
+  	opacity: .9;
   }
 }
 
@@ -287,8 +333,8 @@ hr.light {
   	animation-iteration-count: infinite;
 }
 
-.text-shine-gray {
-	color: $shine-dark-gray;
+.text-shine-contact-box {
+	color: $black;
 }
 
 .img-full {
@@ -310,44 +356,26 @@ hr.light {
 
 .scroll-center-right {
     position: absolute;
-    top: 50%;
+    top: 45%;
     right: 4%;
-    //transform: translate(-50%, -50%);
   	margin: 0 auto;
   	z-index: 100;
-  	@media screen and (max-width: $screen-sm) {
-        display: none;
-	}
-}
-
-.scroll-center-right-values {
-    position: absolute;
-    top: 50%;
-    right: 4%;
-    //transform: translate(-50%, -50%);
-  	margin: 0 auto;
-  	z-index: 100;
-  	
   	@media screen and (max-width: $screen-sm) {
         display: none;
 	}
 }
 
 .scroll-down {
-	//display: block;
-	//position: absolute;
 	text-align: center;
-}
-
-.scroll-down::before {
-	position: absolute;
-	top: 0px;
-	//left: 50%;
-	margin-left: 24px;
-	width: 1px;
-	height: 63px;
-	background: $shine-blue;
-	content: ' ';
+	&:before {
+		position: absolute;
+		top: 0px;
+		margin-left: 24px;
+		width: 1px;
+		height: 63px;
+		background: $shine-blue;
+		content: ' ';
+  	}
 }
 
 .arrow-down {
@@ -357,23 +385,22 @@ hr.light {
 	width: 10px;
 	height: 25px;
 	top: 0px;
-}
-
-.arrow-down:after {
-	position: absolute;
-	content: '';
-	display: block;
-	width: 8px;
-	height: 8px;
-	border-top: 1px solid $shine-blue;
-	border-right: 1px solid $shine-blue;
-	-moz-transform: rotate(135deg);
-	-webkit-transform: rotate(135deg);
-	-o-transform: rotate(135deg);
-	-ms-transform: rotate(135deg);
-	transform: rotate(135deg);
-	left: 21px;
-	top: 55px;
+	&:after {
+		position: absolute;
+		content: '';
+		display: block;
+		width: 8px;
+		height: 8px;
+		border-top: 1px solid $shine-blue;
+		border-right: 1px solid $shine-blue;
+		-moz-transform: rotate(135deg);
+		-webkit-transform: rotate(135deg);
+		-o-transform: rotate(135deg);
+		-ms-transform: rotate(135deg);
+		transform: rotate(135deg);
+		left: 21px;
+		top: 55px;
+	}
 }
 
 .scroll-title {

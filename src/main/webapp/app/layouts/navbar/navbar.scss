@@ -34,13 +34,13 @@ Navbar
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $screen-lg) {
     .jh-navbar-toggler {
         display: none;
-    }
+    }  
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: $screen-lg) {
     .jh-logo-container {
         width: 100%;
     }
@@ -49,13 +49,17 @@ Navbar
 .navbar-title {
     display: inline-block;
     vertical-align: middle;
+    @media screen and (max-width: $screen-lg) {
+		display: none;    
+	}
 }
 
 /* ==========================================================================
 Logo styles
 ========================================================================== */
 .navbar-brand {
-    &.logo-blue {
+	//@include charmonman;
+      &.logo-blue {
         padding: 5px 15px;
         color: $shine-blue;
         .logo-img {
@@ -66,15 +70,15 @@ Logo styles
             background: url("../../../content/images/logo.png") no-repeat center center;
             background-size: contain;
             image-rendering: crisp-edges;
-        }      
+      }      
             
-	    &:hover {
-		   color: $shine-dark-gray;
-		}
+	  &:hover {
+	  	opacity: .7;
+	  }
 		
-		&:focus {
-		   color: $shine-blue;
-		}
+	  &:focus {
+		color: darken($shine-blue, 5%) !important;
+	  }
     }
     
     &.logo-yellow {
@@ -90,11 +94,11 @@ Logo styles
         }      
             
 	    &:hover {
-		   color: $shine-green;
+		   opacity: .7;
 		}
 		
 		&:focus {
-		   color: $shine-yellow;
+		   color: darken($shine-yellow, 5%) !important;
 		}
     }
 
@@ -106,6 +110,11 @@ Logo styles
 	top: 0;
 	visibility: hidden;
 	margin-top: -1px;
+	@media screen and (max-width: $screen-lg) {
+    	left: 20%;
+    	top: 50%;
+    	width: 80%;
+    }
 }
 
 .dropdown-menu li:hover>.sub-menu {
@@ -118,14 +127,14 @@ Logo styles
 }
 
 .navbar {
-	@media screen and (max-width: 1200px) {
+	@media screen and (max-width: $screen-lg) {
 		padding: 0px 0px;
 	}	
 }
 
 .top-bar {
 	.nav-link {
-		@media screen and (max-width: 1200px) {
+		@media screen and (max-width: $screen-lg) {
 			background-color: $shine-dark-gray;
 		}
 		color: $white;
@@ -165,13 +174,13 @@ Logo styles
 	    font-size: 1.5em;
 	    padding: 0.5rem 1rem;
 	    &:hover {
-	       color: darken($shine-blue, 5%) !important;
+	       opacity: .7;
 		}
 	}
 }
 
 .top-bar .navbar-nav .nav-item {
-	@media screen and (max-width: 1200px) {
+	@media screen and (max-width: $screen-lg) {
 		margin-bottom: 0px;
 	}
 	margin-bottom: 2px;
@@ -182,13 +191,20 @@ a.dropdown-toggle {
     border-bottom: transparent solid 2px;  
 }  
 
-.dropdown-item:hover {
-	background-color: $shine-yellow;
-}
+.dropdown-item {
+	&:hover {
+		background-color: $shine-yellow;
+	}
+	
+	&.active {
+		color: $shine-light-gray;
+		background-color: $shine-yellow;
+	}
 
-.dropdown-item.active {
-	color: $shine-light-gray;
-	background-color: $shine-yellow;
+	&:active {
+		color: $shine-light-gray;
+		background-color: $shine-yellow;
+	}	
 }
 
 .bg-nav-dark-gray {

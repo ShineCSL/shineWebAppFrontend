@@ -16,7 +16,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+<!--             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th> -->
             <th jhiSortBy="label"><span jhiTranslate="shineWebAppFrontendApp.publicHoliday.label">Label</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="dateHoliday"><span jhiTranslate="shineWebAppFrontendApp.publicHoliday.dateHoliday">Date Holiday</span> <span class="fa fa-sort"></span></th>
             <th></th>
@@ -24,7 +24,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let publicHoliday of publicHolidays ;trackBy: trackId">
-                <td><a [routerLink]="['../public-holiday', publicHoliday.id ]">{{publicHoliday.id}}</a></td>
+<!--                 <td><a [routerLink]="['../public-holiday', publicHoliday.id ]">{{publicHoliday.id}}</a></td> -->
                 <td>{{publicHoliday.label}}</td>
                 <td>{{publicHoliday.dateHoliday | date:'mediumDate'}}</td>
                 <td class="text-right">

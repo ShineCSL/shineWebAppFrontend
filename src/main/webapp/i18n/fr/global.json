@@ -164,5 +164,5 @@
         "emailexists": "Email déjà utilisé !",
         "idexists": "Une nouvelle entité {{entityName}} ne peut pas avoir d'ID !"
     },
-    "footer": "Powered by Shine CSL &copy; 2018"
+    "footer": "Copyright &copy; 2018 | Powered by Shine CSL."
 }

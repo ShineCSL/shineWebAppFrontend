@@ -16,7 +16,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+<!--             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th> -->
             <th jhiSortBy="code"><span jhiTranslate="shineWebAppFrontendApp.task.code">Code</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="labelEn"><span jhiTranslate="shineWebAppFrontendApp.task.labelEn">Label En</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="labelFr"><span jhiTranslate="shineWebAppFrontendApp.task.labelFr">Label Fr</span> <span class="fa fa-sort"></span></th>
@@ -26,7 +26,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let task of tasks ;trackBy: trackId">
-                <td><a [routerLink]="['../task', task.id ]">{{task.id}}</a></td>
+<!--                 <td><a [routerLink]="['../task', task.id ]">{{task.id}}</a></td> -->
                 <td>{{task.code}}</td>
                 <td>{{task.labelEn}}</td>
                 <td>{{task.labelFr}}</td>

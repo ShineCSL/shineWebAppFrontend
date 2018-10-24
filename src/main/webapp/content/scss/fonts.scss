@@ -18,3 +18,30 @@
 @mixin heading-font {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Charmonman);
+@mixin charmonman {
+  font-family: 'Charmonman', sans-serif;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+@mixin courgette {
+  font-family: 'Courgette', sans-serif;
+}
+
+@import url(https://s3.amazonaws.com/icomoon.io/114779/Socicon/style.css?9ukd8d);
+@mixin socicon {
+  font-family: 'Socicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ 
