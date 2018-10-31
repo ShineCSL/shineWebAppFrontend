@@ -90,16 +90,6 @@ a {
 	color: $white;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  @include heading-font;
-}
-
 /* change all .btn to .btn-sm size on xs */
 @include media-breakpoint-down(md){
   .btn {
@@ -161,4 +151,25 @@ h6 {
 .btn:focus, .btn.active:focus {
     outline: none;
     box-shadow:none;
+}
+
+@mixin img-parallax {
+	background-size: 100% 100%;
+    background-attachment: fixed;
+    //background-size: cover;
+}
+
+@mixin full-page-background-image {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;  
+}
+
+.full-page-height-row {
+  min-height: 100vh;
+  height: 100%;
 }

@@ -60,48 +60,35 @@ Logo styles
 .navbar-brand {
 	//@include charmonman;
       &.logo-blue {
-        padding: 5px 15px;
-        color: $shine-blue;
-        .logo-img {
-            height: 50px;
-            width: 30px;
-            display: inline-block;
-            vertical-align: middle;
-            background: url("../../../content/images/logo.png") no-repeat center center;
-            background-size: contain;
-            image-rendering: crisp-edges;
-      }      
-            
-	  &:hover {
-	  	opacity: .7;
-	  }
-		
-	  &:focus {
-		color: darken($shine-blue, 5%) !important;
-	  }
+	      padding: 5px 15px;
+	      color: $shine-blue;	                
+		  &:hover {
+		  	opacity: .7;
+		  }			
+		  &:focus {
+			color: darken($shine-blue, 5%) !important;
+		  }
     }
     
     &.logo-yellow {
         padding: 5px 15px;
         color: $shine-yellow;
-        .logo-img {
-            height: 50px;
-            width: 30px;
-            display: inline-block;
-            vertical-align: middle;
-            background: url("../../../content/images/logo.png") no-repeat center center;
-            background-size: contain;
-        }      
-            
 	    &:hover {
 		   opacity: .7;
-		}
-		
+		}		
 		&:focus {
 		   color: darken($shine-yellow, 5%) !important;
 		}
     }
-
+	.logo-img {
+		height: 50px;
+		width: 30px;
+		display: inline-block;
+		vertical-align: middle;
+		background: url("../../../content/images/logo.png") no-repeat center center;
+		background-size: contain;
+		image-rendering: crisp-edges;
+	}              
 }
 
 .dropdown-menu .sub-menu {

@@ -40,5 +40,28 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>-->
+     <script>
+	     function MouseScroll (event) {
+	         event.preventDefault();
+	         var wd = event.wheelDelta;
+	         var csp = window.pageYOffset;
+	         window.scrollTo(0, csp - wd);
+	     }
+	     
+	    if(navigator.userAgent.match(/Trident\/7\./)) {
+	        // correct problem for mouse scrolling in IE on fixed background
+		    var body = document.body;
+		    if (body.addEventListener) {
+		            // Internet Explorer
+		        body.addEventListener ("mousewheel", MouseScroll, false);
+		    }
+		    else {
+		        if (body.attachEvent) { // IE before version 9
+		        	body.attachEvent ("onmousewheel", MouseScroll);
+		        }
+		    }
+	    }
+    </script>
+    
 </body>
 </html>

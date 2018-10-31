@@ -29,7 +29,8 @@ only screen and (                min-resolution: 2dppx) {
 .box1 {
 	background: rgba($shine-orange, 1);
 	&:hover {
-	    opacity: .9;
+	    opacity: .9;	    
+	    filter: alpha(opacity=90); /* For IE8 and earlier */
 	}
 }
 
@@ -37,6 +38,7 @@ only screen and (                min-resolution: 2dppx) {
 	background: rgba($shine-orange, 0.5);
 	&:hover {
 	    opacity: .9;
+	    filter: alpha(opacity=90); /* For IE8 and earlier */	    
 	}	
 }
 
@@ -44,6 +46,7 @@ only screen and (                min-resolution: 2dppx) {
 	background: rgba($shine-orange, 0.8);
 	&:hover {
 	    opacity: .9;
+	    filter: alpha(opacity=90); /* For IE8 and earlier */	    
 	}
 }
 
@@ -77,10 +80,16 @@ a.divLink {
 	width: 100%;
 	height: 100%;
 	position: relative;
-	//min-height: 100vh;
+	//min-height: 80vh;
 	.title-padding {
 		padding-top: 80px;
 	}
+}
+
+.full-page-height-row-contact {
+  min-height: 80vh;
+  height: 100%;
+  
 }
 
 .seperator-intro {
@@ -172,26 +181,11 @@ svg.clip-svg-intro {
 }
 
 .fill-carousel {
-  width: 100%;
-  height: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;  
+	@include full-page-background-image;
 }
 
 :host /deep/ .carousel-item {
   height: 100%;
-}
-
-.fill-opacity {
-  width:100%;
-  background-size: cover;
-  position: relative;
-  height: 100vh;
-  /*opacity: 0.8;*/
-  background-image: linear-gradient(to right, rgba(250, 0, 0, 0) 0px, rgba(255, 0, 0, 0.5) 100%);
 }
 
 a.carousel-control:hover, a.carousel-control.right:hover {
@@ -296,6 +290,7 @@ a.carousel-control.left:hover{
   color: $white;
   &:hover {
   	opacity: .9;
+	filter: alpha(opacity=90); /* For IE8 and earlier */  	
   }
 }
 
@@ -332,11 +327,6 @@ hr.light {
 	color: $black;
 }
 
-.img-full {
-    width: 100%;
-    height: auto;
-}
-
 .wrapper {
 	display: table;
 	width: 100%;
@@ -358,6 +348,19 @@ hr.light {
   	@media screen and (max-width: $screen-sm) {
         display: none;
 	}
+}
+
+.container-back-top {
+  z-index: 0;
+  //position: relative;
+}
+
+.container-back-top:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
 }
 
 @mixin scroll-line {
@@ -449,77 +452,104 @@ hr.light {
 .imgTechnology {
     @media screen and (max-width: $screen-sm) {
     	background: url("../../content/images/technology_mobile.jpeg") no-repeat center top;
-    	background-size: 100% 100%;
+		@include img-parallax;	
 	}
 	@media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
     	background: url("../../content/images/technology_tablet.jpeg") no-repeat center top;
-    	background-size: 100% 100%;
+		@include img-parallax;
 	}
 	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/technology2.png") no-repeat center top; 
-    	background-size: 100% 100%;
+		@include img-parallax;
 	}
-    background-size: contain;
     width: 100%;
   	height: 100vh;
+}
+
+.imgServices {
+    background: url("../../content/images/services.jpg") no-repeat center top;
+    @include img-parallax;
+	@include full-page-background-image;    
+  	opacity: 0.4;
+	filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+@media screen and (max-width: $screen-md) {
+    .imgServices {
+        display: none;
+    }  
 }
 
 .imgCreativity {
     @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/creativity_mobile.jpeg") no-repeat center top;
-    	background-size: 100% 100%;
+		@include img-parallax;	
 	}
 	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/creativity_tablet.jpeg") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;    	
 	}
 	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/creativity.jpg") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;   	
 	}
 }
 
 .imgAutomation {
     @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/automation_mobile.jpeg") no-repeat center top;
-    	background-size: 100% 100%;
+		@include img-parallax;
 	}
 	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/automation_tablet.jpeg") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;   	
 	}
 	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/automation.jpg") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;  	
 	}
 }
 
 .imgCustomerEngagement {
     @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/customer-engagement_mobile.jpeg") no-repeat center top;
-    	background-size: 100% 100%;
+		@include img-parallax; 
 	}
 	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/customer-engagement_tablet.jpeg") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;   	
 	}
 	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/customer-engagement.jpg") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;  	
 	}
 }
 
 .imgPeople {
     @media screen and (max-width: $screen-xs) {
     	background: url("../../content/images/people_mobile.jpeg") no-repeat center top;
-    	background-size: 100% 100%;
+		@include img-parallax; 
 	}
 	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
     	background: url("../../content/images/people_tablet.jpeg") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;   	
 	}
 	@media screen and (min-width: $screen-md) {
     	background: url("../../content/images/people.png") no-repeat center top;
-    	background-size: 100% 100%;    	
+		@include img-parallax;   	
 	}
+}
+
+.imgContact {
+    background: url("../../content/images/contact.jpg") no-repeat center top;
+    @include img-parallax;
+	@include full-page-background-image;
+  	opacity: 0.4;
+	filter: alpha(opacity=40); /* For IE8 and earlier */	
+}
+
+@media screen and (max-width: $screen-md) {
+    .imgContact {
+        display: none;
+    }  
 }
