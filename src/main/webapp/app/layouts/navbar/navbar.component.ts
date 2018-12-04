@@ -99,6 +99,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       // override the route reuse strategy
       this.router.navigated = false;
       const url = this.router.url;
+      console.log('url: ' + url);
       if (url === '/') {
         this.activeSiteSection = 'home';
         this.activeSiteMenu = '';
