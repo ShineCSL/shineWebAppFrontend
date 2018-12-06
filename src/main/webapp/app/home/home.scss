@@ -171,6 +171,15 @@ a.carousel-control.left:hover{
  background-image: linear-gradient(to left, rgba(250, 0, 0, 0) 0px, rgba(255, 0, 0, 0.5) 100%);
 }
 
+.title-services {
+	@media screen and (min-width: $screen-md) {
+		color: $shine-dark-blue;
+	}
+	@media screen and (max-width: $screen-md) {
+		color: $shine-blue;
+	}
+}
+
 .intro-text {
     position: absolute;
     top: 30%;
@@ -543,23 +552,26 @@ hr.light {
 
 	&.boxService {
 		background: rgba($shine-yellow,.8);
+		@media screen and (min-width: $screen-lg) {
+				min-height: 400px;
+		}
+		@media screen and (min-width: $screen-md) and (max-width: $screen-lg) {
+				min-height: 420px;
+		}
 	}
 	&.boxContact {
 		background: rgba($shine-yellow,.7);
+		@media screen and (min-width: $screen-lg) {
+				min-height: 200px;	
+		}
+		@media screen and (min-width: $screen-md) and (max-width: $screen-lg) {
+				min-height: 230px;	
+		}		
 		&:hover {
 	    	opacity: .8;
 	    	filter: alpha(opacity=80); /* For IE8 and earlier */	    
 		}
 	}	
-
-	@media screen and (min-width: $screen-lg) {
-		&.boxService {
-			min-height:400px;
-		}
-		&.boxContact {
-			min-height:200px;
-		}	
-	}
 	
 	&:hover {
 		box-shadow:0 30px 70px rgba(0,0,0,.1);   
