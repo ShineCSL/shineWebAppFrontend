@@ -446,8 +446,8 @@ hr.light {
     background: url("../../content/images/services.jpg") no-repeat center top;
     @include img-parallax;
 	@include full-page-background-image;    
-  	opacity: 0.4;
-	filter: alpha(opacity=40); /* For IE8 and earlier */
+  	//opacity: 0.8;
+	//filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
 @media screen and (max-width: $screen-md) {
@@ -520,8 +520,8 @@ hr.light {
     background: url("../../content/images/contact.jpg") no-repeat center top;
     @include img-parallax;
 	@include full-page-background-image;
-  	opacity: 0.4;
-	filter: alpha(opacity=40); /* For IE8 and earlier */	
+  	//opacity: 0.8;
+	//filter: alpha(opacity=80); /* For IE8 and earlier */	
 }
 
 @media screen and (max-width: $screen-md) {
@@ -542,10 +542,10 @@ hr.light {
 	transition:0.5s;
 
 	&.boxService {
-		background: rgba($shine-yellow,.6);
+		background: rgba($shine-yellow,.8);
 	}
 	&.boxContact {
-		background: rgba($shine-yellow,.6);
+		background: rgba($shine-yellow,.7);
 		&:hover {
 	    	opacity: .8;
 	    	filter: alpha(opacity=80); /* For IE8 and earlier */	    

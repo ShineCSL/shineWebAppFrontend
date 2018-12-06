@@ -4,23 +4,34 @@ import { ParticlesModule } from 'angular-particle';
 
 import { ShineWebAppFrontendSharedModule } from '../shared';
 
-import { HOME_ROUTE, HomeComponent } from './';
+import { HOME_ROUTE, 
+		 HOME_WEBSITE_DIALOG_ROUTE, 
+		 HomeComponent, 
+		 HomeWebsitePopupService,
+    	 HomeWebsiteDialogComponent,
+    	 HomeWebsitePopupComponent
+} from './';
 
 import { NavbarComponent } from '../layouts/navbar/navbar.component';
 
 @NgModule({
     imports: [
         ShineWebAppFrontendSharedModule,
-        RouterModule.forChild([ HOME_ROUTE ]),
+        RouterModule.forChild([ HOME_ROUTE, HOME_WEBSITE_DIALOG_ROUTE ]),
         ParticlesModule
     ],
     declarations: [
         HomeComponent,
+        HomeWebsiteDialogComponent,
+        HomeWebsitePopupComponent
     ],
     entryComponents: [
+    	HomeWebsiteDialogComponent,
+    	HomeWebsitePopupComponent
     ],
     providers: [
-      NavbarComponent
+      NavbarComponent,
+      HomeWebsitePopupService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
