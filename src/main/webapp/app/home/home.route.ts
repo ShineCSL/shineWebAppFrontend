@@ -1,7 +1,8 @@
 import { Route } from '@angular/router';
 
 import { HomeComponent } from './';
-import { HomeWebsitePopupComponent } from './home-website-dialog.component';
+import { HomeWebsitePopupComponent } from './popups/home-website/home-website-dialog.component';
+import { HomeApplicationPopupComponent } from './popups/home-application/home-application-dialog.component';
 
 export const HOME_ROUTE: Route = {
     path: '',
@@ -15,6 +16,16 @@ export const HOME_ROUTE: Route = {
 export const HOME_WEBSITE_DIALOG_ROUTE: Route = {
     path: 'home-website-popup',
     component: HomeWebsitePopupComponent,
+    data: {
+        authorities: [],
+        pageTitle: 'home.title'
+    },
+    outlet: 'popup'
+};
+
+export const HOME_APPLICATION_DIALOG_ROUTE: Route = {
+    path: 'home-application-popup',
+    component: HomeApplicationPopupComponent,
     data: {
         authorities: [],
         pageTitle: 'home.title'

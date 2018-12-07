@@ -28,7 +28,7 @@
 
 <div id="services" class="container-section" #services>
 	<div class="row position-relative full-page-height-row">
-		<img class="imgServices">
+		<img class="img-services">
 		<div class="row">
 			<div class="seperator-intro">
 				<div>
@@ -80,59 +80,76 @@
 					</div>
 					<div class="row text-center pt-3 pb-3">
 						<div class="col-lg-4">
-							<div class="card boxService">
-								<div class="box">
-									<!-- <a [routerLink]="['/', { outlets: { popup: ['home-website-popup'] } }]" class="divLink"></a> -->
-									<span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i class="fa fa-mixcloud fa-stack-1x fa-inverse"></i>
-									</span>
-									<h4>
-										<span jhiTranslate="home.services.webSite.title">Web site</span>
-									</h4>
-									<br>
-									<p>
-										<span jhiTranslate="home.services.webSite.text"> We can
-											help you build your web site using the latest technologies. The
-											solutions will be flexible and responsive at a competitive
-											price. </span>
-									</p>
+							<div class="card">
+								<a [routerLink]="['/', { outlets: { popup: ['home-website-popup'] } }]" class="divLink"></a>
+								<div class="box-service">
+									<div class="box">
+										<span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i class="fa fa-mixcloud fa-stack-1x fa-inverse"></i>
+										</span>
+										<h4>
+											<span jhiTranslate="home.services.webSite.title">Web site</span>
+										</h4>
+										<br>
+										<p>
+											<span jhiTranslate="home.services.webSite.text"> We can
+												help you build your web site using the latest technologies. The
+												solutions will be flexible and responsive at a competitive
+												price. </span>
+										</p>
+									</div>
+								</div>
+								<div class="pb-3">
+									<span><i class="fa fa-search-plus icon-plus-sm element-color-shine-main"></i></span>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<div class="card boxService">
-								<div class="box">
-									<span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-									</span>
-									<h4>
-										<span jhiTranslate="home.services.webApplications.title">Web
-											applications</span>
-									</h4>
-									<br>
-									<p>
-										<span jhiTranslate="home.services.webApplications.text">
-											We can build solutions for you adapted to your business. Our
-											leitmotiv is quality, automation, modularity, innovation and
-											respect of the deadlines </span>
-									</p>
+							<div class="card">
+								<a [routerLink]="['/', { outlets: { popup: ['home-application-popup'] } }]" class="divLink"></a>
+								<div class="box-service">
+									<div class="box">
+										<span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+										</span>
+										<h4>
+											<span jhiTranslate="home.services.webApplications.title">Web
+												applications</span>
+										</h4>
+										<br>
+										<p>
+											<span jhiTranslate="home.services.webApplications.text">
+												We can build solutions for you adapted to your business. Our
+												leitmotiv is quality, automation, modularity, innovation and
+												respect of the deadlines </span>
+										</p>
+									</div>
+								</div>
+								<div class="pb-3">
+									<span><i class="fa fa-search-plus icon-plus-sm element-color-shine-main"></i></span>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<div class="card boxService">
-								<div class="box">
-									<span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i class="fa fa-group fa-stack-1x fa-inverse"></i>
-									</span>
-									<h4>
-										<span jhiTranslate="home.services.resources.title">Resources
-											Outsourcing</span>
-									</h4>
-									<br>
-									<p>
-										<span jhiTranslate="home.services.resources.text"> Our
-											resources are bilingual (english and french), competent and
-											very dedicated. We also favor a close follow up of the
-											activities by the most experiences members. </span>
-									</p>
+							<div class="card">
+								<a [routerLink]="['/', { outlets: { popup: ['home-website-popup'] } }]" class="divLink"></a>
+								<div class="box-service">
+									<div class="box">
+										<span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x element-color-shine-main"></i> <i class="fa fa-group fa-stack-1x fa-inverse"></i>
+										</span>
+										<h4>
+											<span jhiTranslate="home.services.resources.title">Resources
+												Outsourcing</span>
+										</h4>
+										<br>
+										<p>
+											<span jhiTranslate="home.services.resources.text"> Our
+												resources are bilingual (english and french), competent and
+												very dedicated. We also favor a close follow up of the
+												activities by the most experiences members. </span>
+										</p>
+									</div>
+								</div>
+								<div class="pb-3">
+									<span><i class="fa fa-search-plus icon-plus-sm element-color-shine-main"></i></span>
 								</div>
 							</div>
 						</div>
@@ -192,7 +209,7 @@
 			</div>
 			<ngb-carousel>
 				<ng-template ngbSlide>
-					<img class="imgCreativity fill-carousel">
+					<img class="img-creativityimg-automation fill-carousel">
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
@@ -208,7 +225,7 @@
 					</div>
 				</ng-template>
 				<ng-template ngbSlide>
-					<img class="imgAutomation fill-carousel">
+					<img class="img-automation fill-carousel">
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
@@ -226,7 +243,7 @@
 					</div>
 				</ng-template>
 				<ng-template ngbSlide>
-					<img class="imgCustomerEngagement fill-carousel">
+					<img class="img-customer-engagement fill-carousel">
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
@@ -242,7 +259,7 @@
 					</div>
 				</ng-template>
 				<ng-template ngbSlide>
-					<img class="imgPeople fill-carousel">
+					<img class="img-people fill-carousel">
 					<div class="carousel-caption d-md-block">
 						<div class="row text-center pt-3 pb-3">
 							<div class="col-md-12 col-sm-12">
@@ -264,7 +281,7 @@
 
 <div id="contact" class="container-section-contact" #contact>
 	<div class="row position-relative full-page-height-row-contact">
-		<img class="imgContact">
+		<img class="img-contact">
 		<!-- 		<div class="container-back-top"> -->
 		<!-- 			<div class="scroll-center-right"> -->
 		<!-- 				<div class="wrapper"> -->
@@ -306,56 +323,71 @@
 			</div>
 			<div class="row pt-2">
 				<div class="container">
-					<div class="row pt-2">
+					<div class="row pt-2 pb-2">
 						<div class="col-12">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.876970179897!2d57.473904614274396!3d-20.263936554011636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5bde9c391f5f%3A0x20f6add4609446b5!2sShine+CSL!5e0!3m2!1sfr!2smu!4v1539759747613"
 							 width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 						</div>
 					</div>
-					<br>
 					<div class="row text-center">
 						<div class="col-lg-4">
-							<div class="card boxContact">
-								<div class="box">
-									<a href="tel:+230 58273806" class="divLink"></a>
-									<span> 
-										<i class="fa fa-phone fa-3x element-color-shine-main"></i>
-									</span>
-									<h5>
-										<span jhiTranslate="home.contact.phone" class="element-color-shine-main">Phone</span>
-									</h5>
-									<p>+230 58273806</p>
+							<div class="card">
+								<a href="tel:+230 58273806" class="divLink"></a>
+								<div class="box-contact">
+									<div class="box">
+										<span> 
+											<i class="fa fa-phone fa-3x element-color-shine-main"></i>
+										</span>
+										<h5>
+											<span jhiTranslate="home.contact.phone" class="element-color-shine-main">Phone</span>
+										</h5>
+										<p>+230 58273806</p>
+									</div>
+								</div>
+								<div class="pb-2">
+									<span><i class="fa fa-external-link icon-plus-sm element-color-shine-main"></i></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="card">
+								<a href="https://goo.gl/maps/gt9YvKLiqjM2" class="divLink" target="_blank"></a>
+								<div class="box-contact">
+									<div class="box">
+										<span> 
+											<i class="fa fa-home fa-3x element-color-shine-main"></i>
+										</span>
+										<h5>
+											<span jhiTranslate="home.contact.address" class="element-color-shine-main">Address</span>
+										</h5>
+										<p>Office no 6, Kensington Palms
+											<br>Sir Guy Forget Ave, Quatre Bornes
+											<br>Mauritius
+										</p>
+									</div>
+								</div>
+								<div class="pb-2">
+									<span><i class="fa fa-external-link icon-plus-sm element-color-shine-main"></i></span>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<div class="card boxContact">
-								<div class="box">
-									<a href="https://goo.gl/maps/gt9YvKLiqjM2" class="divLink" target="_blank"></a>
-									<span> 
-										<i class="fa fa-home fa-3x element-color-shine-main"></i>
-									</span>
-									<h5>
-										<span jhiTranslate="home.contact.address" class="element-color-shine-main">Address</span>
-									</h5>
-									<p>Office no 6, Kensington Palms
-										<br>Sir Guy Forget Ave, Quatre Bornes
-										<br>Mauritius
-									</p>
+							<div class="card">
+								<a href="mailto:shinecsl@shinecsl.com" class="divLink"></a>
+								<div class="box-contact">
+									<div class="box">
+										<span>
+											<i class="fa fa-envelope fa-3x element-color-shine-main"></i>
+										</span>
+										<h5>
+											<span jhiTranslate="home.contact.email" class="element-color-shine-main">E-mail</span>
+										</h5>
+										<p>shinecsl@shinecsl.com</p>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="card boxContact">
-								<div class="box">
-									<a href="mailto:shinecsl@shinecsl.com" class="divLink"></a>
-									<span>
-										<i class="fa fa-envelope fa-3x element-color-shine-main"></i>
-									</span>
-									<h5>
-										<span jhiTranslate="home.contact.email" class="element-color-shine-main">E-mail</span>
-									</h5>
-									<p>shinecsl@shinecsl.com</p>
+								<div class="pb-2">
+									<span><i class="fa fa-external-link icon-plus-sm element-color-shine-main"></i></span>
 								</div>
 							</div>
 						</div>

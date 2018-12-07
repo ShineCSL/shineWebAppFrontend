@@ -1,0 +1,19 @@
+@import '../../../../content/scss/shine';
+
+.imgWebsiteDevelopment {
+    background: url("../../../../content/images/website-development.jpg") no-repeat center top;
+    @include img-parallax;
+	@include full-page-background-image;
+	height: 300px;
+  	//opacity: 0.8;
+	//filter: alpha(opacity=80); /* For IE8 and earlier */	
+}
+
+.modal-header {
+	height: 300px;
+}
+
+.modal-body {
+    background-color: $shine-yellow;
+}
+
