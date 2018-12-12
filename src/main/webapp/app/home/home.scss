@@ -217,6 +217,10 @@ a.carousel-control.left:hover{
     		font-size: 30px;
     		font-weight: 600;
 		}
+		@media screen and (max-height: $screen-height-md) {
+    		font-size: 30px;
+    		font-weight: 600;
+		}		
 		@media screen and (max-width: $screen-xs) {
     		font-size: 25px;
     		font-weight: 600;
@@ -560,12 +564,17 @@ hr.light {
 
 .box-service {
 	@media screen and (min-width: $screen-lg) {
-		min-height: 350px;
+		min-height: 390px;
 	}
 	@media screen and (min-width: $screen-md) and (max-width: $screen-lg) {
-		min-height: 400px;
+		min-height: 440px;
 	}
 }
+@media screen and (max-width: $screen-xs) {
+	.icon-open-popup {
+		display: none;
+	}  
+}	
 
 .box-contact {
 	@media screen and (min-width: $screen-lg) {
@@ -573,7 +582,7 @@ hr.light {
 	}
 	@media screen and (min-width: $screen-md) and (max-width: $screen-lg) {
 		min-height: 210px;	
-	}		
+	}	
 }	
 
 .card .box {

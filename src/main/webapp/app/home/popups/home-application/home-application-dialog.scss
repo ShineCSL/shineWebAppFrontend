@@ -1,7 +1,7 @@
 @import '../../../../content/scss/shine';
 
-.imgWebsiteDevelopment {
-    background: url("../../../../content/images/website-application.jpg") no-repeat center top;
+.imgApplication {
+    background: url("../../../../content/images/application.png") no-repeat center top;
     @include img-parallax;
 	@include full-page-background-image;
 	height: 300px;

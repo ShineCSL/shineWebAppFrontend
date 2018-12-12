@@ -33,7 +33,7 @@
             },
             "resources": {
             	"title": "Sous-traitance",
-            	"text": "Nos ressources sont billingues (anglais et francais), compétentes et très dévouées. L'activité de nos ressources sont suivies par nos membres les plus expérimentés pour s'assurer de la qualité des livrables et le respect des délais."            
+            	"text": "Nos ressources sont billingue (anglais et francais), compétentes et très dévouées. L'activité de nos ressources sont suivies par nos membres les plus expérimentés pour s'assurer de la qualité des livrables et le respect des délais."            
             },    
         	"tellMore": "PLUS SUR NOUS"
         },
@@ -53,6 +53,91 @@
         	"phone": "Téléphone",
         	"address": "Adresse",
         	"email": "E-mail"
-        }          
+        }, 
+        "popup": {
+            "website": {
+                "process": {
+                    "title":"Processus",
+                    "text":"On suit un processus à 7 étapes pour garantir la qualité de nos solutions :",
+                    "textBullet": {
+                            "informationGathering": "Recueil d'information: But, objectifs principaux et le public ciblé",
+                            "planning": "Planning: Création de \"Sitemap\" et \"Wireframe\"",
+                            "design": "Conception: Mise en page, revue et cycle d'approbation",
+                            "content": "Ecriture et assemblage de contenu web",
+                            "development": "Développement",
+                            "delivery": "Test et livraison",
+                            "maintainance": "Maintenance: \"Opinion Monitoring\", correction de bug et mise à jour régulier"
+                    }
+                },
+                "endProduct": {
+                    "title":"Produit fini",
+                    "text":"On est dédié à construire votre site web avec les exigences suivantes :",
+                    "textBullet": {
+                            "flexibility": "Fléxibilité",
+                            "technology": "Dernières technologies",
+                            "responsive": "Site web \"Responsive\" (adapté à des écrans de taille et de type différents : mobile, tablet, laptop et écran)",
+                            "crossBrowser": "Compatibilité multi-navigateur",
+                            "competitiveRate": "Tarif compétitif",
+                            "delivery": "Livraison rapide",
+                            "bugFree": "Sans bug",
+                            "adjustements": "Le moins d'ajustement possible"
+                    }
+                }
+            },
+            "application": {
+                "development": {
+                    "title":"Développement mobile ou web",
+                    "text1":"On développe des applications natives pour IOS et Android ou des applications multi-platforme (hybride).",
+                    "text2":"Nos solutions webs suivent une architecture  3-tière avec un \"frontend responsive\" et multi-navigateur.",
+                    "text3":"On développe nos applications en agile avec un but :",
+                    "textBullet": {
+                            "quality": "de livrer des produits de qualité",
+                            "customerSatisfaction": "d'avoir une grande satisfaction client",
+                            "control": "d'augmenter le contrôle sur vos projets",
+                            "risks": "de réduire les risques",
+                            "roi": "d'avoir un ROI plus rapide"
+                    }
+                },
+                "valueAdded": {
+                    "title":"Notre valeur ajoutée dans le développement d'application",
+                    "textBullet": {
+                            "deadline": "On a des ressources expérientées qui font les estimations et les plannings. On s'assure que les délais soient respectés.",
+                            "technologyChoose": "Nos solutions sont orientées en fonction des besoins et non des technologies. On a de l'expertise dans plusieurs technologies et on choisira les meilleures technologies pour répondre à vos besoins.",
+                            "automation": "Au delà de développer votre application, on vous aidera à optimiser et automatiser votre processus.",
+                            "innovation": "On est à la pointe de la technologie et on vous fera bénificier des dernières innovations.",
+                            "flexibillity": "Nos solutions sont flexibles, évolutives et \"scalable\"."
+                    }
+                }                
+            },       
+            "resource": {
+               "text1":"On vous aide à réussir vos projets avec notre expertise en développement, test, support et gestion de projet.",
+               "text2":"On vous fourni les ressources qui conviennent le mieux à vos besoins du projet.",
+               "text3":"Nos ressources sont bien formées, compétentes, très dévouées et ont les compétences et les expertises techniques suivantes.",                
+               "skills": {
+                    "title":"Compétences",
+                    "textBullet": {
+                            "communication": "Bonne communication et billingue anglais/francais",
+                            "technical": "Bon techniquement",
+                            "creative": "Créatif et innovatif",
+                            "adaptable": "S'adapte facilement à un nouveau contexte",
+                            "technology": "A la pointe de la technologie",
+                            "management": "Gestion de projet"
+                    }
+                },
+                "technicalExpertise": {
+                    "title":"Expertise technique",
+                    "textBullet": {
+                            "java": "Java/J2ee",
+                            "php": "PHP",
+                            "oracle": "Oracle SQL et PL/SQL",
+                            "mysql": "MySQL",
+                            "frontend": "Frontend HTML5, CSS3 et Javascript/Typescript incluant les frameworks Angular et Jquery",
+                            "unix": "Unix",
+                            "qualityControl": "Hudson et Jenkins",
+                            "repositories": "SVN et GIT"
+                    }
+                }                
+            }
+        }                                    
     }
 }

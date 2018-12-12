@@ -53,6 +53,91 @@
         	"phone": "Phone",
         	"address": "Address",
         	"email": "E-mail"
-        }        
+        },
+        "popup": {
+            "website": {
+                "process": {
+                    "title":"Process",
+                    "text":"We follow a 7-step process to garantee quality solutions :",
+                    "textBullet": {
+                            "informationGathering": "Gathering Information: Purpose, main goals, and target audience",
+                            "planning": "Planning: Sitemap and Wireframe creation",
+                            "design": "Design: Page layouts, review and approval cycle",
+                            "content": "Web content writing and assembly",
+                            "development": "Development",
+                            "delivery": "Testing and Delivery",
+                            "maintainance": "Maintenance: Opinion monitoring and regular updating"
+                    }
+                },
+                "endProduct": {
+                    "title":"End product",
+                    "text":"We are dedicated to build your website with the following requirements :",
+                    "textBullet": {
+                            "flexibility": "Flexibility",
+                            "technology": "Latest technologies",
+                            "responsive": "Responsive website (adaptabillity to different screen sizes and types : mobile, tablet, laptop and screen)",
+                            "crossBrowser": "Cross-browser compatibility",
+                            "competitiveRate": "Competitive rate",
+                            "delivery": "Quick delivery",
+                            "bugFree": "Bug free",
+                            "adjustements": "Less possible adjustements"
+                    }
+                }
+            },
+            "application": {
+                "development": {
+                    "title":"Mobile or web application development",
+                    "text1":"We develop native mobile applications for IOS and Android or cross-platform (hybrid) applications.",
+                    "text2":"Our web solutions follow a 3-tier architecture with a responsive and cross-browser frontend.",
+                    "text3":"The applications are developed in an agile way with the goal to :",
+                    "textBullet": {
+                            "quality": "deliver high product quality",
+                            "customerSatisfaction": "have high customer satisfaction",
+                            "control": "increase project control",
+                            "risks": "reduce risks",
+                            "roi": "have faster ROI"
+                    }
+                },
+                "valueAdded": {
+                    "title":"Our value-added in application development",
+                    "textBullet": {
+                            "deadline": "We have experimented resources who do the estimations and plannings. We make sure that the deadlines are respected.",
+                            "technologyChoose": "Our solutions are demand driven and not technology driven. We have expertise in many technologies and will choose the best technology for your requirements.",
+                            "automation": "Beyond developping your application, we will see if we can help you optimise and automate your process.",
+                            "innovation": "We are at the cutting edge of technology and will make you benefit from the latest innovations.",
+                            "flexibillity": "Our solutions are flexible, easily upgradeable and scalable."
+                    }
+                }                
+            },       
+            "resource": {
+               "text1":"We assist you to succeed your projects with our expertise in development, testing, support and project management.",
+               "text2":"We provide you with resources that best fit your project requirements.",
+               "text3":"Our resources are well-formed, competent, very dedicated and have the following skills and technical expertise.",                
+               "skills": {
+                    "title":"Skills",
+                    "textBullet": {
+                            "communication": "Good Communication and bilingual english/french",
+                            "technical": "Technically good",
+                            "creative": "Creative and innovative",
+                            "adaptable": "Adaptable",
+                            "technology": "At the cutting edge of technology",
+                            "management": "Project Management"
+                    }
+                },
+                "technicalExpertise": {
+                    "title":"Technical expertise",
+                    "textBullet": {
+                            "java": "Java/J2ee",
+                            "php": "PHP",
+                            "oracle": "Oracle SQL and PL/SQL",
+                            "mysql": "MySQL",
+                            "frontend": "Frontend HTML5, CSS3 and Javascript/Typescript including frameworks Angular and Jquery",
+                            "unix": "Unix",
+                            "qualityControl": "Hudson and Jenkins",
+                            "repositories": "SVN and GIT"
+                    }
+                }                
+            }                     
+        }          
     }
 }
