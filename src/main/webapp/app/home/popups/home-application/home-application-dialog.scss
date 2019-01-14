@@ -2,7 +2,7 @@
 
 .imgApplication {
     background: url("../../../../content/images/application.png") no-repeat center top;
-    @include img-parallax;
+    background-size: 100% 100%;
 	@include full-page-background-image;
 	height: 300px;
   	//opacity: 0.8;
