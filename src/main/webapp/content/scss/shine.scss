@@ -174,5 +174,6 @@ a {
 
 .full-page-height-row {
   min-height: 100vh;
+  min-height: calc(100vh - var(--vh-offset, 0px));
   height: 100%;
 }

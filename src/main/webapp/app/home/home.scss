@@ -47,6 +47,7 @@ a.divLink {
 	height: 100%;
 	position: relative;
 	min-height: 100vh;
+    min-height: calc(100vh - var(--vh-offset, 0px));
 	.title-padding {
 		padding-top: 80px;
 	}
@@ -453,14 +454,15 @@ hr.light {
 	}
     width: 100%;
   	height: 100vh;
+  	height: calc(100vh - var(--vh-offset, 0px));
 }
 
 .img-services {
     background: url("../../content/images/services.jpg") no-repeat center top;
     @include img-parallax;
 	@include full-page-background-image;    
-  	//opacity: 0.8;
-	//filter: alpha(opacity=80); /* For IE8 and earlier */
+  	opacity: 0.7;
+	filter: alpha(opacity=70); /* For IE8 and earlier */
 }
 
 @media screen and (max-width: $screen-md) {
@@ -533,8 +535,8 @@ hr.light {
     background: url("../../content/images/contact.jpg") no-repeat center top;
     @include img-parallax;
 	@include full-page-background-image;
-  	//opacity: 0.8;
-	//filter: alpha(opacity=80); /* For IE8 and earlier */	
+  	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */	
 }
 
 @media screen and (max-width: $screen-md) {
