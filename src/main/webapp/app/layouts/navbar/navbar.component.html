@@ -1,10 +1,23 @@
-<nav class="navbar navbar-light navbar-expand-xl fixed-top top-bar bg-nav-dark-gray" id="navShine" #navShine>
+<nav class="navbar navbar-light navbar-expand-xl fixed-top top-bar" id="socialLinks" #socialLinks>
+    <div class="container">
+    	<div class="float-right w-100">     
+	    	<div class="social-links">	    	
+				<a href="https://twitter.com/CslShine" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a> 
+				<a href="https://www.facebook.com/shineConsultingServicesLtd/" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a> 
+				<a href="https://www.linkedin.com/company/shine-consulting-services-ltd/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+				<a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a> 
+	      	</div>
+      	</div>
+    </div>
+</nav>
+<nav class="navbar navbar-light navbar-expand-xl fixed-top top-bar bg-nav-main" id="navShine" #navShine>
+  <div class="container">
     <div class="jh-logo-container float-left">
         <a class="jh-navbar-toggler float-right" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
             <i class="fa fa-bars"></i>
         </a>
         <a class="navbar-brand logo-blue float-left" routerLink="/" fragment="home" (click)="collapseNavbar()" id="logoShine" #logoShine>
-            <span class="logo-img"></span>
+            <!-- <span class="logo-img"></span> -->
             <span jhiTranslate="global.title" class="navbar-title">ShineWebAppFrontend</span> 
 <!--            <span class="navbar-version">{{version}}</span> -->
         </a>
@@ -20,6 +33,15 @@
                 </a>
             </li>
 
+            <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('aboutUs')" id ="navItemAboutUs" #navItemAboutUs>
+                <a class="nav-link" [class.active]="isSectionActive('aboutUs')" routerLink="/" fragment="aboutUs" (click)="collapseNavbar()" id ="aItemAboutUs" #aItemAboutUs>
+                    <span>
+                        <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.aboutUs">About us</span>
+                    </span>
+                </a>
+            </li>
+
             <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('services')" id ="navItemServices" #navItemServices>
                 <a class="nav-link" [class.active]="isSectionActive('services')" routerLink="/" fragment="services" (click)="collapseNavbar()" id ="aItemServices" #aItemServices>
                     <span>
@@ -29,14 +51,14 @@
                 </a>
             </li>
             
-           <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('values')" id ="navItemValues" #navItemValues>
-                <a class="nav-link" [class.active]="isSectionActive('values')" routerLink="/" fragment="values" (click)="collapseNavbar()" id ="aItemValues" #aItemValues>
-                    <span>
-                        <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.values">Our Values</span>
-                    </span>
-                </a>
-            </li>
+<!--            <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('values')" id ="navItemValues" #navItemValues> -->
+<!--                 <a class="nav-link" [class.active]="isSectionActive('values')" routerLink="/" fragment="values" (click)="collapseNavbar()" id ="aItemValues" #aItemValues> -->
+<!--                     <span> -->
+<!--                         <i class="fa fa-hand-rock-o" aria-hidden="true"></i> -->
+<!--                         <span jhiTranslate="global.menu.values">Our Values</span> -->
+<!--                     </span> -->
+<!--                 </a> -->
+<!--             </li> -->
 
             <li *ngSwitchCase="false" class="nav-item" [class.active]="isSectionActive('contact')" id ="navItemContact" #navItemContact>
                 <a class="nav-link" [class.active]="isSectionActive('contact')" routerLink="/" fragment="contact" (click)="collapseNavbar()" id ="aItemContact" #aItemContact>
@@ -383,4 +405,5 @@
             </li>       
         </ul>
     </div>
+  </div>
 </nav>

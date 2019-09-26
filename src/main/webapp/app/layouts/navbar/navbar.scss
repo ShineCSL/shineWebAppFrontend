@@ -49,6 +49,13 @@ Navbar
 .navbar-title {
     display: inline-block;
     vertical-align: middle;
+	font-size: 36px;
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-weight: 400;
+	letter-spacing: 3px;
+	text-transform: uppercase;
     @media screen and (max-width: $screen-lg) {
 		display: none;    
 	}
@@ -60,24 +67,24 @@ Logo styles
 .navbar-brand {
 	//@include charmonman;
       &.logo-blue {
-	      padding: 5px 15px;
-	      color: $shine-blue;	                
+	      //padding: 5px 15px;
+	      color: $shine-main;	                
 		  &:hover {
 		  	opacity: .7;
 		  }			
 		  &:focus {
-			color: darken($shine-blue, 5%) !important;
+			color: darken($shine-main, 5%) !important;
 		  }
     }
     
     &.logo-yellow {
-        padding: 5px 15px;
-        color: $shine-yellow;
+        //padding: 5px 15px;
+        color: $shine-main;
 	    &:hover {
 		   opacity: .7;
 		}		
 		&:focus {
-		   color: darken($shine-yellow, 5%) !important;
+		   color: darken($shine-main, 5%) !important;
 		}
     }
 	.logo-img {
@@ -110,7 +117,7 @@ Logo styles
 }
 
 #navShine {
-	transition: padding .3s;	
+	transition: all .5s;	
 }
 
 .navbar {
@@ -124,40 +131,39 @@ Logo styles
 		@media screen and (max-width: $screen-lg) {
 			background-color: $shine-dark-gray;
 		}
-		color: $white;
-		font-size: 15px;
-		font-weight: 500;
+		color: $shine-main;
+		font-size: 14px;
+		font-weight: 600;
 		padding: 12px 18px!important;
+		text-transform: uppercase;
+		transition: 0.3s;
 		
 		&:hover {
-			border-bottom: 2px solid $shine-yellow;
+			/*border-bottom: 2px solid $shine-secondary;
 			border-radius: 0;
-			outline: 0;
-			color: $shine-yellow;
+			outline: 0;*/
+			color: $shine-secondary;
 		}
 		
 		&.active {
-			border-bottom: 0;	
-			color: $shine-yellow;
+			/*border-bottom: 0;*/	
+			color: $shine-secondary;
 		}
 		
 		&.active:hover {
-			border-bottom: 0;
+			/*border-bottom: 0;
 			border-radius: 0;
-			outline: 0;			
-			color: darken($shine-yellow, 10%) !important;
+			outline: 0*/		
+			color: darken($shine-secondary, 10%) !important;
 		}
 	}
 	
 	.nav-item.active {
-		border-bottom: 2px solid $shine-yellow;	
-		border-radius: 0;
-		outline: 0;
-		color: $shine-yellow;
+		color: $shine-secondary;
 	}	
 	
 	.jh-navbar-toggler {
-	    color: $shine-blue;
+	    color: $shine-main;
 	    font-size: 1.5em;
 	    padding: 0.5rem 1rem;
 	    &:hover {
@@ -180,21 +186,53 @@ a.dropdown-toggle {
 
 .dropdown-item {
 	&:hover {
-		background-color: $shine-yellow;
+		background-color: $shine-secondary;
 	}
 	
 	&.active {
 		color: $shine-light-gray;
-		background-color: $shine-yellow;
+		background-color: $shine-secondary;
 	}
 
 	&:active {
 		color: $shine-light-gray;
-		background-color: $shine-yellow;
+		background-color: $shine-secondary;
 	}	
 }
 
 .bg-nav-dark-gray {
+	padding: 15px;
+    background-color: $white;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);
+}
+
+.bg-nav-main {
 	padding: 0;
-    background-color: $shine-dark-gray;
+	top: 30px;
+}
+
+.social-links {
+  padding: 0 0 10px 0;
+  font-size: 14px;
+  transition: all 0.5s;
+  /*position: fixed;
+  height: 40px;
+  top: 0px;
+  right: 0px;*/
+  text-align: right;
+ 
+	a {
+	  color: #535074;
+	  padding: 4px 12px;
+	  display: inline-block;
+	  line-height: 1px;
+	}
+	
+	a:hover {
+	  color: $shine-secondary;
+	}
+	
+	a:first-child {
+	  border-left: 0;
+	}
 }

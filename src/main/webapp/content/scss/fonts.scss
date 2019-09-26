@@ -5,6 +5,12 @@
   background-size: cover;
 }
 
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Charmonman);
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+@import url(https://s3.amazonaws.com/icomoon.io/114779/Socicon/style.css?9ukd8d);
+
 // Font Mixins
 @mixin serif-font {
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -13,24 +19,24 @@
   font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
 }
 @mixin body-font {
-  font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 @mixin heading-font {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+@mixin button-font {
+  font-family: 'Montserrat', sans-serif;
+}
 
 // Google Fonts
-@import url(https://fonts.googleapis.com/css?family=Charmonman);
 @mixin charmonman {
   font-family: 'Charmonman', sans-serif;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Courgette);
 @mixin courgette {
   font-family: 'Courgette', sans-serif;
 }
 
-@import url(https://s3.amazonaws.com/icomoon.io/114779/Socicon/style.css?9ukd8d);
 @mixin socicon {
   font-family: 'Socicon' !important;
   speak: none;

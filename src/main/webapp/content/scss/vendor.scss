@@ -1,5 +1,7 @@
 /* after changing this file run 'yarn run webpack:build' */
 $fa-font-path: '~font-awesome/fonts';
+$ionicons-font-path: '~ionicons/dist/fonts';
+
 //$image-path: '~angular-bootstrap-md/img' !default;
 //$roboto-font-path: '~angular-bootstrap-md/font/roboto/' !default;
 
@@ -10,9 +12,10 @@ eg $input-color: red;
 // Override Boostrap variables
 @import "bootstrap-variables";
 // Import Bootstrap source files from node_modules
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/font-awesome/scss/font-awesome';
-@import 'node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap';
-//@import 'node_modules/angular-bootstrap-md/scss/mdb-free';
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+@import '~angular-bootstrap-md/scss/bootstrap/bootstrap';
+//@import '~angular-bootstrap-md/scss/mdb-free';
+@import '~ionicons/dist/scss/ionicons.scss';
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */

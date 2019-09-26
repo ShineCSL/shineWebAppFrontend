@@ -17,8 +17,17 @@
         "scroll": "Scroll",
         "backTop": "Back top",
         "main": {
-        	"subtitle": "Our solutions are tailor-made, flexible and innovative",
-        	"checkServices": "Check our services"
+            "subtitle" : {
+	            "rapidSolutions": "Rapid Solutions <br> for your",
+	            "forYour": "for your",
+	            "business": "Business!"
+	        },        	
+        	"getStarted": "Get started"
+        },
+        "aboutUs": {
+            "title": "About us",
+            "subtitle": "We build tailor-made it solutions for our clients.",
+            "text1": "Shine Consulting Services LTD is a startup launched in 2016. We work with clients in France. Our company is organised on a human scale which allows us to work in a flexible, agile and innovative way."
         },
         "services": {
             "title": "At Your Service",

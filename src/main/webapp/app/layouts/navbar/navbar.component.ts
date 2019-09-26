@@ -28,12 +28,15 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
     @ViewChild('navShine') navShine: ElementRef;
     @ViewChild('navItemHome') navItemHome: ElementRef;
+    @ViewChild('navItemAboutUs') navItemAboutUs: ElementRef;
     @ViewChild('navItemServices') navItemServices: ElementRef;
     @ViewChild('navItemContact') navItemContact: ElementRef;
     @ViewChild('aItemHome') aItemHome: ElementRef;
+    @ViewChild('aItemAboutUs') aItemAboutUs: ElementRef;
     @ViewChild('aItemServices') aItemServices: ElementRef;
     @ViewChild('aItemContact') aItemContact: ElementRef;
     @ViewChild('logoShine') logoShine: ElementRef;
+    @ViewChild('socialLinks') socialLinks: ElementRef;
 
     constructor(
         private loginService: LoginService,
@@ -112,6 +115,16 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         this.removeNavBgDarkGray();
         const element = document.querySelector('#home');
         element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+      } else if (url.indexOf('#aboutUs') !== -1) {
+        if(!this.isAuthenticated()){
+	        this.activeSiteSection = 'aboutUs';
+        } else {
+        	this.activeSiteSection = 'home';
+        }
+        this.activeSiteMenu = '';
+        this.setNavBgDarkGray();
+        const element = document.querySelector('#aboutUs');
+        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});        
       } else if (url.indexOf('#services') !== -1) {
         if(!this.isAuthenticated()){
 	        this.activeSiteSection = 'services';
@@ -122,7 +135,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         this.setNavBgDarkGray();
         const element = document.querySelector('#services');
         element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      } else if (url.indexOf('#values') !== -1) {
+      /**} else if (url.indexOf('#values') !== -1) {
         if(!this.isAuthenticated()){
 	        this.activeSiteSection = 'values';
         } else {
@@ -131,7 +144,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         this.activeSiteMenu = '';
         this.setNavBgDarkGray();
         const element = document.querySelector('#values');
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});**/
       } else if (url.indexOf('#contact') !== -1) {
         if(!this.isAuthenticated()){
 	        this.activeSiteSection = 'contact';
@@ -237,15 +250,17 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     }
 
     private setNavBgDarkGray() {
-      this.navShine.nativeElement.classList.add('bg-nav-dark-gray');   
-      this.logoShine.nativeElement.classList.remove('logo-blue');   
-      this.logoShine.nativeElement.classList.add('logo-yellow');
+      this.navShine.nativeElement.classList.add('bg-nav-dark-gray');  
+      this.socialLinks.nativeElement.classList.add('social-links-display');        
+      //this.logoShine.nativeElement.classList.remove('logo-blue');   
+      //this.logoShine.nativeElement.classList.add('logo-yellow');
     }
 
     private removeNavBgDarkGray() {
-      this.navShine.nativeElement.classList.remove('bg-nav-dark-gray');   
-      this.logoShine.nativeElement.classList.remove('logo-yellow');
-      this.logoShine.nativeElement.classList.add('logo-blue');   
+      this.navShine.nativeElement.classList.remove('bg-nav-dark-gray'); 
+      this.socialLinks.nativeElement.classList.remove('social-links-display');    
+      //this.logoShine.nativeElement.classList.remove('logo-yellow');
+      //this.logoShine.nativeElement.classList.add('logo-blue');   
     }
 
     isSectionActive(section: string): boolean {

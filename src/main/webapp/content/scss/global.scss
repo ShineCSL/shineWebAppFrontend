@@ -6,12 +6,14 @@ Bootstrap tweaks
 ===============================================================*/
 
 body {
-  font-weight: 400;
-  @include heading-font;
+  //font-weight: 600;
+  @include body-font;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  margin: 0 0 20px 0;
+  padding: 0;
 }
 
 /* ==========================================================================
@@ -72,9 +74,9 @@ Generic styles
     opacity: 1;
 }
 
-.footer {
+/*.footer {
     border-top: 1px solid rgba(0,0,0,.125);
-}
+}*/
 
 /* ==========================================================================
 make sure browsers use the pointer cursor for anchors, even with no href

@@ -16,6 +16,9 @@ import { NavigationEnd } from '@angular/router';
 export class HomeComponent implements OnInit, AfterViewInit {
     account: Account;
     modalRef: NgbModalRef;
+    sendMessage: any;
+    success: boolean;
+    error: string;
 
     /*imgCreativity = require('../../content/images/creativity.jpg');
     imgCustomerEngagement = require('../../content/images/customer-engagement.jpg');
@@ -28,8 +31,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     images: Array<string> = [];*/
 
     @ViewChild('home', { read: ElementRef }) public home: ElementRef;
+    @ViewChild('aboutUs', { read: ElementRef }) public aboutUs: ElementRef;
     @ViewChild('services', { read: ElementRef }) public services: ElementRef;
-    @ViewChild('values', { read: ElementRef }) public values: ElementRef;
+    //@ViewChild('values', { read: ElementRef }) public values: ElementRef;
     @ViewChild('contact', { read: ElementRef }) public contact: ElementRef;
 
     constructor(
@@ -48,6 +52,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       //this.images.push(this.imgCreativity, this.imgAutomation, this.imgCustomerEngagement, this.imgPeople);
       this.router.navigated = false;
       this.initHome();
+      this.success = false;
+      this.sendMessage = {};
     }
 
     ngAfterViewInit() {
@@ -56,6 +62,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 			this.scrollInto();
         });  */
     }
+    
+	sendMessageAction(){
+		var emailBody = this.sendMessage.message + '\n' + 'Cordialement/Regards ' + this.sendMessage.name + ',';
+		emailBody = encodeURIComponent(emailBody);
+    	window.open('mailto:shinecsl@shinecsl.com' + '?subject=' + this.sendMessage.subject + '&body=' + emailBody);
+	}
 
     registerAuthenticationSuccess() {
         this.eventManager.subscribe('authenticationSuccess', (message) => {
@@ -76,49 +88,66 @@ export class HomeComponent implements OnInit, AfterViewInit {
     @HostListener('window:scroll', ['$event'])
     checkScroll(event) {
       const homePosition = this.home.nativeElement.offsetTop;
+      const aboutUsPosition = this.aboutUs.nativeElement.offsetTop;
+      const diffHomeAboutUs = aboutUsPosition - homePosition;           
       const servicesPosition = this.services.nativeElement.offsetTop;
-      const diffHomeServices = servicesPosition - homePosition;
-      const valuesPosition = this.values.nativeElement.offsetTop;
-      const diffServicesValues = valuesPosition - servicesPosition;
+      const diffAboutUsServices = servicesPosition - aboutUsPosition;
+      //const valuesPosition = this.values.nativeElement.offsetTop;
+      //const diffServicesValues = valuesPosition - servicesPosition;
       const contactPosition = this.contact.nativeElement.offsetTop;
-      const diffValuesContact = contactPosition - valuesPosition;
+      const diffServicesContact = contactPosition - servicesPosition;
       const scrollPosition = window.pageYOffset;
       const navShine = document.getElementById('navShine');
-      const logoShine = document.getElementById('logoShine');
-      const homeNavItems = ['Home', 'Services', 'Values', 'Contact'];
-      if (scrollPosition <= (diffHomeServices / 2)) {
+      /*const logoShine = document.getElementById('logoShine');*/
+      const socialLinks = document.getElementById('socialLinks');
+      const homeNavItems = ['Home', 'AboutUs', 'Services', 'Contact'];
+      if (scrollPosition <= (diffHomeAboutUs / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Home');
-          this.removeNavBgDarkGray(navShine, logoShine);
-      } else if (scrollPosition >= (diffHomeServices / 2) && scrollPosition < servicesPosition + (diffServicesValues / 2)) {
+          this.removeNavBgDarkGray(navShine, socialLinks);
+      } else if (scrollPosition >= (diffAboutUsServices / 2) && scrollPosition < aboutUsPosition + (diffAboutUsServices / 2)) {
+          this.setInactiveAllItems(homeNavItems);
+          this.setActiveItem('AboutUs');
+          this.setNavBgDarkGray(navShine, socialLinks);
+      } else if (scrollPosition >= (diffServicesContact / 2) && scrollPosition < servicesPosition + (diffServicesContact / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Services');
-          this.setNavBgDarkGray(navShine, logoShine);
-      } else if (scrollPosition >= (diffServicesValues / 2) && scrollPosition < valuesPosition + (diffValuesContact / 2)) {
+          this.setNavBgDarkGray(navShine, socialLinks);
+      /**} else if (scrollPosition >= (diffServicesValues / 2) && scrollPosition < valuesPosition + (diffValuesContact / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Values');
-          this.setNavBgDarkGray(navShine, logoShine);
-      } else if (scrollPosition >= valuesPosition + (diffValuesContact / 2)) {
+          this.setNavBgDarkGray(navShine, socialLinks);**/
+      } else if (scrollPosition >= servicesPosition + (diffServicesContact / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Contact');
-          this.setNavBgDarkGray(navShine, logoShine);
+          this.setNavBgDarkGray(navShine, socialLinks);
       } else {
         console.log('scroll not home');
       }
     }
     
-    private setNavBgDarkGray(navShine, logoShine) {
+    private setNavBgDarkGray(navShine, socialLinks) {
       const menuNavBlack = 'bg-nav-dark-gray';
+      const menuNavMain  = 'bg-nav-main';
+      const hideSocialLinks  = 'social-links-display';
+      
       navShine.classList.add(menuNavBlack);   
-      logoShine.classList.remove('logo-blue');   
-      logoShine.classList.add('logo-yellow');
+      /*logoShine.classList.remove('logo-blue');   
+      logoShine.classList.add('logo-yellow');*/
+      navShine.classList.remove(menuNavMain);
+      socialLinks.classList.add(hideSocialLinks);
     }
 
-    private removeNavBgDarkGray(navShine, logoShine) {
+    private removeNavBgDarkGray(navShine, socialLinks) {
       const menuNavBlack = 'bg-nav-dark-gray';
+      const menuNavMain  = 'bg-nav-main';
+      const hideSocialLinks  = 'social-links-display';
+
+      navShine.classList.add(menuNavMain);   
       navShine.classList.remove(menuNavBlack);
-      logoShine.classList.remove('logo-yellow');
-      logoShine.classList.add('logo-blue');   
+      /*logoShine.classList.remove('logo-yellow');
+      logoShine.classList.add('logo-blue');*/   
+      socialLinks.classList.remove(hideSocialLinks);
     }
 
     setInactiveAllItems(arrayItems: string[]) {
@@ -149,17 +178,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     initHome(): void {
       const url = this.router.url;
       const navItemHome = document.getElementById('navItemHome');
+      const navItemAboutUs = document.getElementById('navItemAboutUs');
       const navItemServices = document.getElementById('navItemServices');
-      const navItemValues = document.getElementById('navItemValues');
+      //const navItemValues = document.getElementById('navItemValues');
       const navItemContact = document.getElementById('navItemContact');
       if (url === '/' || this.isAuthenticated()) {
         navItemHome.className = 'nav-item active';
       } else if (url.indexOf('#home') !== -1) {
         navItemHome.className = 'nav-item active';
+      } else if (url.indexOf('#aboutUs') !== -1) {
+        navItemAboutUs.className = 'nav-item active';
       } else if (url.indexOf('#services') !== -1) {
         navItemServices.className = 'nav-item active';
-      } else if (url.indexOf('#values') !== -1) {
-        navItemValues.className = 'nav-item active';
+      /**} else if (url.indexOf('#values') !== -1) {
+        navItemValues.className = 'nav-item active';**/
       } else if (url.indexOf('#contact') !== -1) {
         navItemContact.className = 'nav-item active';
       }

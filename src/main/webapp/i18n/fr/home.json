@@ -17,8 +17,17 @@
         "scroll": "Scroll",
         "backTop": "Back top",
         "main": {
-            "subtitle": "Nos solutions sont taillÃ©es sur mesure, flexibles et innovatives", 
-        	"checkServices": "Nos services"
+            "subtitle" : {
+	            "rapidSolutions": "Solutions rapides <br> pour votre",
+	            "forYour": "pour votre",
+	            "business": "Business!"
+	        },
+        	"getStarted": "Get started"
+        },
+        "aboutUs": {
+            "title": "A propos de nous",
+            "subtitle": "Nous développons des solutions informatique sur mesure pour nos clients.",
+            "text1": "Shine Consulting Services LTD est une société de service en mode start-up lancé en 2016 dans le secteur IT. Nous intervenons essentiellement chez un client dans le domaine du Télécom. Notre société à taille humaine, nous permet d’opérer de manière flexible, agile et innovante."
         },
         "services": {
             "title": "A votre service",
