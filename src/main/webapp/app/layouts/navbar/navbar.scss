@@ -120,19 +120,13 @@ Logo styles
 	transition: all .5s;	
 }
 
-.navbar {
-	@media screen and (max-width: $screen-lg) {
-		padding: 0px 0px;
-	}	
-}
-
 .top-bar {
 	.nav-link {
 		@media screen and (max-width: $screen-lg) {
-			background-color: $shine-dark-gray;
+			background-color: $white;
 		}
 		color: $shine-main;
-		font-size: 14px;
+		font-size: 13px;
 		font-weight: 600;
 		padding: 12px 18px!important;
 		text-transform: uppercase;

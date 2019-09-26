@@ -122,6 +122,7 @@ a.divLink {
 	//background-size: cover;	
 	
 	.intro-info {
+	    padding-top: 80px;
 		& h2 {
 			color: #413e66;
 			margin-bottom: 40px;
@@ -149,33 +150,23 @@ a.divLink {
 	}
 	
 	.intro-img {
-		width: 80%;
-		min-height: 75vh;
+		@media screen and (min-width: $screen-sm) {
+			width: 80%;
+			min-height: 75vh;
+		}
 	}	
 	
-	@media (min-width: 992px) {
-	  .intro-info {
-	    padding-top: 80px;
-	  }
-	}
 	
 	@media (max-width: 767px) {
-	  height: auto;
-	  padding: 80px 0 60px 0;
+	    .container {
+	    	height: auto !important;
+	    }
 	
-	  .container {
-	    height: auto !important;
-	  }
-	
-	  .intro-info {
-	    text-align: center;
-	    padding-top: 40px;
-	  }
-	
-	  .intro-info-txt {
-	    font-size: 34px;
-	    margin-bottom: 30px;
-	  }
+	    & h2 {
+			margin-bottom: 30px;
+			font-size: 40px;
+			font-weight: 600;
+		}
 	}
 }
 
@@ -198,11 +189,10 @@ a.divLink {
 }
 
 .imgIntro {
-    @media screen and (max-width: $screen-xs) {
-    	background: url("../../content/images/intro-img.svg") no-repeat center top;
-		@include img-cover-full-size;
+    @media screen and (max-width: $screen-sm) {
+  		display: none;
 	}
-	@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
+	@media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
     	background: url("../../content/images/intro-img.svg") no-repeat center top;
 		@include img-cover-full-size;
 	}

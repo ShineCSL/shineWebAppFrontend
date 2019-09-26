@@ -251,16 +251,14 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
     private setNavBgDarkGray() {
       this.navShine.nativeElement.classList.add('bg-nav-dark-gray');  
-      this.socialLinks.nativeElement.classList.add('social-links-display');        
-      //this.logoShine.nativeElement.classList.remove('logo-blue');   
-      //this.logoShine.nativeElement.classList.add('logo-yellow');
+      this.socialLinks.nativeElement.classList.add('social-links-display');  
+      this.navShine.nativeElement.classList.remove('bg-nav-main');
     }
 
     private removeNavBgDarkGray() {
       this.navShine.nativeElement.classList.remove('bg-nav-dark-gray'); 
-      this.socialLinks.nativeElement.classList.remove('social-links-display');    
-      //this.logoShine.nativeElement.classList.remove('logo-yellow');
-      //this.logoShine.nativeElement.classList.add('logo-blue');   
+      this.socialLinks.nativeElement.classList.remove('social-links-display');  
+      this.navShine.nativeElement.classList.add('bg-nav-main');
     }
 
     isSectionActive(section: string): boolean {
