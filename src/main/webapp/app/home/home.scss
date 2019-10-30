@@ -225,9 +225,13 @@ a.divLink {
 			& li {
   				padding-bottom: 10px;
   				& i {
-				  font-size: 20px;
-				  padding-right: 4px;
-				  color: $shine-secondary;
+				    font-size: 20px;
+				  	padding-right: 4px;
+				  	color: $shine-secondary;
+				  	vertical-align: middle;
+				}
+			  	& span {
+			  		vertical-align: middle;
 				}
 			}
 		}
