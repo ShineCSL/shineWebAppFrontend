@@ -69,7 +69,7 @@ a.divLink {
 
 .section-header h3 {
   font-size: 36px;
-  color: #413e66;
+  color: $shine-main;
   text-align: center;
   font-weight: 700;
   position: relative;
@@ -81,7 +81,7 @@ a.divLink {
   margin: auto;
   font-size: 15px;
   padding-bottom: 60px;
-  color: #535074;
+  color: $shine-blue-gray-p;
   width: 50%;
 }
 
@@ -89,7 +89,7 @@ a.divLink {
 --------------------------------*/
 
 .section-bg {
-  background: #f5f8fd;
+  background: $shine-light-blue;
 }
 
 /* Home Section
@@ -118,13 +118,13 @@ a.divLink {
 	width: 100%;
 	height: 100vh;
 	position: relative;
-	//background: #f5f8fd url("../../content/images/intro-bg.jpg") center top no-repeat;
+	//background: $shine-light-blue url("../../content/images/intro-bg.jpg") center top no-repeat;
 	//background-size: cover;	
 	
 	.intro-info {
 	    padding-top: 80px;
 		& h2 {
-			color: #413e66;
+			color: $shine-main;
 			margin-bottom: 40px;
 			font-size: 48px;
 			font-weight: 700;
@@ -139,12 +139,12 @@ a.divLink {
 			padding: 10px 32px;
 			border-radius: 4px;
 			transition: 0.5s;
-			color: #fff;
-			background: #1bb1dc;
-			color: #fff;
+			color: $white;
+			background: $shine-secondary;
+			color: $white;
 			
 			&:hover{
-				background: #0a98c0;
+				background: $shine-dark-blue;
 			}
 		}
 	}
@@ -179,12 +179,12 @@ a.divLink {
   padding: 10px 32px;
   border-radius: 4px;
   transition: 0.5s;
-  color: #fff;
+  color: $white;
   background: $shine-secondary;
-  color: #fff;
+  color: $white;
   
   &:hover {
-  	background: #0a98c0;  
+  	background: $shine-dark-blue;  
   }
 }
 
@@ -209,7 +209,7 @@ a.divLink {
 	.about-content {
 		padding-top: 40px;
 	  	& h2 {
-			color: #413e66;
+			color: $shine-main;
 			font-family: "Montserrat", sans-serif;
 			font-weight: 700;
 		}
@@ -227,7 +227,7 @@ a.divLink {
   				& i {
 				  font-size: 20px;
 				  padding-right: 4px;
-				  color: #1bb1dc;
+				  color: $shine-secondary;
 				}
 			}
 		}
@@ -239,7 +239,7 @@ a.divLink {
 		& img {
 		  height: 100%;
 		  width: 100%;
-		  border: 8px solid #fff;
+		  border: 8px solid $white;
 		  transition: .5s;
 		  &:hover {
 			  width: 100%;
@@ -292,7 +292,7 @@ a.divLink {
 --------------------------------*/
 
 .services {
-  padding: 40px 0 0 0;
+    padding: 40px 0 0 0;
   
 	.box {
 	  	padding: 30px;
@@ -300,7 +300,7 @@ a.divLink {
 	  	overflow: hidden;
 	  	border-radius: 10px;
 	  	margin: 0 10px 40px 10px;
-	  	background: #fff;
+	  	background: $white;
 	  	box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
 	  	transition: all 0.3s ease-in-out;
 	  	text-align: center;
@@ -308,7 +308,7 @@ a.divLink {
 		  	-webkit-transform: scale(1.1);
 		  	transform: scale(1.1);
 		  	.title a {
-			  	color: #1bb1dc;
+			  	color: $shine-secondary;
 			}
 		}
 	}
@@ -363,13 +363,13 @@ a.divLink {
 			  	font-size: 24px;
 			  	font-weight: 600;
 			  	margin-left: 56px;
-			  	color: #413e66;
+			  	color: $shine-main;
 			  	margin-bottom: 5px;
 			}
 			& p {
 			  	font-size: 16px;
 			  	margin-left: 56px;
-			  	color: #555186;
+			  	color: $shine-blue-gray;
 			}
 		}
 	}
@@ -380,14 +380,14 @@ a.divLink {
 		  	font-weight: bold;
 		  	font-size: 48px;
 		  	display: block;
-		  	color: #555186;
+		  	color: $shine-blue-gray;
 		}
 		& p {
 		  	padding: 0;
 		  	margin: 0 0 20px 0;
 		  	font-family: "Montserrat", sans-serif;
 		  	font-size: 14px;
-		  	color: #8a87b6;
+		  	color: $shine-light-gray;
 		}
 	}
 }
@@ -399,13 +399,13 @@ a.divLink {
 .contact {
 	//padding: 0;
 	font-size: 14px;
-	background: #fff;
+	background: $white;
 	padding: 40px 0 0 0;
 
 	& h4 {
 	  font-size: 14px;
 	  font-weight: bold;
-	  color: #413e66;
+	  color: $shine-main;
 	  text-transform: uppercase;
 	  position: relative;
 	  padding-bottom: 10px;
@@ -419,7 +419,7 @@ a.divLink {
 		  padding: 2px 0 2px 0;
 		  line-height: 1;
 		  font-family: "Montserrat", sans-serif;
-		  color: #413e66;
+		  color: $shine-main;
 		  font-weight: 400;
 		  letter-spacing: 3px;
 		  text-transform: uppercase;
@@ -429,7 +429,7 @@ a.divLink {
 		  line-height: 24px;
 		  margin-bottom: 0;
 		  font-family: "Montserrat", sans-serif;
-		  color: #535074;
+		  color: $shine-blue-gray-p;
 		}
 	}
 	
@@ -437,8 +437,8 @@ a.divLink {
 		& a {
 			font-size: 18px;
 			display: inline-block;
-			background: #1bb1dc;
-			color: #fff;
+			background: $shine-secondary;
+			color: $white;
 			line-height: 1;
 			padding: 8px 0;
 			margin-right: 4px;
@@ -448,8 +448,8 @@ a.divLink {
 			height: 36px;
 			transition: 0.3s;
 		  	&:hover {
-			  background: #0a98c0;
-			  color: #fff;
+			  background: $shine-dark-blue;
+			  color: $white;
 			}
 		}
 	}
@@ -469,7 +469,7 @@ a.divLink {
 			& a {
 			  	color: #696592;
 			  	&:hover {
-				  color: #1bb1dc;
+				  color: $shine-secondary;
 				}
 			}
 		}
@@ -479,8 +479,8 @@ a.divLink {
 		  	margin-bottom: 15px;
 		}	
 		& #sendmessage {
-		  	color: #fff;
-		  	background: #1bb1dc;
+		  	color: $white;
+		  	background: $shine-secondary;
 		  	display: none;
 		  	text-align: center;
 		  	padding: 15px;
@@ -488,7 +488,7 @@ a.divLink {
 		  	margin-bottom: 15px;
 		}
 		& #errormessage {
-		  	color: #fff;
+		  	color: $white;
 		  	display: none;
 		  	background: red;
 		  	text-align: center;
@@ -507,7 +507,7 @@ a.divLink {
 		  	font-size: 13px;
 		}
 		& label {
-		  	color: #413e66;
+		  	color: $shine-main;
 		  	font-weight: 500;
 		}
 		& input, textarea {
@@ -529,16 +529,39 @@ a.divLink {
 			}		
 		}*/
 		& button[type="submit"] {
-		  	background: #1bb1dc;
+		  	background: $shine-secondary;
 		  	border: 0;
 		  	border-radius: 3px;
 		  	padding: 8px 30px;
-		  	color: #fff;
+		  	color: $white;
 		  	transition: 0.3s;
 		  	&:hover {
-				  background: #0a98c0;
+				  background: $shine-dark-blue;
 				  cursor: pointer;
 			}
 		}		
 	}
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  //display: none;
+  background: $shine-secondary;
+  color: $white;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  line-height: 1;
+  font-size: 16px;
+  border-radius: 50%;
+  right: 15px;
+  bottom: 15px;
+  transition: background 0.5s;
+  z-index: 11;
+}
+
+.back-to-top i {
+  padding-top: 12px;
+  color: $white;
 }

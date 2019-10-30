@@ -40,11 +40,15 @@
 	              <h2><span jhiTranslate="home.aboutUs.title">About Us</span></h2>
 	              <h3><span jhiTranslate="home.aboutUs.subtitle">Shine CSL builds tailor-made it solutions for our clients since 2016.</span></h3>
 	              <p jhiTranslate="home.aboutUs.text1"></p>
-	              <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque. Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus eum error. Et repudiandae eum iste qui et ut ab alias.</p>
+	              <p jhiTranslate="home.aboutUs.text2"></p>
+	              <p jhiTranslate="home.aboutUs.text3"></p>
+	              <p jhiTranslate="home.aboutUs.text4"></p>
 	              <ul>
-	                <li><i class="ion-ios-checkbox-outline"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-	                <li><i class="ion-ios-checkbox-outline"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-	                <li><i class="ion-ios-checkbox-outline"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+	                <li><i class="ion-ios-checkbox-outline"></i><span jhiTranslate="home.aboutUs.creativity"></span></li>
+	                <li><i class="ion-ios-checkbox-outline"></i><span jhiTranslate="home.aboutUs.efficiency"></span></li>
+	                <li><i class="ion-ios-checkbox-outline"></i><span jhiTranslate="home.aboutUs.engagement"></span></li>
+	                <li><i class="ion-ios-checkbox-outline"></i><span jhiTranslate="home.aboutUs.transparency"></span></li>
+	                <li><i class="ion-ios-checkbox-outline"></i><span jhiTranslate="home.aboutUs.respect"></span></li>
 	              </ul>
 	            </div>
 	          </div>
@@ -59,29 +63,29 @@
 		    <div class="title-padding"></div>
 	        <div class="section-header">
 	          <h3>Services</h3>
-	          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+	          <p jhiTranslate="home.services.subtitle"></p>
 	        </div>
 	
 	        <div class="row">
 	          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
 	            <div class="box">
 	              <div class="icon" style="background: #fceef3;"><i class="ionicons ion-md-code" style="color: #ff689b;"></i></div>
-	              <h4 class="title"><a href="">Web Development</a></h4>
-	              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+	              <h4 class="title"><a [routerLink]="['/', { outlets: { popup: ['home-website-popup'] } }]"><span jhiTranslate="home.services.webSite.title">Web site</span></a></h4>
+	              <p class="description" jhiTranslate="home.services.webSite.text"></p>
 	            </div>
 	          </div>
 	          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
 	            <div class="box">
 	              <div class="icon" style="background: #fff0da;"><i class="ionicons ion-ios-phone-portrait" style="color: #e98e06;"></i></div>
-	              <h4 class="title"><a href="">Mobile Applications</a></h4>
-	              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+	              <h4 class="title"><a [routerLink]="['/', { outlets: { popup: ['home-application-popup'] } }]"><span jhiTranslate="home.services.webApplications.title">Applications</span></a></h4>
+	              <p class="description" jhiTranslate="home.services.webApplications.text"></p>
 	            </div>
 	          </div>
 	          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
 	            <div class="box">
 	              <div class="icon" style="background: #e6fdfc;"><i class="ionicons ion-ios-people" style="color: #3fcdc7;"></i></div>
-	              <h4 class="title"><a href="">Resource Outsourcing</a></h4>
-	              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+	              <h4 class="title"><a [routerLink]="['/', { outlets: { popup: ['home-resource-popup'] } }]"><span jhiTranslate="home.services.resources.title">Resource Outsourcing</span></a></h4>
+	              <p class="description" jhiTranslate="home.services.resources.text"></p>
 	            </div>
 	          </div>
 	      	</div>	
@@ -90,11 +94,11 @@
 		    <div class="container">	
 				<div class="row counters">
 					<div class="col-lg-3 col-6 text-center">
-						<span data-toggle="counter-up">3</span>
+						<span data-toggle="counter-up">2</span>
 						<p>Clients</p>
 					</div>
 					<div class="col-lg-3 col-6 text-center">
-						<span data-toggle="counter-up">7</span>
+						<span data-toggle="counter-up">4</span>
 						<p>Projects</p>
 					</div>
 					<div class="col-lg-3 col-6 text-center">
@@ -102,7 +106,7 @@
 						<p>Hours Of Support</p>
 					</div>
 					<div class="col-lg-3 col-6 text-center">
-						<span data-toggle="counter-up">6</span>
+						<span data-toggle="counter-up">5</span>
 						<p>Hard Workers</p>
 					</div>
 				</div>
@@ -240,5 +244,8 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div *ngIf="this.isButtonBackToTopVisible">
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 </div>
 <!-- <particles [style]="style" [width]="width" [height]="height" [params]="params"></particles> -->

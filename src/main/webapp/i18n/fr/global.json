@@ -53,7 +53,7 @@
                 "register": "Créer un compte"
             },
             "admin": {
-                "main": "Administration",
+                "main": "Admin",
                 "userManagement": "Gestion des utilisateurs",
                 "tracker": "Suivi des utilisateurs",
                 "metrics": "Métriques",

@@ -7,14 +7,17 @@ Shine Colors
 ===============================================================*/
 // Declare the color as RGB; SASS will treat this as hex
 $shine-green: #F79E54;
+$shine-light-blue: #f5f8fd;
 $shine-blue: #4795d6;
-$shine-dark-blue: #092157;
+$shine-dark-blue: #0a98c0;
 $shine-red:  #b30000;
 $shine-yellow: #fff6e6;
 $shine-dark-yellow: #F5D090;
 $shine-orange: #996300;
-$shine-light-gray: #808080;
+$shine-light-gray: #8a87b6;
 $shine-dark-gray: #212529;
+$shine-blue-gray: #555186;
+$shine-blue-gray-p: #535074;
 $shine-main: #413e66;
 $shine-secondary: #1bb1dc;
 $white: #fff !default;
@@ -74,7 +77,7 @@ $screen-height-md: 650px;
 $alpha: 1;
 
 body {
-    background-color: #fff;
+    background-color: $white;
     @include body-font;
 }
 
@@ -190,4 +193,8 @@ a {
 
 .social-links-display {
   display: none;
+}
+
+.fa-li {
+    line-height: inherit;
 }

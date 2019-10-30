@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     sendMessage: any;
     success: boolean;
     error: string;
+    isButtonBackToTopVisible: boolean;
 
     /*imgCreativity = require('../../content/images/creativity.jpg');
     imgCustomerEngagement = require('../../content/images/customer-engagement.jpg');
@@ -54,6 +55,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.initHome();
       this.success = false;
       this.sendMessage = {};
+      this.isButtonBackToTopVisible = false;
     }
 
     ngAfterViewInit() {
@@ -66,7 +68,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 	sendMessageAction(){
 		var emailBody = this.sendMessage.message + '\n' + 'Cordialement/Regards ' + this.sendMessage.name + ',';
 		emailBody = encodeURIComponent(emailBody);
-    	window.open('mailto:shinecsl@shinecsl.com' + '?subject=' + this.sendMessage.subject + '&body=' + emailBody);
+    	window.open('mailto:shinecsl@shinecsl.com' + '?subject=' + this.sendMessage.subject + '&body=' + emailBody, "_self");
 	}
 
     registerAuthenticationSuccess() {
@@ -101,6 +103,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       /*const logoShine = document.getElementById('logoShine');*/
       const socialLinks = document.getElementById('socialLinks');
       const homeNavItems = ['Home', 'AboutUs', 'Services', 'Contact'];
+      this.isButtonBackToTopVisible = false;    
       if (scrollPosition <= (diffHomeAboutUs / 2)) {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Home');
@@ -121,6 +124,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           this.setInactiveAllItems(homeNavItems);
           this.setActiveItem('Contact');
           this.setNavBgDarkGray(navShine, socialLinks);
+	      this.isButtonBackToTopVisible = true;    
       } else {
         console.log('scroll not home');
       }
@@ -182,6 +186,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       const navItemServices = document.getElementById('navItemServices');
       //const navItemValues = document.getElementById('navItemValues');
       const navItemContact = document.getElementById('navItemContact');
+      this.isButtonBackToTopVisible = false;    
       if (url === '/' || this.isAuthenticated()) {
         navItemHome.className = 'nav-item active';
       } else if (url.indexOf('#home') !== -1) {
@@ -194,6 +199,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         navItemValues.className = 'nav-item active';**/
       } else if (url.indexOf('#contact') !== -1) {
         navItemContact.className = 'nav-item active';
+      	this.isButtonBackToTopVisible = true;    
       }
       this.scrollInto(100);
     }
