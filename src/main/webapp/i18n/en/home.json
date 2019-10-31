@@ -29,7 +29,7 @@
             "subtitle": "We build tailor-made it solutions for our clients.",
             "text1": "Shine Consulting Services LTD is a startup launched in 2016. We work with clients in France.",
             "text2": " Our company is organised on a human scale and we want to keep it this way so that we continue to work in a flexible, agile and innovative way.",        
-            "text3": "We are convinced that a good work environment and happy workers is one of the keys to success. It is very important for us that our people engage with us on the long run. We are a team of experimented and young, dynamic and very motivated resources.",
+            "text3": "We are convinced that a good work environment and happy workers is one of the keys to success. It is very important for us that our people engage with us on the long run. We are a team composed of experimented and young, dynamic and very motivated resources.",
         	"text4": "Our goal is to create a trust relashionship with our clients and to work on the long run with them. To do this we convey these values : ",
         	"creativity": "Creativity et innovation",
         	"efficiency": "Efficiency",
@@ -69,7 +69,18 @@
             "title": "Contact us",
         	"phone": "Phone",
         	"address": "Address",
-        	"email": "E-mail"
+        	"email": "E-mail",
+        	"subtitle": "Feel free to contact us by mail or telephone. We will be happy to give us more details about our company and our services.",
+        	"usefulLinks": "Useful Links",
+        	"sendMessageTitle": "Send us a message", 
+        	"sendMessageText": "Please fill all the required information. We will reply to you as soon as we get your message.",
+         	"sendMessageButton": "Send message",
+        	"form": {
+        		"name.placeholder": "Your name",
+        		"email.placeholder": "Your email",
+        		"subject.placeholder": "Subject",        	
+        		"message.placeholder": "Message"
+        	}      	        	
         },
         "popup": {
             "website": {

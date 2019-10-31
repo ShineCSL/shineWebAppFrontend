@@ -29,7 +29,7 @@
             "subtitle": "Nous développons des solutions informatique sur mesure pour nos clients.",
             "text1": "Shine Consulting Services LTD est une société de service en mode start-up lancé en 2016 dans le secteur IT. Nous intervenons chez plusieurs clients en France.",
             "text2": "Notre société à taille humaine et nous tenons à le rester afin de continuer d'opérer de manière flexible, agile et innovante.",        
-            "text3": "On est convaincu qu'une bonne ambiance au travail et des collaborateurs heureux est une des clefs du succès. On attache beaucoup d'importance à ce que nos ressources s'engagent sur le long terme avec nous. On est une équipe de personnes expérimentées et de jeunes dynamiques et très motivés.",
+            "text3": "On est convaincu qu'une bonne ambiance au travail et des collaborateurs heureux est une des clefs du succès. On attache beaucoup d'importance à ce que nos ressources s'engagent sur le long terme avec nous. On est une équipe composée de personnes expérimentées et de jeunes dynamiques et très motivés.",
         	"text4": "Notre but est de créer une relation de confiance avec nos clients et de favoriser des collabrations sur le long terme. Pour ce faire on véhicule les valeurs suivantes : ",
         	"creativity": "Créativité et innovation",
         	"efficiency": "Efficacité",
@@ -69,7 +69,18 @@
             "title": "Contactez-nous",
         	"phone": "Téléphone",
         	"address": "Adresse",
-        	"email": "E-mail"
+        	"email": "E-mail",
+        	"subtitle": "N'hésitez pas à nous contacter par mail ou téléphone. On se fera un plaisir de vous donner plus de détails sur notre compagnie et les services qu'on propose.",
+        	"usefulLinks": "Liens utiles",        	
+        	"sendMessageTitle": "Envoyez-nous un message",        	        	
+        	"sendMessageText": "Veuillez remplir les informations obligatoires. On vous répondra dans les plus brefs délais.", 
+        	"sendMessageButton": "Envoyer le message", 
+        	"form": {
+        		"name.placeholder": "Votre nom",
+        		"email.placeholder": "Votre email",
+        		"subject.placeholder": "Sujet",        	
+        		"message.placeholder": "Message"
+        	}      	
         }, 
         "popup": {
             "website": {

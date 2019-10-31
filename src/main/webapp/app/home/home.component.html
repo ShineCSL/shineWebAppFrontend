@@ -125,26 +125,22 @@
 						<div class="col-sm-6">
 							<div class="contact-info">
 								<h3><span jhiTranslate="global.title">Shine CSL</span></h3>
-								<p>Cras fermentum odio eu feugiat lide par naso tierra.
-									Justo eget nada terra videa magna derita valies darta donna
-									mare fermentum iaculis eu non diam phasellus. Scelerisque felis
-									imperdiet proin fermentum leo. Amet volutpat consequat mauris
-									nunc congue.</p>
+								<p jhiTranslate="home.contact.subtitle"></p>
 							</div>
 						</div>
 
 						<div class="col-sm-6">
 							<div class="contact-links">
-								<h4>Useful Links</h4>
+								<h4><span jhiTranslate="home.contact.usefulLinks">Useful Links</span></h4>
 								<ul>
-									<li><a routerLink="/" fragment="home">Home</a></li>
-									<li><a routerLink="/" fragment="aboutUs">About us</a></li>
-									<li><a routerLink="/" fragment="services">Services</a></li>
+									<li><a routerLink="/" fragment="home"><span jhiTranslate="global.menu.home">Home</span></a></li>
+									<li><a routerLink="/" fragment="aboutUs"><span jhiTranslate="global.menu.aboutUs">About us</span></a></li>
+									<li><a routerLink="/" fragment="services"><span jhiTranslate="global.menu.services">Services</span></a></li>
 								</ul>
 							</div>
 
 							<div class="contact-links">
-								<h4>Contact Us</h4>
+								<h4><span jhiTranslate="home.contact.title">Contact Us</span></h4>
 								<p>
 									153 Sir Virgil Naz Avenue <br> Quatre-Bornes <br>
 									Mauritius <br> <strong>Phone:</strong> +230 5827 3806<br>
@@ -164,7 +160,7 @@
 
 				<div class="col-lg-6">
 					<div class="form">
-						<h4>Send us a message</h4>
+						<h4><span jhiTranslate="home.contact.sendMessageTitle">Send us a message</span></h4>
 <!-- 			            <div class="alert alert-success" *ngIf="success"> -->
 <!-- 			                <strong>Your message was sent! Thank you.</strong> Please check your email for confirmation. -->
 <!-- 			            </div> -->
@@ -172,13 +168,11 @@
 			            <div class="alert alert-danger" *ngIf="error">
 			                <strong>Error while sending message.</strong> Please try again later.
 			            </div>
-						<p>Eos ipsa est voluptates. Nostrum nam libero ipsa vero.
-							Debitis quasi sit eaque numquam similique commodi harum aut
-							temporibus.</p>
+						<p jhiTranslate="home.contact.sendMessageText"></p>
 						<form name="form" role="form" class="contactForm" (ngSubmit)="sendMessageAction()" #contactForm="ngForm">
 							<div class="form-group">
 								<input type="text" name="name" class="form-control" id="name" [(ngModel)]="sendMessage.name" #name="ngModel"
-									placeholder="Your Name" minlength="4" required/>
+									placeholder="{{'home.contact.form.name.placeholder' | translate}}" minlength="4" required/>
 			                    <div *ngIf="name.dirty && name.invalid">
 			                        <small class="form-text text-danger"
 			                               *ngIf="name.errors.required">
@@ -191,7 +185,7 @@
 							</div>
 							<div class="form-group">
 								<input type="email" class="form-control" name="email" id="email"  [(ngModel)]="sendMessage.email" #email="ngModel"
-									placeholder="Your Email" minlength=5 maxlength=100 email required/>
+									placeholder="{{'home.contact.form.email.placeholder' | translate}}" minlength=5 maxlength=100 email required/>
 			                    <div *ngIf="email.dirty && email.invalid">
 				                    <small class="form-text text-danger" *ngIf="email.errors.required"
 		                                jhiTranslate="global.messages.validate.email.required">
@@ -213,7 +207,7 @@
 			                </div>
 							<div class="form-group">
 								<input type="text" class="form-control" name="subject"  [(ngModel)]="sendMessage.subject" #subject="ngModel"
-									id="subject" placeholder="Subject" minlength="4" required/>
+									id="subject" placeholder="{{'home.contact.form.subject.placeholder' | translate}}" minlength="4" required/>
 			                    <div *ngIf="subject.dirty && subject.invalid">
 			                        <small class="form-text text-danger"
 			                               *ngIf="subject.errors.required">
@@ -226,7 +220,7 @@
 							</div>
 							<div class="form-group">
 								<textarea class="form-control" name="message" rows="5"  [(ngModel)]="sendMessage.message" #message="ngModel"
-									data-msg="Please write something for us" placeholder="Message" required></textarea>
+									data-msg="Please write something for us" placeholder="{{'home.contact.form.message.placeholder' | translate}}" required></textarea>
 				                <div *ngIf="message.dirty && message.invalid">
 			                        <small class="form-text text-danger"
 			                               *ngIf="message.errors.required">
@@ -236,7 +230,7 @@
 							</div>
 
 							<div class="text-center">
-								<button type="submit" [disabled]="contactForm.form.invalid" title="Send Message">Send Message</button>
+								<button type="submit" [disabled]="contactForm.form.invalid"><span jhiTranslate="home.contact.sendMessageButton">Send message</span></button>
 							</div>
 						</form>
 					</div>
