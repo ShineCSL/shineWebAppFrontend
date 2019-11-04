@@ -22,7 +22,7 @@
 	            "forYour": "pour votre",
 	            "business": "Business!"
 	        },
-        	"getStarted": "Get started"
+        	"getStarted": "Commençons"
         },
         "aboutUs": {
             "title": "A propos de nous",
@@ -38,7 +38,7 @@
         	"respect": "Respect des personnes"          	                                    	                         
         },
         "services": {
-            "title": "A votre service",
+            "title": "Services",
             "subtitle": "Nous construisons les meilleures solutions pour vous.",
             "webSite": {
             	"title": "Site web",
@@ -53,7 +53,13 @@
             	"text": "Nos ressources sont billingue (anglais et francais), compétentes et très dévouées. L'activité de nos ressources sont suivies par nos membres les plus expérimentés pour s'assurer de la qualité des livrables et le respect des délais."            
             },    
         	"tellMore": "PLUS SUR NOUS"
-        },
+        }, 
+        "whyUs": {
+        	"clients": "Clients",
+        	"projects": "Projets",
+        	"hoursSupport": "Heures de Support",
+        	"hardWorkers": "Travailleurs acharnés"
+        },       
         "values": {
             "title": "Nos valeurs",
         	"contactUs": "Contactez-nous",

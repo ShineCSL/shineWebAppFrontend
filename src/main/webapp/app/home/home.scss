@@ -79,7 +79,6 @@ a.divLink {
 .section-header p {
   text-align: center;
   margin: auto;
-  font-size: 15px;
   padding-bottom: 60px;
   color: $shine-blue-gray-p;
   width: 50%;
@@ -123,12 +122,27 @@ a.divLink {
 	
 	.intro-info {
 	    padding-top: 80px;
-		& h2 {
+		& h1 {
 			color: $shine-main;
 			margin-bottom: 40px;
-			font-size: 48px;
 			font-weight: 700;
 		}
+	
+	
+		@media (max-width: $screen-sm) {
+		    .container {
+		    	height: auto !important;
+		    }
+		    	    
+			.center {
+			  	text-align: center;
+			}
+		
+		    & h1 {
+				text-align: center;
+			}
+		}
+		
 		.btn-get-started, .btn-services {
 			font-family: "Montserrat", sans-serif;
 			font-size: 13px;
@@ -147,6 +161,18 @@ a.divLink {
 				background: $shine-dark-blue;
 			}
 		}
+
+		@media (max-width: $screen-sm) {
+		    .btn-get-started, .btn-services {
+				font-size: 12px;
+			}
+		}
+		
+		@media (max-width: $screen-xs) {
+		    .btn-get-started, .btn-services {
+				font-size: 11px;
+			}
+		}
 	}
 	
 	.intro-img {
@@ -155,19 +181,6 @@ a.divLink {
 			min-height: 75vh;
 		}
 	}	
-	
-	
-	@media (max-width: 767px) {
-	    .container {
-	    	height: auto !important;
-	    }
-	
-	    & h2 {
-			margin-bottom: 30px;
-			font-size: 40px;
-			font-weight: 600;
-		}
-	}
 }
 
 .btn-intro {
@@ -213,12 +226,19 @@ a.divLink {
 			font-family: "Montserrat", sans-serif;
 			font-weight: 700;
 		}
+
+		@media (max-width: $screen-sm) {
+		    & h2 {
+				text-align: center;
+			}
+		}
+		
 		& h3 {
 			color: #696592;
 			font-weight: 400;
-			font-size: 22px;
 			font-style: italic;
 		}  
+				
 		& ul {
 			list-style: none;
 			padding: 0;
@@ -230,12 +250,26 @@ a.divLink {
 				  	color: $shine-secondary;
 				  	vertical-align: middle;
 				}
+				
+				@media (max-width: $screen-sm) {
+				    & i {
+						font-size: 14px;
+					}
+				}
+
 			  	& span {
 			  		vertical-align: middle;
+				}
+
+				@media (max-width: $screen-sm) {
+				  	& span {
+				  		font-size: 14px;
+					}
 				}
 			}
 		}
 	}
+	
 	.about-img {
 		position: relative;
 		margin: 30px 30px 30px 30px;
@@ -274,6 +308,12 @@ a.divLink {
 		  transition: .5s;
 		}
 	}
+
+	@media (max-width: $screen-sm) {
+		.about-img {
+			display: none;
+		}
+	}
 }
 
 .img-about-us {
@@ -297,7 +337,11 @@ a.divLink {
 
 .services {
     padding: 40px 0 0 0;
-  
+
+    & h2 {
+		text-align: center;
+	}  
+	
 	.box {
 	  	padding: 30px;
 	  	position: relative;
@@ -372,7 +416,6 @@ a.divLink {
 			  	margin-bottom: 5px;
 			}
 			& p {
-			  	font-size: 16px;
 			  	margin-left: 56px;
 			  	color: $shine-blue-gray;
 			}
@@ -385,13 +428,15 @@ a.divLink {
 		  	font-weight: bold;
 		  	font-size: 48px;
 		  	display: block;
-		  	color: $shine-blue-gray;
+		  	color: $shine-blue-gray;		  	
+			@media (max-width: $screen-sm) {
+			  	font-size: 40px;
+			}
 		}
 		& p {
 		  	padding: 0;
 		  	margin: 0 0 20px 0;
 		  	font-family: "Montserrat", sans-serif;
-		  	font-size: 14px;
 		  	color: $shine-light-gray;
 		}
 	}
@@ -418,8 +463,7 @@ a.divLink {
 	
 	.contact-info {
 		margin-bottom: 30px;	  
-	 	& h3 {
-		  font-size: 34px;
+	 	& h2 {
 		  margin: 0 0 20px 0;
 		  padding: 2px 0 2px 0;
 		  line-height: 1;
@@ -430,7 +474,6 @@ a.divLink {
 		  text-transform: uppercase;
 		}
 		& p {
-		  font-size: 13px;
 		  line-height: 24px;
 		  margin-bottom: 0;
 		  font-family: "Montserrat", sans-serif;
@@ -452,6 +495,14 @@ a.divLink {
 			width: 36px;
 			height: 36px;
 			transition: 0.3s;
+
+			@media (max-width: $screen-sm) {
+				font-size: 16px;
+				width: 30px;
+				height: 30px;
+				padding: 6px 0;
+			}			
+			
 		  	&:hover {
 			  background: $shine-dark-blue;
 			  color: $white;
@@ -480,59 +531,6 @@ a.divLink {
 		}
 	}
 	.form {
-		/*.form-group {
-		  	margin-bottom: 15px;
-		}	
-		& #sendmessage {
-		  	color: $white;
-		  	background: $shine-secondary;
-		  	display: none;
-		  	text-align: center;
-		  	padding: 15px;
-		  	font-weight: 600;
-		  	margin-bottom: 15px;
-		}
-		& #errormessage {
-		  	color: $white;
-		  	display: none;
-		  	background: red;
-		  	text-align: center;
-		  	padding: 15px;
-		  	font-weight: 600;
-		  	margin-bottom: 15px;
-		}
-		& #sendmessage.show, #errormessage.show, .show {
-		  display: block;
-		}
-		.validation {
-		   	color: red;
-		   	display: none;
-		   	margin: 0 0 20px;
-		   	font-weight: 400;
-		  	font-size: 13px;
-		}
-		& label {
-		  	color: $shine-main;
-		  	font-weight: 500;
-		}
-		& input, textarea {
-		  	border-radius: 0;
-		  	box-shadow: none;
-		  	border: 1px solid #dce1ec;
-		  	font-size: 14px;
-		  	&:-webkit-input-placeholder {
-			  	color: #a2a0bd;
-			}
-			&:-moz-placeholder {
-			  	color: #a2a0bd;
-			}
-			&:-ms-input-placeholder {
-			  	color: #a2a0bd;
-			}
-			&:placeholder {
-			  	color: #a2a0bd;
-			}		
-		}*/
 		& button[type="submit"] {
 		  	background: $shine-secondary;
 		  	border: 0;
@@ -544,29 +542,44 @@ a.divLink {
 				  background: $shine-dark-blue;
 				  cursor: pointer;
 			}
-		}		
+		}
+
+		@media (max-width: $screen-sm) {
+			.form-control {
+				font-size: 14px;	  
+			}
+		}			
 	}
+
+	@media (max-width: $screen-md) {
+		.space {
+			padding-top: 30px;	  
+		}	
+	}	
 }
 
 /* Back to top button */
 .back-to-top {
-  position: fixed;
-  //display: none;
-  background: $shine-secondary;
-  color: $white;
-  width: 44px;
-  height: 44px;
-  text-align: center;
-  line-height: 1;
-  font-size: 16px;
-  border-radius: 50%;
-  right: 15px;
-  bottom: 15px;
-  transition: background 0.5s;
-  z-index: 11;
-}
-
-.back-to-top i {
-  padding-top: 12px;
-  color: $white;
+	position: fixed;
+	//display: none;
+	background: $shine-secondary;
+	color: $white;
+	width: 44px;
+	height: 44px;
+	text-align: center;
+	line-height: 1;
+	font-size: 16px;
+	border-radius: 50%;
+	right: 15px;
+	bottom: 15px;
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	z-index: 11;
+	
+	& i {
+	 	padding-top: 12px;
+	 	color: $white;
+	}
 }

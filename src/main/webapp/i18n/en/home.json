@@ -38,7 +38,7 @@
         	"respect": "Respect for people"           
         },
         "services": {
-            "title": "At Your Service",
+            "title": "Services",
             "subtitle": "We design the best possible solutions for you.",
             "webSite": {
             	"title": "Web site",
@@ -54,6 +54,12 @@
             },    
         	"tellMore": "Tell me more"
         },
+        "whyUs": {
+        	"clients": "Clients",
+        	"projects": "Projects",
+        	"hoursSupport": "Hours Of Support",
+        	"hardWorkers": "Hard Workers"
+        }, 
         "values": {
             "title": "Our values",
         	"contactUs": "Contact us",        	

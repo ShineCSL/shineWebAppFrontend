@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 	sendMessageAction(){
 		var emailBody = this.sendMessage.message + '\n' + 'Cordialement/Regards ' + this.sendMessage.name + ',';
 		emailBody = encodeURIComponent(emailBody);
-    	window.open('mailto:shinecsl@shinecsl.com' + '?subject=' + this.sendMessage.subject + '&body=' + emailBody, "_self");
+    	window.open('mailto:shinecsl@shinecsl.com' + '?subject=' + this.sendMessage.subject + '&body=' + emailBody + "<br>", "_self");
 	}
 
     registerAuthenticationSuccess() {

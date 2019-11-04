@@ -6,9 +6,9 @@
 			</div>
 		    <div class="row justify-content-center align-self-center">	    
 		        <div class="col-md-6 intro-info order-md-first order-last">
-		          <h2><span jhiTranslate="home.main.subtitle.rapidSolutions"></span>
-		              <span class="element-color-shine-secondary" jhiTranslate="home.main.subtitle.business"></span></h2>
-		          <div>
+		          <h1><span jhiTranslate="home.main.subtitle.rapidSolutions"></span>
+		              <span class="element-color-shine-secondary" jhiTranslate="home.main.subtitle.business"></span></h1>
+		          <div class="center">
 		            <a routerLink="/" fragment="aboutUs" class="btn-get-started scrollto">
 		            	<span jhiTranslate="home.main.getStarted">Get Started</span>
 		            </a>
@@ -62,7 +62,7 @@
     	<div class="container">
 		    <div class="title-padding"></div>
 	        <div class="section-header">
-	          <h3>Services</h3>
+	          <h2><span jhiTranslate="home.services.title">Services</span></h2>
 	          <p jhiTranslate="home.services.subtitle"></p>
 	        </div>
 	
@@ -70,21 +70,21 @@
 	          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
 	            <div class="box">
 	              <div class="icon" style="background: #fceef3;"><i class="ionicons ion-md-code" style="color: #ff689b;"></i></div>
-	              <h4 class="title"><a [routerLink]="['/', { outlets: { popup: ['home-website-popup'] } }]"><span jhiTranslate="home.services.webSite.title">Web site</span></a></h4>
+	              <h4 class="title"><a class="small-disabled-link" [routerLink]="['/', { outlets: { popup: ['home-website-popup'] } }]"><span jhiTranslate="home.services.webSite.title">Web site</span></a></h4>
 	              <p class="description" jhiTranslate="home.services.webSite.text"></p>
 	            </div>
 	          </div>
 	          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
 	            <div class="box">
 	              <div class="icon" style="background: #fff0da;"><i class="ionicons ion-ios-phone-portrait" style="color: #e98e06;"></i></div>
-	              <h4 class="title"><a [routerLink]="['/', { outlets: { popup: ['home-application-popup'] } }]"><span jhiTranslate="home.services.webApplications.title">Applications</span></a></h4>
+	              <h4 class="title"><a class="small-disabled-link" [routerLink]="['/', { outlets: { popup: ['home-application-popup'] } }]"><span jhiTranslate="home.services.webApplications.title">Applications</span></a></h4>
 	              <p class="description" jhiTranslate="home.services.webApplications.text"></p>
 	            </div>
 	          </div>
 	          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
 	            <div class="box">
 	              <div class="icon" style="background: #e6fdfc;"><i class="ionicons ion-ios-people" style="color: #3fcdc7;"></i></div>
-	              <h4 class="title"><a [routerLink]="['/', { outlets: { popup: ['home-resource-popup'] } }]"><span jhiTranslate="home.services.resources.title">Resource Outsourcing</span></a></h4>
+	              <h4 class="title"><a class="small-disabled-link" [routerLink]="['/', { outlets: { popup: ['home-resource-popup'] } }]"><span jhiTranslate="home.services.resources.title">Resource Outsourcing</span></a></h4>
 	              <p class="description" jhiTranslate="home.services.resources.text"></p>
 	            </div>
 	          </div>
@@ -93,21 +93,21 @@
 		<div class="why-us">
 		    <div class="container">	
 				<div class="row counters">
-					<div class="col-lg-3 col-6 text-center">
+					<div class="col-lg-3 col-sm-6 col-12 text-center">
 						<span data-toggle="counter-up">2</span>
-						<p>Clients</p>
+						<p jhiTranslate="home.whyUs.clients">Clients</p>
 					</div>
-					<div class="col-lg-3 col-6 text-center">
+					<div class="col-lg-3 col-sm-6 col-12 text-center">
 						<span data-toggle="counter-up">4</span>
-						<p>Projects</p>
+						<p jhiTranslate="home.whyUs.projects">Projects</p>
 					</div>
-					<div class="col-lg-3 col-6 text-center">
+					<div class="col-lg-3 col-sm-6 col-12 text-center">
 						<span data-toggle="counter-up">29,808</span>
-						<p>Hours Of Support</p>
+						<p jhiTranslate="home.whyUs.hoursSupport">Hours Of Support</p>
 					</div>
-					<div class="col-lg-3 col-6 text-center">
+					<div class="col-lg-3 col-sm-6 col-12 text-center">
 						<span data-toggle="counter-up">5</span>
-						<p>Hard Workers</p>
+						<p jhiTranslate="home.whyUs.hardWorkers">Hard Workers</p>
 					</div>
 				</div>
 			</div>
@@ -124,7 +124,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="contact-info">
-								<h3><span jhiTranslate="global.title">Shine CSL</span></h3>
+								<h2><span jhiTranslate="global.title">Shine CSL</span></h2>
 								<p jhiTranslate="home.contact.subtitle"></p>
 							</div>
 						</div>
@@ -158,7 +158,7 @@
 					</div>
 				</div>
 
-				<div class="col-lg-6">
+				<div class="col-lg-6 space">
 					<div class="form">
 						<h4><span jhiTranslate="home.contact.sendMessageTitle">Send us a message</span></h4>
 <!-- 			            <div class="alert alert-success" *ngIf="success"> -->
@@ -240,6 +240,6 @@
 	</div>
 </div>
 <div *ngIf="this.isButtonBackToTopVisible">
-	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+	<a routerLink="/" fragment="home" class="back-to-top small-no-display"><i class="fa fa-chevron-up"></i></a>
 </div>
 <!-- <particles [style]="style" [width]="width" [height]="height" [params]="params"></particles> -->
