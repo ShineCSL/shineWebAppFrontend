@@ -17,12 +17,11 @@ Navbar
         width: 40px;
         border-radius: 50%;
     }
-    .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
-        background-color: #353d47;
-    }
+    
     .dropdown-toggle::after {
         margin-left: 0.15em;
     }
+
     ul.navbar-nav {
         padding: 0.5em;
         .nav-item {
@@ -98,24 +97,6 @@ Logo styles
 	}              
 }
 
-.dropdown-menu .sub-menu {
-	left: 80%;
-	position: absolute;
-	top: 0;
-	visibility: hidden;
-	margin-top: -1px;
-	@media screen and (max-width: $screen-lg) {
-    	left: 20%;
-    	top: 50%;
-    	width: 80%;
-    }
-}
-
-.dropdown-menu li:hover>.sub-menu {
-	visibility: visible;
-	display: block;
-}
-
 #navShine {
 	transition: all .5s;	
 }
@@ -164,6 +145,59 @@ Logo styles
 	       opacity: .7;
 		}
 	}
+	  
+	.dropdown-item {
+		&:hover {
+		    color: $shine-secondary;		    
+			background-color: $shine-light-blue;
+		}
+		
+		&.active {
+			color: $shine-secondary;
+			background-color: $shine-light-blue;
+			&:focus {
+				background-color: darken($shine-light-blue, 10%) !important;;			
+			}
+			&:hover {
+				color: darken($shine-secondary, 10%) !important;
+			}
+		}
+	}
+	.dropdown-menu-item {
+		&.active {
+			color: $shine-secondary;
+			background-color: $shine-light-blue;
+			&:focus {
+				background-color: darken($shine-light-blue, 10%) !important;;			
+			}
+			&:hover {
+				color: darken($shine-secondary, 10%) !important;
+			}
+		}
+		> .dropdown-item {
+			&.active {
+				color: $shine-secondary;
+			}
+		}	
+	}
+
+	.dropdown-menu .sub-menu {
+		left: 80%;
+		position: absolute;
+		top: 0;
+		visibility: hidden;
+		margin-top: -1px;
+		@media screen and (max-width: $screen-lg) {
+	    	left: 20%;
+	    	top: 50%;
+	    	width: 80%;
+	    }
+	}
+	
+	.dropdown-menu li:hover>.sub-menu {
+		visibility: visible;
+		display: block;
+	}
 }
 
 .top-bar .navbar-nav .nav-item {
@@ -178,23 +212,8 @@ a.dropdown-toggle {
     border-bottom: transparent solid 2px;  
 }  
 
-.dropdown-item {
-	&:hover {
-		background-color: $shine-secondary;
-	}
-	
-	&.active {
-		color: $shine-light-gray;
-		background-color: $shine-secondary;
-	}
 
-	&:active {
-		color: $shine-light-gray;
-		background-color: $shine-secondary;
-	}	
-}
-
-.bg-nav-dark-gray {
+.bg-nav-others {
 	padding: 15px;
     background-color: $white;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);

@@ -25,17 +25,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     version: string;
     private activeSiteSection: string;
     private activeSiteMenu: string;
+    private activeSiteDropdownMenu: string;
 
     @ViewChild('navShine') navShine: ElementRef;
-    @ViewChild('navItemHome') navItemHome: ElementRef;
-    @ViewChild('navItemAboutUs') navItemAboutUs: ElementRef;
-    @ViewChild('navItemServices') navItemServices: ElementRef;
-    @ViewChild('navItemContact') navItemContact: ElementRef;
-    @ViewChild('aItemHome') aItemHome: ElementRef;
-    @ViewChild('aItemAboutUs') aItemAboutUs: ElementRef;
-    @ViewChild('aItemServices') aItemServices: ElementRef;
-    @ViewChild('aItemContact') aItemContact: ElementRef;
-    @ViewChild('logoShine') logoShine: ElementRef;
     @ViewChild('socialLinks') socialLinks: ElementRef;
 
     constructor(
@@ -99,164 +91,73 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     }
 
     private siteURLActiveCheck(): void {
-      // override the route reuse strategy
-      this.router.navigated = false;
-      const url = this.router.url;
-      console.log('url: ' + url);
-      if (url === '/') {
-        this.activeSiteSection = 'home';
-        this.activeSiteMenu = '';
-        this.removeNavBgDarkGray();
-        const element = document.querySelector('#home');
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      } else if (url.indexOf('#home') !== -1) {
-        this.activeSiteSection = 'home';
-        this.activeSiteMenu = '';
-        this.removeNavBgDarkGray();
-        const element = document.querySelector('#home');
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      } else if (url.indexOf('#aboutUs') !== -1) {
-        if(!this.isAuthenticated()){
-	        this.activeSiteSection = 'aboutUs';
-        } else {
-        	this.activeSiteSection = 'home';
-        }
-        this.activeSiteMenu = '';
-        this.setNavBgDarkGray();
-        const element = document.querySelector('#aboutUs');
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});        
-      } else if (url.indexOf('#services') !== -1) {
-        if(!this.isAuthenticated()){
-	        this.activeSiteSection = 'services';
-        } else {
-        	this.activeSiteSection = 'home';
-        }
-        this.activeSiteMenu = '';   
-        this.setNavBgDarkGray();
-        const element = document.querySelector('#services');
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      /**} else if (url.indexOf('#values') !== -1) {
-        if(!this.isAuthenticated()){
-	        this.activeSiteSection = 'values';
-        } else {
-        	this.activeSiteSection = 'home';
-        }
-        this.activeSiteMenu = '';
-        this.setNavBgDarkGray();
-        const element = document.querySelector('#values');
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});**/
-      } else if (url.indexOf('#contact') !== -1) {
-        if(!this.isAuthenticated()){
-	        this.activeSiteSection = 'contact';
-        } else {
-        	this.activeSiteSection = 'home';
-        }
-        this.activeSiteMenu = '';
-        this.setNavBgDarkGray();
-        const element = document.querySelector('#contact');
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      } else if (url.indexOf('/my-leaves') !== -1) {
-        this.activeSiteSection = 'myLeaves';
-        this.activeSiteMenu = 'navItemModules';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/leaves-team') !== -1) {
-        this.activeSiteSection = 'leavesTeam';
-        this.activeSiteMenu = 'navItemModules';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/client') !== -1) {
-        this.activeSiteSection = 'client';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/currency') !== -1) {
-        this.activeSiteSection = 'currency';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/leave-config') !== -1) {
-        this.activeSiteSection = 'leaveConfig';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/task') !== -1) {
-        this.activeSiteSection = 'task';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/type-invoice') !== -1) {
-        this.activeSiteSection = 'typeInvoice';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/mission') !== -1) {
-        this.activeSiteSection = 'mission';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/activity-config') !== -1) {
-        this.activeSiteSection = 'activityConfig';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/invoice-config') !== -1) {
-        this.activeSiteSection = 'invoiceConfig';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/public-holiday') !== -1) {
-        this.activeSiteSection = 'publicHoliday';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/team') !== -1) {
-        this.activeSiteSection = 'team';
-        this.activeSiteMenu = 'navItemMenu';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/user-management') !== -1) {
-        this.activeSiteSection = 'userManagement';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/jhi-metrics') !== -1) {
-        this.activeSiteSection = 'jhiMetrics';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/jhi-health') !== -1) {
-        this.activeSiteSection = 'jhiHealth';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/jhi-configuration') !== -1) {
-        this.activeSiteSection = 'jhiConfiguration';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/audits') !== -1) {
-        this.activeSiteSection = 'audits';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/logs') !== -1) {
-        this.activeSiteSection = 'logs';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/entity-audit') !== -1) {
-        this.activeSiteSection = 'entityAudit';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/docs') !== -1) {
-        this.activeSiteSection = 'docs';
-        this.activeSiteMenu = 'navItemAdmin';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/settings') !== -1) {
-        this.activeSiteSection = 'settings';
-        this.activeSiteMenu = 'navItemAccount';
-        this.setNavBgDarkGray();
-      } else if (url.indexOf('/password') !== -1) {
-        this.activeSiteSection = 'password';
-        this.activeSiteMenu = 'navItemAccount';
-        this.setNavBgDarkGray();
-      } else {
-        this.activeSiteSection = '';
-        this.setNavBgDarkGray();
-      }
+      	// override the route reuse strategy
+      	this.router.navigated = false;
+      	const url = this.router.url;     
+      	const urlSplit: string[] =  url.split('/');
+      	const navItem: string = urlSplit[urlSplit.length - 1];
+		let modulesMenu: string[] = ['myLeaves', 'leavesTeam',];
+		let itemMenu: string[] = ['client', 'currency', 'leaveConfig', 'task', 'typeInvoice', 'mission', 'activityConfig', 'invoiceConfig', 'publicHoliday', 'team'];
+		let adminMenu: string[] = ['userManagement', 'jhiMetrics', 'jhiHealth', 'jhiConfiguration', 'audits', 'logs', 'entityAudit', 'docs'];
+		let accountMenu: string[] = ['settings', 'password'];
+		this.activeSiteDropdownMenu = '';		        
+		if(navItem === ''){
+	        this.activeSiteSection = 'home';
+	        this.activeSiteMenu = '';
+	        this.removeNavBgOthers();
+	        const element = document.querySelector('#home');
+	        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});		
+		} else {
+	      	if (navItem.search('#') == 0 ) {
+				const section = navItem.substr(1);
+				this.activeSiteMenu = '';
+				if(section === 'home') {
+			        this.activeSiteSection = 'home';
+		        	this.removeNavBgOthers();			
+				} else {
+        			this.setNavBgOthers();
+			        if(!this.isAuthenticated()){
+				        this.activeSiteSection = section;
+			        } else {
+			        	this.activeSiteSection = 'home';
+			        }				
+				}
+		        const element = document.querySelector(navItem);
+		        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});	      	 	
+			} else { 	
+		      	const navItemSplit: string[] =  navItem.split('-');
+		      	var navItemId: string = navItem;
+		      	if(navItemSplit.length > 1) {
+		      		var secondPart: string = navItemSplit[1];
+		      		navItemId = navItemSplit[0] + secondPart[0].toUpperCase() + secondPart.slice(1);
+		      	}
+		        this.activeSiteSection = navItemId;
+		        this.setNavBgOthers();
+		        if(modulesMenu.includes(navItemId)){
+		        	this.activeSiteMenu = 'navItemModules';
+		        	this.activeSiteDropdownMenu = 'navDropdownMenuLeaves';		        
+		        } else if(itemMenu.includes(navItemId)) {
+		        	this.activeSiteMenu = 'navItemMenu';		        
+		        } else if(adminMenu.includes(navItemId)) {
+		        	this.activeSiteMenu = 'navItemAdmin';		        
+		        } else if(accountMenu.includes(navItemId)) {
+		        	this.activeSiteMenu = 'navItemAccount';		        
+				} else {
+			        this.activeSiteSection = '';
+			        this.setNavBgOthers();				
+				}		        				
+			} 		
+		}
     }
 
-    private setNavBgDarkGray() {
-      this.navShine.nativeElement.classList.add('bg-nav-dark-gray');  
+    private setNavBgOthers() {
+      this.navShine.nativeElement.classList.add('bg-nav-others');  
       this.socialLinks.nativeElement.classList.add('social-links-display');  
       this.navShine.nativeElement.classList.remove('bg-nav-main');
     }
 
-    private removeNavBgDarkGray() {
-      this.navShine.nativeElement.classList.remove('bg-nav-dark-gray'); 
+    private removeNavBgOthers() {
+      this.navShine.nativeElement.classList.remove('bg-nav-others'); 
       this.socialLinks.nativeElement.classList.remove('social-links-display');  
       this.navShine.nativeElement.classList.add('bg-nav-main');
     }
@@ -267,5 +168,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
     isMenuActive(menu: string): boolean {
         return menu === this.activeSiteMenu;
+    }
+    
+    isDropdownMenuActive(menu: string): boolean {
+        return menu === this.activeSiteDropdownMenu;
     }
 }

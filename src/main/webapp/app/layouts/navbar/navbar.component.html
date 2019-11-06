@@ -89,8 +89,8 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-				 <li>
-	                <a class="dropdown-item"  href="javascript:void(0);" >                    
+				 <li class="dropdown-menu-item" [class.active]="isDropdownMenuActive('navDropdownMenuLeaves')" id ="navDropdownMenuLeaves" #navDropdownMenuLeaves>
+	                <a class="dropdown-item" [class.active]="isDropdownMenuActive('navDropdownMenuLeaves')" href="javascript:void(0);" >                    
 		                <span>
 	                        <i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>
 	                        <span jhiTranslate="global.menu.modules.leaves">

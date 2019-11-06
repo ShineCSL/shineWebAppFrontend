@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener, Renderer, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
@@ -21,27 +21,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     error: string;
     isButtonBackToTopVisible: boolean;
 
-    /*imgCreativity = require('../../content/images/creativity.jpg');
-    imgCustomerEngagement = require('../../content/images/customer-engagement.jpg');
-    imgPeople = require('../../content/images/people.png');
-    imgTechnology = require('../../content/images/technology.jpg');
-    imgAutomation = require('../../content/images/automation.jpg');
-
-    imgTechnologyMobile = require('../../content/images/technology_mobile.jpg');
-
-    images: Array<string> = [];*/
-
-    @ViewChild('home', { read: ElementRef }) public home: ElementRef;
-    @ViewChild('aboutUs', { read: ElementRef }) public aboutUs: ElementRef;
-    @ViewChild('services', { read: ElementRef }) public services: ElementRef;
-    //@ViewChild('values', { read: ElementRef }) public values: ElementRef;
-    @ViewChild('contact', { read: ElementRef }) public contact: ElementRef;
-
     constructor(
         private router: Router,
         private principal: Principal,
         private loginModalService: LoginModalService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private renderer: Renderer, 
+		private elem: ElementRef
     ) {
     }
 
@@ -59,10 +45,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        /*this.router.events.filter((event) => event instanceof NavigationEnd)
-       		.subscribe(event => {
-			this.scrollInto();
-        });  */
     }
     
 	sendMessageAction(){
@@ -89,49 +71,40 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     @HostListener('window:scroll', ['$event'])
     checkScroll(event) {
-      const homePosition = this.home.nativeElement.offsetTop;
-      const aboutUsPosition = this.aboutUs.nativeElement.offsetTop;
-      const diffHomeAboutUs = aboutUsPosition - homePosition;           
-      const servicesPosition = this.services.nativeElement.offsetTop;
-      const diffAboutUsServices = servicesPosition - aboutUsPosition;
-      //const valuesPosition = this.values.nativeElement.offsetTop;
-      //const diffServicesValues = valuesPosition - servicesPosition;
-      const contactPosition = this.contact.nativeElement.offsetTop;
-      const diffServicesContact = contactPosition - servicesPosition;
-      const scrollPosition = window.pageYOffset;
-      const navShine = document.getElementById('navShine');
-      /*const logoShine = document.getElementById('logoShine');*/
-      const socialLinks = document.getElementById('socialLinks');
-      const homeNavItems = ['Home', 'AboutUs', 'Services', 'Contact'];
-      this.isButtonBackToTopVisible = false;    
-      if (scrollPosition <= (diffHomeAboutUs / 2)) {
-          this.setInactiveAllItems(homeNavItems);
-          this.setActiveItem('Home');
-          this.removeNavBgDarkGray(navShine, socialLinks);
-      } else if (scrollPosition >= (diffAboutUsServices / 2) && scrollPosition < aboutUsPosition + (diffAboutUsServices / 2)) {
-          this.setInactiveAllItems(homeNavItems);
-          this.setActiveItem('AboutUs');
-          this.setNavBgDarkGray(navShine, socialLinks);
-      } else if (scrollPosition >= (diffServicesContact / 2) && scrollPosition < servicesPosition + (diffServicesContact / 2)) {
-          this.setInactiveAllItems(homeNavItems);
-          this.setActiveItem('Services');
-          this.setNavBgDarkGray(navShine, socialLinks);
-      /**} else if (scrollPosition >= (diffServicesValues / 2) && scrollPosition < valuesPosition + (diffValuesContact / 2)) {
-          this.setInactiveAllItems(homeNavItems);
-          this.setActiveItem('Values');
-          this.setNavBgDarkGray(navShine, socialLinks);**/
-      } else if (scrollPosition >= servicesPosition + (diffServicesContact / 2)) {
-          this.setInactiveAllItems(homeNavItems);
-          this.setActiveItem('Contact');
-          this.setNavBgDarkGray(navShine, socialLinks);
-	      this.isButtonBackToTopVisible = true;    
-      } else {
-        console.log('scroll not home');
-      }
+        var scrollPosition = window.pageYOffset;
+      	const navShine = document.getElementById('navShine');
+      	const socialLinks = document.getElementById('socialLinks');
+      	const homeNavItems = ['Home', 'AboutUs', 'Services', 'Contact'];
+      	var navShineHeight = navShine.offsetHeight;      	     	
+		let elements = this.elem.nativeElement.querySelectorAll('section');
+		elements.forEach(element => {
+			var offsetTop = element.offsetTop - navShineHeight;
+			const sectionName = element.id[0].toUpperCase() + element.id.slice(1);			
+			if(element.id === 'contact') {
+				if(scrollPosition >= offsetTop){
+					this.setInactiveAllItems(homeNavItems);
+			        this.setActiveItem(sectionName);
+			        this.setNavBgOthers(navShine, socialLinks);
+			        this.isButtonBackToTopVisible = true;   			        															        
+				}			
+			} else {
+				var nextSibOffsetTop = element.nextElementSibling.offsetTop - navShineHeight;
+				if(scrollPosition >= offsetTop && scrollPosition <= nextSibOffsetTop){
+					this.setInactiveAllItems(homeNavItems);
+			        this.setActiveItem(sectionName);
+			        if(element.id === 'home'){
+			        	this.removeNavBgOthers(navShine, socialLinks);							        
+			        } else {
+						this.setNavBgOthers(navShine, socialLinks);									        
+			        }
+        			this.isButtonBackToTopVisible = false;    
+				}				
+			}	
+		});
     }
     
-    private setNavBgDarkGray(navShine, socialLinks) {
-      const menuNavBlack = 'bg-nav-dark-gray';
+    private setNavBgOthers(navShine, socialLinks) {
+      const menuNavBlack = 'bg-nav-others';
       const menuNavMain  = 'bg-nav-main';
       const hideSocialLinks  = 'social-links-display';
       
@@ -142,8 +115,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       socialLinks.classList.add(hideSocialLinks);
     }
 
-    private removeNavBgDarkGray(navShine, socialLinks) {
-      const menuNavBlack = 'bg-nav-dark-gray';
+    private removeNavBgOthers(navShine, socialLinks) {
+      const menuNavBlack = 'bg-nav-others';
       const menuNavMain  = 'bg-nav-main';
       const hideSocialLinks  = 'social-links-display';
 
@@ -180,28 +153,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     initHome(): void {
-      const url = this.router.url;
-      const navItemHome = document.getElementById('navItemHome');
-      const navItemAboutUs = document.getElementById('navItemAboutUs');
-      const navItemServices = document.getElementById('navItemServices');
-      //const navItemValues = document.getElementById('navItemValues');
-      const navItemContact = document.getElementById('navItemContact');
-      this.isButtonBackToTopVisible = false;    
-      if (url === '/' || this.isAuthenticated()) {
-        navItemHome.className = 'nav-item active';
-      } else if (url.indexOf('#home') !== -1) {
-        navItemHome.className = 'nav-item active';
-      } else if (url.indexOf('#aboutUs') !== -1) {
-        navItemAboutUs.className = 'nav-item active';
-      } else if (url.indexOf('#services') !== -1) {
-        navItemServices.className = 'nav-item active';
-      /**} else if (url.indexOf('#values') !== -1) {
-        navItemValues.className = 'nav-item active';**/
-      } else if (url.indexOf('#contact') !== -1) {
-        navItemContact.className = 'nav-item active';
-      	this.isButtonBackToTopVisible = true;    
-      }
-      this.scrollInto(100);
+      	const url = this.router.url;
+      	const urlSplit: string[] =  url.split('/');
+      	const navItem: string = urlSplit[urlSplit.length - 1];     	
+      	this.isButtonBackToTopVisible = false;    
+		if(navItem === ''){
+			document.getElementById('navItemHome').className = 'nav-item active';		
+		} else {
+			const section = navItem.substr(1);
+			const navItemSection = 'navItem' + section[0].toUpperCase() + section.slice(1);
+			document.getElementById(navItemSection).className = 'nav-item active';
+			if (section === 'contact') {
+				this.isButtonBackToTopVisible = true;    
+			}
+		} 
+      	this.scrollInto(100);
     }
 
     scrollInto(wait: number): void {
