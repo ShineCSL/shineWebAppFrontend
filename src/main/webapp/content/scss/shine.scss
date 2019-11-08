@@ -84,25 +84,40 @@ body {
 
 h1 {
 	font-size: 48px;
-	@media (max-width: $screen-sm) {
+	@media (max-width: $screen-md) {
 		font-size: 40px;
 	}
-	@media (max-width: $screen-xs) {
+	@media (max-width: $screen-sm) {
 		font-size: 35px;
+	}
+	@media (max-width: $screen-xs) {
+		font-size: 30px;
 	}
 }
 
 h2 {
 	font-size: 32px;
-	@media (max-width: $screen-sm) {
+	@media (max-width: $screen-md) {
 		font-size: 28px;
+	}
+	@media (max-width: $screen-sm) {
+		font-size: 24px;
+	}
+	@media (max-width: $screen-xs) {
+		font-size: 20px;
 	}
 }
 
 h3 {
 	font-size: 22px;
-	@media (max-width: $screen-sm) {
+	@media (max-width: $screen-md) {
 		font-size: 20px;
+	}
+	@media (max-width: $screen-sm) {
+		font-size: 18px;
+	}
+	@media (max-width: $screen-xs) {
+		font-size: 16px;
 	}
 }	
 
@@ -110,6 +125,9 @@ p {
 	font-size: 16px;
 	@media (max-width: $screen-sm) {
 		font-size: 14px;
+	}
+	@media (max-width: $screen-xs) {
+		font-size: 13px;
 	}
 }
 
@@ -185,7 +203,7 @@ a {
 }
 
 .screen-padding {
-	padding-top: 90px;
+	padding-top: 100px;
 }
 
 .btn:focus, .btn.active:focus {

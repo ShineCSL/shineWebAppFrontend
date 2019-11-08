@@ -16,6 +16,9 @@
     color: $shine-blue-gray-p;
     font-size: 15px;
 	@media (max-width: $screen-sm) {
+		font-size: 15px;
+	}
+	@media (max-width: $screen-xs) {
 		font-size: 14px;
 	}
 }
@@ -26,6 +29,9 @@
   	padding-top: 4px;
   	color: #8582a8;
 	@media (max-width: $screen-sm) {
+		font-size: 14px;
+	}
+	@media (max-width: $screen-xs) {
 		font-size: 13px;
 	}
 }

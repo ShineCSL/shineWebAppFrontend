@@ -57,12 +57,12 @@ a.divLink {
     //min-height: calc(100vh - var(--vh-offset, 0px));
     //padding: 80px 0 0 0;
 	.title-padding {
-		padding-top: 80px;
+		padding-top: 100px;
 	}
 }
  
 .full-page-height-row-contact {
-  min-height: 80vh;
+  min-height: 85vh;
   height: 100%;
   
 }
@@ -129,7 +129,8 @@ a.divLink {
 		}
 	
 	
-		@media (max-width: $screen-sm) {
+		@media (max-width: $screen-sm - 1px) {
+			padding-top: 50%;		
 		    .container {
 		    	height: auto !important;
 		    }
@@ -164,7 +165,7 @@ a.divLink {
 
 		@media (max-width: $screen-sm) {
 		    .btn-get-started, .btn-services {
-				font-size: 12px;
+				font-size: 13px;
 			}
 		}
 		
@@ -202,9 +203,6 @@ a.divLink {
 }
 
 .imgIntro {
-    @media screen and (max-width: $screen-sm) {
-  		display: none;
-	}
 	@media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
     	background: url("../../content/images/intro-img.svg") no-repeat center top;
 		@include img-cover-full-size;
@@ -218,7 +216,7 @@ a.divLink {
 /* About Us Section
 --------------------------------*/
 .about {
-  	padding: 40px 0;
+  	//padding: 40px 0;
 	.about-content {
 		padding-top: 40px;
 	  	& h2 {
@@ -227,7 +225,7 @@ a.divLink {
 			font-weight: 700;
 		}
 
-		@media (max-width: $screen-sm) {
+		@media (max-width: $screen-md - 1px) {
 		    & h2 {
 				text-align: center;
 			}
@@ -256,7 +254,13 @@ a.divLink {
 						font-size: 14px;
 					}
 				}
-
+				
+				@media (max-width: $screen-xs) {
+				    & i {
+						font-size: 13px;
+					}
+				}
+				
 			  	& span {
 			  		vertical-align: middle;
 				}
@@ -264,6 +268,12 @@ a.divLink {
 				@media (max-width: $screen-sm) {
 				  	& span {
 				  		font-size: 14px;
+					}
+				}
+				
+				@media (max-width: $screen-xs) {
+				  	& span {
+				  		font-size: 13px;
 					}
 				}
 			}
@@ -309,7 +319,7 @@ a.divLink {
 		}
 	}
 
-	@media (max-width: $screen-sm) {
+	@media (max-width: $screen-md - 1px) {
 		.about-img {
 			display: none;
 		}
@@ -336,7 +346,7 @@ a.divLink {
 --------------------------------*/
 
 .services {
-    padding: 40px 0 0 0;
+    //padding: 40px 0 0 0;
 
     & h2 {
 		text-align: center;
@@ -369,8 +379,22 @@ a.divLink {
 	  	border-radius: 50%;
 	  	width: 60px;
 	  	height: 60px;
+		@media (max-width: $screen-sm) {
+		  	width: 52px;
+		  	height: 52px;
+		}
+		@media (max-width: $screen-xs) {
+		  	width: 48px;
+		  	height: 48px;
+		}
 	  	& i {
 		  	font-size: 36px;
+			@media (max-width: $screen-sm) {
+		  		font-size: 30px;
+			}
+			@media (max-width: $screen-xs) {
+		  		font-size: 24px;
+			}
 		  	line-height: 1;
 		}
 	}
@@ -378,15 +402,21 @@ a.divLink {
 	  	font-weight: 700;
 	  	margin-bottom: 15px;
 	  	font-size: 18px;
+		@media (max-width: $screen-xs) {
+	  		font-size: 14px;
+		}
 	  	&  a {
 		  	color: #111;
 		}
 	}
 	.description {
-		  font-size: 14px;
-		  line-height: 28px;
-		  margin-bottom: 0;
-		  text-align: left;
+		font-size: 14px;
+		@media (max-width: $screen-xs) {
+	  		font-size: 13px;
+		}
+		line-height: 28px;
+		margin-bottom: 0;
+		text-align: left;
 	}
 }
 
@@ -406,10 +436,16 @@ a.divLink {
 			transition: 0.3s ease-in-out;
 			& i {
 			  	font-size: 36px;
+				@media (max-width: $screen-xs) {
+			  		font-size: 30px;
+				}
 			  	float: left;
 			}
 			& h4 {
 			  	font-size: 24px;
+				@media (max-width: $screen-xs) {
+			  		font-size: 20px;
+				}			  	
 			  	font-weight: 600;
 			  	margin-left: 56px;
 			  	color: $shine-main;
@@ -423,6 +459,9 @@ a.divLink {
 	}
 	.counters {
 	  	padding-top: 40px;
+		@media (max-height: 800px) {
+	  		padding-top: 0px;
+		}
 	  	& span {
 		  	font-family: "Montserrat", sans-serif;
 		  	font-weight: bold;
@@ -431,6 +470,9 @@ a.divLink {
 		  	color: $shine-blue-gray;		  	
 			@media (max-width: $screen-sm) {
 			  	font-size: 40px;
+			}
+			@media (max-width: $screen-xs) {
+			  	font-size: 30px;
 			}
 		}
 		& p {
@@ -447,18 +489,21 @@ a.divLink {
 --------------------------------------------------------------*/
 
 .contact {
-	//padding: 0;
-	font-size: 14px;
 	background: $white;
-	padding: 40px 0 0 0;
+	//padding: 40px 0 0 0;
 
 	& h4 {
-	  font-size: 14px;
-	  font-weight: bold;
-	  color: $shine-main;
-	  text-transform: uppercase;
-	  position: relative;
-	  padding-bottom: 10px;
+	 	font-size: 14px;
+	  	@media (max-width: $screen-xs) {
+  			font-size: 13px;
+		}
+	  	font-weight: bold;
+	  	color: $shine-main;
+	  	text-transform: uppercase;
+	  	position: relative;
+		@media (min-width: $screen-xs) {
+	  		padding-bottom: 10px;
+		}	
 	}  
 	
 	.contact-info {
@@ -501,6 +546,13 @@ a.divLink {
 				width: 30px;
 				height: 30px;
 				padding: 6px 0;
+			}	
+
+			@media (max-width: $screen-xs) {
+				font-size: 13px;
+				width: 24px;
+				height: 24px;
+				padding: 5px 0;
 			}			
 			
 		  	&:hover {
@@ -517,12 +569,18 @@ a.divLink {
 		  	padding: 0;
 		  	margin: 0;
 		  	& li {
-			  	padding: 8px 0;
+		  		padding: 8px 0;
+				@media (max-width: $screen-xs) {
+			  		padding: 4px 0;
+				}	
 			  	&:first-child {
 				  padding-top: 0;
 				}
 			}
 			& a {
+				@media (max-width: $screen-xs) {
+			  		font-size: 13px;
+				}	
 			  	color: #696592;
 			  	&:hover {
 				  color: $shine-secondary;
@@ -538,6 +596,9 @@ a.divLink {
 		  	padding: 8px 30px;
 		  	color: $white;
 		  	transition: 0.3s;
+			@media (max-width: $screen-xs) {
+				font-size: 13px;
+			}	
 		  	&:hover {
 				  background: $shine-dark-blue;
 				  cursor: pointer;
@@ -546,7 +607,10 @@ a.divLink {
 
 		@media (max-width: $screen-sm) {
 			.form-control {
-				font-size: 14px;	  
+				font-size: 14px;
+				@media (max-width: $screen-xs) {
+					font-size: 13px;
+				}	  
 			}
 		}			
 	}
