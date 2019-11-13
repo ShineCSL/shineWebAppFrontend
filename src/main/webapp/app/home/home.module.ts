@@ -4,21 +4,21 @@ import { ParticlesModule } from 'angular-particle';
 
 import { ShineWebAppFrontendSharedModule } from '../shared';
 
-import { HOME_ROUTE, 
-		 HOME_WEBSITE_DIALOG_ROUTE,
-		 HOME_APPLICATION_DIALOG_ROUTE,
-		 HOME_RESOURCE_DIALOG_ROUTE,
-		 HomeComponent, 
-		 HomeWebsitePopupService,
-    	 HomeWebsiteDialogComponent,
-    	 HomeWebsitePopupComponent,
-    	 HomeApplicationPopupService,
-    	 HomeApplicationDialogComponent,
-    	 HomeApplicationPopupComponent,
-    	 HomeResourcePopupService,
-    	 HomeResourceDialogComponent,
-    	 HomeResourcePopupComponent
-} from './';
+import {HOME_ROUTE,
+        HOME_WEBSITE_DIALOG_ROUTE,
+        HOME_APPLICATION_DIALOG_ROUTE,
+        HOME_RESOURCE_DIALOG_ROUTE,
+        HomeComponent,
+        HomeWebsitePopupService,
+        HomeWebsiteDialogComponent,
+        HomeWebsitePopupComponent,
+        HomeApplicationPopupService,
+        HomeApplicationDialogComponent,
+        HomeApplicationPopupComponent,
+        HomeResourcePopupService,
+        HomeResourceDialogComponent,
+        HomeResourcePopupComponent
+       } from './';
 
 import { NavbarComponent } from '../layouts/navbar/navbar.component';
 
@@ -38,12 +38,12 @@ import { NavbarComponent } from '../layouts/navbar/navbar.component';
         HomeResourcePopupComponent
     ],
     entryComponents: [
-    	HomeWebsiteDialogComponent,
-    	HomeWebsitePopupComponent,
-    	HomeApplicationDialogComponent,
-    	HomeApplicationPopupComponent,
-    	HomeResourceDialogComponent,
-    	HomeResourcePopupComponent
+       HomeWebsiteDialogComponent,
+       HomeWebsitePopupComponent,
+       HomeApplicationDialogComponent,
+       HomeApplicationPopupComponent,
+       HomeResourceDialogComponent,
+       HomeResourcePopupComponent
     ],
     providers: [
       NavbarComponent,

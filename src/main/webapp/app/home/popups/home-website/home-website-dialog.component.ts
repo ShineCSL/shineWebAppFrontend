@@ -17,7 +17,6 @@ import { HomeWebsitePopupService } from './home-website-popup.service';
 })
 export class HomeWebsiteDialogComponent implements OnInit {
 
-
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,

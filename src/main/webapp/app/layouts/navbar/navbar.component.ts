@@ -91,74 +91,74 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     }
 
     private siteURLActiveCheck(): void {
-      	// override the route reuse strategy
-      	this.router.navigated = false;
-      	const url = this.router.url;     
-      	const urlSplit: string[] =  url.split('/');
-      	const navItem: string = urlSplit[urlSplit.length - 1];
-		let modulesMenu: string[] = ['myLeaves', 'leavesTeam',];
-		let itemMenu: string[] = ['client', 'currency', 'leaveConfig', 'task', 'typeInvoice', 'mission', 'activityConfig', 'invoiceConfig', 'publicHoliday', 'team'];
-		let adminMenu: string[] = ['userManagement', 'jhiMetrics', 'jhiHealth', 'jhiConfiguration', 'audits', 'logs', 'entityAudit', 'docs'];
-		let accountMenu: string[] = ['settings', 'password'];
-		this.activeSiteDropdownMenu = '';		        
-		if(navItem === ''){
-	        this.activeSiteSection = 'home';
-	        this.activeSiteMenu = '';
-	        this.removeNavBgOthers();
-	        const element = document.querySelector('#home');
-	        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});		
-		} else {
-	      	if (navItem.search('#') == 0 ) {
-				const section = navItem.substr(1);
-				this.activeSiteMenu = '';
-				if(section === 'home') {
-			        this.activeSiteSection = 'home';
-		        	this.removeNavBgOthers();			
-				} else {
-        			this.setNavBgOthers();
-			        if(!this.isAuthenticated()){
-				        this.activeSiteSection = section;
-			        } else {
-			        	this.activeSiteSection = 'home';
-			        }				
-				}
-		        const element = document.querySelector(navItem);
-		        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});	      	 	
-			} else { 	
-		      	const navItemSplit: string[] =  navItem.split('-');
-		      	var navItemId: string = navItem;
-		      	if(navItemSplit.length > 1) {
-		      		var secondPart: string = navItemSplit[1];
-		      		navItemId = navItemSplit[0] + secondPart[0].toUpperCase() + secondPart.slice(1);
-		      	}
-		        this.activeSiteSection = navItemId;
-		        this.setNavBgOthers();
-		        if(modulesMenu.includes(navItemId)){
-		        	this.activeSiteMenu = 'navItemModules';
-		        	this.activeSiteDropdownMenu = 'navDropdownMenuLeaves';		        
-		        } else if(itemMenu.includes(navItemId)) {
-		        	this.activeSiteMenu = 'navItemMenu';		        
-		        } else if(adminMenu.includes(navItemId)) {
-		        	this.activeSiteMenu = 'navItemAdmin';		        
-		        } else if(accountMenu.includes(navItemId)) {
-		        	this.activeSiteMenu = 'navItemAccount';		        
-				} else {
-			        this.activeSiteSection = '';
-			        this.setNavBgOthers();				
-				}		        				
-			} 		
-		}
+        // override the route reuse strategy
+        this.router.navigated = false;
+        const url = this.router.url;
+        const urlSplit: string[] =  url.split('/');
+        const navItem: string = urlSplit[urlSplit.length - 1];
+        const modulesMenu: string[] = ['myLeaves', 'leavesTeam'];
+        const itemMenu: string[] = ['client', 'currency', 'leaveConfig', 'task', 'typeInvoice', 'mission', 'activityConfig', 'invoiceConfig', 'publicHoliday', 'team'];
+        const adminMenu: string[] = ['userManagement', 'jhiMetrics', 'jhiHealth', 'jhiConfiguration', 'audits', 'logs', 'entityAudit', 'docs'];
+        const accountMenu: string[] = ['settings', 'password'];
+        this.activeSiteDropdownMenu = '';
+        if (navItem === '') {
+            this.activeSiteSection = 'home';
+            this.activeSiteMenu = '';
+            this.removeNavBgOthers();
+            const element = document.querySelector('#home');
+            element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+        } else {
+            if (navItem.search('#') === 0 ) {
+                const section = navItem.substr(1);
+                this.activeSiteMenu = '';
+                if (section === 'home') {
+                    this.activeSiteSection = 'home';
+                    this.removeNavBgOthers();
+                } else {
+                    this.setNavBgOthers();
+                    if (!this.isAuthenticated()) {
+                        this.activeSiteSection = section;
+                    } else {
+                        this.activeSiteSection = 'home';
+                    }
+                }
+                const element = document.querySelector(navItem);
+                element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+            } else {
+                const navItemSplit: string[] =  navItem.split('-');
+                let navItemId: string = navItem;
+                if (navItemSplit.length > 1) {
+                    const secondPart: string = navItemSplit[1];
+                    navItemId = navItemSplit[0] + secondPart[0].toUpperCase() + secondPart.slice(1);
+                }
+                this.activeSiteSection = navItemId;
+                this.setNavBgOthers();
+                if (modulesMenu.includes(navItemId)) {
+                    this.activeSiteMenu = 'navItemModules';
+                    this.activeSiteDropdownMenu = 'navDropdownMenuLeaves';
+                } else if (itemMenu.includes(navItemId)) {
+                    this.activeSiteMenu = 'navItemMenu';
+                } else if (adminMenu.includes(navItemId)) {
+                    this.activeSiteMenu = 'navItemAdmin';
+                } else if (accountMenu.includes(navItemId)) {
+                    this.activeSiteMenu = 'navItemAccount';
+                } else {
+                    this.activeSiteSection = '';
+                    this.setNavBgOthers();
+                }
+            }
+        }
     }
 
     private setNavBgOthers() {
-      this.navShine.nativeElement.classList.add('bg-nav-others');  
-      this.socialLinks.nativeElement.classList.add('social-links-display');  
+      this.navShine.nativeElement.classList.add('bg-nav-others');
+      this.socialLinks.nativeElement.classList.add('social-links-display');
       this.navShine.nativeElement.classList.remove('bg-nav-main');
     }
 
     private removeNavBgOthers() {
-      this.navShine.nativeElement.classList.remove('bg-nav-others'); 
-      this.socialLinks.nativeElement.classList.remove('social-links-display');  
+      this.navShine.nativeElement.classList.remove('bg-nav-others');
+      this.socialLinks.nativeElement.classList.remove('social-links-display');
       this.navShine.nativeElement.classList.add('bg-nav-main');
     }
 
@@ -169,7 +169,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     isMenuActive(menu: string): boolean {
         return menu === this.activeSiteMenu;
     }
-    
+
     isDropdownMenuActive(menu: string): boolean {
         return menu === this.activeSiteDropdownMenu;
     }

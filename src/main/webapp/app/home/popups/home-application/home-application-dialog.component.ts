@@ -17,7 +17,6 @@ import { HomeApplicationPopupService } from './home-application-popup.service';
 })
 export class HomeApplicationDialogComponent implements OnInit {
 
-
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,

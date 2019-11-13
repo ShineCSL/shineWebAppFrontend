@@ -199,9 +199,9 @@ export class LeavesTeamComponent implements OnInit, OnDestroy {
 
     toggleSearchCriterias() {
         if (this.opened === 'true') {
-        	this.opened = 'false';
+            this.opened = 'false';
         } else {
-        	this.opened = 'true';
+            this.opened = 'true';
         }
     }
 

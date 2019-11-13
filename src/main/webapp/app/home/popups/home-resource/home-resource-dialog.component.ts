@@ -17,7 +17,6 @@ import { HomeResourcePopupService } from './home-resource-popup.service';
 })
 export class HomeResourceDialogComponent implements OnInit {
 
-
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
