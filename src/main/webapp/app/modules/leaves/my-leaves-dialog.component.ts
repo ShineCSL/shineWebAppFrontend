@@ -28,7 +28,6 @@ export class MyLeavesDialogComponent implements OnInit {
 
     leaveTakenError: boolean;
     leaves: Leaves;
-    user: User;
     account: Account;
     isSaving: boolean;
     moment: _moment.Moment = _moment();
@@ -73,14 +72,12 @@ export class MyLeavesDialogComponent implements OnInit {
         this.leaves.fullDay = true;
         this.principal.identity().then((account) => {
             this.account = account;
-            this.userService.find(this.account.login).subscribe((response) => {
-                this.user = response.body;
-            });
+            console.log(account.id);
+        	this.leavesService.query({'userId.equals': account.id}).subscribe((res: HttpResponse<Leaves[]>) => this.leavesTaken = res.body);
         });
         this.language = this.translateService.currentLang;
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.leavesService.query().subscribe((res: HttpResponse<Leaves[]>) => this.leavesTaken = res.body);
     }
 
     clear() {
@@ -96,6 +93,7 @@ export class MyLeavesDialogComponent implements OnInit {
         } else {
             this.leaveTakenError = false;
             this.dateUser.setDateUser(this.leaves, this.leaves.leavesFrom);
+            console.log(this.leaves);
             if (this.leaves.id !== undefined) {
                 this.subscribeToSaveResponse(
                     this.leavesService.update(this.leaves));

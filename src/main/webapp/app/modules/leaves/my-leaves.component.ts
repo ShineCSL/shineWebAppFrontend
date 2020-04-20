@@ -78,9 +78,26 @@ currentAccount: any;
         this.taskService.query()
             .subscribe((res: HttpResponse<Task[]>) => { this.tasks = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
+    
+    ngOnInit() {
+        this.currentMonth = this.dateUser.getCurrentMonth(null);
+        this.currentYear = this.dateUser.getCurrentYear(null);
+        this.months = this.dateUser.loadMonths();
+        this.language = this.translateService.currentLang;
+        this.years = this.dateUser.loadYears(this.currentYear);
+        this.principal.identity().then((account) => {
+            this.currentAccount = account;
+            this.loadAll();
+            this.registerChangeInLeaves();
+        });
+    }
 
+    ngOnDestroy() {
+        this.eventManager.destroy(this.eventSubscriber);
+    }
+    
     loadAll() {
-        this.leavesDetailsUtils.getLeaveDetails(null).then((res) => {
+        this.leavesDetailsUtils.getLeaveDetails(this.currentAccount.login).then((res) => {
             this.leavesDetail = res;
         });
         this.loadLeaves();
@@ -119,23 +136,6 @@ currentAccount: any;
             sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
         }]);
         this.loadAll();
-    }
-
-    ngOnInit() {
-        this.currentMonth = this.dateUser.getCurrentMonth(null);
-        this.currentYear = this.dateUser.getCurrentYear(null);
-        this.months = this.dateUser.loadMonths();
-        this.language = this.translateService.currentLang;
-        this.years = this.dateUser.loadYears(this.currentYear);
-        this.loadAll();
-        this.principal.identity().then((account) => {
-            this.currentAccount = account;
-        });
-        this.registerChangeInLeaves();
-    }
-
-    ngOnDestroy() {
-        this.eventManager.destroy(this.eventSubscriber);
     }
 
     trackId(index: number, item: Leaves) {
@@ -187,6 +187,12 @@ currentAccount: any;
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()};
+        console.log('query login param' + this.currentAccount);
+        if (this.currentAccount) {
+            Object.assign(query, {
+                'userId.equals': this.currentAccount.id
+              });
+        }
         if (this.currentMonth) {
             Object.assign(query, {
                 'month.equals': this.currentMonth
@@ -202,6 +208,7 @@ currentAccount: any;
                 'taskId.equals': this.taskId
               });
         }
+        console.log(query);
         return query;
     }
 

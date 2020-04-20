@@ -40,6 +40,7 @@ export class LeavesDetailsUtils {
     getLeaveDetails(userLogin: string): Promise<LeavesDetail> {
         this.leaveConfigs = [];
         this.user = new User();
+        console.log('user login : ' + userLogin);
         if (userLogin) {
             return this.userService.find(userLogin).toPromise().then((response) => {
                 const user = response.body;
@@ -58,12 +59,11 @@ export class LeavesDetailsUtils {
             return this.principal.identity().then((account) => {
                 this.account = account;
                 return this.userService.find(this.account.login).toPromise().then((response) => {
-                    this.user = response.body;
                     return Observable.forkJoin(
-                            [this.getLeavesConfig(null),
-                             this.getSumAnnualLeavesTaken(null),
-                             this.getSumSickLeavesTaken(null),
-                             this.getSumSpecialLeavesTaken(null)]).map((data) => {
+                            [this.getLeavesConfig(this.user.id),
+                             this.getSumAnnualLeavesTaken(this.user.login),
+                             this.getSumSickLeavesTaken(this.user.login),
+                             this.getSumSpecialLeavesTaken(this.user.login)]).map((data) => {
                                  this.leaveConfigs = data[0];
                                  const leaveConfig: LeaveConfig = this.leaveConfigs[0];
                                  this.setLeavesDetail(leaveConfig, this.getTakenLeavesData(data[1]),
@@ -84,6 +84,7 @@ export class LeavesDetailsUtils {
 
     private setLeavesDetail(leaveConfig: LeaveConfig, takenAnnualLeaves: number, takenSickLeaves: number,
             takenSpecialLeaves: number) {
+        console.log(takenAnnualLeaves);
         this.leavesDetail = new LeavesDetail();
         this.leavesDetail.userId = leaveConfig.userId;
         this.leavesDetail.userLogin = leaveConfig.userLogin;

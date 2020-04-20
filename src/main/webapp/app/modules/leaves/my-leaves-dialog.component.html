@@ -10,11 +10,6 @@
         <div class="alert alert-danger" *ngIf="leaveTakenError" jhiTranslate="shineWebAppFrontendApp.myLeaves.errors.leaveExist">
             Leave already exists in date range
         </div>
-<!--         <div class="form-group" [hidden]="!leaves.id"> -->
-<!--             <label for="id" jhiTranslate="global.field.id">ID</label> -->
-<!--             <input type="text" class="form-control" id="id" name="id" -->
-<!--                    [(ngModel)]="leaves.id" readonly /> -->
-<!--         </div> -->
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.fullDay" for="field_fullDay">Full Day</label>
             <input type="checkbox" class="form-control" name="fullDay" id="field_fullDay"
@@ -99,50 +94,13 @@
 	            </div>			
 			</ng-container>
         </div>
-<!--         <div class="form-group"> -->
-<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.year" for="field_year">Year</label> -->
-<!--             <input type="number" class="form-control" name="year" id="field_year" -->
-<!--                 [(ngModel)]="leaves.year" /> -->
-<!--         </div> -->
-<!--         <div class="form-group"> -->
-<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.weekNumber" for="field_weekNumber">Week Number</label> -->
-<!--             <input type="number" class="form-control" name="weekNumber" id="field_weekNumber" -->
-<!--                 [(ngModel)]="leaves.weekNumber" /> -->
-<!--         </div> -->
+
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.comment" for="field_comment">Comment</label>
             <input type="text" class="form-control" name="comment" id="field_comment"
                 [(ngModel)]="leaves.comment" />
         </div>
-<!--         <div class="form-group"> -->
-<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.day" for="field_day">Day</label> -->
-<!--             <input type="number" class="form-control" name="day" id="field_day" -->
-<!--                 [(ngModel)]="leaves.day" required/> -->
-<!--             <div [hidden]="!(editForm.controls.day?.dirty && editForm.controls.day?.invalid)"> -->
-<!--                 <small class="form-text text-danger" -->
-<!--                    [hidden]="!editForm.controls.day?.errors?.required" jhiTranslate="entity.validation.required"> -->
-<!--                    This field is required. -->
-<!--                 </small> -->
-<!--                 <small class="form-text text-danger" -->
-<!--                     [hidden]="!editForm.controls.day?.errors?.number" jhiTranslate="entity.validation.number"> -->
-<!--                     This field should be a number. -->
-<!--                 </small> -->
-<!--             </div> -->
-<!--         </div> -->
 
-<!--         <div class="form-group"> -->
-<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.user" for="field_user">User</label> -->
-<!--             <select class="form-control" id="field_user" name="user" [(ngModel)]="leaves.userId"  required> -->
-<!--                 <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option> -->
-<!--                 <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option> -->
-<!--             </select> -->
-<!--         </div> -->
-<!--         <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)"> -->
-<!--             <small class="form-text text-danger" -->
-<!--                 [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required"> -->
-<!--                 This field is required. -->
-<!--             </small> -->
-<!--         </div> -->
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.leavesCommon.task" for="field_task">Task</label>
             <select class="form-control" id="field_task" name="task" [(ngModel)]="leaves.taskId"  required>
@@ -161,27 +119,6 @@
                 This field is required.
             </small>
         </div>
-<!--         <div class="form-group"> -->
-<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesSubmission" for="field_leavesSubmission">Leaves Submission</label> -->
-<!--             <select class="form-control" id="field_leavesSubmission" name="leavesSubmission" [(ngModel)]="leaves.leavesSubmissionId"> -->
-<!--                 <option [ngValue]="null"></option> -->
-<!--                 <option [ngValue]="leavesSubmissionOption.id" *ngFor="let leavesSubmissionOption of leavessubmissions; trackBy: trackLeavesSubmissionById">{{leavesSubmissionOption.submitted}}</option> -->
-<!--             </select> -->
-<!--         </div> -->
-<!--         <div class="form-group"> -->
-<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesValidation" for="field_leavesValidation">Leaves Validation</label> -->
-<!--             <select class="form-control" id="field_leavesValidation" name="leavesValidation" [(ngModel)]="leaves.leavesValidationId"> -->
-<!--                 <option [ngValue]="null"></option> -->
-<!--                 <option [ngValue]="leavesValidationOption.id" *ngFor="let leavesValidationOption of leavesvalidations; trackBy: trackLeavesValidationById">{{leavesValidationOption.validated}}</option> -->
-<!--             </select> -->
-<!--         </div> -->
-<!--         <div class="form-group"> -->
-<!--             <label class="form-control-label" jhiTranslate="shineWebAppFrontendApp.myLeaves.leavesRejection" for="field_leavesRejection">Leaves Rejection</label> -->
-<!--             <select class="form-control" id="field_leavesRejection" name="leavesRejection" [(ngModel)]="leaves.leavesRejectionId"> -->
-<!--                 <option [ngValue]="null"></option> -->
-<!--                 <option [ngValue]="leavesRejectionOption.id" *ngFor="let leavesRejectionOption of leavesrejections; trackBy: trackLeavesRejectionById">{{leavesRejectionOption.rejected}}</option> -->
-<!--             </select> -->
-<!--         </div> -->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

@@ -119,18 +119,74 @@ a.divLink {
 	position: relative;
 	//background: $shine-light-blue url("../../content/images/intro-bg.jpg") center top no-repeat;
 	//background-size: cover;	
+
+	@media (max-height: 740px) {
+		.intro-height-large {
+			display: none;
+		}
+		
+		.intro-height-medium {
+			display: flex;
+		}
+	}	
+	
+	@media (min-height: $screen-sm) {
+		.intro-height-medium {
+			display: none;
+		}
+		.intro-height-large {
+			display: flex;
+		}
+	}	
 	
 	.intro-info {
-	    padding-top: 80px;
+		padding-top: 5%;
+
+		@media (max-height: 400px) {
+			padding-top: 0;
+		}
+				
+		@media (min-height: $screen-sm) {
+			padding-top: 2%;
+		}
+		
+		@media (min-height: $screen-lg) {
+			padding-top: 8%;
+		}
+		
 		& h1 {
 			color: $shine-main;
-			margin-bottom: 40px;
+			margin-bottom: 4%;
+			@media (max-width: $screen-xs) {
+				margin-bottom: 8%;
+			}
+			@media (min-height: $screen-md) {
+				padding-top: 6%;
+			}
 			font-weight: 700;
 		}
-	
-	
+		
 		@media (max-width: $screen-sm - 1px) {
-			padding-top: 50%;		
+			padding-top: 40%;
+
+			@media (max-height: $screen-xs) {
+				padding-top: 0;
+			}			
+								
+		    .container {
+		    	height: auto !important;
+		    }
+		    	    
+			.center {
+			  	text-align: center;
+			}
+		
+		    & h1 {
+				text-align: center;
+			}
+		}
+		
+	    @media (min-height: $screen-sm) {
 		    .container {
 		    	height: auto !important;
 		    }
@@ -177,6 +233,16 @@ a.divLink {
 	}
 	
 	.intro-img {
+		padding-top: 5%;
+
+		@media (max-height: 400px) {
+			padding-top: 0;
+		}
+		
+		@media (min-height: $screen-md) {
+			padding-top: 10%;
+		}
+				
 		@media screen and (min-width: $screen-sm) {
 			width: 80%;
 			min-height: 75vh;
@@ -204,11 +270,11 @@ a.divLink {
 
 .imgIntro {
 	@media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
-    	background: url("../../content/images/intro-img.svg") no-repeat center top;
+    	background: url("../../content/images/home-page-web.png") no-repeat center top;
 		@include img-cover-full-size;
 	}
 	@media screen and (min-width: $screen-md) {
-    	background: url("../../content/images/intro-img.svg") no-repeat center top;
+    	background: url("../../content/images/home-page-web.png") no-repeat center top;
 		@include img-cover-full-size;
 	}
 }
@@ -218,7 +284,10 @@ a.divLink {
 .about {
   	//padding: 40px 0;
 	.about-content {
-		padding-top: 40px;
+		@media (min-width: $screen-md) {
+			padding-top: 40px;
+		}
+		
 	  	& h2 {
 			color: $shine-main;
 			font-family: "Montserrat", sans-serif;
@@ -279,7 +348,13 @@ a.divLink {
 			}
 		}
 	}
-	
+
+	@media (min-width: $screen-md) {
+		.about-img-padding {
+			padding-bottom: 40px;
+		}		
+	}
+
 	.about-img {
 		position: relative;
 		margin: 30px 30px 30px 30px;
@@ -346,7 +421,7 @@ a.divLink {
 --------------------------------*/
 
 .services {
-    //padding: 40px 0 0 0;
+    padding: 40px 0 0 0;
 
     & h2 {
 		text-align: center;
