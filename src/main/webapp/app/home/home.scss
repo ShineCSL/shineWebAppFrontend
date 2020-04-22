@@ -139,19 +139,32 @@ a.divLink {
 		}
 	}	
 	*/
-	.intro-info {
-		padding-top: 5%;
-
-		@media (max-height: 400px) {
+	
+	.intro-top-padding {
+		padding-top: 30%;
+		height : 100%;
+	
+		@media (max-height: $screen-xs) {
 			padding-top: 0;
 		}
-				
-		@media (min-height: $screen-sm) {
-			padding-top: 2%;
+		@media (min-height: $screen-xs) and (max-height: 600px) {
+			padding-top: 10%;
+			@media (max-width: $screen-sm) {
+				padding-top: 20%;
+			}
 		}
-		
-		@media (min-height: $screen-lg) {
-			padding-top: 8%;
+		@media (min-height: 600px) and (max-height: $screen-md) {
+			padding-top: 15%;
+			@media (max-width: $screen-sm) {
+				padding-top: 40%;
+			}
+		}
+	}	
+
+	.intro-info {
+		padding-top: 5%;
+		@media (max-width: $screen-md) {
+			padding-top: 0;
 		}
 		
 		& h1 {
@@ -163,16 +176,27 @@ a.divLink {
 			@media (min-height: $screen-md) {
 				padding-top: 6%;
 			}
+		
+			@media (max-width: $screen-lg) {
+				font-size: 43px;
+			}
+		
+			@media (max-width: $screen-md) {
+				font-size: 37px;
+			}
+	
+			@media (max-width: $screen-sm) {
+				font-size: 32px;
+			}
+			
+			@media (max-width: $screen-xs) {
+				font-size: 27px;
+			}
+	
 			font-weight: 700;
 		}
 		
-		@media (max-width: $screen-sm - 1px) {
-			padding-top: 40%;
-
-			@media (max-height: $screen-xs) {
-				padding-top: 0;
-			}			
-								
+		@media (max-width: $screen-sm - 1px) {									
 		    .container {
 		    	height: auto !important;
 		    }
@@ -218,7 +242,7 @@ a.divLink {
 				background: $shine-dark-blue;
 			}
 		}
-
+	
 		@media (max-width: $screen-sm) {
 		    .btn-get-started, .btn-services {
 				font-size: 13px;
@@ -229,23 +253,6 @@ a.divLink {
 		    .btn-get-started, .btn-services {
 				font-size: 11px;
 			}
-		}
-	}
-	
-	.intro-img {
-		padding-top: 5%;
-
-		@media (max-height: 400px) {
-			padding-top: 0;
-		}
-		
-		@media (min-height: $screen-md) {
-			padding-top: 10%;
-		}
-				
-		@media screen and (min-width: $screen-sm) {
-			width: 80%;
-			min-height: 75vh;
 		}
 	}	
 }
