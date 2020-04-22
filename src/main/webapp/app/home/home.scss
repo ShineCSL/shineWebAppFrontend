@@ -141,20 +141,32 @@ a.divLink {
 	*/
 	
 	.intro-top-padding {
-		padding-top: 30%;
+		padding-top: 10%;
 		height : 100%;
 	
+		@media (max-width: $screen-sm) {
+			padding-top: 40%;
+		}
 		@media (max-height: $screen-xs) {
 			padding-top: 0;
 		}
 		@media (min-height: $screen-xs) and (max-height: 600px) {
-			padding-top: 10%;
+			padding-top: 0;
 			@media (max-width: $screen-sm) {
 				padding-top: 20%;
 			}
 		}
-		@media (min-height: 600px) and (max-height: $screen-md) {
-			padding-top: 15%;
+		@media (min-height: 600px) and (max-height: $screen-sm) {
+			padding-top: 0;
+			@media (max-width: $screen-sm) {
+				padding-top: 30%;
+			}
+		}
+		@media (min-height: $screen-sm) and (max-height: $screen-md) {
+			padding-top: 10%;
+			@media (min-width: $screen-md) {
+				padding-top: 5%;
+			}
 			@media (max-width: $screen-sm) {
 				padding-top: 40%;
 			}
@@ -163,9 +175,6 @@ a.divLink {
 
 	.intro-info {
 		padding-top: 5%;
-		@media (max-width: $screen-md) {
-			padding-top: 0;
-		}
 		
 		& h1 {
 			color: $shine-main;
