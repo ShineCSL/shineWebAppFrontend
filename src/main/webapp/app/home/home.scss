@@ -248,7 +248,7 @@ a.divLink {
 			color: $white;
 			
 			&:hover{
-				background: $shine-dark-blue;
+				background: $shine-main;
 			}
 		}
 	
@@ -653,7 +653,7 @@ a.divLink {
 			}			
 			
 		  	&:hover {
-			  background: $shine-dark-blue;
+			  background: $shine-main;
 			  color: $white;
 			}
 		}
@@ -697,7 +697,7 @@ a.divLink {
 				font-size: 13px;
 			}	
 		  	&:hover {
-				  background: $shine-dark-blue;
+				  background: $shine-main;
 				  cursor: pointer;
 			}
 		}
@@ -743,4 +743,8 @@ a.divLink {
 	 	padding-top: 12px;
 	 	color: $white;
 	}
+	&:hover {
+		background: $shine-main;
+		cursor: pointer;
+  }
 }
