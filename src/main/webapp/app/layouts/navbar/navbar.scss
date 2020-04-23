@@ -69,11 +69,12 @@ Logo styles
 	      //padding: 5px 15px;
 	      color: $shine-main;	                
 		  &:hover {
-		  	opacity: .7;
+			color: $shine-secondary;
+		  	//opacity: .7;
 		  }			
-		  &:focus {
+		 /* &:focus {
 			color: darken($shine-main, 5%) !important;
-		  }
+		  } */
     }
     
     &.logo-yellow {
