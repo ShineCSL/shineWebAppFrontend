@@ -144,7 +144,7 @@ a.divLink {
 		padding-top: 10%;
 		height : 100%;
 	
-		@media (max-width: $screen-sm) {
+		/*@media (max-width: $screen-sm) {
 			padding-top: 40%;
 		}
 		@media (max-height: $screen-xs) {
@@ -161,7 +161,7 @@ a.divLink {
 			@media (max-width: $screen-sm) {
 				padding-top: 30%;
 			}
-		}
+		}*/
 		@media (min-height: $screen-sm) and (max-height: $screen-md) {
 			padding-top: 10%;
 			@media (min-width: $screen-md) {
@@ -379,6 +379,20 @@ a.divLink {
 		position: relative;
 		margin: 30px 30px 30px 30px;
 		height: 100%;
+
+	    @media screen and (max-width: $screen-xs) {
+			margin: 0 5% 10% 5%;
+			height: 60vh;	
+		}		
+		@media screen and (min-width: $screen-xs) and (max-width: $screen-md) {
+			margin: 0 15% 10% 15%;
+			height: 60vh;	
+		}
+		@media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+			margin: 0 25% 10% 25%;
+			height: 60vh;
+		}		
+
 		& img {
 		  height: 100%;
 		  width: 100%;
@@ -414,12 +428,18 @@ a.divLink {
 		}
 	}
 
-	@media (max-width: $screen-md - 1px) {
+	/*@media (max-width: $screen-md - 1px) {
 		.about-img {
 			display: none;
 		}
-	}
+	}*/
 }
+
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}
+
 
 .img-about-us {
     @media screen and (max-width: $screen-xs) {
