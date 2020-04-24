@@ -293,6 +293,10 @@ a.divLink {
     	background: url("../../content/images/home-page-web.png") no-repeat center top;
 		@include img-cover-full-size;
 	}
+	@media screen and (max-width: $screen-sm) {
+    	background: url("../../content/images/home-page-web.png") no-repeat center top;
+		@include img-cover-full-size;
+	}
 }
 
 /* About Us Section
