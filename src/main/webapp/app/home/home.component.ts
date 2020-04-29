@@ -81,6 +81,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
              const element = elements[i];
              const offsetTop = element.offsetTop - navShineHeight;
              const sectionName = element.id[0].toUpperCase() + element.id.slice(1);
+             
              if (element.id === 'contact') {
                  if (scrollPosition >= offsetTop) {
                      this.setInactiveAllItems(homeNavItems);
@@ -94,7 +95,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
                      this.setInactiveAllItems(homeNavItems);
                      this.setActiveItem(sectionName);
                      if (element.id === 'home') {
-                         this.removeNavBgOthers(navShine, socialLinks);
+                         if (scrollPosition >= 100) {
+                             this.setNavBgOthers(navShine, socialLinks);
+                        } else if(scrollPosition < 100) {
+                            this.removeNavBgOthers(navShine, socialLinks);
+                        }
                      } else {
                          this.setNavBgOthers(navShine, socialLinks);
                      }
