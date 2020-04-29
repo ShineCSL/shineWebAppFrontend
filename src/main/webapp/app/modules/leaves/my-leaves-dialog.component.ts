@@ -73,7 +73,7 @@ export class MyLeavesDialogComponent implements OnInit {
         this.principal.identity().then((account) => {
             this.account = account;
             console.log(account.id);
-        	this.leavesService.query({'userId.equals': account.id}).subscribe((res: HttpResponse<Leaves[]>) => this.leavesTaken = res.body);
+            this.leavesService.query({'userId.equals': account.id}).subscribe((res: HttpResponse<Leaves[]>) => this.leavesTaken = res.body);
         });
         this.language = this.translateService.currentLang;
         this.taskService.query()
@@ -95,7 +95,7 @@ export class MyLeavesDialogComponent implements OnInit {
             this.dateUser.setDateUser(this.leaves, this.leaves.leavesFrom);
             console.log(this.leaves);
             if (this.leaves.id !== undefined) {
-                this.subscribeToSaveResponse(
+                    this.subscribeToSaveResponse(
                     this.leavesService.update(this.leaves));
             } else {
                 this.subscribeToSaveResponse(

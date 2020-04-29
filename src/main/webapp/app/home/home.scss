@@ -119,58 +119,10 @@ a.divLink {
 	position: relative;
 	//background: $shine-light-blue url("../../content/images/intro-bg.jpg") center top no-repeat;
 	//background-size: cover;	
-/*
-	@media (max-height: 740px) {
-		.intro-height-large {
-			display: none;
-		}
-		
-		.intro-height-medium {
-			display: flex;
-		}
-	}	
-	
-	@media (min-height: $screen-sm) {
-		.intro-height-medium {
-			display: none;
-		}
-		.intro-height-large {
-			display: flex;
-		}
-	}	
-	*/
 	
 	.intro-top-padding {
-		padding-top: 10%;
+		padding-top: 5%;
 		height : 100%;
-	
-		/*@media (max-width: $screen-sm) {
-			padding-top: 40%;
-		}
-		@media (max-height: $screen-xs) {
-			padding-top: 0;
-		}
-		@media (min-height: $screen-xs) and (max-height: 600px) {
-			padding-top: 0;
-			@media (max-width: $screen-sm) {
-				padding-top: 20%;
-			}
-		}
-		@media (min-height: 600px) and (max-height: $screen-sm) {
-			padding-top: 0;
-			@media (max-width: $screen-sm) {
-				padding-top: 30%;
-			}
-		}*/
-		@media (min-height: $screen-sm) and (max-height: $screen-md) {
-			padding-top: 10%;
-			@media (min-width: $screen-md) {
-				padding-top: 5%;
-			}
-			@media (max-width: $screen-sm) {
-				padding-top: 40%;
-			}
-		}
 	}	
 
 	.intro-info {
@@ -205,21 +157,7 @@ a.divLink {
 			font-weight: 700;
 		}
 		
-		@media (max-width: $screen-sm - 1px) {									
-		    .container {
-		    	height: auto !important;
-		    }
-		    	    
-			.center {
-			  	text-align: center;
-			}
-		
-		    & h1 {
-				text-align: center;
-			}
-		}
-		
-	    @media (min-height: $screen-sm) {
+		@media (max-width: $screen-md) {									
 		    .container {
 		    	height: auto !important;
 		    }
