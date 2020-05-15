@@ -45,33 +45,18 @@ Navbar
     }
 }
 
-.navbar-title {
-    display: inline-block;
-    vertical-align: middle;
-	font-size: 36px;
-	margin: 0;
-	padding: 0;
-	line-height: 1;
-	font-weight: 400;
-	letter-spacing: 3px;
-	text-transform: uppercase;
-    /*@media screen and (max-width: $screen-lg) {
-		display: none;    
-	}*/
-}
-
 /* ==========================================================================
 Logo styles
 ========================================================================== */
 .navbar-brand {
 	//@include charmonman;
-      &.logo-blue {
+    &.logo-blue {
 	      //padding: 5px 15px;
 	      color: $shine-main;	                
 		  &:hover {
 			color: $shine-secondary;
 		  	//opacity: .7;
-		  }			
+		  }		
 		 /* &:focus {
 			color: darken($shine-main, 5%) !important;
 		  } */
@@ -92,9 +77,30 @@ Logo styles
 		vertical-align: middle;
 		background: url("../../../content/images/logo.png") no-repeat center top;
 		background-size: 100% 100%;
+		@media (max-width: $screen-sm) {
+			height: 40px;
+			width: 24px;
+		}
 		height: 50px;
 		width: 30px;
-	}              
+	}    
+	.navbar-title {
+	    display: inline-block;
+	    vertical-align: middle;
+		font-size: 36px;
+		margin: 0;
+		padding: 0;
+		line-height: 1;
+		font-weight: 400;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+	    /*@media screen and (max-width: $screen-lg) {
+			display: none;    
+		}*/
+		@media (max-width: $screen-sm) {
+			font-size: 27px;
+		}
+	}          
 }
 
 #navShine {
