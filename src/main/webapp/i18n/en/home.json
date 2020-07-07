@@ -26,15 +26,15 @@
         "aboutUs": {
             "title": "About us",
             "subtitle": "We build tailor-made solutions for our clients.",
-            "text1": "Shine Consulting Services LTD is a startup launched in 2016.",
-            "text2": " Our company is organised on a human scale and we want to keep it this way so that we continue to work in a flexible, agile and innovative way.",        
-            "text3": "We are convinced that a good work environment and happy workers are one of the keys to success. It is very important for us that our people engage with us on the long run. We are a team composed of skilled, dynamic and very motivated resources.",
-        	"text4": "Our goal is to create a trust relationship with our clients and to work on the long run with them. To do this we convey these values : ",
+            "text1": "Shine Consulting Services LTD is a startup IT service company launched in 2016. We are currently providing our services to clients based in France.",
+            "text2": " Our company, being on a human scale, allows us to work in a flexible, agile and innovative way. We intend keeping it likewise to ensure delivery of quality services.",        
+            "text3": "We firmly believe that a good working environment and cheerful personnel are amongst the key to success. It is fundamental that our employees are committed to us in the long term. Our team consists of skilled, dynamic and ambitious resources.",
+        	"text4": "We aim at building a relationship of trust with our clients and eventually enabling us to work together in the long term. The core values which help us achieve our purpose are : ",
         	"creativity": "Creativity and innovation",
         	"efficiency": "Efficiency",
         	"engagement": "Customer engagement",
         	"transparency": "Transparency",           	                         
-        	"respect": "Respect for people"           
+        	"respect": "Mutual Respect"           
         },
         "services": {
             "title": "Services",
@@ -45,11 +45,11 @@
             },
             "webApplications": {
             	"title": "Applications",
-            	"text": "We build solutions adapted to your business. Our leitmotif is quality, automation, modularity, innovation and respect of the deadlines."            	
+            	"text": "We build solutions adapted to your business. Our leitmotif is quality, automation, modularity, innovation and meet the deadlines."            	
             },
             "resources": {
             	"title": "Resource Outsourcing",
-            	"text": "Our resources are bilingual (english and french), competent and very dedicated. We also favor a close follow up of the activities by the most experienced members."            
+            	"text": "Our resources are bilingual (English and French), competent and very dedicated. The activities are also followed up by our most experienced members."            
             },    
         	"tellMore": "Tell me more"
         },
@@ -68,7 +68,7 @@
             	"subtitle": "Automation, flexible solutions and modularity"            
             },
         	"customerCommitment": "Customer engagement",
-        	"respect": "Respect for people"
+        	"respect": "Mutual Respect"
         },
         "contact": {
             "titleShine": "Shine CSL",
@@ -92,9 +92,9 @@
             "website": {
                 "process": {
                     "title":"Process",
-                    "text":"We follow a 7-step process to garantee quality solutions :",
+                    "text":"We follow a 7-step process to ensure quality solutions :",
                     "textBullet": {
-                            "informationGathering": "Gathering Information: Purpose, main goals, and target audience",
+                            "informationGathering": "Gathering Information: Purpose, main objectives, and target audience",
                             "planning": "Planning: Sitemap and Wireframe creation",
                             "design": "Design: Page layouts, review and approval cycle",
                             "content": "Web content writing and assembly",
@@ -114,7 +114,7 @@
                             "competitiveRate": "Competitive rate",
                             "delivery": "Quick delivery",
                             "bugFree": "Bug free",
-                            "adjustements": "Less possible adjustements"
+                            "adjustements": "Minimum adjustements"
                     }
                 }
             },
@@ -123,11 +123,11 @@
                     "title":"Mobile or web application development",
                     "text1":"We develop native mobile applications for IOS and Android or cross-platform (hybrid) applications.",
                     "text2":"Our web solutions follow a 3-tier architecture with a responsive and cross-browser frontend.",
-                    "text3":"The applications are developed in an agile way with the goal to :",
+                    "text3":"The applications are developed in an agile way to :",
                     "textBullet": {
-                            "quality": "deliver high product quality",
-                            "customerSatisfaction": "have high customer satisfaction",
-                            "control": "increase project control",
+                            "quality": "deliver high quality product",
+                            "customerSatisfaction": "promote customer satisfaction",
+                            "control": "increase control over projects",
                             "risks": "reduce risks",
                             "roi": "have faster ROI"
                     }
@@ -135,25 +135,25 @@
                 "valueAdded": {
                     "title":"Our value-added in application development",
                     "textBullet": {
-                            "deadline": "We have experimented resources who do the estimations and plannings. We make sure that the deadlines are respected.",
-                            "technologyChoose": "Our solutions are demand driven and not technology driven. We have expertise in many technologies and will choose the best technology for your requirements.",
-                            "automation": "Beyond developping your application, we will see if we can help you optimise and automate your process.",
-                            "innovation": "We are at the cutting edge of technology and will make you benefit from the latest innovations.",
+                            "deadline": "We have experienced resources who do the estimations and plannings to ensure that the deadlines are met.",
+                            "technologyChoose": "Our solutions are demand driven and not technology driven. We have expertise in many technologies and will choose the best one for your requirements.",
+                            "automation": "Beyond the bounds of developing your application, we further offer the feasibility to optimise and automate your process.",
+                            "innovation": "We are at the cutting edge of technology and ensure you benefit from the latest innovations.",
                             "flexibillity": "Our solutions are flexible, easily upgradeable and scalable."
                     }
                 }                
             },       
             "resource": {
-               "text1":"We assist you to succeed your projects with our expertise in development, testing, support and project management.",
+               "text1":"We assist you to succeed in your projects through our expertise in development, testing, support and project management.",
                "text2":"We provide you with resources that best fit your project requirements.",
-               "text3":"Our resources are well-formed, competent, very dedicated and have the following skills and technical expertise.",                
+               "text3":"Our resources are conformed, competent, dedicated and have the following skills and technical expertise.",                
                "skills": {
                     "title":"Skills",
                     "textBullet": {
-                            "communication": "Good Communication and bilingual english/french",
-                            "technical": "Technically good",
+                            "communication": "Good Communication and bilingual (English/French)",
+                            "technical": "Technically able",
                             "creative": "Creative and innovative",
-                            "adaptable": "Adaptable",
+                            "adaptable": "Versatile",
                             "technology": "At the cutting edge of technology",
                             "management": "Project Management"
                     }
