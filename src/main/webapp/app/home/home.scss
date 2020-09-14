@@ -198,7 +198,7 @@ a.divLink {
 		
 		.btn-get-started, .btn-services {
 			font-family: "Montserrat", sans-serif;
-			font-size: 13px;
+			font-size: 14px;
 			font-weight: 600;
 			text-transform: uppercase;
 			letter-spacing: 1px;
@@ -265,28 +265,34 @@ a.divLink {
 /* About Us Section
 --------------------------------*/
 .about {
-  	//padding: 40px 0;
+    padding: 40px 0 0 0;
 	.about-content {
-		/*@media (min-width: $screen-md) {
-			padding-top: 40px;
-		}*/
+		@media (min-width: $screen-md) {
+			padding-right: 25%;
+			padding-left: 25%;
+		}
 		
 	  	& h2 {
+	  	    text-align: center;
+	  	    padding-bottom: 10px;
 			color: $shine-main;
 			font-family: "Montserrat", sans-serif;
 			font-weight: 700;
 		}
-
-		//@media (max-width: $screen-md - 1px) {
+		
+		/*@media (max-width: $screen-md - 1px) {
 		    & h2 {
 				text-align: center;
 			}
-		//}
+		}*/
 		
 		& h3 {
 			color: #696592;
 			font-weight: 400;
 			font-style: italic;
+			@media (min-width: $screen-lg) {
+				font-size: 24px;
+			}
 		}  
 				
 		& ul {
@@ -301,31 +307,30 @@ a.divLink {
 				  	vertical-align: middle;
 				}
 				
-				@media (max-width: $screen-sm) {
-				    & i {
-						font-size: 14px;
+				 & i {
+				 	font-size: 18px;
+				 	@media (max-width: $screen-md) {
+				  		font-size: 16px;
 					}
-				}
-				
-				@media (max-width: $screen-xs) {
-				    & i {
-						font-size: 13px;
+				 	@media (max-width: $screen-sm) {
+				  		font-size: 14px;
+					}
+					@media (max-width: $screen-xs) {
+					  		font-size: 13px;
 					}
 				}
 				
 			  	& span {
 			  		vertical-align: middle;
-				}
-
-				@media (max-width: $screen-sm) {
-				  	& span {
+			  		font-size: 18px;
+			  		@media (max-width: $screen-md) {
+				  		font-size: 16px;
+					}
+			  		@media (max-width: $screen-sm) {
 				  		font-size: 14px;
 					}
-				}
-				
-				@media (max-width: $screen-xs) {
-				  	& span {
-				  		font-size: 13px;
+					@media (max-width: $screen-xs) {
+					  		font-size: 13px;
 					}
 				}
 			}
@@ -485,22 +490,28 @@ a.divLink {
 	.title {
 	  	font-weight: 700;
 	  	margin-bottom: 15px;
-	  	font-size: 18px;
-		@media (max-width: $screen-xs) {
-	  		font-size: 14px;
-		}
 	  	&  a {
 		  	color:$shine-main;
 		}
 	}
 	.description {
-		font-size: 14px;
-		@media (max-width: $screen-xs) {
-	  		font-size: 13px;
-		}
 		line-height: 28px;
 		margin-bottom: 0;
 		text-align: left;
+		
+		font-size: 16px;
+		@media (max-width: $screen-lg) {
+			font-size: 15px;
+		}
+		@media (max-width: $screen-md) {
+			font-size: 14px;
+		}
+		@media (max-width: $screen-sm) {
+			font-size: 13px;
+		}
+		@media (max-width: $screen-xs) {
+			font-size: 12px;
+		}
 	}
 }
 
@@ -662,6 +673,13 @@ a.divLink {
 				}
 			}
 			& a {
+				font-size: 16px;
+				@media (max-width: $screen-md) {
+			  		font-size: 15px;
+				}	
+				@media (max-width: $screen-sm) {
+			  		font-size: 14px;
+				}	
 				@media (max-width: $screen-xs) {
 			  		font-size: 13px;
 				}	
