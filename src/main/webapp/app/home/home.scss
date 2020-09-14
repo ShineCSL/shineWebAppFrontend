@@ -119,15 +119,40 @@ a.divLink {
 	position: relative;
 	//background: $shine-light-blue url("../../content/images/intro-bg.jpg") center top no-repeat;
 	//background-size: cover;	
-	
-	.intro-top-padding {
-		padding-top: 5%;
-		height : 100%;
-	}	
+
+	@media (orientation:landscape) {
+		.portrait {
+			display : none;
+		}   
+		@media (min-width: $screen-lg) {
+			.intro-top-padding {
+				padding-top: 5%;
+				height : 100%;
+			}	
+		}
+		@media (min-height: $screen-sm) {
+			.intro-top-padding {
+				padding-top: 5%;
+				height : 100%;
+			}	
+		}
+	}
+
+	@media (orientation:portrait) {
+		.landscape {
+			display : none;
+		}
+		.intro-top-padding {
+			padding-top: 5%;
+			height : 100%;
+		}	   						
+	}
 
 	.intro-info {
-		padding-top: 5%;
-		
+		@media (min-height: $screen-xs) {
+			padding-top: 10%;	
+		}
+
 		& h1 {
 			color: $shine-main;
 			margin-bottom: 4%;
@@ -139,15 +164,15 @@ a.divLink {
 			}
 		
 			@media (max-width: $screen-lg) {
-				font-size: 43px;
+				font-size: 39px;
 			}
 		
 			@media (max-width: $screen-md) {
-				font-size: 37px;
+				font-size: 35px;
 			}
 	
 			@media (max-width: $screen-sm) {
-				font-size: 32px;
+				font-size: 31px;
 			}
 			
 			@media (max-width: $screen-xs) {
@@ -242,9 +267,9 @@ a.divLink {
 .about {
   	//padding: 40px 0;
 	.about-content {
-		@media (min-width: $screen-md) {
+		/*@media (min-width: $screen-md) {
 			padding-top: 40px;
-		}
+		}*/
 		
 	  	& h2 {
 			color: $shine-main;
@@ -252,11 +277,11 @@ a.divLink {
 			font-weight: 700;
 		}
 
-		@media (max-width: $screen-md - 1px) {
+		//@media (max-width: $screen-md - 1px) {
 		    & h2 {
 				text-align: center;
 			}
-		}
+		//}
 		
 		& h3 {
 			color: #696592;
@@ -307,7 +332,7 @@ a.divLink {
 		}
 	}
 
-	@media (min-width: $screen-md) {
+	/*@media (min-width: $screen-md) {
 		.about-img-padding {
 			padding-bottom: 40px;
 		}		
@@ -364,7 +389,7 @@ a.divLink {
 		  background-color: #ebf1fa;
 		  transition: .5s;
 		}
-	}
+	}*/
 
 	/*@media (max-width: $screen-md - 1px) {
 		.about-img {
