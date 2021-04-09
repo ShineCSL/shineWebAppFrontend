@@ -32,10 +32,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-      this.principal.identity().then((account) => {
+      /*this.principal.identity().then((account) => {
           this.account = account;
       });
-      this.registerAuthenticationSuccess();
+      this.registerAuthenticationSuccess();*/
       // this.images.push(this.imgCreativity, this.imgAutomation, this.imgCustomerEngagement, this.imgPeople);
       this.router.navigated = false;
       this.initHome();
