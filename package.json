@@ -81,7 +81,7 @@
     "tslint-loader": "3.5.3",
     "typescript": "2.6.2",
     "sass-loader": "6.0.6",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "postcss-loader": "2.0.9",
     "generator-jhipster-primeng": "2.0.52",
     "generator-jhipster-pages": "2.0.4",
